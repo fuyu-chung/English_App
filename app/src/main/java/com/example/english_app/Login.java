@@ -62,7 +62,6 @@ public class Login extends AppCompatActivity {
                         }
                     }
                     else {
-                        System.out.println("user name error");
                         Looper.prepare();
                         Toast.makeText(this, "使用者不存在，請重新輸入或前往註冊", Toast.LENGTH_LONG).show();
                         Looper.loop();
