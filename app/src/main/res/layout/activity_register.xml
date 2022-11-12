@@ -50,27 +50,13 @@
             android:orientation="vertical"
             android:paddingHorizontal="20dp">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/user_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:hint="輸入您的中文名字"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPersonName"/>
-            </com.google.android.material.textfield.TextInputLayout>
-
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/user_nickname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
-                android:hint="輸入您的暱稱"
+                android:hint="輸入您的名字或暱稱"
                 app:counterEnabled="true"
                 app:counterMaxLength="20"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -119,6 +105,22 @@
                 android:layout_marginBottom="5dp"
 
                 android:hint="輸入您的密碼"
+                app:passwordToggleEnabled="true"
+
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/user_check"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+
+                android:hint="再次確認您的密碼"
                 app:passwordToggleEnabled="true"
 
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
