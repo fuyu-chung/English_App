@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="mylogo" type="id" />
+    <item name="my_logo" type="id" />
     <item name="register_words" type="id" />
 </resources>

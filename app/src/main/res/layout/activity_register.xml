@@ -10,12 +10,12 @@
         android:id="@+id/layout_login_a"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/logintopbar"
+        android:background="@drawable/login_top_bar"
         android:gravity="center"
         android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/mylogo"
+            android:id="@+id/my_logo"
             android:layout_width="125dp"
             android:layout_height="125dp"
             android:layout_margin="20dp"

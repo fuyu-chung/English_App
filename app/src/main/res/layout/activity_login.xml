@@ -10,7 +10,7 @@
         android:id="@+id/layout_login_a"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/logintopbar"
+        android:background="@drawable/login_top_bar"
         android:gravity="center"
         android:orientation="horizontal">
 
