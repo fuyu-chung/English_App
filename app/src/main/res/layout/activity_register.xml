@@ -30,7 +30,7 @@
         android:layout_below="@+id/layout_login_a"
         android:layout_marginBottom="30dp"
         android:gravity="center"
-        android:text="註冊頁面測試"
+        android:text="張甄庭PULLL"
         android:textColor="@color/words_topic01"
         android:textSize="35sp"
         android:textStyle="bold" />
