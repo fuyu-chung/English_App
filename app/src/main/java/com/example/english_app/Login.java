@@ -40,14 +40,13 @@ public class Login extends AppCompatActivity {
                     statement.setString(1, phoneText); // 把?替換成phoneText，前面的數字是代表第幾褪號
                     ResultSet resultSet = statement.executeQuery(); // 把結果存在resultset
                     if (resultSet.next()) {
-                        String newquery = "select * from account where user_phone = ? and user_password = ?";
-                        PreparedStatement newstatement = connection.prepareStatement(newquery);
-                        String newphoneText = (user_phone).getText().toString();
+                        query = "select * from account where user_phone = ? and user_password = ?";
+                        statement = connection.prepareStatement(query);
                         String passwordText = (user_password).getText().toString();
-                        newstatement.setString(1, newphoneText); // 把?替換成newphoneText，前面的數字是代表第幾褪號
-                        newstatement.setString(2, passwordText);
-                        ResultSet newResultset = newstatement.executeQuery();
-                        if (newResultset.next()) {
+                        statement.setString(1, phoneText); // 把?替換成newphoneText，前面的數字是代表第幾褪號
+                        statement.setString(2, passwordText);
+                        ResultSet Resultset = statement.executeQuery();
+                        if (Resultset.next()) {
                             Intent mainIntent = new Intent(Login.this, MainCollege.class);
                             startActivity(mainIntent);
                             Looper.prepare();

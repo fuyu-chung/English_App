@@ -4,6 +4,8 @@
     <color name="topic_color">#516E9B</color>
     <color name="blue_color_02">#CAD3E0</color>
     <color name="phone_info">#27354C</color>
+    <color name="icon_bg">#F3EED8</color>
+
 
     <!-- words colors -->
     <color name="words_topic01">#30415C</color>
