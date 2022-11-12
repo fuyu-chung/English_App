@@ -18,7 +18,7 @@ import java.sql.SQLException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-//12345
+//1
 public class Login extends AppCompatActivity {
     private EditText user_phone, user_password;
     private MaterialButton loginbtn, registerbtn;
