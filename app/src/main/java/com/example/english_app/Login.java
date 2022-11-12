@@ -63,7 +63,8 @@ public class Login extends AppCompatActivity {
                     }
                     else {
                         Looper.prepare();
-                        Toast.makeText(this, "使用者不存在，請重新輸入或前往註冊", Toast.LENGTH_LONG).show();
+                        Toast.makeText(this, "使用者不存在", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "請重新輸入或前往註冊", Toast.LENGTH_LONG).show();
                         Looper.loop();
                     }
                 }
