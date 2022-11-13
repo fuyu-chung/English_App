@@ -10,6 +10,16 @@
     <!-- words colors -->
     <color name="words_topic01">#30415C</color>
     <color name="words_user_input">#8F9193</color>
+    <color name="words_user_name">#43618E</color>
+
+    <!--circle frame color-->
+    <color name="cframe_color_y">#FFE26F</color>
+    <color name="cframe_color_o">#FFBD59</color>
+    <color name="cframe_color_b">#8EAADF</color>
+    <color name="cframe_color_g">#81A969</color>
+    <color name="cframe_color_p">#FF9292</color>
+
+    <color name="transparent">#00FF9292</color>
 
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
