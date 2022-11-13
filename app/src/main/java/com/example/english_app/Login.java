@@ -48,8 +48,8 @@ public class Login extends AppCompatActivity {
                         String passwordText = (user_password).getText().toString();
                         statement.setString(1, phoneText); // 把?替換成newphoneText，前面的數字是代表第幾褪號
                         statement.setString(2, passwordText);
-                        ResultSet Resultset = statement.executeQuery();
-                        if (Resultset.next()) {
+                        ResultSet resultSet1 = statement.executeQuery();
+                        if (resultSet1.next()) {
                             Intent mainIntent = new Intent(Login.this, MainCollege.class);
                             startActivity(mainIntent);
                             Looper.prepare();

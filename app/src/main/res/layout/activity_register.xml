@@ -138,7 +138,7 @@
 
         </LinearLayout>
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/enrollbtn"
+            android:id="@+id/enrollBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/user_password"
