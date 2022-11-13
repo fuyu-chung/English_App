@@ -27,6 +27,7 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
         user_phone = findViewById(R.id.user_phone);
         user_password = findViewById(R.id.user_password);
         loginbtn = findViewById(R.id.loginbtn);
@@ -74,6 +75,8 @@ public class Login extends AppCompatActivity {
                 }
             });
         });
+
+        //跳轉到註冊頁面
         registerbtn = findViewById(R.id.registerbtn);
         registerbtn.setOnClickListener(v -> {
             ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
