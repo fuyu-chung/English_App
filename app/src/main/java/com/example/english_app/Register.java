@@ -19,7 +19,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class Register extends AppCompatActivity {
-    private TextInputEditText user_name, user_phone, user_birthday, user_password, user_check;
+    private EditText user_name, user_phone, user_birthday, user_password, user_check;
     private MaterialButton enrollbtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
