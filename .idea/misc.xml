@@ -7,8 +7,10 @@
         <entry key="app/src/main/res/drawable/logintopbar.xml" value="0.117" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_main_college.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main_college.xml" value="0.25052083333333336" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/header.xml" value="0.25052083333333336" />
+        <entry key="app/src/main/res/layout/toolbar.xml" value="0.25052083333333336" />
       </map>
     </option>
   </component>
