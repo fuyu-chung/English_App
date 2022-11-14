@@ -1,8 +1,8 @@
 CREATE TABLE elem_voc (
-    orders varchar(5),
-    vocab varchar(300),
-    def	nvarchar(300),
-    pos	nvarchar(300)
+    orders int,
+    vocabulay varchar(300),
+    definition	nvarchar(300),
+    part_of_speech nvarchar(300)
 );
 
 INSERT INTO elem_voc VALUES ('0', 'a', N'一個', N'冠詞');
