@@ -1,6 +1,6 @@
 CREATE TABLE elem_jhs_voc 
 (
-  orders varchar(5),
+  orders int,
   vocab varchar(300),
   chinese nvarchar(300),
   pos nvarchar(300),
