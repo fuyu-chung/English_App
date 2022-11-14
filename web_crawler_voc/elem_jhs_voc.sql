@@ -1161,8 +1161,8 @@ INSERT INTO elem_jhs_voc VALUES ('732', 'number', N'[動詞] 編號,總數達到
 INSERT INTO elem_jhs_voc VALUES ('732', 'number', N'[名詞] 號碼;數字', N'名詞', N'號碼;數字');
 INSERT INTO elem_jhs_voc VALUES ('733', 'nurse', N'[動詞] 看護,護理;給...餵奶;培育;當奶媽', N'動詞', N'看護,護理;給...餵奶;培育;當奶媽');
 INSERT INTO elem_jhs_voc VALUES ('733', 'nurse', N'[名詞] 護士', N'名詞', N'護士');
-INSERT INTO elem_jhs_voc VALUES ('734', 'clock', N'[副詞] ...點鐘', N'副詞', N'...點鐘');
-INSERT INTO elem_jhs_voc VALUES ('734', 'clock', N'[名詞] 點鐘', N'名詞', N'點鐘');
+INSERT INTO elem_jhs_voc VALUES ('734', 'o''clock', N'[副詞] ...點鐘', N'副詞', N'...點鐘');
+INSERT INTO elem_jhs_voc VALUES ('734', 'o''clock', N'[名詞] 點鐘', N'名詞', N'點鐘');
 INSERT INTO elem_jhs_voc VALUES ('735', 'October', N'[名詞] 十月', N'名詞', N'十月');
 INSERT INTO elem_jhs_voc VALUES ('736', 'of', N'[介系詞] …的，屬於', N'介系詞', N'…的，屬於');
 INSERT INTO elem_jhs_voc VALUES ('737', 'off', N'[形容詞] 離去的;偏離的;休假的;關著的', N'形容詞', N'離去的;偏離的;休假的;關著的');
