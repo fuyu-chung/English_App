@@ -18,7 +18,7 @@ import java.sql.SQLException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class Login extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
     private EditText user_phone, user_password;
     private MaterialButton loginbtn, registerbtn;
     @Override
@@ -48,7 +48,7 @@ public class Login extends AppCompatActivity {
                         statement.setString(2, passwordText);
                         ResultSet resultSet1 = statement.executeQuery();
                         if (resultSet1.next()) {
-                            Intent mainIntent = new Intent(Login.this, MainCollege.class);
+                            Intent mainIntent = new Intent(LoginActivity.this, MainPageActivity.class);
                             startActivity(mainIntent);
                             Looper.prepare();
                             Toast.makeText(this, "登入成功", Toast.LENGTH_SHORT).show();
@@ -79,7 +79,7 @@ public class Login extends AppCompatActivity {
         registerbtn.setOnClickListener(v -> {
             ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
             executor.execute(() -> {
-                Intent registerIntent = new Intent(Login.this, Register.class);
+                Intent registerIntent = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(registerIntent);
             });
         });

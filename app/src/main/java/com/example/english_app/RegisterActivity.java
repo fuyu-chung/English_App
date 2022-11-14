@@ -23,7 +23,7 @@ import java.util.Objects;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class Register extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
     private TextInputEditText user_name, user_phone, user_birthday, user_password, user_check;
 
     @Override
@@ -86,7 +86,7 @@ public class Register extends AppCompatActivity {
                     statement.setString(5, passwordText);
                     statement.execute();
                     System.out.println("Successful");
-                    Intent mainIntent = new Intent(this, Login.class);
+                    Intent mainIntent = new Intent(this, LoginActivity.class);
                     startActivity(mainIntent);
                     Looper.prepare();
                     Toast.makeText(this, "註冊成功", Toast.LENGTH_SHORT).show();
