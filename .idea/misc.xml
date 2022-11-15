@@ -5,7 +5,7 @@
       <map>
         <entry key="app/src/main/res/drawable/loginsecuritybox.xml" value="0.117" />
         <entry key="app/src/main/res/drawable/logintopbar.xml" value="0.117" />
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main_college.xml" value="0.25052083333333336" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.1" />
@@ -19,12 +19,5 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
-  </component>
-  <component name="VisualizationToolProject">
-    <option name="state">
-      <ProjectState>
-        <option name="scale" value="0.19610507246376813" />
-      </ProjectState>
-    </option>
   </component>
 </project>

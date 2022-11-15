@@ -1,15 +1,21 @@
 package com.example.english_app;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Looper;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.security.spec.InvalidKeySpecException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -18,6 +24,7 @@ import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Base64;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.concurrent.ExecutorService;
@@ -26,6 +33,7 @@ import java.util.concurrent.Executors;
 public class RegisterActivity extends AppCompatActivity {
     private TextInputEditText user_name, user_phone, user_birthday, user_password, user_check;
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +61,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                     DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd", Locale.TAIWAN);
                     String birthdayText = Objects.requireNonNull((user_birthday).getText()).toString();
-                    String birthdayPattern = "^(((?:19|20)[0-9]{2})(0?[1-9]|1[012])(0?[1-9]|[12][0-9]|3[01])).{8}$";
+                    String birthdayPattern = "^(((?:19|20)[0-9]{2})(0?[1-9]|1[012])(0?[1-9]|[12][0-9]|3[01]))$";
 
                     String passwordText = Objects.requireNonNull((user_password).getText()).toString();
                     String checkText = Objects.requireNonNull((user_check).getText()).toString();
@@ -127,7 +135,9 @@ public class RegisterActivity extends AppCompatActivity {
                     if (!isCorrect) {
                         return;
                     }
-
+                    System.out.println(passwordText);
+                    passwordText = sha1("kD0a1" + md5("xA4" + passwordText) + "f4A");
+                    System.out.println(passwordText);
                     query = "select count(*) from account";
                     statement = connection.prepareStatement(query);
                     resultSet = statement.executeQuery();
@@ -158,5 +168,61 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             });
         });
+    }
+//    public static String hashPassword(String password) throws NoSuchAlgorithmException {
+//        MessageDigest md = MessageDigest.getInstance("SHA-512");
+//        md.reset();
+//        md.update(password.getBytes());
+//        byte[] mdArray = md.digest();
+//        StringBuilder sb = new StringBuilder(mdArray.length * 2);
+//        for(byte b : mdArray) {
+//            int v = b & 0xff;
+//            if(v < 16)
+//                sb.append('0');
+//            sb.append(Integer.toHexString(v));
+//        }
+//        return sb.toString();
+//    }
+
+//    @RequiresApi(api = Build.VERSION_CODES.O)
+//    public static String getSalt(String passwordText) throws NoSuchAlgorithmException {
+//        SecureRandom sr = SecureRandom.getInstance("SHA1PRNG");
+//        byte[] salt = new byte[32];
+//        sr.nextBytes(salt);
+//        return Base64.getEncoder().encodeToString(salt);
+//
+//    }
+    public static String sha1(String clearString) {
+        try {
+            MessageDigest messageDigest = MessageDigest.getInstance("SHA-1");
+            messageDigest.update(clearString.getBytes("UTF-8"));
+            byte[] bytes = messageDigest.digest();
+            StringBuilder buffer = new StringBuilder();
+            for (byte b : bytes) {
+                buffer.append(Integer.toString((b & 0xff) + 0x100, 16).substring(1));
+            }
+            return buffer.toString();
+        }
+        catch (Exception ignored) {
+            ignored.printStackTrace();
+            return null;
+        }
+    }
+
+    public static String md5(String s) {
+        try {
+            MessageDigest digest = java.security.MessageDigest.getInstance("MD5");
+            digest.update(s.getBytes());
+            byte messageDigest[] = digest.digest();
+
+            StringBuffer hexString = new StringBuffer();
+            for (int i=0; i<messageDigest.length; i++)
+                hexString.append(Integer.toHexString(0xFF & messageDigest[i]));
+
+            return hexString.toString();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        return "";
     }
 }
