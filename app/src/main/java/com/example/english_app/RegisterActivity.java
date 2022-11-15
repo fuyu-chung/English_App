@@ -35,37 +35,96 @@ public class RegisterActivity extends AppCompatActivity {
         user_birthday = findViewById(R.id.user_birthday);
         user_password = findViewById(R.id.user_password);
         user_check = findViewById(R.id.user_check);
+
         MaterialButton enrollBtn = findViewById(R.id.enrollBtn);
         enrollBtn.setOnClickListener(v -> {
-            ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
-           executor.execute(() -> {
+            ExecutorService executor = Executors.newSingleThreadExecutor();
+            executor.execute(() -> {
                 try { //試跑try有問題就跑catch
+                    boolean isCorrect = true;
                     String s1 = "jdbc:jtds:sqlserver://myenglishserver.database.windows.net:1433/englishapp_db;user=englishapp@myenglishserver;password=English1234@@;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;ssl=request;"; //訪問azure的db的網址
                     Connection connection = DriverManager.getConnection(s1); //建立連線
-                    //String query = "insert into account (user_name, user_phone, user_birthday, user_password) values (?, ?, ?, ?);";
-                    String query = "select * from account where user_phone = ?";
-                    String phoneText = Objects.requireNonNull((user_phone).getText()).toString();
-                    PreparedStatement statement = connection.prepareStatement(query);
-                    statement.setString(1, phoneText);
-                    ResultSet resultSet = statement.executeQuery();
-                    if(resultSet.next()){
-                        System.out.println("phone failed");
-                        Looper.prepare();
-                        Toast.makeText(this, "使用者已存在", Toast.LENGTH_SHORT).show();
-                        Toast.makeText(this, "請輸入其他電話或前往登入", Toast.LENGTH_LONG).show();
-                        Looper.loop();
-                        return;
-                    }
 
+                    String nameText = Objects.requireNonNull((user_name).getText()).toString();
+                    String namePattern = "^(?=.*[a-z]).{6,20}$";
+
+                    String phoneText = Objects.requireNonNull((user_phone).getText()).toString();
+                    String phonePattern = "^09\\d{8}$";
+
+                    DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd", Locale.TAIWAN);
+                    String birthdayText = Objects.requireNonNull((user_birthday).getText()).toString();
+                    String birthdayPattern = "^((0?[1-9]|1[012])(0?[1-9]|[12][0-9]|3[01])(19|20)?[0-9]{2})*$";
 
                     String passwordText = Objects.requireNonNull((user_password).getText()).toString();
                     String checkText = Objects.requireNonNull((user_check).getText()).toString();
+                    String passwordPattern = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}$";
+
+                    String query = "select * from account where user_phone = ?";
+                    PreparedStatement statement = connection.prepareStatement(query);
+                    statement.setString(1, phoneText);
+
+                    if(nameText.isEmpty() ) {
+                        runOnUiThread(() -> (user_name).setError("Field can't be empty"));
+                        isCorrect = false;
+                    }
+
+                    if (!nameText.matches(namePattern)) {
+                        runOnUiThread(() -> (user_name).setError("User name format error"));
+                        isCorrect = false;
+                    }
+
+                    if(phoneText.isEmpty()) {
+                        runOnUiThread(() -> (user_phone).setError("Field can't be empty"));
+                        isCorrect = false;
+                    }
+                    if (!phoneText.matches(phonePattern)) {
+                        runOnUiThread(() -> (user_phone).setError("User Phone format error"));
+                        isCorrect = false;
+                    }
+
+                    if(birthdayText.isEmpty()) {
+                        runOnUiThread(() -> (user_birthday).setError("Field can't be empty"));
+                        isCorrect = false;
+                    }
+                    if(!birthdayText.matches(birthdayPattern)){
+                        runOnUiThread(() -> (user_birthday).setError("User Birthday format error"));
+                        isCorrect = false;
+                    }
+
+                    if (passwordText.isEmpty()) {
+                        runOnUiThread(() -> (user_password).setError("Field can't be empty"));
+                        isCorrect = false;
+                    }
+                    if (!passwordText.matches(passwordPattern)) {
+                        runOnUiThread(() -> (user_password).setError("User Password format error"));
+                        isCorrect = false;
+                    }
+
+                    if (checkText.isEmpty()) {
+                        runOnUiThread(() -> (user_check).setError("Field can't be empty"));
+                        isCorrect = false;
+                    }
+                    if (!checkText.matches(passwordPattern)) {
+                        runOnUiThread(() -> (user_check).setError("User Password format error"));
+                        isCorrect = false;
+                    }
 
                     if(!passwordText.equals(checkText)){
-                        System.out.println("password failed");
-                        Looper.prepare();
-                        Toast.makeText(this, "輸入的密碼不相同，請重新輸入", Toast.LENGTH_LONG).show();
-                        Looper.loop();
+                        runOnUiThread(() -> (user_check).setError("User Password not equal"));
+                        isCorrect = false;
+                    }
+
+                    if (!isCorrect) {
+                        return;
+                    }
+
+                    ResultSet resultSet = statement.executeQuery();
+                    if(resultSet.next()){
+                        runOnUiThread(() -> (user_check).setError("User Phone exist"));
+                        isCorrect = false;
+                    }
+
+                    if (!isCorrect) {
                         return;
                     }
 
@@ -75,9 +134,6 @@ public class RegisterActivity extends AppCompatActivity {
                     resultSet.next();
                     int number = resultSet.getInt(1);
                     query = "insert into account values (?, ?, ?, ?, ?);";
-                    String nameText = Objects.requireNonNull((user_name).getText()).toString();
-                    DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd", Locale.TAIWAN);
-                    String birthdayText = Objects.requireNonNull((user_birthday).getText()).toString();
                     statement = connection.prepareStatement(query);
                     statement.setInt(1, (((number + 1) * 19379 + 62327) % 89989) + 10000);
                     statement.setString(2, nameText);
