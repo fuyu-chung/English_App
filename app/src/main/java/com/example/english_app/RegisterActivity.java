@@ -53,7 +53,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                     DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd", Locale.TAIWAN);
                     String birthdayText = Objects.requireNonNull((user_birthday).getText()).toString();
-                    String birthdayPattern = "^((0?[1-9]|1[012])(0?[1-9]|[12][0-9]|3[01])(19|20)?[0-9]{2})*$";
+                    String birthdayPattern = "^(((?:19|20)[0-9]{2})(0?[1-9]|1[012])(0?[1-9]|[12][0-9]|3[01])).{8}$";
 
                     String passwordText = Objects.requireNonNull((user_password).getText()).toString();
                     String checkText = Objects.requireNonNull((user_check).getText()).toString();
@@ -64,53 +64,53 @@ public class RegisterActivity extends AppCompatActivity {
                     statement.setString(1, phoneText);
 
                     if(nameText.isEmpty() ) {
-                        runOnUiThread(() -> (user_name).setError("Field can't be empty"));
+                        runOnUiThread(() -> (user_name).setError("欄位不可為空白"));
                         isCorrect = false;
                     }
 
                     if (!nameText.matches(namePattern)) {
-                        runOnUiThread(() -> (user_name).setError("User name format error"));
+                        runOnUiThread(() -> (user_name).setError("名字格式錯誤"));
                         isCorrect = false;
                     }
 
                     if(phoneText.isEmpty()) {
-                        runOnUiThread(() -> (user_phone).setError("Field can't be empty"));
+                        runOnUiThread(() -> (user_phone).setError("欄位不可為空白"));
                         isCorrect = false;
                     }
                     if (!phoneText.matches(phonePattern)) {
-                        runOnUiThread(() -> (user_phone).setError("User Phone format error"));
+                        runOnUiThread(() -> (user_phone).setError("電話格式錯誤"));
                         isCorrect = false;
                     }
 
                     if(birthdayText.isEmpty()) {
-                        runOnUiThread(() -> (user_birthday).setError("Field can't be empty"));
+                        runOnUiThread(() -> (user_birthday).setError("欄位不可為空白"));
                         isCorrect = false;
                     }
                     if(!birthdayText.matches(birthdayPattern)){
-                        runOnUiThread(() -> (user_birthday).setError("User Birthday format error"));
+                        runOnUiThread(() -> (user_birthday).setError("生日格式錯誤"));
                         isCorrect = false;
                     }
 
                     if (passwordText.isEmpty()) {
-                        runOnUiThread(() -> (user_password).setError("Field can't be empty"));
+                        runOnUiThread(() -> (user_password).setError("欄位不可為空白"));
                         isCorrect = false;
                     }
                     if (!passwordText.matches(passwordPattern)) {
-                        runOnUiThread(() -> (user_password).setError("User Password format error"));
+                        runOnUiThread(() -> (user_password).setError("密碼格式錯誤"));
                         isCorrect = false;
                     }
 
                     if (checkText.isEmpty()) {
-                        runOnUiThread(() -> (user_check).setError("Field can't be empty"));
+                        runOnUiThread(() -> (user_check).setError("欄位不可為空白"));
                         isCorrect = false;
                     }
                     if (!checkText.matches(passwordPattern)) {
-                        runOnUiThread(() -> (user_check).setError("User Password format error"));
+                        runOnUiThread(() -> (user_check).setError("密碼格式錯誤"));
                         isCorrect = false;
                     }
 
                     if(!passwordText.equals(checkText)){
-                        runOnUiThread(() -> (user_check).setError("User Password not equal"));
+                        runOnUiThread(() -> (user_check).setError("密碼輸入不相同"));
                         isCorrect = false;
                     }
 
@@ -120,7 +120,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                     ResultSet resultSet = statement.executeQuery();
                     if(resultSet.next()){
-                        runOnUiThread(() -> (user_check).setError("User Phone exist"));
+                        runOnUiThread(() -> (user_phone).setError("使用者電話已存在"));
                         isCorrect = false;
                     }
 
