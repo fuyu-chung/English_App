@@ -19,6 +19,15 @@
     <color name="cframe_color_g">#81A969</color>
     <color name="cframe_color_p">#FF9292</color>
 
+
+    <!--    icons solors-->
+    <color name="bottom_bar_icons">#B6CFF6</color>
+    <color name="bottom_bar_icons_clicked01">#FF7777</color>
+    <color name="bottom_bar_icons_clicked02">#FFE277</color>
+    <color name="bottom_bar_icons_clicked03">#B6FF77</color>
+    <color name="bottom_bar_icons_clicked04">#77FFFF</color>
+    <color name="bottom_bar_icons_clicked05">#D677FF</color>
+
     <color name="transparent">#00FF9292</color>
 
     <color name="teal_200">#FF03DAC5</color>
