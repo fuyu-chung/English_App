@@ -2,6 +2,7 @@
 <resources>
     <!-- theme01 colors-->
     <color name="topic_color">#516E9B</color>
+    <color name="topic_color_02">#FFFCEE</color>
     <color name="blue_color_02">#CAD3E0</color>
     <color name="phone_info">#27354C</color>
     <color name="icon_bg">#F3EED8</color>
@@ -20,13 +21,20 @@
     <color name="cframe_color_p">#FF9292</color>
 
 
-    <!--    icons solors-->
+    <!--    icons colors-->
     <color name="bottom_bar_icons">#B6CFF6</color>
     <color name="bottom_bar_icons_clicked01">#FF7777</color>
     <color name="bottom_bar_icons_clicked02">#FFE277</color>
     <color name="bottom_bar_icons_clicked03">#B6FF77</color>
     <color name="bottom_bar_icons_clicked04">#77FFFF</color>
     <color name="bottom_bar_icons_clicked05">#D677FF</color>
+
+    <!--    icons select bg colors-->
+    <color name="bottom_bar_icons_bg01">#4DFF7777</color>
+    <color name="bottom_bar_icons_bg02">#4DFFE277</color>
+    <color name="bottom_bar_icons_bg03">#4DB6FF77</color>
+    <color name="bottom_bar_icons_bg04">#4D77FFFF</color>
+    <color name="bottom_bar_icons_bg05">#4DD677FF</color>
 
     <color name="transparent">#00FF9292</color>
 
