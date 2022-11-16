@@ -1,9 +1,8 @@
 package com.example.english_app;
-
+import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
@@ -203,10 +202,10 @@ public class MainPageActivity extends AppCompatActivity {
                     dormLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
                     libraryLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
 
-                    //dorm visibility
-                    dormText.setVisibility(View.VISIBLE);
-                    dormImage.setImageResource(R.drawable.dorm_clicks);
-                    dormLayout.setBackgroundResource(R.drawable.round_back_dorm);
+                    //study circle visibility
+                    studyCircleText.setVisibility(View.VISIBLE);
+                    studyCircleImage.setImageResource(R.drawable.study_circle_clicks);
+                    studyCircleLayout.setBackgroundResource(R.drawable.round_back_study_circle);
 
                     //animation
                     ScaleAnimation scaleAnimation = new ScaleAnimation(0.8f, 1.0f, 1f,1f, Animation.RELATIVE_TO_SELF, 1.0f,Animation.RELATIVE_TO_SELF,0.0f);
