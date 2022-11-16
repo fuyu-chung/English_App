@@ -12,10 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
-import java.security.spec.InvalidKeySpecException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -24,9 +20,9 @@ import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Base64;
 import java.util.Locale;
 import java.util.Objects;
+import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -135,21 +131,29 @@ public class RegisterActivity extends AppCompatActivity {
                     if (!isCorrect) {
                         return;
                     }
+                    String salt1 = Encryption.generatedSalt();;
+                    String salt2 = Encryption.generatedSalt();
+
+                    passwordText = Encryption.sha1(salt1+ Encryption.md5(salt2 + passwordText));
                     System.out.println(passwordText);
-                    passwordText = sha1("kD0a1" + md5("xA4" + passwordText) + "f4A");
-                    System.out.println(passwordText);
-                    query = "select count(*) from account";
-                    statement = connection.prepareStatement(query);
-                    resultSet = statement.executeQuery();
-                    resultSet.next();
-                    int number = resultSet.getInt(1);
-                    query = "insert into account values (?, ?, ?, ?, ?);";
+//                    query = "select count(*) from account";
+//                    statement = connection.prepareStatement(query);
+//                    resultSet = statement.executeQuery();
+//                    resultSet.next();
+//                    int number = resultSet.getInt(1);
+                    Random r = new Random();
+                    int number = r.nextInt(100000);
+                    System.out.println(number);
+                    query = "insert into account values (?, ?, ?, ?, ?, ?, ?);";
+                    // 1: user_id, 2: user_name, 3: user_phone, 4: user_birthday, 5:user_password_hash, 6: user_password_salt
                     statement = connection.prepareStatement(query);
                     statement.setInt(1, (((number + 1) * 19379 + 62327) % 89989) + 10000);
                     statement.setString(2, nameText);
                     statement.setString(3, phoneText);
                     statement.setDate(4, new java.sql.Date(Objects.requireNonNull(dateFormat.parse(birthdayText)).getTime()));
                     statement.setString(5, passwordText);
+                    statement.setString(6, salt1);
+                    statement.setString(7, salt2);
                     statement.execute();
                     System.out.println("Successful");
                     Intent mainIntent = new Intent(this, LoginActivity.class);
@@ -168,61 +172,5 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             });
         });
-    }
-//    public static String hashPassword(String password) throws NoSuchAlgorithmException {
-//        MessageDigest md = MessageDigest.getInstance("SHA-512");
-//        md.reset();
-//        md.update(password.getBytes());
-//        byte[] mdArray = md.digest();
-//        StringBuilder sb = new StringBuilder(mdArray.length * 2);
-//        for(byte b : mdArray) {
-//            int v = b & 0xff;
-//            if(v < 16)
-//                sb.append('0');
-//            sb.append(Integer.toHexString(v));
-//        }
-//        return sb.toString();
-//    }
-
-//    @RequiresApi(api = Build.VERSION_CODES.O)
-//    public static String getSalt(String passwordText) throws NoSuchAlgorithmException {
-//        SecureRandom sr = SecureRandom.getInstance("SHA1PRNG");
-//        byte[] salt = new byte[32];
-//        sr.nextBytes(salt);
-//        return Base64.getEncoder().encodeToString(salt);
-//
-//    }
-    public static String sha1(String clearString) {
-        try {
-            MessageDigest messageDigest = MessageDigest.getInstance("SHA-1");
-            messageDigest.update(clearString.getBytes("UTF-8"));
-            byte[] bytes = messageDigest.digest();
-            StringBuilder buffer = new StringBuilder();
-            for (byte b : bytes) {
-                buffer.append(Integer.toString((b & 0xff) + 0x100, 16).substring(1));
-            }
-            return buffer.toString();
-        }
-        catch (Exception ignored) {
-            ignored.printStackTrace();
-            return null;
-        }
-    }
-
-    public static String md5(String s) {
-        try {
-            MessageDigest digest = java.security.MessageDigest.getInstance("MD5");
-            digest.update(s.getBytes());
-            byte messageDigest[] = digest.digest();
-
-            StringBuffer hexString = new StringBuffer();
-            for (int i=0; i<messageDigest.length; i++)
-                hexString.append(Integer.toHexString(0xFF & messageDigest[i]));
-
-            return hexString.toString();
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
-        return "";
     }
 }
