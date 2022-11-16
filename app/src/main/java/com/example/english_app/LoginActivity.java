@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.button.MaterialButton;
 
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -57,13 +56,15 @@ public class LoginActivity extends AppCompatActivity {
                             Looper.prepare();
                             Toast.makeText(this, "登入成功", Toast.LENGTH_LONG).show();
                             Looper.loop();
-                        } else {
+                        }
+                        else {
                             runOnUiThread(() -> (user_password).setError("密碼錯誤"));
 //                            Looper.prepare();
 //                            Toast.makeText(this, "使用者密碼錯誤！", Toast.LENGTH_LONG).show();
 //                            Looper.loop();
                         }
-                    } else {
+                    }
+                    else {
                         runOnUiThread(() -> (user_phone).setError("使用者不存在"));
 //                        Looper.prepare();
 //                        Toast.makeText(this, "使用者不存在", Toast.LENGTH_SHORT).show();
