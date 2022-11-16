@@ -6,13 +6,22 @@
     android:background="@color/blue_color_02"
     tools:context=".MainPageActivity">
 
-
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar"/>
 
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottomBar"
+        android:layout_below="@+id/toolbar"
+        tools:layout="@layout/fragment_college" />
+
+
 
     <LinearLayout
+        android:id="@+id/bottomBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"

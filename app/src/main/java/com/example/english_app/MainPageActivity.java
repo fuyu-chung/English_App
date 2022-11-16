@@ -1,5 +1,7 @@
 package com.example.english_app;
+
 import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -21,10 +23,10 @@ public class MainPageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
 
-        //記得這裡的Toolbar 使用的是androidx.appcompat.widget.Toolbar，不可以選錯宣告(by P)
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        toolbar.setNavigationIcon(R.drawable.icon_menu);
+//        //記得這裡的Toolbar 使用的是androidx.appcompat.widget.Toolbar，不可以選錯宣告(by P)
+//        Toolbar toolbar = findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
+//        toolbar.setNavigationIcon(R.drawable.icon_menu);
 
 
         //全部一起宣告因為立刻會用到
@@ -46,13 +48,24 @@ public class MainPageActivity extends AppCompatActivity {
         final TextView studyCircleText = findViewById(R.id.studyCircleText);
         final TextView libraryText = findViewById(R.id.libraryText);
 
+        //set college fragment by default
+        getSupportFragmentManager().beginTransaction()
+                .setReorderingAllowed(true)
+                .replace(R.id.fragmentContainer, CollegeFragment.class, null)
+                        .commit();
 
         collegeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 //check if college is selected
-                if(selectedTab != 1){
+                if (selectedTab != 1) {
+
+                    //set college fragment
+                    getSupportFragmentManager().beginTransaction()
+                            .setReorderingAllowed(true)
+                            .replace(R.id.fragmentContainer, CollegeFragment.class, null)
+                            .commit();
 
                     //unselect other tabs except college tab, here is text that we don't want to display
                     loungeText.setVisibility(View.GONE);
@@ -79,7 +92,7 @@ public class MainPageActivity extends AppCompatActivity {
                     collegeLayout.setBackgroundResource(R.drawable.round_back_college);
 
                     //animation
-                    ScaleAnimation scaleAnimation = new ScaleAnimation(0.8f, 1.0f, 1f,1f, Animation.RELATIVE_TO_SELF, 0.0f,Animation.RELATIVE_TO_SELF,0.0f);
+                    ScaleAnimation scaleAnimation = new ScaleAnimation(0.8f, 1.0f, 1f, 1f, Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF, 0.0f);
                     scaleAnimation.setDuration(200);
                     scaleAnimation.setFillAfter(true);
                     collegeLayout.startAnimation(scaleAnimation);
@@ -96,7 +109,13 @@ public class MainPageActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 //check if lounge is selected
-                if(selectedTab!= 2){
+                if (selectedTab != 2) {
+
+                    //set lounge fragment
+                    getSupportFragmentManager().beginTransaction()
+                            .setReorderingAllowed(true)
+                            .replace(R.id.fragmentContainer, LoungeFragment.class, null)
+                            .commit();
 
                     //unselect other tabs except lounge tab, here is text that we don't want to display
                     collegeText.setVisibility(View.GONE);
@@ -122,12 +141,12 @@ public class MainPageActivity extends AppCompatActivity {
                     loungeLayout.setBackgroundResource(R.drawable.round_back_lounge);
 
                     //animation
-                    ScaleAnimation scaleAnimation = new ScaleAnimation(0.8f, 1.0f, 1f,1f, Animation.RELATIVE_TO_SELF, 1.0f,Animation.RELATIVE_TO_SELF,0.0f);
+                    ScaleAnimation scaleAnimation = new ScaleAnimation(0.8f, 1.0f, 1f, 1f, Animation.RELATIVE_TO_SELF, 1.0f, Animation.RELATIVE_TO_SELF, 0.0f);
                     scaleAnimation.setDuration(200);
                     scaleAnimation.setFillAfter(true);
                     loungeLayout.startAnimation(scaleAnimation);
 
-                    //set 1st tab as selected tab
+                    //set 2nd tab as selected tab
                     selectedTab = 2;
                 }
 
@@ -139,7 +158,13 @@ public class MainPageActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 //check if dorm is selected
-                if(selectedTab!= 3){
+                if (selectedTab != 3) {
+
+                    //set dorm fragment
+                    getSupportFragmentManager().beginTransaction()
+                            .setReorderingAllowed(true)
+                            .replace(R.id.fragmentContainer, DormFragment.class, null)
+                            .commit();
 
                     //unselect other tabs except dorm tab, here is text that we don't want to display
                     collegeText.setVisibility(View.GONE);
@@ -165,12 +190,12 @@ public class MainPageActivity extends AppCompatActivity {
                     dormLayout.setBackgroundResource(R.drawable.round_back_dorm);
 
                     //animation
-                    ScaleAnimation scaleAnimation = new ScaleAnimation(0.8f, 1.0f, 1f,1f, Animation.RELATIVE_TO_SELF, 1.0f,Animation.RELATIVE_TO_SELF,0.0f);
+                    ScaleAnimation scaleAnimation = new ScaleAnimation(0.8f, 1.0f, 1f, 1f, Animation.RELATIVE_TO_SELF, 1.0f, Animation.RELATIVE_TO_SELF, 0.0f);
                     scaleAnimation.setDuration(200);
                     scaleAnimation.setFillAfter(true);
                     dormLayout.startAnimation(scaleAnimation);
 
-                    //set 1st tab as selected tab
+                    //set 3rd tab as selected tab
                     selectedTab = 3;
 
                 }
@@ -182,7 +207,13 @@ public class MainPageActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 //check if study circle is selected
-                if(selectedTab!= 4){
+                if (selectedTab != 4) {
+
+                    //set study circle fragment
+                    getSupportFragmentManager().beginTransaction()
+                            .setReorderingAllowed(true)
+                            .replace(R.id.fragmentContainer, StudyCircleFragment.class, null)
+                            .commit();
 
                     //unselect other tabs except study circle tab, here is text that we don't want to display
                     collegeText.setVisibility(View.GONE);
@@ -208,12 +239,12 @@ public class MainPageActivity extends AppCompatActivity {
                     studyCircleLayout.setBackgroundResource(R.drawable.round_back_study_circle);
 
                     //animation
-                    ScaleAnimation scaleAnimation = new ScaleAnimation(0.8f, 1.0f, 1f,1f, Animation.RELATIVE_TO_SELF, 1.0f,Animation.RELATIVE_TO_SELF,0.0f);
+                    ScaleAnimation scaleAnimation = new ScaleAnimation(0.8f, 1.0f, 1f, 1f, Animation.RELATIVE_TO_SELF, 1.0f, Animation.RELATIVE_TO_SELF, 0.0f);
                     scaleAnimation.setDuration(200);
                     scaleAnimation.setFillAfter(true);
                     dormLayout.startAnimation(scaleAnimation);
 
-                    //set 1st tab as selected tab
+                    //set 4th tab as selected tab
                     selectedTab = 4;
 
                 }
@@ -226,7 +257,13 @@ public class MainPageActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 //check if library is selected
-                if(selectedTab!= 5){
+                if (selectedTab != 5) {
+
+                    //set library fragment
+                    getSupportFragmentManager().beginTransaction()
+                            .setReorderingAllowed(true)
+                            .replace(R.id.fragmentContainer, LibraryFragment.class, null)
+                            .commit();
 
                     //unselect other tabs except library tab, here is text that we don't want to display
                     collegeText.setVisibility(View.GONE);
@@ -252,12 +289,12 @@ public class MainPageActivity extends AppCompatActivity {
                     libraryLayout.setBackgroundResource(R.drawable.round_back_library);
 
                     //animation
-                    ScaleAnimation scaleAnimation = new ScaleAnimation(0.8f, 1.0f, 1f,1f, Animation.RELATIVE_TO_SELF, 1.0f,Animation.RELATIVE_TO_SELF,0.0f);
+                    ScaleAnimation scaleAnimation = new ScaleAnimation(0.8f, 1.0f, 1f, 1f, Animation.RELATIVE_TO_SELF, 1.0f, Animation.RELATIVE_TO_SELF, 0.0f);
                     scaleAnimation.setDuration(200);
                     scaleAnimation.setFillAfter(true);
                     libraryLayout.startAnimation(scaleAnimation);
 
-                    //set 1st tab as selected tab
+                    //set 5th tab as selected tab
                     selectedTab = 5;
 
 
