@@ -131,6 +131,7 @@ public class RegisterActivity extends AppCompatActivity {
                     if (!isCorrect) {
                         return;
                     }
+
                     String salt1 = Encryption.generatedSalt();;
                     String salt2 = Encryption.generatedSalt();
 
