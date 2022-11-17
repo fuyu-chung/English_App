@@ -3,6 +3,7 @@ package com.example.english_app;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Looper;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -20,7 +21,7 @@ import java.util.concurrent.Executors;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText user_phone, user_password;
-    private MaterialButton loginBtn, registerBtn;
+    private MaterialButton loginBtn, registerBtn, forgetBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         user_phone = findViewById(R.id.user_phone);
         user_password = findViewById(R.id.user_password);
-        loginBtn = findViewById(R.id.loginbtn);
+        loginBtn = findViewById(R.id.loginBtn);
         loginBtn.setOnClickListener(v -> {
             ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
             executor.execute(() -> {
@@ -51,8 +52,8 @@ public class LoginActivity extends AppCompatActivity {
                         statement.setString(2, passwordText);
                         resultSet = statement.executeQuery();
                         if (resultSet.next()) {
-                            Intent mainIntent = new Intent(this, MainPageActivity.class);
-                            startActivity(mainIntent);
+                            Intent intent = new Intent(this, MainPageActivity.class);
+                            startActivity(intent);
                             Looper.prepare();
                             Toast.makeText(this, "登入成功", Toast.LENGTH_LONG).show();
                             Looper.loop();
@@ -79,12 +80,21 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         //跳轉到註冊頁面
-        registerBtn = findViewById(R.id.registerbtn);
+        registerBtn = findViewById(R.id.registerBtn);
         registerBtn.setOnClickListener(v -> {
             ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
             executor.execute(() -> {
-                Intent registerIntent = new Intent(this, RegisterActivity.class);
-                startActivity(registerIntent);
+                Intent intent = new Intent(this, RegisterActivity.class);
+                startActivity(intent);
+            });
+        });
+
+       forgetBtn = findViewById(R.id.forgetPassword);
+       forgetBtn.setOnClickListener(v -> {
+            ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
+            executor.execute(() -> {
+                Intent intent = new Intent(this, ForgetPasswordActivity.class); //
+                startActivity(intent);
             });
         });
     }

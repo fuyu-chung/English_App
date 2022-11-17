@@ -60,19 +60,18 @@
             android:layout_below="@+id/Security"
 
             android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
             android:layout_marginTop="30dp"
+            android:layout_marginEnd="20dp"
             android:layout_marginBottom="1dp"
             android:background="#FEFEFE"
-            android:hint="輸入使用者電話"
-
-            android:padding="20dp"
             android:drawableLeft="@drawable/ic_baseline_person_24"
+
             android:drawablePadding="10dp"
+            android:hint="輸入使用者電話"
             android:inputType="textPhonetic"
+            android:padding="20dp"
             android:textColor="@color/black"
-            android:textColorHint="@color/words_user_input"
-            />
+            android:textColorHint="@color/words_user_input" />
         <EditText
             android:id="@+id/user_password"
             android:layout_width="match_parent"
@@ -92,13 +91,36 @@
             android:textColorHint="@color/words_user_input"
             />
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            >
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:id="@+id/forgetPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:background="@color/bottom_bar_icons_bg01"
+                android:text="忘記密碼"
+                android:textSize="16sp" />
+
+
+        </RelativeLayout>
+
+
+
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/loginbtn"
+            android:id="@+id/loginBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
             android:layout_below="@+id/user_password"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="2dp"
             android:backgroundTint="@color/topic_color"
             android:text="登入"
             />
@@ -139,7 +161,7 @@
         </RelativeLayout>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/registerbtn"
+            android:id="@+id/registerBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/user_password"
@@ -149,6 +171,7 @@
             android:backgroundTint="@color/topic_color"
             android:text="新學生註冊"
             />
+
 
     </LinearLayout>
 
