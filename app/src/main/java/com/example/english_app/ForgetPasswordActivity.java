@@ -189,7 +189,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
                     String salt1 = Encryption.generatedSalt();
                     String salt2 = Encryption.generatedSalt();
                     passwordText = Encryption.sha1(salt1 + Encryption.md5(salt2 + passwordText));
-                    if (resultSet.next() && continues == true) {
+                    if (resultSet.next()) {
                         query = "UPDATE account SET user_password = ?, user_salt1 = ?, user_salt2 = ? where user_phone = ? and user_name = ?";
                         statement = connection.prepareStatement(query);
                         statement.setString(1, passwordText); // 把?替換成phoneText，前面的數字是代表第幾褪號
