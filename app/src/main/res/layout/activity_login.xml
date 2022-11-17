@@ -98,8 +98,8 @@
             >
 
             <com.google.android.material.button.MaterialButton
-                style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:id="@+id/forgetPassword"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
