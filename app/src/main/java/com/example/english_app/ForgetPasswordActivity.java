@@ -6,6 +6,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Looper;
 import android.text.Editable;
+import android.view.Gravity;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
@@ -80,12 +83,10 @@ public class ForgetPasswordActivity extends AppCompatActivity {
                         Toast.makeText(this, verify_code, Toast.LENGTH_LONG).show();
                         Looper.loop();
 
-                    }
-                    else {
+                    } else {
                         runOnUiThread(() -> (user_phone).setError("使用者不存在"));
                     }
-                }
-                catch (SQLException e) {
+                } catch (SQLException e) {
                     System.out.println(e.getMessage());
                 }
             });
@@ -101,16 +102,20 @@ public class ForgetPasswordActivity extends AppCompatActivity {
                         System.out.println("code correct");
                         Looper.prepare();
                         Toast.makeText(this, "驗證成功", Toast.LENGTH_LONG).show();
+                        Toast toast = Toast.makeText(this, "驗證成功", Toast.LENGTH_LONG);
+                        toast.setGravity(Gravity.CENTER, 0, 0);
+                        LinearLayout linearLayout = (LinearLayout) toast.getView();
+                        TextView messageTextView = (TextView) linearLayout.getChildAt(0);
+                        messageTextView.setTextSize(200);
+                        toast.show();
                         Looper.loop();
                         continues = true;
 
-                    }
-                    else {
+                    } else {
                         runOnUiThread(() -> (user_verify).setError("驗證碼錯誤，請重新輸入！"));
                         System.out.println("code wrong");
                     }
-                }
-                catch (Exception e) {
+                } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
             });
