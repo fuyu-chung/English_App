@@ -7,6 +7,7 @@ import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -20,15 +21,20 @@ import com.google.android.material.navigation.NavigationView;
 
 public class MainPageActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+    //Variables for animation
+    static final float END_SCALE = 0.7f;
+
+
     //number of selectedTab. 我們有五個頁面所以 values 介於1-5之簡，default value = 1
     private int selectedTab = 1;
 
     ImageView menuIcon;
+    RelativeLayout contentView;
 
     //Drawer menu
     DrawerLayout drawerLayout;
     NavigationView navigationView;
-//    Toolbar toolbar;
+
 
 
     @Override
@@ -40,11 +46,8 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
         drawerLayout = findViewById(R.id.drawer_layout); //whole screen of main page
         navigationView = findViewById(R.id.nav_view); //the drawer
         menuIcon = findViewById(R.id.menu_icon); //the menu icon
-//        toolbar = findViewById(R.id.toolbar); //upperBar = toolbar
+        contentView = findViewById(R.id.contentView); //the contentView (relative)
 
-//        /*--------------------------TOOL BAR (UP)---------------------------*/
-//        setSupportActionBar(toolbar);
-//        toolbar.setNavigationIcon(R.drawable.menu_icon);
 
 
         navigationDrawer();
@@ -328,6 +331,8 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
 
     }
 
+
+    //navigation drawer functions
     private void navigationDrawer() {
         navigationView.bringToFront();
         navigationView.setNavigationItemSelectedListener(this);
@@ -343,9 +348,32 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
                 }
             }
         });
+
+        animateNavigationDrawer();
     }
 
-    /*-------------------------To avoid closing the app on Back pressed---------------------------*/
+    private void animateNavigationDrawer() {
+
+        drawerLayout.setScrimColor(getResources().getColor(R.color.icon_bg));
+        //function form coding with Tea!!!!!!
+        drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset) {
+                // Scale the View based on current slide offset
+                final float diffScaledOffset = slideOffset * (1 - END_SCALE);
+                final float offsetScale = 1 - diffScaledOffset;
+                contentView.setScaleX(offsetScale);
+                contentView.setScaleY(offsetScale);
+                // Translate the View, accounting for the scaled width
+                final float xOffset = drawerView.getWidth() * slideOffset;
+                final float xOffsetDiff = contentView.getWidth() * diffScaledOffset / 2;
+                final float xTranslation = xOffset - xOffsetDiff;
+                contentView.setTranslationX(xTranslation);
+            }
+        });
+    }
+
+    /*----------To avoid closing the app on Back pressed------------*/
     @Override
     public void onBackPressed() {
 
@@ -357,8 +385,7 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
         }
 
     }
-
-    /*----------------------------       Set navigation item       -------------------------------*/
+    /*------- Set navigation item ------------*/
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         return true;
