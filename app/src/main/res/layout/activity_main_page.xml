@@ -3,12 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blue_color_02"
     tools:context=".MainPageActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/blue_color_02">
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar"/>
+
+
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainer"

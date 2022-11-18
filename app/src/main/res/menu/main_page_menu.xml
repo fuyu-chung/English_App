@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- checkableBehavior="single" : one item can be click per time-->
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/canva_home_icon"
+            android:title="主畫面" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/canva_logout_icon"
+            android:title="登出" />
+    </group>
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/canva_user_icon"
+            android:title="使用者資料設定" />
+        <item
+            android:id="@+id/nav_password"
+            android:icon="@drawable/canva_lock_icon"
+            android:title="更改密碼" />
+    </group>
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_share"
+            android:icon="@drawable/canva_share_icon"
+            android:title="分享" />
+        <item
+            android:id="@+id/nav_rateus"
+            android:icon="@drawable/canva_rateus_icon"
+            android:title="評分" />
+        <item
+            android:id="@+id/nav_aboutus"
+            android:icon="@drawable/canva_aboutus_icon"
+            android:title="關於我們" />
+
+    </group>
+
+</menu>

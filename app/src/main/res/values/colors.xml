@@ -7,6 +7,13 @@
     <color name="phone_info">#27354C</color>
     <color name="icon_bg">#F3EED8</color>
 
+    <!--    nav icons colors -->
+    <color name="nav_color01">#516E9B</color>
+    <color name="nav_color02">#7A99CA</color>
+    <color name="nav_color03">#80C1C6</color>
+    <color name="nav_color04">#A8EFF4</color>
+    <color name="nav_color0_white01">#ECEFF1</color>
+    <color name="nav_color0_white02">#CFD8DC</color>
 
     <!-- words colors -->
     <color name="words_topic01">#30415C</color>
