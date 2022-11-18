@@ -14,9 +14,10 @@
             android:title="登出" />
     </group>
 
-    <group android:checkableBehavior="single">
-        <item android:title="使用者資料設定">
-            <menu>
+
+    <item android:title="使用者資料設定">
+        <menu>
+            <group android:checkableBehavior="single">
                 <item
                     android:id="@+id/nav_profile"
                     android:icon="@drawable/canva_user_icon"
@@ -25,14 +26,14 @@
                     android:id="@+id/nav_password"
                     android:icon="@drawable/canva_lock_icon"
                     android:title="更改密碼" />
-            </menu>
-        </item>
+            </group>
+        </menu>
+    </item>
 
-    </group>
 
-    <group android:checkableBehavior="single">
-        <item android:title="English APP">
-            <menu>
+    <item android:title="English APP">
+        <menu>
+            <group android:checkableBehavior="single">
                 <item
                     android:id="@+id/nav_share"
                     android:icon="@drawable/canva_share_icon"
@@ -45,10 +46,8 @@
                     android:id="@+id/nav_aboutus"
                     android:icon="@drawable/canva_aboutus_icon"
                     android:title="關於我們" />
-            </menu>
-        </item>
-
-
-    </group>
+            </group>
+        </menu>
+    </item>
 
 </menu>
