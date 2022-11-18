@@ -13,4 +13,15 @@
         <item name="android:statusBarColor">@color/words_topic01</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <!--    Menu style     -->
+    <style name="navigationTheme">
+        <!--    color pf text and icon when selected    -->
+        <item name="colorPrimary">@color/nav_selected_text</item>
+        <!--    background color when selected    -->
+        <item name="colorControlHighlight">@color/nav_selected_bg</item>
+
+    </style>
+
+
 </resources>

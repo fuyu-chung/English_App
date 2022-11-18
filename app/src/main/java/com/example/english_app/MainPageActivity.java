@@ -23,10 +23,12 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
     //number of selectedTab. 我們有五個頁面所以 values 介於1-5之簡，default value = 1
     private int selectedTab = 1;
 
-    //variables
+    ImageView menuIcon;
+
+    //Drawer menu
     DrawerLayout drawerLayout;
     NavigationView navigationView;
-    Toolbar toolbar;
+//    Toolbar toolbar;
 
 
     @Override
@@ -34,22 +36,19 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
 
-        /*--- These are the xml that will show on main page(including the bottomBar bellow) ---*/
+        /*------------------------------- menu hooks -------------------------------*/
         drawerLayout = findViewById(R.id.drawer_layout); //whole screen of main page
         navigationView = findViewById(R.id.nav_view); //the drawer
-        toolbar = findViewById(R.id.toolbar); //upperBar = toolbar
+        menuIcon = findViewById(R.id.menu_icon); //the menu icon
+//        toolbar = findViewById(R.id.toolbar); //upperBar = toolbar
+
+//        /*--------------------------TOOL BAR (UP)---------------------------*/
+//        setSupportActionBar(toolbar);
+//        toolbar.setNavigationIcon(R.drawable.menu_icon);
 
 
-        /*--------------------------TOOL BAR (UP)---------------------------*/
-        setSupportActionBar(toolbar);
-        toolbar.setNavigationIcon(R.drawable.menu_icon);
+        navigationDrawer();
 
-        /*--------------------NAVIGATION DRAWER MENU -----------------------*/
-        navigationView.bringToFront();
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
-        navigationView.setNavigationItemSelectedListener(this);
 
 
         /*------------------------------BOTTOM BAR!!!!!-------------------------------------*/
@@ -76,7 +75,7 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
         getSupportFragmentManager().beginTransaction()
                 .setReorderingAllowed(true)
                 .replace(R.id.fragmentContainer, CollegeFragment.class, null)
-                        .commit();
+                .commit();
 
         collegeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -329,15 +328,31 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
 
     }
 
+    private void navigationDrawer() {
+        navigationView.bringToFront();
+        navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setCheckedItem(R.id.nav_home); //home item is default
+
+        menuIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (drawerLayout.isDrawerVisible(GravityCompat.START)) {
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                } else {
+                    drawerLayout.openDrawer(GravityCompat.START);
+                }
+            }
+        });
+    }
+
     /*-------------------------To avoid closing the app on Back pressed---------------------------*/
     @Override
     public void onBackPressed() {
 
-        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
 
-        }
-        else{
+        } else {
             super.onBackPressed();
         }
 

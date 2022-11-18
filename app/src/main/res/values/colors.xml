@@ -15,6 +15,10 @@
     <color name="nav_color0_white01">#ECEFF1</color>
     <color name="nav_color0_white02">#CFD8DC</color>
 
+    <!--  nav words selected color&bg -->
+    <color name="nav_selected_text">#E39441</color>
+    <color name="nav_selected_bg">#F3E9C1</color>
+
     <!-- words colors -->
     <color name="words_topic01">#30415C</color>
     <color name="words_user_input">#8F9193</color>

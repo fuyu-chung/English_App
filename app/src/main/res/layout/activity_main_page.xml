@@ -9,38 +9,54 @@
     android:fitsSystemWindows="true">
 
     <com.google.android.material.navigation.NavigationView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:theme="@style/navigationTheme"
         android:id="@+id/nav_view"
         app:headerLayout="@layout/header"
         app:menu="@menu/main_page_menu"
         android:layout_gravity="start"/>
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/blue_color_02">
 
-        <include
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/toolbar"
-            layout="@layout/toolbar" />
+            app:layout_constraintBottom_toTopOf="@+id/fragmentContainer"
+            android:background="@color/topic_color">
+            <ImageView
+                android:id="@+id/menu_icon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginVertical="10dp"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/menu_icon"/>
+
+
+        </LinearLayout>
+
+<!--        <include-->
+<!--            android:id="@+id/toolbar"-->
+<!--            layout="@layout/toolbar" />-->
 
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragmentContainer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@+id/bottomBar"
-            android:layout_below="@+id/toolbar"
+            android:layout_below="@id/toolbar"
+            android:layout_above="@id/bottomBar"
             tools:layout="@layout/fragment_college" />
 
         <LinearLayout
             android:id="@+id/bottomBar"
-
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
             android:background="@color/white"
             android:elevation="10dp"
             android:gravity="center"
@@ -50,8 +66,8 @@
             android:paddingEnd="20dp"
             android:paddingBottom="15dp"
             android:weightSum="4"
-            app:layout_constraintBottom_toBottomOf="parent"
-            tools:targetApi="lollipop">
+            tools:targetApi="lollipop"
+            android:layout_alignParentBottom="true">
 
             <LinearLayout
                 android:id="@+id/collegeLayout"
@@ -211,14 +227,7 @@
         </LinearLayout>
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-
-
-
+    </RelativeLayout>
 
 
 </androidx.drawerlayout.widget.DrawerLayout>
