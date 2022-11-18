@@ -1,195 +1,224 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainPageActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MainPageActivity"
+    android:fitsSystemWindows="true">
+
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/nav_view"
+        app:headerLayout="@layout/header"
+        app:menu="@menu/main_page_menu"
+        android:layout_gravity="start"/>
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/blue_color_02">
 
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar" />
+
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragmentContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottomBar"
+            android:layout_below="@+id/toolbar"
+            tools:layout="@layout/fragment_college" />
+
+        <LinearLayout
+            android:id="@+id/bottomBar"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            android:elevation="10dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingStart="20dp"
+            android:paddingTop="15dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="15dp"
+            android:weightSum="4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:targetApi="lollipop">
+
+            <LinearLayout
+                android:id="@+id/collegeLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@drawable/round_back_college"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp">
+
+                <ImageView
+                    android:id="@+id/collegeImage"
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/college_clicks" />
+
+                <TextView
+                    android:id="@+id/collegeText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="進入學院"
+                    android:textColor="@color/bottom_bar_icons_clicked01"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/loungeLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp">
+
+                <ImageView
+                    android:id="@+id/loungeImage"
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/lounge" />
+
+                <TextView
+                    android:id="@+id/loungeText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="交誼廳"
+                    android:textColor="@color/bottom_bar_icons_clicked02"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/dormLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp">
+
+                <ImageView
+                    android:id="@+id/dormImage"
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/dorm" />
+
+                <TextView
+                    android:id="@+id/dormText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="我的宿舍"
+                    android:textColor="@color/bottom_bar_icons_clicked03"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/studyCircleLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp">
+
+                <ImageView
+                    android:id="@+id/studyCircleImage"
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/study_circle" />
+
+                <TextView
+                    android:id="@+id/studyCircleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="讀書會"
+                    android:textColor="@color/bottom_bar_icons_clicked04"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/libraryLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp">
+
+                <ImageView
+                    android:id="@+id/libraryImage"
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/library" />
+
+                <TextView
+                    android:id="@+id/libraryText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="圖書館"
+                    android:textColor="@color/bottom_bar_icons_clicked05"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar"/>
-
-
-
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainer"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/bottomBar"
-        android:layout_below="@+id/toolbar"
-        tools:layout="@layout/fragment_college" />
-
-
-
-    <LinearLayout
-        android:id="@+id/bottomBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="4"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
-        android:paddingBottom="15dp"
-        android:paddingTop="15dp"
-        android:elevation="10dp"
-        android:gravity="center"
-        tools:targetApi="lollipop"
-        android:background="@color/white"
-        android:layout_alignParentBottom="true">
-
-        <LinearLayout
-            android:id="@+id/collegeLayout"
-            android:background="@drawable/round_back_college"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:orientation="horizontal"
-            android:paddingStart="5dp"
-            android:paddingEnd="5dp"
-            android:gravity="center"
-            android:layout_weight="1">
-            <ImageView
-                android:id="@+id/collegeImage"
-                android:layout_width="20dp"
-                android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
-                android:src="@drawable/college_clicks"/>
-            <TextView
-                android:id="@+id/collegeText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="進入學院"
-                android:textColor="@color/bottom_bar_icons_clicked01"
-                android:layout_margin="10dp"
-                android:textStyle="bold"
-                android:textSize="16sp"/>
-
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/loungeLayout"
-            android:background="@color/transparent"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:orientation="horizontal"
-            android:paddingStart="5dp"
-            android:paddingEnd="5dp"
-            android:gravity="center"
-            android:layout_weight="1">
-            <ImageView
-                android:id="@+id/loungeImage"
-                android:layout_width="20dp"
-                android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
-                android:src="@drawable/lounge"/>
-            <TextView
-                android:id="@+id/loungeText"
-                android:visibility="gone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="交誼廳"
-                android:textColor="@color/bottom_bar_icons_clicked02"
-                android:layout_margin="10dp"
-                android:textStyle="bold"
-                android:textSize="16sp"/>
-
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/dormLayout"
-            android:background="@color/transparent"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:orientation="horizontal"
-            android:paddingStart="5dp"
-            android:paddingEnd="5dp"
-            android:gravity="center"
-            android:layout_weight="1">
-            <ImageView
-                android:id="@+id/dormImage"
-                android:layout_width="20dp"
-                android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
-                android:src="@drawable/dorm"/>
-            <TextView
-                android:id="@+id/dormText"
-                android:visibility="gone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="我的宿舍"
-                android:textColor="@color/bottom_bar_icons_clicked03"
-                android:layout_margin="10dp"
-                android:textStyle="bold"
-                android:textSize="16sp"/>
-
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/studyCircleLayout"
-            android:background="@color/transparent"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:orientation="horizontal"
-            android:paddingStart="5dp"
-            android:paddingEnd="5dp"
-            android:gravity="center"
-            android:layout_weight="1">
-            <ImageView
-                android:id="@+id/studyCircleImage"
-                android:layout_width="20dp"
-                android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
-                android:src="@drawable/study_circle"/>
-            <TextView
-                android:id="@+id/studyCircleText"
-                android:visibility="gone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="讀書會"
-                android:textColor="@color/bottom_bar_icons_clicked04"
-                android:layout_margin="10dp"
-                android:textStyle="bold"
-                android:textSize="16sp"/>
-
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/libraryLayout"
-            android:background="@color/transparent"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:orientation="horizontal"
-            android:paddingStart="5dp"
-            android:paddingEnd="5dp"
-            android:gravity="center"
-            android:layout_weight="1">
-            <ImageView
-                android:id="@+id/libraryImage"
-                android:layout_width="20dp"
-                android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
-                android:src="@drawable/library"/>
-            <TextView
-                android:id="@+id/libraryText"
-                android:visibility="gone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="圖書館"
-                android:textColor="@color/bottom_bar_icons_clicked05"
-                android:layout_margin="10dp"
-                android:textStyle="bold"
-                android:textSize="16sp"/>
-
-        </LinearLayout>
-
-
-    </LinearLayout>
 
 
 
 
-</RelativeLayout>
+
+
+
+</androidx.drawerlayout.widget.DrawerLayout>

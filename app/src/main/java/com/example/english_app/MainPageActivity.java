@@ -8,12 +8,22 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
+
+import com.google.android.material.navigation.NavigationView;
 
 public class MainPageActivity extends AppCompatActivity {
 
     //number of selectedTab. 我們有五個頁面所以 values 介於1-5之簡，default value = 1
     private int selectedTab = 1;
+
+    //variables
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
+    Toolbar toolbar;
 
 
     @Override
@@ -21,12 +31,22 @@ public class MainPageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
 
-//        //記得這裡的Toolbar 使用的是androidx.appcompat.widget.Toolbar，不可以選錯宣告(by P)
-//        Toolbar toolbar = findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-//        toolbar.setNavigationIcon(R.drawable.icon_menu);
+        /*--- These are the xml that will show on main page(including the bottomBar bellow) ---*/
+        drawerLayout = findViewById(R.id.drawer_layout); //whole screen of main page
+        navigationView = findViewById(R.id.nav_view); //the drawer
+        toolbar = findViewById(R.id.toolbar); //upperBar = toolbar
 
 
+        /*------------------------------TOOL BAR (UP)---------------------------------------*/
+        setSupportActionBar(toolbar);
+        toolbar.setNavigationIcon(R.drawable.menu_icon);
+
+        /*------------------------------NAVIGATION DRAWER MENU -----------------------------*/
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+
+        //以下為bottomBar!!!!!!!!!!
         //全部一起宣告因為立刻會用到
         final LinearLayout collegeLayout = findViewById(R.id.collegeLayout);
         final LinearLayout loungeLayout = findViewById(R.id.loungeLayout);
