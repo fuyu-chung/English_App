@@ -46,7 +46,8 @@ public class MainPageActivity extends AppCompatActivity {
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-        //以下為bottomBar!!!!!!!!!!
+
+        /*------------------------------BOTTOM BAR!!!!!-------------------------------------*/
         //全部一起宣告因為立刻會用到
         final LinearLayout collegeLayout = findViewById(R.id.collegeLayout);
         final LinearLayout loungeLayout = findViewById(R.id.loungeLayout);
