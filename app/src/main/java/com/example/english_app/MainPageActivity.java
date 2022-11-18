@@ -40,16 +40,15 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
         toolbar = findViewById(R.id.toolbar); //upperBar = toolbar
 
 
-        /*------------------------------TOOL BAR (UP)---------------------------------------*/
+        /*--------------------------TOOL BAR (UP)---------------------------*/
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.menu_icon);
 
-        /*------------------------------NAVIGATION DRAWER MENU -----------------------------*/
+        /*--------------------NAVIGATION DRAWER MENU -----------------------*/
         navigationView.bringToFront();
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
-
         navigationView.setNavigationItemSelectedListener(this);
 
 
