@@ -101,7 +101,9 @@
                 android:id="@+id/show_password"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="顯示密碼" />
+                android:text="顯示密碼"
+                android:buttonTint="@color/topic_color"
+                android:textColor="@color/topic_color"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/forgetPassword"
