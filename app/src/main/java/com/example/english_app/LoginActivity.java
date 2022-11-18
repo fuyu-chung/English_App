@@ -1,10 +1,17 @@
 package com.example.english_app;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Looper;
+import android.text.InputType;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.Checkable;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,9 +26,13 @@ import java.sql.SQLException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
+
 public class LoginActivity extends AppCompatActivity {
     private EditText user_phone, user_password;
     private MaterialButton loginBtn, registerBtn, forgetBtn;
+    private CheckBox showCb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,23 +68,20 @@ public class LoginActivity extends AppCompatActivity {
                             Looper.prepare();
                             Toast.makeText(this, "登入成功", Toast.LENGTH_LONG).show();
                             Looper.loop();
-                        }
-                        else {
+                        } else {
                             runOnUiThread(() -> (user_password).setError("密碼錯誤"));
 //                            Looper.prepare();
 //                            Toast.makeText(this, "使用者密碼錯誤！", Toast.LENGTH_LONG).show();
 //                            Looper.loop();
                         }
-                    }
-                    else {
+                    } else {
                         runOnUiThread(() -> (user_phone).setError("使用者不存在"));
 //                        Looper.prepare();
 //                        Toast.makeText(this, "使用者不存在", Toast.LENGTH_SHORT).show();
 //                        Toast.makeText(this, "請重新輸入或前往註冊", Toast.LENGTH_LONG).show();
 //                        Looper.loop();
                     }
-                }
-                catch (SQLException e) {
+                } catch (SQLException e) {
                     System.out.println(e.getMessage());
                 }
             });
@@ -89,13 +97,26 @@ public class LoginActivity extends AppCompatActivity {
             });
         });
 
-       forgetBtn = findViewById(R.id.forgetPassword);
-       forgetBtn.setOnClickListener(v -> {
+        forgetBtn = findViewById(R.id.forgetPassword);
+        forgetBtn.setOnClickListener(v -> {
             ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
             executor.execute(() -> {
                 Intent intent = new Intent(this, ForgetPasswordActivity.class); //
                 startActivity(intent);
             });
         });
+
+        showCb = findViewById(R.id.show_password);
+        showCb.setOnClickListener(
+                view -> {
+                   EditText passwordShow = findViewById(R.id.user_password);
+                    if(showCb.isChecked()){
+                        passwordShow.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    }
+                    else{
+                        passwordShow.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    }
+                }
+        );
     }
 }
