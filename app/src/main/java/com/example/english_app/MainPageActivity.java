@@ -1,5 +1,6 @@
 package com.example.english_app;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -36,7 +37,6 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
     NavigationView navigationView;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +47,6 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
         navigationView = findViewById(R.id.nav_view); //the drawer
         menuIcon = findViewById(R.id.menu_icon); //the menu icon
         contentView = findViewById(R.id.contentView); //the contentView (relative)
-
 
 
         navigationDrawer();
@@ -385,9 +384,23 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
         }
 
     }
-    /*------- Set navigation item ------------*/
+
+    /*------- Set navigation items ------------*/
     @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+        switch (menuItem.getItemId()) {
+            case R.id.nav_home:
+                break; //because we are already on the home page
+            case R.id.nav_profile:
+                Intent intent = new Intent(this, UserProfileActivity.class);
+                startActivity(intent);
+                break;
+        }
+
+        drawerLayout.closeDrawer(GravityCompat.START); //if any item selected, close drawer
         return true;
     }
+
+
 }

@@ -22,7 +22,7 @@
         android:id="@+id/contentView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/blue_color_02">
+        android:background="@color/transparent">
 
         <LinearLayout
             android:id="@+id/toolbar"
@@ -42,9 +42,6 @@
 
         </LinearLayout>
 
-        <!--        <include-->
-        <!--            android:id="@+id/toolbar"-->
-        <!--            layout="@layout/toolbar" />-->
 
 
         <androidx.fragment.app.FragmentContainerView

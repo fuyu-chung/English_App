@@ -15,13 +15,13 @@
     </group>
 
 
-    <item android:title="使用者資料設定">
+    <item android:title="我的帳號">
         <menu>
             <group android:checkableBehavior="single">
                 <item
                     android:id="@+id/nav_profile"
                     android:icon="@drawable/canva_user_icon"
-                    android:title="使用者資料設定" />
+                    android:title="我的個人資料" />
                 <item
                     android:id="@+id/nav_password"
                     android:icon="@drawable/canva_lock_icon"
@@ -31,7 +31,7 @@
     </item>
 
 
-    <item android:title="English APP">
+    <item android:title="英格利許學校">
         <menu>
             <group android:checkableBehavior="single">
                 <item

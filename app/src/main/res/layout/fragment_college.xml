@@ -1,20 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bottom_bar_icons_bg01"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/blue_color_02"
     tools:context=".CollegeFragment">
-
-    <TextView
+<!--#66FFCACA-->
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="College fragment"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:textColor="@color/black"/>
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp">
+
+        <RelativeLayout
+            android:id="@+id/collegeLayout01"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/college_layout01">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="160dp"
+                android:layout_height="134dp"
+                app:srcCompat="@drawable/fox_with_book"
+                android:layout_marginVertical="16dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="16dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/collegeText1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="開學囉!"
+
+                    android:textStyle="bold"
+                    android:textSize="38sp"
+                    android:textColor="@color/bottom_bar_icons_clicked01"
+                    />
+
+                <TextView
+                    android:id="@+id/collegeText2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="選一個學院開始探索吧!"
+                    android:textColor="@color/bottom_bar_icons_clicked01"
+                    android:textSize="18sp"/>
+            </LinearLayout>
 
 
 
-</FrameLayout>
+
+
+
+        </RelativeLayout>
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+</ScrollView>
