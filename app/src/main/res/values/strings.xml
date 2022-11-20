@@ -7,7 +7,13 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
 
-    <!--  college page words of college cardView after expand  -->
+    <!--  ALL ABOUT COLLEGE FRAGMENT  -->
+    <!--  college page words of college cardView BEFORE expand  -->
+    <string name = "extendText">展開</string>
+    <string name = "shrinkText">收起</string>
+
+
+    <!--  college page words of college cardView AFTER expand  -->
     <string name="cardView_detail_college">
         這個學院是單字區，這個學院是單字區，這個學院是單字區，這個學院是單字區，這個學院是單字區，這個學院是單字區，這個學院是單字區，這個學院是單字區，這個學院是單字區，這個學院是單字區，這個學院是單字區，這個學院是單字區，這個學院是單字區，這個學院是單字區，這個學院是單字區，這個學院是單字區，這個學院是單字區，這個學院是單字區，這個學院是單字區，這個學院是單字區，這個學院是單字區，
     </string>

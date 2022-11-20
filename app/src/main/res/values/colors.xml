@@ -51,7 +51,7 @@
 
 
     <!--  college page layouts words  -->
-    <color name="college_topic_words">#A18720</color>
+    <color name="vocab_topic_words">#A18720</color>
     <color name="phrase_topic_words">#20A18E</color>
     <color name="reading_topic_words">#4E9856</color>
     <color name="compete_topic_words">#DD7F46</color>
