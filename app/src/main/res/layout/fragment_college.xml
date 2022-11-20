@@ -146,8 +146,6 @@
                     android:layout_marginTop="-30dp"
                     app:srcCompat="@drawable/house_vocabulary" />
 
-
-
             </RelativeLayout>
 
         </androidx.cardview.widget.CardView>
@@ -364,9 +362,9 @@
                         android:fontFamily="@font/baloo_tammudu"
                         android:paddingTop="40dp"
                         android:paddingEnd="20dp"
-                        android:text="Reading"
+                        android:text="Competition"
                         android:textColor="@color/compete_topic_words"
-                        android:textSize="30sp"
+                        android:textSize="28sp"
                         android:textStyle="bold" />
 
                     <LinearLayout
@@ -421,7 +419,6 @@
             </RelativeLayout>
 
         </androidx.cardview.widget.CardView>
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
