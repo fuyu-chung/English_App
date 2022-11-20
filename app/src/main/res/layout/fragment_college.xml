@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/blue_color_02"
     tools:context=".CollegeFragment">
-<!--#66FFCACA-->
+    <!--#66FFCACA-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp">
 
         <RelativeLayout
-            android:id="@+id/collegeLayout01"
+            android:id="@+id/collegeLayoutTop"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
 
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/college_layout_top"
             app:layout_constraintEnd_toEndOf="parent"
-            android:background="@drawable/college_layout01">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/pic_fox_with_book"
                 android:layout_width="160dp"
                 android:layout_height="134dp"
-                app:srcCompat="@drawable/fox_with_book"
-                android:layout_marginVertical="16dp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="16dp" />
+                android:layout_marginVertical="16dp"
+                android:layout_marginEnd="16dp"
+                app:srcCompat="@drawable/fox_with_book" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -46,10 +46,9 @@
                     android:layout_height="wrap_content"
                     android:text="開學囉!"
 
-                    android:textStyle="bold"
-                    android:textSize="38sp"
                     android:textColor="@color/bottom_bar_icons_clicked01"
-                    />
+                    android:textSize="38sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/collegeText2"
@@ -57,23 +56,375 @@
                     android:layout_height="wrap_content"
                     android:text="選一個學院開始探索吧!"
                     android:textColor="@color/bottom_bar_icons_clicked01"
-                    android:textSize="18sp"/>
+                    android:textSize="18sp" />
             </LinearLayout>
-
-
-
-
-
-
         </RelativeLayout>
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewCollege"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:cardBackgroundColor="@color/transparent"
+            app:cardCornerRadius="20dp"
+
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/collegeLayoutTop">
+
+            <RelativeLayout
+                android:id="@+id/collegeLayout01"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/college_layout01">
+
+                    <TextView
+                        android:id="@+id/textViewVocab"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:fontFamily="@font/baloo_tammudu"
+                        android:paddingTop="40dp"
+                        android:paddingEnd="20dp"
+                        android:text="Vocabulary"
+                        android:textColor="@color/college_topic_words"
+                        android:textSize="30sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_below="@id/textViewVocab"
+                        android:paddingBottom="20dp"
+                        android:paddingHorizontal="20dp">
+
+                        <TextView
+                            android:id="@+id/detailCollegeText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/cardView_detail_college"
+                            android:textSize="18sp"
+                            android:textColor="@color/college_topic_words"
+                            android:textStyle="bold"
+                            android:visibility="gone"/>
+
+
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:id="@+id/extendCollegeLayout01Text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginTop="10dp"
+                        android:paddingEnd="20dp"
+                        android:paddingBottom="20dp"
+                        android:text="展開全部"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+
+                        android:visibility="visible"/>
+
+
+                </RelativeLayout>
+                <ImageView
+                    android:id="@+id/pic_house_vocabulary"
+                    android:layout_width="180dp"
+                    android:layout_height="180dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+
+                    android:layout_marginTop="-30dp"
+                    app:srcCompat="@drawable/house_vocabulary" />
+
+
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewPhrase"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            app:cardBackgroundColor="@color/transparent"
+            app:cardCornerRadius="20dp"
+
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardViewCollege">
+
+            <RelativeLayout
+                android:id="@+id/collegeLayout02"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/college_layout02">
+
+                    <TextView
+                        android:id="@+id/textViewPhrase"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:fontFamily="@font/baloo_tammudu"
+                        android:paddingTop="40dp"
+                        android:paddingEnd="20dp"
+                        android:text="Phrase"
+                        android:textColor="@color/phrase_topic_words"
+                        android:textSize="30sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_below="@id/textViewPhrase"
+                        android:paddingBottom="20dp"
+                        android:paddingHorizontal="20dp">
+
+                        <TextView
+                            android:id="@+id/detailPhraseText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/cardView_detail_phrase"
+                            android:textSize="18sp"
+                            android:textColor="@color/phrase_topic_words"
+                            android:textStyle="bold"
+                            android:visibility="gone"/>
+
+
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:id="@+id/extendCollegeLayout02Text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginTop="10dp"
+                        android:paddingEnd="20dp"
+                        android:paddingBottom="20dp"
+                        android:text="展開全部"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+
+                        android:visibility="visible"/>
+
+
+                </RelativeLayout>
+                <ImageView
+                    android:id="@+id/pic_house_phrase"
+                    android:layout_width="180dp"
+                    android:layout_height="180dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+
+                    android:layout_marginTop="-20dp"
+                    app:srcCompat="@drawable/house_phrase" />
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewReading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            app:cardBackgroundColor="@color/transparent"
+            app:cardCornerRadius="20dp"
+
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardViewPhrase">
+
+            <RelativeLayout
+                android:id="@+id/collegeLayout03"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/college_layout03">
+
+                    <TextView
+                        android:id="@+id/textViewReading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:fontFamily="@font/baloo_tammudu"
+                        android:paddingTop="40dp"
+                        android:paddingEnd="20dp"
+                        android:text="Reading"
+                        android:textColor="@color/reading_topic_words"
+                        android:textSize="30sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_below="@id/textViewReading"
+                        android:paddingBottom="20dp"
+                        android:paddingHorizontal="20dp">
+
+                        <TextView
+                            android:id="@+id/detailReadingText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/cardView_detail_reading"
+                            android:textSize="18sp"
+                            android:textColor="@color/reading_topic_words"
+                            android:textStyle="bold"
+                            android:visibility="gone"/>
+
+
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:id="@+id/extendCollegeLayout03Text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginTop="10dp"
+                        android:paddingEnd="20dp"
+                        android:paddingBottom="20dp"
+                        android:text="展開全部"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+
+                        android:visibility="visible"/>
+
+
+                </RelativeLayout>
+                <ImageView
+                    android:id="@+id/pic_house_reading"
+                    android:layout_width="180dp"
+                    android:layout_height="180dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+
+                    android:layout_marginTop="-30dp"
+                    app:srcCompat="@drawable/house_reading" />
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewCompete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            app:cardBackgroundColor="@color/transparent"
+            app:cardCornerRadius="20dp"
+
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardViewReading">
+
+            <RelativeLayout
+                android:id="@+id/collegeLayout04"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/college_layout04">
+
+                    <TextView
+                        android:id="@+id/textViewCompete"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:fontFamily="@font/baloo_tammudu"
+                        android:paddingTop="40dp"
+                        android:paddingEnd="20dp"
+                        android:text="Reading"
+                        android:textColor="@color/compete_topic_words"
+                        android:textSize="30sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_below="@id/textViewCompete"
+                        android:paddingBottom="20dp"
+                        android:paddingHorizontal="20dp">
+
+                        <TextView
+                            android:id="@+id/detailCompeteText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/cardView_detail_compete"
+                            android:textSize="18sp"
+                            android:textColor="@color/compete_topic_words"
+                            android:textStyle="bold"
+                            android:visibility="gone"/>
+
+
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:id="@+id/extendCollegeLayout04Text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginTop="10dp"
+                        android:paddingEnd="20dp"
+                        android:paddingBottom="20dp"
+                        android:text="展開全部"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+
+                        android:visibility="visible"/>
+
+
+                </RelativeLayout>
+                <ImageView
+                    android:id="@+id/pic_house_compete"
+                    android:layout_width="180dp"
+                    android:layout_height="180dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+
+                    android:layout_marginTop="-25dp"
+                    app:srcCompat="@drawable/house_competition" />
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
 
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
 
 
 </ScrollView>
