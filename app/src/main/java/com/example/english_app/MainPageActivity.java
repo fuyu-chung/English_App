@@ -348,6 +348,8 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
             }
         });
 
+
+
         animateNavigationDrawer();
     }
 
