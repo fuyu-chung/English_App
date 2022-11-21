@@ -22,9 +22,9 @@ public class MainActivity extends AppCompatActivity {
         TextView errorText = findViewById(R.id.textView2);
         Button show = findViewById(R.id.button);
         show.setOnClickListener(view -> { //點之後會執行下面的
-            new Thread(()->{
+            new Thread(() -> {
                 try { //試跑try有問題就跑catch
-                    String records = "", error="";
+                    String records = "", error = "";
                     String s1 = "jdbc:jtds:sqlserver://myenglishserver.database.windows.net:1433/englishapp_db;user=englishapp@myenglishserver;password=English1234@@;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;ssl=request;"; //訪問azure的db的網址
                     Connection connection = DriverManager.getConnection(s1); //建立連線
                     Statement statement = connection.createStatement(); // 跑出一個結果
@@ -39,9 +39,7 @@ public class MainActivity extends AppCompatActivity {
                             text.setText(finalRecords); // 文字設定成records內容
                         }
                     });
-                }
-
-                catch(SQLException e) {
+                } catch (SQLException e) {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {

@@ -132,7 +132,7 @@ public class RegisterActivity extends AppCompatActivity {
                         return;
                     }
 
-                    String salt1 = Encryption.generatedSalt();;
+                    String salt1 = Encryption.generatedSalt();
                     String salt2 = Encryption.generatedSalt();
 
                     passwordText = Encryption.sha1(salt1+ Encryption.md5(salt2 + passwordText));

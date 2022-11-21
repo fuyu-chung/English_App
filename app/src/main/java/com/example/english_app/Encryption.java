@@ -13,6 +13,7 @@ public class Encryption {
         System.out.println(generatedSalt);
         return generatedSalt;
     }
+
     public static String sha1(String clearString) {
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("SHA-1");
@@ -23,8 +24,7 @@ public class Encryption {
                 buffer.append(Integer.toString((b & 0xff) + 0x100, 16).substring(1));
             }
             return buffer.toString();
-        }
-        catch (Exception ignored) {
+        } catch (Exception ignored) {
             ignored.printStackTrace();
             return null;
         }
@@ -41,8 +41,7 @@ public class Encryption {
                 hexString.append(Integer.toHexString(0xFF & messageDigest[i]));
 
             return hexString.toString();
-        }
-        catch (NoSuchAlgorithmException e) {
+        } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
         return "";
