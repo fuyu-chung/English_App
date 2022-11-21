@@ -9,8 +9,8 @@
 
     <!--  ALL ABOUT COLLEGE FRAGMENT  -->
     <!--  college page words of college cardView BEFORE expand  -->
-    <string name = "extendText">展開</string>
-    <string name = "shrinkText">收起</string>
+    <string name="extendText">展開</string>
+    <string name="shrinkText">收起</string>
 
 
     <!--  college page words of college cardView AFTER expand  -->

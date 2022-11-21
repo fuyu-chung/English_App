@@ -5,6 +5,7 @@
       <map>
         <entry key="app/src/main/res/drawable/books.xml" value="0.216" />
         <entry key="app/src/main/res/drawable/books_clicks.xml" value="0.216" />
+        <entry key="app/src/main/res/drawable/dorm.xml" value="0.153" />
         <entry key="app/src/main/res/drawable/ic_back.xml" value="0.216" />
         <entry key="app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.216" />
         <entry key="app/src/main/res/drawable/ic_baseline_info_24.xml" value="0.216" />
@@ -14,7 +15,9 @@
         <entry key="app/src/main/res/drawable/login_top_bar.xml" value="0.247" />
         <entry key="app/src/main/res/drawable/loginsecuritybox.xml" value="0.117" />
         <entry key="app/src/main/res/drawable/logintopbar.xml" value="0.117" />
-        <entry key="app/src/main/res/layout/activity_forget_password.xml" value="0.16621743036837378" />
+        <entry key="app/src/main/res/drawable/registerbox.xml" value="0.153" />
+        <entry key="app/src/main/res/layout/activity_change_password.xml" value="0.2259963768115942" />
+        <entry key="app/src/main/res/layout/activity_forget_password.xml" value="0.20723724365234375" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.16757246376811594" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3046218872070312" />
         <entry key="app/src/main/res/layout/activity_main_college.xml" value="0.25052083333333336" />
