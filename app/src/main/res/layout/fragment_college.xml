@@ -109,10 +109,9 @@
                             android:id="@+id/detailCollegeText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/cardView_detail_college"
+                            android:text="@string/cardView_detail_vocab"
                             android:textSize="18sp"
                             android:textColor="@color/vocab_topic_words"
-                            android:textStyle="bold"
                             android:visibility="gone"/>
 
                     </LinearLayout>
