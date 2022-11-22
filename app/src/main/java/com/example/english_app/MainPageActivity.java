@@ -348,6 +348,8 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
             }
         });
 
+
+
         animateNavigationDrawer();
     }
 
@@ -396,6 +398,11 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
                 Intent intent = new Intent(this, UserProfileActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.nav_passwordChange:
+                Intent intent2 = new Intent(this, ChangePassword.class);
+                startActivity(intent2);
+                break;
+
         }
 
         drawerLayout.closeDrawer(GravityCompat.START); //if any item selected, close drawer
