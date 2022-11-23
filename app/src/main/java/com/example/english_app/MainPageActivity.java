@@ -22,7 +22,9 @@ import com.google.android.material.navigation.NavigationView;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -43,6 +45,11 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
     NavigationView navigationView;
     TextView userName;
 
+   //initial headerView and user_name
+    View headerView;
+    TextView navUserTextView;
+    Connection con;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,8 +60,17 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
         navigationView = findViewById(R.id.nav_view); //the drawer
         menuIcon = findViewById(R.id.menu_icon); //the menu icon
         contentView = findViewById(R.id.contentView); //the contentView (relative)
-        userName = findViewById(R.id.user_name);
 
+        /*---------------------- CALL CURRENT USERNAME -------------------------------*/
+        //set into navigation View header
+        headerView = navigationView.getHeaderView(0);
+        navUserTextView = headerView.findViewById(R.id.user_name);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("User", MODE_PRIVATE);
+        String name = sharedPreferences.getString("user_name", " ");
+
+
+        updateNavHeader();
         navigationDrawer();
 
         /*------------------------------BOTTOM BAR!!!!!-------------------------------------*/
@@ -337,8 +353,6 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
             }
         });
 
-
-
         animateNavigationDrawer();
     }
 
@@ -361,6 +375,31 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
                 contentView.setTranslationX(xTranslation);
             }
         });
+    }
+
+    public void updateNavHeader(){
+
+        navigationView = findViewById(R.id.nav_view);
+        headerView = navigationView.getHeaderView(0);
+        navUserTextView = headerView.findViewById(R.id.user_name);
+
+        try {
+            con = (Connection) new ConnectionManager();
+
+            String query = "select * from Users";
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+
+            if (rs.next()) {
+//                user_name = rs.getString(2);
+            }
+
+
+        }catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+
     }
 
     /*----------To avoid closing the app on Back pressed------------*/
