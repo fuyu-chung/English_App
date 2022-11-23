@@ -1,6 +1,7 @@
 package com.example.english_app;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,13 +13,18 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class MainPageActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -35,7 +41,7 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
     //Drawer menu
     DrawerLayout drawerLayout;
     NavigationView navigationView;
-
+    TextView userName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,11 +53,9 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
         navigationView = findViewById(R.id.nav_view); //the drawer
         menuIcon = findViewById(R.id.menu_icon); //the menu icon
         contentView = findViewById(R.id.contentView); //the contentView (relative)
-
+        userName = findViewById(R.id.user_name);
 
         navigationDrawer();
-
-
 
         /*------------------------------BOTTOM BAR!!!!!-------------------------------------*/
         //全部一起宣告因為立刻會用到
@@ -79,202 +83,190 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
                 .replace(R.id.fragmentContainer, CollegeFragment.class, null)
                 .commit();
 
-        collegeLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        collegeLayout.setOnClickListener(v -> {
 
-                //check if college is selected
-                if (selectedTab != 1) {
+            //check if college is selected
+            if (selectedTab != 1) {
 
-                    //set college fragment
-                    getSupportFragmentManager().beginTransaction()
-                            .setReorderingAllowed(true)
-                            .replace(R.id.fragmentContainer, CollegeFragment.class, null)
-                            .commit();
+                //set college fragment
+                getSupportFragmentManager().beginTransaction()
+                        .setReorderingAllowed(true)
+                        .replace(R.id.fragmentContainer, CollegeFragment.class, null)
+                        .commit();
 
-                    //unselect other tabs except college tab, here is text that we don't want to display
-                    loungeText.setVisibility(View.GONE);
-                    dormText.setVisibility(View.GONE);
-                    studyCircleText.setVisibility(View.GONE);
-                    libraryText.setVisibility(View.GONE);
+                //unselect other tabs except college tab, here is text that we don't want to display
+                loungeText.setVisibility(View.GONE);
+                dormText.setVisibility(View.GONE);
+                studyCircleText.setVisibility(View.GONE);
+                libraryText.setVisibility(View.GONE);
 
-                    //icon before clicked will display
-                    loungeImage.setImageResource(R.drawable.lounge);
-                    dormImage.setImageResource(R.drawable.dorm);
-                    studyCircleImage.setImageResource(R.drawable.study_circle);
-                    libraryImage.setImageResource(R.drawable.library);
+                //icon before clicked will display
+                loungeImage.setImageResource(R.drawable.lounge);
+                dormImage.setImageResource(R.drawable.dorm);
+                studyCircleImage.setImageResource(R.drawable.study_circle);
+                libraryImage.setImageResource(R.drawable.library);
 
 
-                    //layout transparent
-                    loungeLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
-                    dormLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
-                    studyCircleLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
-                    libraryLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+                //layout transparent
+                loungeLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+                dormLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+                studyCircleLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+                libraryLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
 
-                    //college visibility
-                    collegeText.setVisibility(View.VISIBLE);
-                    collegeImage.setImageResource(R.drawable.college_clicks);
-                    collegeLayout.setBackgroundResource(R.drawable.round_back_college);
+                //college visibility
+                collegeText.setVisibility(View.VISIBLE);
+                collegeImage.setImageResource(R.drawable.college_clicks);
+                collegeLayout.setBackgroundResource(R.drawable.round_back_college);
 
-                    //animation
-                    ScaleAnimation scaleAnimation = new ScaleAnimation(0.8f, 1.0f, 1f, 1f, Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF, 0.0f);
-                    scaleAnimation.setDuration(200);
-                    scaleAnimation.setFillAfter(true);
-                    collegeLayout.startAnimation(scaleAnimation);
+                //animation
+                ScaleAnimation scaleAnimation = new ScaleAnimation(0.8f, 1.0f, 1f, 1f, Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF, 0.0f);
+                scaleAnimation.setDuration(200);
+                scaleAnimation.setFillAfter(true);
+                collegeLayout.startAnimation(scaleAnimation);
 
-                    //set 1st tab as selected tab
-                    selectedTab = 1;
-                }
+                //set 1st tab as selected tab
+                selectedTab = 1;
+            }
+
+        });
+
+        loungeLayout.setOnClickListener(v -> {
+
+            //check if lounge is selected
+            if (selectedTab != 2) {
+
+                //set lounge fragment
+                getSupportFragmentManager().beginTransaction()
+                        .setReorderingAllowed(true)
+                        .replace(R.id.fragmentContainer, LoungeFragment.class, null)
+                        .commit();
+
+                //unselect other tabs except lounge tab, here is text that we don't want to display
+                collegeText.setVisibility(View.GONE);
+                dormText.setVisibility(View.GONE);
+                studyCircleText.setVisibility(View.GONE);
+                libraryText.setVisibility(View.GONE);
+
+                //icon before clicked will display
+                collegeImage.setImageResource(R.drawable.college);
+                dormImage.setImageResource(R.drawable.dorm);
+                studyCircleImage.setImageResource(R.drawable.study_circle);
+                libraryImage.setImageResource(R.drawable.library);
+
+                //layout transparent
+                collegeLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+                dormLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+                studyCircleLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+                libraryLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+
+                //lounge visibility
+                loungeText.setVisibility(View.VISIBLE);
+                loungeImage.setImageResource(R.drawable.lounge_clicks);
+                loungeLayout.setBackgroundResource(R.drawable.round_back_lounge);
+
+                //animation
+                ScaleAnimation scaleAnimation = new ScaleAnimation(0.8f, 1.0f, 1f, 1f, Animation.RELATIVE_TO_SELF, 1.0f, Animation.RELATIVE_TO_SELF, 0.0f);
+                scaleAnimation.setDuration(200);
+                scaleAnimation.setFillAfter(true);
+                loungeLayout.startAnimation(scaleAnimation);
+
+                //set 2nd tab as selected tab
+                selectedTab = 2;
+            }
+
+        });
+
+        dormLayout.setOnClickListener(v -> {
+
+            //check if dorm is selected
+            if (selectedTab != 3) {
+
+                //set dorm fragment
+                getSupportFragmentManager().beginTransaction()
+                        .setReorderingAllowed(true)
+                        .replace(R.id.fragmentContainer, DormFragment.class, null)
+                        .commit();
+
+                //unselect other tabs except dorm tab, here is text that we don't want to display
+                collegeText.setVisibility(View.GONE);
+                loungeText.setVisibility(View.GONE);
+                studyCircleText.setVisibility(View.GONE);
+                libraryText.setVisibility(View.GONE);
+
+                //icon before clicked will display
+                collegeImage.setImageResource(R.drawable.college);
+                loungeImage.setImageResource(R.drawable.lounge);
+                studyCircleImage.setImageResource(R.drawable.study_circle);
+                libraryImage.setImageResource(R.drawable.library);
+
+                //layout transparent
+                collegeLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+                loungeLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+                studyCircleLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+                libraryLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+
+                //dorm visibility
+                dormText.setVisibility(View.VISIBLE);
+                dormImage.setImageResource(R.drawable.dorm_clicks);
+                dormLayout.setBackgroundResource(R.drawable.round_back_dorm);
+
+                //animation
+                ScaleAnimation scaleAnimation = new ScaleAnimation(0.8f, 1.0f, 1f, 1f, Animation.RELATIVE_TO_SELF, 1.0f, Animation.RELATIVE_TO_SELF, 0.0f);
+                scaleAnimation.setDuration(200);
+                scaleAnimation.setFillAfter(true);
+                dormLayout.startAnimation(scaleAnimation);
+
+                //set 3rd tab as selected tab
+                selectedTab = 3;
 
             }
         });
 
-        loungeLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        studyCircleLayout.setOnClickListener(v -> {
 
-                //check if lounge is selected
-                if (selectedTab != 2) {
+            //check if study circle is selected
+            if (selectedTab != 4) {
 
-                    //set lounge fragment
-                    getSupportFragmentManager().beginTransaction()
-                            .setReorderingAllowed(true)
-                            .replace(R.id.fragmentContainer, LoungeFragment.class, null)
-                            .commit();
+                //set study circle fragment
+                getSupportFragmentManager().beginTransaction()
+                        .setReorderingAllowed(true)
+                        .replace(R.id.fragmentContainer, StudyCircleFragment.class, null)
+                        .commit();
 
-                    //unselect other tabs except lounge tab, here is text that we don't want to display
-                    collegeText.setVisibility(View.GONE);
-                    dormText.setVisibility(View.GONE);
-                    studyCircleText.setVisibility(View.GONE);
-                    libraryText.setVisibility(View.GONE);
+                //unselect other tabs except study circle tab, here is text that we don't want to display
+                collegeText.setVisibility(View.GONE);
+                loungeText.setVisibility(View.GONE);
+                dormText.setVisibility(View.GONE);
+                libraryText.setVisibility(View.GONE);
 
-                    //icon before clicked will display
-                    collegeImage.setImageResource(R.drawable.college);
-                    dormImage.setImageResource(R.drawable.dorm);
-                    studyCircleImage.setImageResource(R.drawable.study_circle);
-                    libraryImage.setImageResource(R.drawable.library);
+                //icon before clicked will display
+                collegeImage.setImageResource(R.drawable.college);
+                loungeImage.setImageResource(R.drawable.lounge);
+                dormImage.setImageResource(R.drawable.dorm);
+                libraryImage.setImageResource(R.drawable.library);
 
-                    //layout transparent
-                    collegeLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
-                    dormLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
-                    studyCircleLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
-                    libraryLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+                //layout transparent
+                collegeLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+                loungeLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+                dormLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+                libraryLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
 
-                    //lounge visibility
-                    loungeText.setVisibility(View.VISIBLE);
-                    loungeImage.setImageResource(R.drawable.lounge_clicks);
-                    loungeLayout.setBackgroundResource(R.drawable.round_back_lounge);
+                //study circle visibility
+                studyCircleText.setVisibility(View.VISIBLE);
+                studyCircleImage.setImageResource(R.drawable.study_circle_clicks);
+                studyCircleLayout.setBackgroundResource(R.drawable.round_back_study_circle);
 
-                    //animation
-                    ScaleAnimation scaleAnimation = new ScaleAnimation(0.8f, 1.0f, 1f, 1f, Animation.RELATIVE_TO_SELF, 1.0f, Animation.RELATIVE_TO_SELF, 0.0f);
-                    scaleAnimation.setDuration(200);
-                    scaleAnimation.setFillAfter(true);
-                    loungeLayout.startAnimation(scaleAnimation);
+                //animation
+                ScaleAnimation scaleAnimation = new ScaleAnimation(0.8f, 1.0f, 1f, 1f, Animation.RELATIVE_TO_SELF, 1.0f, Animation.RELATIVE_TO_SELF, 0.0f);
+                scaleAnimation.setDuration(200);
+                scaleAnimation.setFillAfter(true);
+                dormLayout.startAnimation(scaleAnimation);
 
-                    //set 2nd tab as selected tab
-                    selectedTab = 2;
-                }
+                //set 4th tab as selected tab
+                selectedTab = 4;
 
             }
-        });
 
-        dormLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                //check if dorm is selected
-                if (selectedTab != 3) {
-
-                    //set dorm fragment
-                    getSupportFragmentManager().beginTransaction()
-                            .setReorderingAllowed(true)
-                            .replace(R.id.fragmentContainer, DormFragment.class, null)
-                            .commit();
-
-                    //unselect other tabs except dorm tab, here is text that we don't want to display
-                    collegeText.setVisibility(View.GONE);
-                    loungeText.setVisibility(View.GONE);
-                    studyCircleText.setVisibility(View.GONE);
-                    libraryText.setVisibility(View.GONE);
-
-                    //icon before clicked will display
-                    collegeImage.setImageResource(R.drawable.college);
-                    loungeImage.setImageResource(R.drawable.lounge);
-                    studyCircleImage.setImageResource(R.drawable.study_circle);
-                    libraryImage.setImageResource(R.drawable.library);
-
-                    //layout transparent
-                    collegeLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
-                    loungeLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
-                    studyCircleLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
-                    libraryLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
-
-                    //dorm visibility
-                    dormText.setVisibility(View.VISIBLE);
-                    dormImage.setImageResource(R.drawable.dorm_clicks);
-                    dormLayout.setBackgroundResource(R.drawable.round_back_dorm);
-
-                    //animation
-                    ScaleAnimation scaleAnimation = new ScaleAnimation(0.8f, 1.0f, 1f, 1f, Animation.RELATIVE_TO_SELF, 1.0f, Animation.RELATIVE_TO_SELF, 0.0f);
-                    scaleAnimation.setDuration(200);
-                    scaleAnimation.setFillAfter(true);
-                    dormLayout.startAnimation(scaleAnimation);
-
-                    //set 3rd tab as selected tab
-                    selectedTab = 3;
-
-                }
-            }
-        });
-
-        studyCircleLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                //check if study circle is selected
-                if (selectedTab != 4) {
-
-                    //set study circle fragment
-                    getSupportFragmentManager().beginTransaction()
-                            .setReorderingAllowed(true)
-                            .replace(R.id.fragmentContainer, StudyCircleFragment.class, null)
-                            .commit();
-
-                    //unselect other tabs except study circle tab, here is text that we don't want to display
-                    collegeText.setVisibility(View.GONE);
-                    loungeText.setVisibility(View.GONE);
-                    dormText.setVisibility(View.GONE);
-                    libraryText.setVisibility(View.GONE);
-
-                    //icon before clicked will display
-                    collegeImage.setImageResource(R.drawable.college);
-                    loungeImage.setImageResource(R.drawable.lounge);
-                    dormImage.setImageResource(R.drawable.dorm);
-                    libraryImage.setImageResource(R.drawable.library);
-
-                    //layout transparent
-                    collegeLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
-                    loungeLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
-                    dormLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
-                    libraryLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
-
-                    //study circle visibility
-                    studyCircleText.setVisibility(View.VISIBLE);
-                    studyCircleImage.setImageResource(R.drawable.study_circle_clicks);
-                    studyCircleLayout.setBackgroundResource(R.drawable.round_back_study_circle);
-
-                    //animation
-                    ScaleAnimation scaleAnimation = new ScaleAnimation(0.8f, 1.0f, 1f, 1f, Animation.RELATIVE_TO_SELF, 1.0f, Animation.RELATIVE_TO_SELF, 0.0f);
-                    scaleAnimation.setDuration(200);
-                    scaleAnimation.setFillAfter(true);
-                    dormLayout.startAnimation(scaleAnimation);
-
-                    //set 4th tab as selected tab
-                    selectedTab = 4;
-
-                }
-
-            }
         });
 
         libraryLayout.setOnClickListener(new View.OnClickListener() {
@@ -337,14 +329,11 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.nav_home); //home item is default
 
-        menuIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (drawerLayout.isDrawerVisible(GravityCompat.START)) {
-                    drawerLayout.closeDrawer(GravityCompat.START);
-                } else {
-                    drawerLayout.openDrawer(GravityCompat.START);
-                }
+        menuIcon.setOnClickListener(v -> {
+            if (drawerLayout.isDrawerVisible(GravityCompat.START)) {
+                drawerLayout.closeDrawer(GravityCompat.START);
+            } else {
+                drawerLayout.openDrawer(GravityCompat.START);
             }
         });
 

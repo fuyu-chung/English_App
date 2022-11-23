@@ -1,6 +1,7 @@
 package com.example.english_app;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Looper;
 import android.text.method.HideReturnsTransformationMethod;
@@ -55,11 +56,17 @@ public class LoginActivity extends AppCompatActivity {
                         statement.setString(2, passwordText);
                         resultSet = statement.executeQuery();
                         if (resultSet.next()) {
+                            SharedPreferences sharedPreferences = getSharedPreferences("User", MODE_PRIVATE);
+                            sharedPreferences.edit().putString("user_phone", resultSet.getString(3)).apply();
+                            sharedPreferences.edit().putString("user_password", resultSet.getString(5)).apply();
+                            sharedPreferences.edit().putString("user_name", resultSet.getString(2)).apply();
+
                             Intent intent = new Intent(this, MainPageActivity.class);
                             startActivity(intent);
                             Looper.prepare();
                             Toast.makeText(this, "登入成功", Toast.LENGTH_LONG).show();
                             Looper.loop();
+
                         } else {
                             runOnUiThread(() -> (user_password).setError("密碼錯誤"));
 //                            Looper.prepare();
