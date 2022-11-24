@@ -1,5 +1,6 @@
 package com.example.english_app;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -18,15 +19,6 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 public class MainPageActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -284,53 +276,50 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
 
         });
 
-        libraryLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        libraryLayout.setOnClickListener(v -> {
 
-                //check if library is selected
-                if (selectedTab != 5) {
+            //check if library is selected
+            if (selectedTab != 5) {
 
-                    //set library fragment
-                    getSupportFragmentManager().beginTransaction()
-                            .setReorderingAllowed(true)
-                            .replace(R.id.fragmentContainer, LibraryFragment.class, null)
-                            .commit();
+                //set library fragment
+                getSupportFragmentManager().beginTransaction()
+                        .setReorderingAllowed(true)
+                        .replace(R.id.fragmentContainer, LibraryFragment.class, null)
+                        .commit();
 
-                    //unselect other tabs except library tab, here is text that we don't want to display
-                    collegeText.setVisibility(View.GONE);
-                    loungeText.setVisibility(View.GONE);
-                    dormText.setVisibility(View.GONE);
-                    studyCircleText.setVisibility(View.GONE);
+                //unselect other tabs except library tab, here is text that we don't want to display
+                collegeText.setVisibility(View.GONE);
+                loungeText.setVisibility(View.GONE);
+                dormText.setVisibility(View.GONE);
+                studyCircleText.setVisibility(View.GONE);
 
-                    //icon before clicked will display
-                    collegeImage.setImageResource(R.drawable.college);
-                    loungeImage.setImageResource(R.drawable.lounge);
-                    dormImage.setImageResource(R.drawable.dorm);
-                    studyCircleImage.setImageResource(R.drawable.study_circle);
+                //icon before clicked will display
+                collegeImage.setImageResource(R.drawable.college);
+                loungeImage.setImageResource(R.drawable.lounge);
+                dormImage.setImageResource(R.drawable.dorm);
+                studyCircleImage.setImageResource(R.drawable.study_circle);
 
-                    //layout transparent
-                    collegeLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
-                    loungeLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
-                    dormLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
-                    studyCircleLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+                //layout transparent
+                collegeLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+                loungeLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+                dormLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+                studyCircleLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
 
-                    //library visibility
-                    libraryText.setVisibility(View.VISIBLE);
-                    libraryImage.setImageResource(R.drawable.library_clicks);
-                    libraryLayout.setBackgroundResource(R.drawable.round_back_library);
+                //library visibility
+                libraryText.setVisibility(View.VISIBLE);
+                libraryImage.setImageResource(R.drawable.library_clicks);
+                libraryLayout.setBackgroundResource(R.drawable.round_back_library);
 
-                    //animation
-                    ScaleAnimation scaleAnimation = new ScaleAnimation(0.8f, 1.0f, 1f, 1f, Animation.RELATIVE_TO_SELF, 1.0f, Animation.RELATIVE_TO_SELF, 0.0f);
-                    scaleAnimation.setDuration(200);
-                    scaleAnimation.setFillAfter(true);
-                    libraryLayout.startAnimation(scaleAnimation);
+                //animation
+                ScaleAnimation scaleAnimation = new ScaleAnimation(0.8f, 1.0f, 1f, 1f, Animation.RELATIVE_TO_SELF, 1.0f, Animation.RELATIVE_TO_SELF, 0.0f);
+                scaleAnimation.setDuration(200);
+                scaleAnimation.setFillAfter(true);
+                libraryLayout.startAnimation(scaleAnimation);
 
-                    //set 5th tab as selected tab
-                    selectedTab = 5;
+                //set 5th tab as selected tab
+                selectedTab = 5;
 
 
-                }
             }
         });
 
@@ -401,6 +390,7 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
     }
 
     /*------- Set navigation items ------------*/
+    @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 

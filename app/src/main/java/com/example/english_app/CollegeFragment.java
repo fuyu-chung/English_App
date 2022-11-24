@@ -21,9 +21,6 @@ import android.widget.TextView;
  */
 public class CollegeFragment extends Fragment {
 
-    //must be private
-    //01=vocabulary, 02=phrase, 03=reading, 04=competition
-    private CardView cardView01, cardView02, cardView03, cardView04;
     private TextView detailText01, detailText02, detailText03, detailText04;
     private RelativeLayout relativeLayout01, relativeLayout02, relativeLayout03, relativeLayout04;
     private TextView extendText01, extendText02, extendText03, extendText04;
@@ -36,10 +33,6 @@ public class CollegeFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     public CollegeFragment() {
         // Required empty public constructor
@@ -67,8 +60,9 @@ public class CollegeFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            // TODO: Rename and change types of parameters
+            String mParam1 = getArguments().getString(ARG_PARAM1);
+            String mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
 
@@ -81,7 +75,9 @@ public class CollegeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_college, container, false);
 
 
-        cardView01 = view.findViewById(R.id.cardViewCollege);
+        //must be private
+        //01=vocabulary, 02=phrase, 03=reading, 04=competition
+        CardView cardView01 = view.findViewById(R.id.cardViewCollege);
         detailText01 = view.findViewById(R.id.detailCollegeText);
         relativeLayout01 = view.findViewById(R.id.collegeLayout01);
         extendText01 = view.findViewById(R.id.extendCollegeLayout01Text);
@@ -90,26 +86,23 @@ public class CollegeFragment extends Fragment {
         upIcon01 = view.findViewById(R.id.collegeLayout01UpIcon);
 
 
-        cardView01.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        cardView01.setOnClickListener(v -> {
 
-                int var = (detailText01.getVisibility() == View.VISIBLE) ? View.GONE : View.VISIBLE;
-                int var2 = (extendText01.getVisibility() == View.VISIBLE) ? View.GONE : View.VISIBLE;
-                int var3 = (shrinkText01.getVisibility() == View.VISIBLE)? View.GONE : View.VISIBLE;
-                int var4 = (downIcon01.getVisibility() == View.VISIBLE)? View.GONE : View.VISIBLE;
-                int var5 = (upIcon01.getVisibility() == View.VISIBLE)? View.GONE : View.VISIBLE;
-                TransitionManager.beginDelayedTransition(relativeLayout01, new AutoTransition());
-                detailText01.setVisibility(var);
-                extendText01.setVisibility(var2);
-                shrinkText01.setVisibility(var3);
-                downIcon01.setVisibility(var4);
-                upIcon01.setVisibility(var5);
+            int var = (detailText01.getVisibility() == View.VISIBLE) ? View.GONE : View.VISIBLE;
+            int var2 = (extendText01.getVisibility() == View.VISIBLE) ? View.GONE : View.VISIBLE;
+            int var3 = (shrinkText01.getVisibility() == View.VISIBLE)? View.GONE : View.VISIBLE;
+            int var4 = (downIcon01.getVisibility() == View.VISIBLE)? View.GONE : View.VISIBLE;
+            int var5 = (upIcon01.getVisibility() == View.VISIBLE)? View.GONE : View.VISIBLE;
+            TransitionManager.beginDelayedTransition(relativeLayout01, new AutoTransition());
+            detailText01.setVisibility(var);
+            extendText01.setVisibility(var2);
+            shrinkText01.setVisibility(var3);
+            downIcon01.setVisibility(var4);
+            upIcon01.setVisibility(var5);
 
-            }
         });
 
-        cardView02 = view.findViewById(R.id.cardViewPhrase);
+        CardView cardView02 = view.findViewById(R.id.cardViewPhrase);
         detailText02 = view.findViewById(R.id.detailPhraseText);
         relativeLayout02 = view.findViewById(R.id.collegeLayout02);
         extendText02 = view.findViewById(R.id.extendCollegeLayout02Text);
@@ -117,25 +110,22 @@ public class CollegeFragment extends Fragment {
         downIcon02 = view.findViewById(R.id.collegeLayout02DownIcon);
         upIcon02 = view.findViewById(R.id.collegeLayout02UpIcon);
 
-        cardView02.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        cardView02.setOnClickListener(v -> {
 
-                int var = (detailText02.getVisibility() == View.VISIBLE) ? View.GONE : View.VISIBLE;
-                int var2 = (extendText02.getVisibility() == View.VISIBLE) ? View.GONE : View.VISIBLE;
-                int var3 = (shrinkText02.getVisibility() == View.VISIBLE)? View.GONE : View.VISIBLE;
-                int var4 = (downIcon02.getVisibility() == View.VISIBLE)? View.GONE : View.VISIBLE;
-                int var5 = (upIcon02.getVisibility() == View.VISIBLE)? View.GONE : View.VISIBLE;
-                TransitionManager.beginDelayedTransition(relativeLayout02, new AutoTransition());
-                detailText02.setVisibility(var);
-                extendText02.setVisibility(var2);
-                shrinkText02.setVisibility(var3);
-                downIcon02.setVisibility(var4);
-                upIcon02.setVisibility(var5);
-            }
+            int var = (detailText02.getVisibility() == View.VISIBLE) ? View.GONE : View.VISIBLE;
+            int var2 = (extendText02.getVisibility() == View.VISIBLE) ? View.GONE : View.VISIBLE;
+            int var3 = (shrinkText02.getVisibility() == View.VISIBLE)? View.GONE : View.VISIBLE;
+            int var4 = (downIcon02.getVisibility() == View.VISIBLE)? View.GONE : View.VISIBLE;
+            int var5 = (upIcon02.getVisibility() == View.VISIBLE)? View.GONE : View.VISIBLE;
+            TransitionManager.beginDelayedTransition(relativeLayout02, new AutoTransition());
+            detailText02.setVisibility(var);
+            extendText02.setVisibility(var2);
+            shrinkText02.setVisibility(var3);
+            downIcon02.setVisibility(var4);
+            upIcon02.setVisibility(var5);
         });
 
-        cardView03 = view.findViewById(R.id.cardViewReading);
+        CardView cardView03 = view.findViewById(R.id.cardViewReading);
         detailText03 = view.findViewById(R.id.detailReadingText);
         relativeLayout03 = view.findViewById(R.id.collegeLayout03);
         extendText03 = view.findViewById(R.id.extendCollegeLayout03Text);
@@ -144,27 +134,24 @@ public class CollegeFragment extends Fragment {
         upIcon03 = view.findViewById(R.id.collegeLayout03UpIcon);
 
 
-        cardView03.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        cardView03.setOnClickListener(v -> {
 
-                int var = (detailText03.getVisibility() == View.VISIBLE) ? View.GONE : View.VISIBLE;
-                int var2 = (extendText03.getVisibility() == View.VISIBLE) ? View.GONE : View.VISIBLE;
-                int var3 = (shrinkText03.getVisibility() == View.VISIBLE)? View.GONE : View.VISIBLE;
-                int var4 = (downIcon03.getVisibility() == View.VISIBLE)? View.GONE : View.VISIBLE;
-                int var5 = (upIcon03.getVisibility() == View.VISIBLE)? View.GONE : View.VISIBLE;
-                TransitionManager.beginDelayedTransition(relativeLayout03, new AutoTransition());
-                detailText03.setVisibility(var);
-                extendText03.setVisibility(var2);
-                shrinkText03.setVisibility(var3);
-                downIcon03.setVisibility(var4);
-                upIcon03.setVisibility(var5);
+            int var = (detailText03.getVisibility() == View.VISIBLE) ? View.GONE : View.VISIBLE;
+            int var2 = (extendText03.getVisibility() == View.VISIBLE) ? View.GONE : View.VISIBLE;
+            int var3 = (shrinkText03.getVisibility() == View.VISIBLE)? View.GONE : View.VISIBLE;
+            int var4 = (downIcon03.getVisibility() == View.VISIBLE)? View.GONE : View.VISIBLE;
+            int var5 = (upIcon03.getVisibility() == View.VISIBLE)? View.GONE : View.VISIBLE;
+            TransitionManager.beginDelayedTransition(relativeLayout03, new AutoTransition());
+            detailText03.setVisibility(var);
+            extendText03.setVisibility(var2);
+            shrinkText03.setVisibility(var3);
+            downIcon03.setVisibility(var4);
+            upIcon03.setVisibility(var5);
 
 
-            }
         });
 
-        cardView04 = view.findViewById(R.id.cardViewCompete);
+        CardView cardView04 = view.findViewById(R.id.cardViewCompete);
         detailText04 = view.findViewById(R.id.detailCompeteText);
         relativeLayout04 = view.findViewById(R.id.collegeLayout04);
         extendText04 = view.findViewById(R.id.extendCollegeLayout04Text);
@@ -172,22 +159,19 @@ public class CollegeFragment extends Fragment {
         downIcon04 = view.findViewById(R.id.collegeLayout04DownIcon);
         upIcon04 = view.findViewById(R.id.collegeLayout04UpIcon);
 
-        cardView04.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        cardView04.setOnClickListener(v -> {
 
-                int var = (detailText04.getVisibility() == View.VISIBLE)? View.GONE : View.VISIBLE;
-                int var2 = (extendText04.getVisibility() == View.VISIBLE)? View.GONE : View.VISIBLE;
-                int var3 = (shrinkText04.getVisibility() == View.VISIBLE)? View.GONE : View.VISIBLE;
-                int var4 = (downIcon04.getVisibility() == View.VISIBLE)? View.GONE : View.VISIBLE;
-                int var5 = (upIcon04.getVisibility() == View.VISIBLE)? View.GONE : View.VISIBLE;
-                TransitionManager.beginDelayedTransition(relativeLayout04, new AutoTransition());
-                detailText04.setVisibility(var);
-                extendText04.setVisibility(var2);
-                shrinkText04.setVisibility(var3);
-                downIcon04.setVisibility(var4);
-                upIcon04.setVisibility(var5);
-            }
+            int var = (detailText04.getVisibility() == View.VISIBLE)? View.GONE : View.VISIBLE;
+            int var2 = (extendText04.getVisibility() == View.VISIBLE)? View.GONE : View.VISIBLE;
+            int var3 = (shrinkText04.getVisibility() == View.VISIBLE)? View.GONE : View.VISIBLE;
+            int var4 = (downIcon04.getVisibility() == View.VISIBLE)? View.GONE : View.VISIBLE;
+            int var5 = (upIcon04.getVisibility() == View.VISIBLE)? View.GONE : View.VISIBLE;
+            TransitionManager.beginDelayedTransition(relativeLayout04, new AutoTransition());
+            detailText04.setVisibility(var);
+            extendText04.setVisibility(var2);
+            shrinkText04.setVisibility(var3);
+            downIcon04.setVisibility(var4);
+            upIcon04.setVisibility(var5);
         });
 
 

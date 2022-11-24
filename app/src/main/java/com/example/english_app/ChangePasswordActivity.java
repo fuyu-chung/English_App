@@ -18,7 +18,6 @@ import java.util.concurrent.Executors;
 
 public class ChangePasswordActivity extends AppCompatActivity {
     private TextInputEditText user_old_password, user_password, user_check;
-    private MaterialButton submitBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +27,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
         user_password = findViewById(R.id.user_password);
         user_check = findViewById(R.id.user_check);
 
-        submitBtn = findViewById(R.id.submitBtn);
+        MaterialButton submitBtn = findViewById(R.id.submitBtn);
         submitBtn.setOnClickListener(v -> {
             ExecutorService executor = Executors.newSingleThreadExecutor();
             executor.execute(() -> {
@@ -42,9 +41,10 @@ public class ChangePasswordActivity extends AppCompatActivity {
                     String phone = sharedPreferences.getString("user_phone", " ");
                     String old_salt1 = sharedPreferences.getString("user_salt1", "");
                     String old_salt2 = sharedPreferences.getString("user_salt2", "");
-                    String oldPasswordText = (user_old_password).getText().toString();
+                    String oldPasswordText = Objects.requireNonNull((user_old_password).getText()).toString();
                     oldPasswordText = Encryption.sha1(old_salt1 + Encryption.md5(old_salt2 + oldPasswordText));
 
+                    assert oldPasswordText != null;
                     if (oldPasswordText.isEmpty()) {
                         runOnUiThread(() -> (user_old_password).setError("欄位不可為空白"));
                         isCorrect = false;
@@ -59,7 +59,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
                     }
 
                     if (password.equals(oldPasswordText)) {
-                        String passwordText = (user_password).getText().toString();
+                        String passwordText = Objects.requireNonNull((user_password).getText()).toString();
                         String checkText = Objects.requireNonNull((user_check).getText()).toString();
                         if (passwordText.isEmpty()) {
                             runOnUiThread(() -> (user_password).setError("欄位不可為空白"));

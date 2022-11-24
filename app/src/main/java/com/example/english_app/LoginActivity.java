@@ -1,5 +1,6 @@
 package com.example.english_app;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -24,16 +25,16 @@ import java.util.concurrent.Executors;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText user_phone, user_password;
-    private MaterialButton loginBtn, registerBtn, forgetBtn;
     private CheckBox showCb;
 
+    @SuppressLint("CutPasteId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         user_phone = findViewById(R.id.user_phone);
         user_password = findViewById(R.id.user_password);
-        loginBtn = findViewById(R.id.loginBtn);
+        MaterialButton loginBtn = findViewById(R.id.loginBtn);
         loginBtn.setOnClickListener(v -> {
             ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
             executor.execute(() -> {
@@ -91,7 +92,7 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         //跳轉到註冊頁面
-        registerBtn = findViewById(R.id.registerBtn);
+        MaterialButton registerBtn = findViewById(R.id.registerBtn);
         registerBtn.setOnClickListener(v -> {
             ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
             executor.execute(() -> {
@@ -100,7 +101,7 @@ public class LoginActivity extends AppCompatActivity {
             });
         });
 
-        forgetBtn = findViewById(R.id.forgetPassword);
+        MaterialButton forgetBtn = findViewById(R.id.forgetPassword);
         forgetBtn.setOnClickListener(v -> {
             ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
             executor.execute(() -> {

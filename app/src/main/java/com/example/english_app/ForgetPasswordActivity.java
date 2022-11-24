@@ -28,8 +28,6 @@ import java.util.concurrent.Executors;
 
 public class ForgetPasswordActivity extends AppCompatActivity {
     private TextInputEditText user_name, user_phone, user_password, user_check, user_verify;
-    private MaterialButton submitBtn, sendBtn, verifyBtn, backBtn;
-    private boolean continues = false;
     private String str;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -44,7 +42,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
         user_check = findViewById(R.id.user_check);
         user_verify = findViewById(R.id.user_verify);
 
-        sendBtn = findViewById(R.id.sendBtn);
+        MaterialButton sendBtn = findViewById(R.id.sendBtn);
         sendBtn.setOnClickListener(v -> {
             ExecutorService executor = Executors.newSingleThreadExecutor();
             executor.execute(() -> {
@@ -72,7 +70,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
                     PreparedStatement statement = connection.prepareStatement(query);
                     statement.setString(1, phoneText); // 把?替換成phoneText，前面的數字是代表第幾褪號
                     ResultSet resultSet = statement.executeQuery(); // 把結果存在resultSet
-                    String verifyText = (user_verify).getText().toString();
+                    String verifyText = Objects.requireNonNull((user_verify).getText()).toString();
                     String verify_code = generated_verify_code();
                     str = verify_code;
                     if (resultSet.next()) {
@@ -91,11 +89,11 @@ public class ForgetPasswordActivity extends AppCompatActivity {
             });
         });
 
-        verifyBtn = findViewById(R.id.verifyBtn);
+        MaterialButton verifyBtn = findViewById(R.id.verifyBtn);
         verifyBtn.setOnClickListener(v -> {
             ExecutorService executor = Executors.newSingleThreadExecutor();
             executor.execute(() -> {
-                String verifyText = (user_verify).getText().toString();
+                String verifyText = Objects.requireNonNull((user_verify).getText()).toString();
                 try {
                     if (verifyText.equals(str)) {
                         System.out.println("code correct");
@@ -108,7 +106,6 @@ public class ForgetPasswordActivity extends AppCompatActivity {
                         messageTextView.setTextSize(200);
                         toast.show();
                         Looper.loop();
-                        continues = true;
 
                     } else {
                         runOnUiThread(() -> (user_verify).setError("驗證碼錯誤，請重新輸入！"));
@@ -120,12 +117,12 @@ public class ForgetPasswordActivity extends AppCompatActivity {
             });
         });
 
-        submitBtn = findViewById(R.id.submitBtn);
+        MaterialButton submitBtn = findViewById(R.id.submitBtn);
         submitBtn.setOnClickListener(v -> {
             ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
             executor.execute(() -> {
                 try {//試跑try有問題就跑catch
-                    Boolean isCorrect = true;
+                    boolean isCorrect = true;
                     String s1 = "jdbc:jtds:sqlserver://myenglishserver.database.windows.net:1433/englishapp_db;user=englishapp@myenglishserver;password=English1234@@;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;ssl=request;"; //訪問azure的db的網址
                     Connection connection = DriverManager.getConnection(s1); //建立連線
 
@@ -219,7 +216,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
             });
         });
 
-        backBtn = findViewById(R.id.back);
+        MaterialButton backBtn = findViewById(R.id.back);
         backBtn.setOnClickListener(v -> {
             ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
             executor.execute(() -> {
@@ -237,12 +234,11 @@ public class ForgetPasswordActivity extends AppCompatActivity {
         int targetStringLength = 4;
         Random random = new Random();
 
-        String generatedString = random.ints(leftLimit, rightLimit + 1)
+        //System.out.println(generatedString);
+        return random.ints(leftLimit, rightLimit + 1)
                 .filter(i -> (i <= 57 || i >= 65) && (i <= 90 || i >= 97))
                 .limit(targetStringLength)
                 .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
                 .toString();
-        //System.out.println(generatedString);
-        return generatedString;
     }
 }
