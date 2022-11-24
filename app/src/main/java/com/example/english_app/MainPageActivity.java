@@ -43,12 +43,12 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
     //Drawer menu
     DrawerLayout drawerLayout;
     NavigationView navigationView;
-    TextView userName;
 
-   //initial headerView and user_name
+   //initial headerView and user_name byP
     View headerView;
     TextView navUserTextView;
-    Connection con;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,15 +62,14 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
         contentView = findViewById(R.id.contentView); //the contentView (relative)
 
         /*---------------------- CALL CURRENT USERNAME -------------------------------*/
-        //set into navigation View header
+        //set into navigation View header byP
         headerView = navigationView.getHeaderView(0);
         navUserTextView = headerView.findViewById(R.id.user_name);
 
-        SharedPreferences sharedPreferences = getSharedPreferences("User", MODE_PRIVATE);
-        String name = sharedPreferences.getString("user_name", " ");
 
+        //call readDataFromSharedPreferences function
+        readDataFromSharedPreferences();
 
-        updateNavHeader();
         navigationDrawer();
 
         /*------------------------------BOTTOM BAR!!!!!-------------------------------------*/
@@ -338,6 +337,15 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
 
     }
 
+    //get user_name from loginActivity byP
+    private void readDataFromSharedPreferences() {
+
+        SharedPreferences sharedPreferences = getSharedPreferences("User", MODE_PRIVATE);
+        String name = sharedPreferences.getString("user_name","");
+        navUserTextView.setText(name);
+
+    }
+
 
     //navigation drawer functions
     private void navigationDrawer() {
@@ -377,30 +385,7 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
         });
     }
 
-    public void updateNavHeader(){
 
-        navigationView = findViewById(R.id.nav_view);
-        headerView = navigationView.getHeaderView(0);
-        navUserTextView = headerView.findViewById(R.id.user_name);
-
-        try {
-            con = (Connection) new ConnectionManager();
-
-            String query = "select * from Users";
-            Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery(query);
-
-            if (rs.next()) {
-//                user_name = rs.getString(2);
-            }
-
-
-        }catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-
-
-    }
 
     /*----------To avoid closing the app on Back pressed------------*/
     @Override
