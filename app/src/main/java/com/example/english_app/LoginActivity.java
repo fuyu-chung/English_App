@@ -57,9 +57,13 @@ public class LoginActivity extends AppCompatActivity {
                         resultSet = statement.executeQuery();
                         if (resultSet.next()) {
                             SharedPreferences sharedPreferences = getSharedPreferences("User", MODE_PRIVATE);
-                            sharedPreferences.edit().putString("user_phone", resultSet.getString(3)).apply();
-                            sharedPreferences.edit().putString("user_password", resultSet.getString(5)).apply();
+                            sharedPreferences.edit().putString("user_id", resultSet.getString(1)).apply();
                             sharedPreferences.edit().putString("user_name", resultSet.getString(2)).apply();
+                            sharedPreferences.edit().putString("user_phone", resultSet.getString(3)).apply();
+                            sharedPreferences.edit().putString("user_birthday", resultSet.getString(4)).apply();
+                            sharedPreferences.edit().putString("user_password", resultSet.getString(5)).apply();
+                            sharedPreferences.edit().putString("user_salt1", resultSet.getString(6)).apply();
+                            sharedPreferences.edit().putString("user_salt2", resultSet.getString(7)).apply();
 
                             Intent intent = new Intent(this, MainPageActivity.class);
                             startActivity(intent);
@@ -91,7 +95,7 @@ public class LoginActivity extends AppCompatActivity {
         registerBtn.setOnClickListener(v -> {
             ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
             executor.execute(() -> {
-                Intent intent = new Intent(this, RegisterActivity.class);
+                Intent intent = new Intent(this, ChangePasswordActivity.class);
                 startActivity(intent);
             });
         });
@@ -100,7 +104,7 @@ public class LoginActivity extends AppCompatActivity {
         forgetBtn.setOnClickListener(v -> {
             ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
             executor.execute(() -> {
-                Intent intent = new Intent(this, ForgetPasswordActivity.class); //
+                Intent intent = new Intent(this, RegisterActivity.class); //
                 startActivity(intent);
             });
         });

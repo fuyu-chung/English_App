@@ -17,6 +17,7 @@
         <entry key="app/src/main/res/drawable/logintopbar.xml" value="0.117" />
         <entry key="app/src/main/res/drawable/registerbox.xml" value="0.153" />
         <entry key="app/src/main/res/layout/activity_change_password.xml" value="0.2259963768115942" />
+        <entry key="app/src/main/res/layout/activity_change_password2.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_forget_password.xml" value="0.20723724365234375" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.16757246376811594" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3046218872070312" />

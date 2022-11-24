@@ -8,6 +8,7 @@
     android:padding="20dp">
 
     <!--圓形頭貼 想要加陰影特效-->
+    <!--不想要陰影哈哈哈-->
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"

@@ -1,7 +1,6 @@
 package com.example.english_app;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,13 +17,6 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 public class MainPageActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -388,7 +380,7 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
                 startActivity(intent);
                 break;
             case R.id.nav_passwordChange:
-                Intent intent2 = new Intent(this, ChangePassword.class);
+                Intent intent2 = new Intent(this, ChangePasswordActivity.class);
                 startActivity(intent2);
                 break;
 
