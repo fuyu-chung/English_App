@@ -1,6 +1,7 @@
 package com.example.english_app;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,6 +19,15 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 public class MainPageActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     //Variables for animation
@@ -33,7 +43,12 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
     //Drawer menu
     DrawerLayout drawerLayout;
     NavigationView navigationView;
-    TextView userName;
+
+   //initial headerView and user_name byP
+    View headerView;
+    TextView navUserTextView;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +60,15 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
         navigationView = findViewById(R.id.nav_view); //the drawer
         menuIcon = findViewById(R.id.menu_icon); //the menu icon
         contentView = findViewById(R.id.contentView); //the contentView (relative)
-        userName = findViewById(R.id.user_name);
+
+        /*---------------------- CALL CURRENT USERNAME -------------------------------*/
+        //set into navigation View header byP
+        headerView = navigationView.getHeaderView(0);
+        navUserTextView = headerView.findViewById(R.id.user_name);
+
+
+        //call readDataFromSharedPreferences function
+        readDataFromSharedPreferences();
 
         navigationDrawer();
 
@@ -314,6 +337,15 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
 
     }
 
+    //get user_name from loginActivity byP
+    private void readDataFromSharedPreferences() {
+
+        SharedPreferences sharedPreferences = getSharedPreferences("User", MODE_PRIVATE);
+        String name = sharedPreferences.getString("user_name","");
+        navUserTextView.setText(name);
+
+    }
+
 
     //navigation drawer functions
     private void navigationDrawer() {
@@ -328,8 +360,6 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
                 drawerLayout.openDrawer(GravityCompat.START);
             }
         });
-
-
 
         animateNavigationDrawer();
     }
@@ -354,6 +384,8 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
             }
         });
     }
+
+
 
     /*----------To avoid closing the app on Back pressed------------*/
     @Override
@@ -380,7 +412,7 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
                 startActivity(intent);
                 break;
             case R.id.nav_passwordChange:
-                Intent intent2 = new Intent(this, ChangePasswordActivity.class);
+                Intent intent2 = new Intent(this, ChangePassword.class);
                 startActivity(intent2);
                 break;
 

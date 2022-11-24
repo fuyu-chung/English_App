@@ -1,6 +1,7 @@
 package com.example.english_app;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Looper;
@@ -162,6 +163,7 @@ public class RegisterActivity extends AppCompatActivity {
                     Looper.prepare();
                     Toast.makeText(this, "註冊成功", Toast.LENGTH_SHORT).show();
                     Looper.loop();
+
                 }
                 catch (SQLException e) {
                     System.out.println("sql failed");
@@ -174,4 +176,6 @@ public class RegisterActivity extends AppCompatActivity {
             });
         });
     }
+
+
 }
