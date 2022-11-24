@@ -243,7 +243,6 @@
                             android:text="@string/cardView_detail_phrase"
                             android:textSize="18sp"
                             android:textColor="@color/phrase_topic_words"
-                            android:textStyle="bold"
                             android:visibility="gone"/>
                     </LinearLayout>
 
@@ -377,7 +376,6 @@
                             android:textSize="18sp"
                             android:textColor="@color/reading_topic_words"
                             android:paddingTop="10dp"
-                            android:textStyle="bold"
                             android:visibility="gone"/>
 
                     </LinearLayout>
@@ -512,7 +510,6 @@
                             android:text="@string/cardView_detail_compete"
                             android:textSize="18sp"
                             android:textColor="@color/compete_topic_words"
-                            android:textStyle="bold"
                             android:visibility="gone"/>
 
 
