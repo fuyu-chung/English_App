@@ -24,6 +24,8 @@
         <entry key="app/src/main/res/layout/activity_main_college.xml" value="0.25052083333333336" />
         <entry key="app/src/main/res/layout/activity_main_page.xml" value="0.20114440917968757" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.359625244140625" />
+        <entry key="app/src/main/res/layout/fragment_college.xml" value="0.12310030395136778" />
+        <entry key="app/src/main/res/layout/fragment_dorm.xml" value="0.1" />
         <entry key="app/src/main/res/layout/header.xml" value="0.25052083333333336" />
         <entry key="app/src/main/res/layout/toolbar.xml" value="0.25052083333333336" />
       </map>
