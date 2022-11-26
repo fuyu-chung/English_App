@@ -405,6 +405,10 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
                 Intent intent2 = new Intent(this, ChangePasswordActivity.class);
                 startActivity(intent2);
                 break;
+            case R.id.nav_logout:
+                Intent intent3 = new Intent(this, LoginActivity.class);
+                startActivity(intent3);
+                break;
 
         }
 
