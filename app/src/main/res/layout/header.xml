@@ -10,6 +10,7 @@
     <!--圓形頭貼 想要加陰影特效-->
     <!--不想要陰影哈哈哈-->
     <ImageView
+        android:id="@+id/user_photo"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="@drawable/circle_frame_01"

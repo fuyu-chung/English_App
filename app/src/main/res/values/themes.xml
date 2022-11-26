@@ -33,6 +33,14 @@
         <item name="android:activityOpenExitAnimation">@anim/slide_out</item>
         <item name="android:activityCloseExitAnimation">@anim/slide_out</item>
     </style>
+
+    <!--    imageView rounded style     -->
+    <style name="roundbottomimageview" parent="">
+        <item name="cornerFamilyBottomLeft">rounded</item>
+        <item name="cornerFamilyBottomRight">rounded</item>
+        <item name="cornerSizeBottomLeft">30dp</item>
+        <item name="cornerSizeBottomRight">30dp</item>
+    </style>
     
 
 
