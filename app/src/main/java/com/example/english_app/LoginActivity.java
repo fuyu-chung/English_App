@@ -1,6 +1,5 @@
 package com.example.english_app;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -12,7 +11,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
 
 import com.google.android.material.button.MaterialButton;
 
@@ -28,7 +26,6 @@ public class LoginActivity extends AppCompatActivity {
     private EditText user_phone, user_password;
     private CheckBox showCb;
 
-    @SuppressLint("CutPasteId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -114,12 +111,11 @@ public class LoginActivity extends AppCompatActivity {
         showCb = findViewById(R.id.show_password);
         showCb.setOnClickListener(
                 view -> {
-                   EditText passwordShow = findViewById(R.id.user_password);
                     if(showCb.isChecked()){
-                        passwordShow.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                        (user_password).setTransformationMethod(HideReturnsTransformationMethod.getInstance());
                     }
                     else{
-                        passwordShow.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                        (user_password).setTransformationMethod(PasswordTransformationMethod.getInstance());
                     }
                 }
         );
