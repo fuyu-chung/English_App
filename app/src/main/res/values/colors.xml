@@ -23,6 +23,7 @@
     <color name="words_topic01">#30415C</color>
     <color name="words_user_input">#8F9193</color>
     <color name="words_user_name">#43618E</color>
+    <color name="words_user_id">#5E697A</color>
 
     <!--circle frame color-->
     <color name="cframe_color_y">#FFE26F</color>

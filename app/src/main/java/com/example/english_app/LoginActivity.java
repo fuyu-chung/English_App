@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 
 import com.google.android.material.button.MaterialButton;
 
@@ -123,4 +124,14 @@ public class LoginActivity extends AppCompatActivity {
                 }
         );
     }
+
+
+    /*---------- Back pressed ----------*/
+    @Override
+    public void onBackPressed() {
+            super.onBackPressed();
+
+    }
+
+
 }

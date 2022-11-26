@@ -1,5 +1,6 @@
 package com.example.english_app;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -111,5 +112,17 @@ public class ChangePasswordActivity extends AppCompatActivity {
                 }
             });
         });
+
+
+//        MaterialButton backBtn = findViewById(R.id.back);
+//        backBtn.setOnClickListener(v -> {
+//            ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
+//            executor.execute(() -> {
+//                Intent intent = new Intent(this, LoginActivity.class);
+//                startActivity(intent);
+//            });
+//        });
     }
+
+
 }
