@@ -3,9 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.10847628657921292" />
         <entry key="app/src/main/res/drawable/books.xml" value="0.216" />
         <entry key="app/src/main/res/drawable/books_clicks.xml" value="0.216" />
         <entry key="app/src/main/res/drawable/dorm.xml" value="0.153" />
+        <entry key="app/src/main/res/drawable/edit_text_design.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_back.xml" value="0.216" />
         <entry key="app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.216" />
         <entry key="app/src/main/res/drawable/ic_baseline_info_24.xml" value="0.216" />
@@ -18,6 +20,8 @@
         <entry key="app/src/main/res/drawable/registerbox.xml" value="0.153" />
         <entry key="app/src/main/res/layout/activity_change_password.xml" value="0.2259963768115942" />
         <entry key="app/src/main/res/layout/activity_change_password2.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_chat.xml" value="0.11626139817629179" />
+        <entry key="app/src/main/res/layout/activity_client_socket.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/activity_forget_password.xml" value="0.20723724365234375" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.16757246376811594" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3046218872070312" />
@@ -26,7 +30,12 @@
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.359625244140625" />
         <entry key="app/src/main/res/layout/fragment_college.xml" value="0.12310030395136778" />
         <entry key="app/src/main/res/layout/fragment_dorm.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_lounge.xml" value="0.29188232421874993" />
         <entry key="app/src/main/res/layout/header.xml" value="0.25052083333333336" />
+        <entry key="app/src/main/res/layout/item_received_message.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/item_received_photo.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/item_send_message.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/item_sent_image.xml" value="0.1" />
         <entry key="app/src/main/res/layout/toolbar.xml" value="0.25052083333333336" />
       </map>
     </option>
