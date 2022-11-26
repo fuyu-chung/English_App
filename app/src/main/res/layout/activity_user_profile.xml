@@ -72,20 +72,36 @@
                         app:layout_constraintEnd_toEndOf="@+id/user_photo"
                         app:layout_constraintStart_toStartOf="@+id/user_photo"
                         app:layout_constraintTop_toBottomOf="@+id/user_photo" />
-
-                    <TextView
-                        android:id="@+id/user_id"
+                    <LinearLayout
+                        android:id="@+id/user_id_layout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="user_id"
-                        android:fontFamily="@font/baloo"
-                        android:textColor="@color/words_user_id"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-
+                        android:orientation="horizontal"
                         app:layout_constraintEnd_toEndOf="@+id/user_name"
                         app:layout_constraintStart_toStartOf="@+id/user_name"
-                        app:layout_constraintTop_toBottomOf="@+id/user_name" />
+                        app:layout_constraintTop_toBottomOf="@+id/user_name">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="id: "
+                            android:fontFamily="@font/baloo"
+                            android:textColor="@color/words_user_id"
+                            android:textSize="20sp"
+                            android:textStyle="bold"/>
+                        <TextView
+                            android:id="@+id/user_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="user_id"
+                            android:fontFamily="@font/baloo"
+                            android:textColor="@color/words_user_id"
+                            android:textSize="20sp"
+                            android:textStyle="bold"/>
+
+                    </LinearLayout>
+
+
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -95,7 +111,7 @@
                         android:layout_marginEnd="24dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/user_id">
+                        app:layout_constraintTop_toBottomOf="@id/user_id_layout">
 
                         <LinearLayout
                             android:layout_width="match_parent"
