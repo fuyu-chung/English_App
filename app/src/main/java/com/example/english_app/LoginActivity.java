@@ -103,7 +103,7 @@ public class LoginActivity extends AppCompatActivity {
         forgetBtn.setOnClickListener(v -> {
             ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
             executor.execute(() -> {
-                Intent intent = new Intent(this, RegisterActivity.class); //
+                Intent intent = new Intent(this, ForgetPasswordActivity.class); //
                 startActivity(intent);
             });
         });
