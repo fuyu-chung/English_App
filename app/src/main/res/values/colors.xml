@@ -50,6 +50,9 @@
 
     <color name="transparent">#00FF9292</color>
 
+    <!--    profile bg colors-->
+    <color name="profile_cards_bg">#F1F1F1</color>
+
 
     <!--  college page layouts words  -->
     <color name="vocab_topic_words">#A18720</color>
