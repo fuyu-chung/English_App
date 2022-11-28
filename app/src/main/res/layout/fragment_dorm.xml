@@ -1,38 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
-<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/bottom_bar_icons_bg03"
     tools:context=".CollegeFragment">
 
-
-    <RelativeLayout
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:layout_width="wrap_content"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:id="@+id/dorm_info"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="20dp"
+        android:text="查看提示"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/words_topic01"
+        android:gravity="end"
+        android:backgroundTint="@color/blue_color_02"
+        app:icon="@drawable/ic_info"
+        app:iconTint="@color/words_topic01"
+        />
 
-        <TextView
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <HorizontalScrollView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="Dorm fragment"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:textColor="@color/black"/>
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/test"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"/>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
-        </LinearLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
 
-    </RelativeLayout>
+                <ImageView
+                    android:id="@+id/dorm_bg"
+                    android:layout_width="1254dp"
+                    android:layout_height="680dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:src="@drawable/dorm_bg"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/imgbtn_profile"
+                    android:layout_width="301dp"
+                    android:layout_height="422dp"
+                    android:backgroundTint="@color/transparent"
+                    android:contentDescription="@string/imgbtn_profile"
+                    android:src="@drawable/imgbtn_profile"
+
+                    app:layout_constraintBottom_toBottomOf="@+id/dorm_bg"
+                    app:layout_constraintEnd_toEndOf="@+id/dorm_bg"
+                    app:layout_constraintHorizontal_bias="0.218"
+                    app:layout_constraintStart_toStartOf="@+id/dorm_bg"
+                    app:layout_constraintTop_toTopOf="@+id/dorm_bg"
+                    app:layout_constraintVertical_bias="0.942" />
+
+                <ImageButton
+                    android:id="@+id/imgbtn_cal"
+                    android:layout_width="173dp"
+                    android:layout_height="148dp"
+                    android:backgroundTint="@color/transparent"
+                    android:src="@drawable/imgbtn_cal"
+                    android:contentDescription="@string/imgbtn_cal"
+                    app:layout_constraintBottom_toBottomOf="@+id/dorm_bg"
+                    app:layout_constraintEnd_toEndOf="@+id/dorm_bg"
+                    app:layout_constraintHorizontal_bias="0.087"
+                    app:layout_constraintStart_toStartOf="@+id/dorm_bg"
+                    app:layout_constraintTop_toTopOf="@+id/dorm_bg"
+                    app:layout_constraintVertical_bias="0.366" />
+
+                <ImageButton
+                    android:id="@+id/imgbtn_task"
+                    android:layout_width="162dp"
+                    android:layout_height="197dp"
+                    android:backgroundTint="@color/transparent"
+                    android:src="@drawable/imgbtn_task"
+                    android:contentDescription="@string/imgbtn_task"
+                    app:layout_constraintBottom_toBottomOf="@+id/dorm_bg"
+                    app:layout_constraintEnd_toEndOf="@+id/dorm_bg"
+                    app:layout_constraintHorizontal_bias="0.558"
+                    app:layout_constraintStart_toStartOf="@+id/dorm_bg"
+                    app:layout_constraintTop_toTopOf="@+id/dorm_bg"
+                    app:layout_constraintVertical_bias="0.491" />
+
+                <ImageButton
+                    android:id="@+id/imgbtn_clock"
+                    android:layout_width="205dp"
+                    android:layout_height="200dp"
+                    android:backgroundTint="@color/transparent"
+                    android:src="@drawable/imgbtn_clock"
+                    android:contentDescription="@string/imgbtn_clock"
+                    app:layout_constraintBottom_toBottomOf="@+id/dorm_bg"
+                    app:layout_constraintEnd_toEndOf="@+id/dorm_bg"
+                    app:layout_constraintHorizontal_bias="0.711"
+                    app:layout_constraintStart_toStartOf="@+id/dorm_bg"
+                    app:layout_constraintTop_toTopOf="@+id/dorm_bg"
+                    app:layout_constraintVertical_bias="0.141" />
+
+                <ImageButton
+                    android:id="@+id/imgbtn_friend"
+                    android:layout_width="268dp"
+                    android:layout_height="199dp"
+                    android:backgroundTint="@color/transparent"
+                    android:src="@drawable/imgbtn_friend"
+                    android:contentDescription="@string/imgbtn_friend"
+                    app:layout_constraintBottom_toBottomOf="@+id/dorm_bg"
+                    app:layout_constraintEnd_toEndOf="@+id/dorm_bg"
+                    app:layout_constraintHorizontal_bias="0.933"
+                    app:layout_constraintStart_toStartOf="@+id/dorm_bg"
+                    app:layout_constraintTop_toTopOf="@+id/dorm_bg"
+                    app:layout_constraintVertical_bias="0.644" />
+
+                <ImageButton
+                    android:id="@+id/imgbtn_note"
+                    android:layout_width="266dp"
+                    android:layout_height="171dp"
+                    android:backgroundTint="@color/transparent"
+                    android:src="@drawable/imgbtn_notes"
+                    android:contentDescription="@string/imgbtn_note"
+                    app:layout_constraintBottom_toBottomOf="@+id/dorm_bg"
+                    app:layout_constraintEnd_toEndOf="@+id/dorm_bg"
+                    app:layout_constraintHorizontal_bias="0.692"
+                    app:layout_constraintStart_toStartOf="@+id/dorm_bg"
+                    app:layout_constraintTop_toTopOf="@+id/dorm_bg"
+                    app:layout_constraintVertical_bias="0.964" />
+
+                <ImageButton
+                    android:id="@+id/imgbtn_coll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/transparent"
+                    android:src="@drawable/imgbtn_coll"
+                    android:contentDescription="@string/imgbtn_coll"
+                    app:layout_constraintBottom_toBottomOf="@+id/dorm_bg"
+                    app:layout_constraintEnd_toEndOf="@+id/dorm_bg"
+                    app:layout_constraintHorizontal_bias="0.411"
+                    app:layout_constraintStart_toStartOf="@+id/dorm_bg"
+                    app:layout_constraintTop_toTopOf="@+id/dorm_bg"
+                    app:layout_constraintVertical_bias="0.609" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 
-</HorizontalScrollView>
+        </HorizontalScrollView>
+    </ScrollView>
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

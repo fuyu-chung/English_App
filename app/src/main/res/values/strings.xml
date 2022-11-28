@@ -29,4 +29,15 @@
     <string name="cardView_detail_compete">
         <b><i>狐狸院長歡迎您來到競賽學院!\n</i></b>經過各個學院的磨練後，快來挑戰看看自己的實力吧! 在這裡你可以選擇單人競賽或是雙人競賽! 這裡也有歷屆試題讓大家練習哦~
     </string>
+
+
+    <!--  IMAGE BUTTONS IN DORM FRAGMENT  -->
+    <string name="imgbtn_profile">btn to user profile</string>
+    <string name="imgbtn_cal">btn to user calendar</string>
+    <string name="imgbtn_task">btn to user tasks</string>
+    <string name="imgbtn_clock">btn to user clock</string>
+    <string name="imgbtn_friend">btn to user friend list</string>
+    <string name="imgbtn_note">btn to user notes</string>
+    <string name="imgbtn_coll">btn to user collections</string>
+
 </resources>

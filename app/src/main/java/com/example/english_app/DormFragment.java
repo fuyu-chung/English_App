@@ -1,5 +1,6 @@
 package com.example.english_app;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +8,12 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +21,15 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class DormFragment extends Fragment {
+
+
+    private ExtendedFloatingActionButton dormInfo;
+    private Boolean isFABVisible;
+
+    private ImageButton imgbtnCal, imgbtnProfile, imgbtnTask, imgbtnClock, imgbtnFriend, imgbtnNote, imgbtnColl;
+
+
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -56,6 +72,36 @@ public class DormFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_dorm, container, false);
+        View view = inflater.inflate(R.layout.fragment_dorm, container, false);
+
+        //all the variables
+        dormInfo = view.findViewById(R.id.dorm_info);
+        imgbtnCal = view.findViewById(R.id.imgbtn_cal);
+        imgbtnProfile = view.findViewById(R.id.imgbtn_profile);
+        imgbtnTask = view.findViewById(R.id.imgbtn_task);
+        imgbtnClock = view.findViewById(R.id.imgbtn_clock);
+        imgbtnFriend = view.findViewById(R.id.imgbtn_friend);
+        imgbtnNote = view.findViewById(R.id.imgbtn_note);
+        imgbtnColl = view.findViewById(R.id.imgbtn_coll);
+
+        //write down all the gone texts
+
+        //boolean as false
+        isFABVisible = false;
+
+        imgbtnProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), UserProfileActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+
+
+
+
+        return view;
     }
 }
