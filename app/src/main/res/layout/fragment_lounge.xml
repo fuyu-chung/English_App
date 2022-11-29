@@ -13,7 +13,8 @@
             android:id="@+id/EditText01"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="10" />
+            android:layout_weight="10"
+            android:hint="輸入訊息"/>
 
         <Button
             android:id="@+id/sendBtn"
@@ -31,5 +32,5 @@
         android:id="@+id/TextView01"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="" />
+        android:text="123" />
 </LinearLayout>
