@@ -28,9 +28,6 @@ public class LoungeFragment extends Fragment {
     private TextView TextView01;
     private EditText EditText01;
     private Button sendBtn;
-    SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences("User", MODE_PRIVATE);
-    String name = sharedPreferences.getString("user_name", "");
-    String phone = sharedPreferences.getString("user_phone", "");
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -111,6 +108,9 @@ public class LoungeFragment extends Fragment {
 
                     if (clientSocket.isConnected()) {
                         String msg = EditText01.getText().toString();
+                        SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences("User", MODE_PRIVATE);
+                        String name = sharedPreferences.getString("user_name", "");
+                        String phone = sharedPreferences.getString("user_phone", "");
                         pw.println(phone + name + " : " + msg);
                         pw.flush();
                     }
