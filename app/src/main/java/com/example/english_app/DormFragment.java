@@ -2,18 +2,14 @@ package com.example.english_app;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
-import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
+import androidx.fragment.app.Fragment;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -27,8 +23,6 @@ public class DormFragment extends Fragment {
     private Boolean isFABVisible;
 
     private ImageButton imgbtnCal, imgbtnProfile, imgbtnTask, imgbtnClock, imgbtnFriend, imgbtnNote, imgbtnColl;
-
-
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -96,12 +90,6 @@ public class DormFragment extends Fragment {
                 startActivity(intent);
             }
         });
-
-
-
-
-
-
         return view;
     }
 }

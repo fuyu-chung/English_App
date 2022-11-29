@@ -1,22 +1,36 @@
 package com.example.english_app;
 
+import static android.content.Context.MODE_PRIVATE;
+
+import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link LoungeFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import androidx.fragment.app.Fragment;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+
 public class LoungeFragment extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    private Socket clientSocket;
+    private TextView TextView01;
+    private EditText EditText01;
+    private Button sendBtn;
+    SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences("User", MODE_PRIVATE);
+    String name = sharedPreferences.getString("user_name", "");
+    String phone = sharedPreferences.getString("user_phone", "");
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -24,15 +38,6 @@ public class LoungeFragment extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment LoungeFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static LoungeFragment newInstance(String param1, String param2) {
         LoungeFragment fragment = new LoungeFragment();
         Bundle args = new Bundle();
@@ -45,17 +50,77 @@ public class LoungeFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            // TODO: Rename and change types of parameters
-            String mParam1 = getArguments().getString(ARG_PARAM1);
-            String mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
+        // 從資源檔裡取得位址後強制轉型成文字方塊
+
+        ExecutorService executor1 = Executors.newSingleThreadExecutor(); // 建立新的thread
+        executor1.execute(() -> {
+            try {
+                clientSocket = new Socket("20.243.200.205", 1098);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
+        SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences("User", MODE_PRIVATE);
+        String name = sharedPreferences.getString("user_name", "");
+        String phone = sharedPreferences.getString("user_phone", "");
+
+        ExecutorService executor2 = Executors.newSingleThreadExecutor(); // 建立新的thread
+        executor2.execute(() -> {
+            try {
+                while (clientSocket == null) {
+                    TimeUnit.MILLISECONDS.sleep(300);
+                }
+                BufferedReader br = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+                while (clientSocket.isConnected()) {
+                    String inputMsg = br.readLine();
+                    if (inputMsg == null) {
+                        clientSocket.close();
+                        break;
+                    }
+                    getActivity().runOnUiThread(() -> TextView01.append(inputMsg + '\n'));
+                }
+            } catch (IOException | InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+
+        //sendBtn.setOnClickListener((View.OnClickListener)getActivity());
+
+
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_lounge, container, false);
+        View view = inflater.inflate(R.layout.fragment_lounge, container, false);
+        TextView01 = view.findViewById(R.id.TextView01);
+        EditText01 = view.findViewById(R.id.EditText01);
+        sendBtn = view.findViewById(R.id.sendBtn);
+
+        sendBtn.setOnClickListener(v -> {
+            ExecutorService executor3 = Executors.newSingleThreadExecutor(); // 建立新的thread
+            executor3.execute(() -> {
+                try {
+                    while (clientSocket == null) {
+                        TimeUnit.MILLISECONDS.sleep(300);
+                    }
+                    PrintWriter pw = new PrintWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
+
+                    if (clientSocket.isConnected()) {
+                        String msg = EditText01.getText().toString();
+                        pw.println(phone + name + " : " + msg);
+                        pw.flush();
+                    }
+
+                } catch (IOException | InterruptedException e) {
+                    e.printStackTrace();
+                }
+            });
+        });
+
+        return view;
     }
 }
