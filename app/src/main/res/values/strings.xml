@@ -39,5 +39,6 @@
     <string name="imgbtn_friend">btn to user friend list</string>
     <string name="imgbtn_note">btn to user notes</string>
     <string name="imgbtn_coll">btn to user collections</string>
+    <string name="imgbtn_wrong">btn to user wrong notes</string>
 
 </resources>

@@ -27,17 +27,19 @@
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <HorizontalScrollView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="wrap_content"
@@ -52,8 +54,10 @@
                     android:src="@drawable/dorm_bg"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
 
                 <ImageButton
                     android:id="@+id/imgbtn_profile"
@@ -70,100 +74,274 @@
                     app:layout_constraintTop_toTopOf="@+id/dorm_bg"
                     app:layout_constraintVertical_bias="0.942" />
 
+                <LinearLayout
+                    android:id="@+id/hint_profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@+id/imgbtn_profile"
+                    app:layout_constraintEnd_toEndOf="@+id/imgbtn_profile"
+                    app:layout_constraintTop_toTopOf="@+id/imgbtn_profile"
+                    app:layout_constraintBottom_toBottomOf="@+id/imgbtn_profile"
+                    android:background="@drawable/dorm_words_hint"
+                    android:visibility="invisible">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="個人資料"
+                        android:layout_marginVertical="7dp"
+                        android:layout_marginHorizontal="15dp"
+                        android:textStyle="bold"
+                        android:textSize="24sp"
+                        android:textColor="@color/white"/>
+                </LinearLayout>
+
                 <ImageButton
                     android:id="@+id/imgbtn_cal"
                     android:layout_width="173dp"
                     android:layout_height="148dp"
                     android:backgroundTint="@color/transparent"
-                    android:src="@drawable/imgbtn_cal"
                     android:contentDescription="@string/imgbtn_cal"
+                    android:src="@drawable/imgbtn_cal"
                     app:layout_constraintBottom_toBottomOf="@+id/dorm_bg"
                     app:layout_constraintEnd_toEndOf="@+id/dorm_bg"
                     app:layout_constraintHorizontal_bias="0.087"
                     app:layout_constraintStart_toStartOf="@+id/dorm_bg"
                     app:layout_constraintTop_toTopOf="@+id/dorm_bg"
                     app:layout_constraintVertical_bias="0.366" />
+                <LinearLayout
+                    android:id="@+id/hint_cal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@+id/imgbtn_cal"
+                    app:layout_constraintEnd_toEndOf="@+id/imgbtn_cal"
+                    app:layout_constraintBottom_toTopOf="@+id/imgbtn_cal"
+                    android:background="@drawable/dorm_words_hint"
+                    android:visibility="invisible">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginVertical="7dp"
+                        android:text="我的計畫表"
+                        android:textColor="@color/white"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
 
                 <ImageButton
                     android:id="@+id/imgbtn_task"
                     android:layout_width="162dp"
                     android:layout_height="197dp"
                     android:backgroundTint="@color/transparent"
-                    android:src="@drawable/imgbtn_task"
                     android:contentDescription="@string/imgbtn_task"
+                    android:src="@drawable/imgbtn_task"
                     app:layout_constraintBottom_toBottomOf="@+id/dorm_bg"
                     app:layout_constraintEnd_toEndOf="@+id/dorm_bg"
                     app:layout_constraintHorizontal_bias="0.558"
                     app:layout_constraintStart_toStartOf="@+id/dorm_bg"
                     app:layout_constraintTop_toTopOf="@+id/dorm_bg"
                     app:layout_constraintVertical_bias="0.491" />
+                <LinearLayout
+                    android:id="@+id/hint_task"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@+id/imgbtn_task"
+                    app:layout_constraintBottom_toTopOf="@+id/imgbtn_task"
+                    android:background="@drawable/dorm_words_hint"
+                    android:visibility="invisible">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginVertical="7dp"
+                        android:text="我的任務"
+                        android:textColor="@color/white"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
 
                 <ImageButton
                     android:id="@+id/imgbtn_clock"
                     android:layout_width="205dp"
                     android:layout_height="200dp"
                     android:backgroundTint="@color/transparent"
-                    android:src="@drawable/imgbtn_clock"
                     android:contentDescription="@string/imgbtn_clock"
+                    android:src="@drawable/imgbtn_clock"
                     app:layout_constraintBottom_toBottomOf="@+id/dorm_bg"
                     app:layout_constraintEnd_toEndOf="@+id/dorm_bg"
                     app:layout_constraintHorizontal_bias="0.711"
                     app:layout_constraintStart_toStartOf="@+id/dorm_bg"
                     app:layout_constraintTop_toTopOf="@+id/dorm_bg"
                     app:layout_constraintVertical_bias="0.141" />
+                <LinearLayout
+                    android:id="@+id/hint_clock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@+id/imgbtn_clock"
+                    app:layout_constraintTop_toBottomOf="@+id/imgbtn_clock"
+                    app:layout_constraintEnd_toEndOf="@+id/imgbtn_clock"
+                    android:background="@drawable/dorm_words_hint"
+                    android:visibility="invisible">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginVertical="7dp"
+                        android:text="專注時鐘"
+                        android:textColor="@color/white"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
 
                 <ImageButton
                     android:id="@+id/imgbtn_friend"
                     android:layout_width="268dp"
                     android:layout_height="199dp"
                     android:backgroundTint="@color/transparent"
-                    android:src="@drawable/imgbtn_friend"
                     android:contentDescription="@string/imgbtn_friend"
+                    android:src="@drawable/imgbtn_friend"
                     app:layout_constraintBottom_toBottomOf="@+id/dorm_bg"
                     app:layout_constraintEnd_toEndOf="@+id/dorm_bg"
                     app:layout_constraintHorizontal_bias="0.933"
                     app:layout_constraintStart_toStartOf="@+id/dorm_bg"
                     app:layout_constraintTop_toTopOf="@+id/dorm_bg"
                     app:layout_constraintVertical_bias="0.644" />
+                <LinearLayout
+                    android:id="@+id/hint_friend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@+id/imgbtn_friend"
+                    app:layout_constraintTop_toBottomOf="@+id/imgbtn_friend"
+                    app:layout_constraintEnd_toEndOf="@+id/imgbtn_friend"
+                    android:background="@drawable/dorm_words_hint"
+                    android:visibility="invisible">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginVertical="7dp"
+                        android:text="好友名單"
+                        android:textColor="@color/white"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
 
                 <ImageButton
                     android:id="@+id/imgbtn_note"
                     android:layout_width="266dp"
                     android:layout_height="171dp"
                     android:backgroundTint="@color/transparent"
-                    android:src="@drawable/imgbtn_notes"
                     android:contentDescription="@string/imgbtn_note"
+                    android:src="@drawable/imgbtn_notes"
                     app:layout_constraintBottom_toBottomOf="@+id/dorm_bg"
                     app:layout_constraintEnd_toEndOf="@+id/dorm_bg"
                     app:layout_constraintHorizontal_bias="0.692"
                     app:layout_constraintStart_toStartOf="@+id/dorm_bg"
                     app:layout_constraintTop_toTopOf="@+id/dorm_bg"
                     app:layout_constraintVertical_bias="0.964" />
+                <LinearLayout
+                    android:id="@+id/hint_note"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@+id/imgbtn_note"
+                    app:layout_constraintTop_toTopOf="@+id/imgbtn_note"
+                    app:layout_constraintEnd_toEndOf="@+id/imgbtn_note"
+                    android:layout_marginEnd="100dp"
+                    android:background="@drawable/dorm_words_hint"
+                    android:visibility="invisible">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginVertical="7dp"
+                        android:text="我的筆記"
+                        android:textColor="@color/white"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
 
                 <ImageButton
                     android:id="@+id/imgbtn_coll"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="146dp"
+                    android:layout_height="123dp"
                     android:backgroundTint="@color/transparent"
-                    android:src="@drawable/imgbtn_coll"
                     android:contentDescription="@string/imgbtn_coll"
+                    android:src="@drawable/imgbtn_coll"
                     app:layout_constraintBottom_toBottomOf="@+id/dorm_bg"
                     app:layout_constraintEnd_toEndOf="@+id/dorm_bg"
                     app:layout_constraintHorizontal_bias="0.411"
                     app:layout_constraintStart_toStartOf="@+id/dorm_bg"
                     app:layout_constraintTop_toTopOf="@+id/dorm_bg"
                     app:layout_constraintVertical_bias="0.609" />
+                <LinearLayout
+                    android:id="@+id/hint_coll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@+id/imgbtn_coll"
+                    app:layout_constraintBottom_toTopOf="@+id/imgbtn_coll"
+                    app:layout_constraintEnd_toEndOf="@+id/imgbtn_coll"
+                    android:background="@drawable/dorm_words_hint"
+                    android:visibility="invisible">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginVertical="7dp"
+                        android:text="我的收藏"
+                        android:textColor="@color/white"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <ImageButton
+                    android:id="@+id/imgbtn_wrong"
+                    android:layout_width="125dp"
+                    android:layout_height="105dp"
+                    android:backgroundTint="@color/transparent"
+                    android:contentDescription="@string/imgbtn_coll"
+                    android:src="@drawable/imgbtn_wrong"
+                    app:layout_constraintBottom_toBottomOf="@+id/dorm_bg"
+                    app:layout_constraintEnd_toEndOf="@+id/dorm_bg"
+                    app:layout_constraintHorizontal_bias="0.45"
+                    app:layout_constraintStart_toStartOf="@+id/dorm_bg"
+                    app:layout_constraintTop_toTopOf="@+id/dorm_bg"
+                    app:layout_constraintVertical_bias="0.827" />
+                <LinearLayout
+                    android:id="@+id/hint_wrong"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@+id/imgbtn_wrong"
+                    app:layout_constraintTop_toBottomOf="@+id/imgbtn_wrong"
+                    app:layout_constraintEnd_toEndOf="@+id/imgbtn_wrong"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/dorm_words_hint"
+                    android:visibility="invisible">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginVertical="7dp"
+                        android:text="錯誤題目"
+                        android:textColor="@color/white"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-
         </HorizontalScrollView>
     </ScrollView>
-
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
