@@ -27,7 +27,6 @@ public class LoungeFragment extends Fragment {
     private Socket clientSocket;
     private TextView TextView01;
     private EditText EditText01;
-    private Button sendBtn;
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -72,6 +71,7 @@ public class LoungeFragment extends Fragment {
                 BufferedReader br = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
                 while (clientSocket.isConnected()) {
                     String inputMsg = br.readLine();
+                    //TODO
                     if (inputMsg == null) {
                         clientSocket.close();
                         break;
@@ -82,10 +82,6 @@ public class LoungeFragment extends Fragment {
                 e.printStackTrace();
             }
         });
-
-        //sendBtn.setOnClickListener((View.OnClickListener)getActivity());
-
-
     }
 
 
@@ -95,7 +91,7 @@ public class LoungeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_lounge, container, false);
         TextView01 = view.findViewById(R.id.TextView01);
         EditText01 = view.findViewById(R.id.EditText01);
-        sendBtn = view.findViewById(R.id.sendBtn);
+        Button sendBtn = view.findViewById(R.id.sendBtn);
 
         sendBtn.setOnClickListener(v -> {
             ExecutorService executor3 = Executors.newSingleThreadExecutor(); // 建立新的thread

@@ -64,4 +64,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!--  lounge page color  -->
+    <color name="user_msg_name">#8F9193</color>
+    <color name="user_msg_text">#7E703D</color>
+    <color name="msg_card_view">#FFF7DA</color>
+
 </resources>
