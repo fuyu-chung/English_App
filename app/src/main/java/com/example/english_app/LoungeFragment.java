@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -66,10 +65,6 @@ public class LoungeFragment extends Fragment {
             }
         });
 
-        SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences("User", MODE_PRIVATE);
-        String name = sharedPreferences.getString("user_name", "");
-        String phone = sharedPreferences.getString("user_phone", "");
-
         ExecutorService executor2 = Executors.newSingleThreadExecutor(); // 建立新的thread
         executor2.execute(() -> {
             try {
@@ -124,7 +119,33 @@ public class LoungeFragment extends Fragment {
                 }
             });
         });
-
         return view;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        try {
+            clientSocket.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        try {
+            clientSocket.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        clientSocket = new Socket();
     }
 }
