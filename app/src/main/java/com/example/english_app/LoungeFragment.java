@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -19,6 +20,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -26,7 +28,12 @@ import java.util.concurrent.TimeUnit;
 public class LoungeFragment extends Fragment {
     private Socket clientSocket;
     private TextView TextView01;
-    private EditText EditText01;
+    private EditText EditTextMsg;
+
+    private RecyclerViewAdapter adapter;
+    RecyclerView recyclerView;
+    ArrayList<Message> list;
+
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -90,7 +97,7 @@ public class LoungeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_lounge, container, false);
         TextView01 = view.findViewById(R.id.TextView01);
-        EditText01 = view.findViewById(R.id.EditText01);
+        EditTextMsg = view.findViewById(R.id.EditTextMsg);
         Button sendBtn = view.findViewById(R.id.sendBtn);
 
         sendBtn.setOnClickListener(v -> {
@@ -103,7 +110,7 @@ public class LoungeFragment extends Fragment {
                     PrintWriter pw = new PrintWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
 
                     if (clientSocket.isConnected()) {
-                        String msg = EditText01.getText().toString();
+                        String msg = EditTextMsg.getText().toString();
                         SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences("User", MODE_PRIVATE);
                         String name = sharedPreferences.getString("user_name", "");
                         String phone = sharedPreferences.getString("user_phone", "");

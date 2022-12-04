@@ -69,5 +69,6 @@
     <color name="user_msg_name">#8F9193</color>
     <color name="user_msg_text">#7E703D</color>
     <color name="msg_card_view">#FFF7DA</color>
+    <color name="send_btn_color">#EAD380</color>
 
 </resources>

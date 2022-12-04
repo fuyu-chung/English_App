@@ -41,7 +41,13 @@
         <item name="cornerSizeBottomLeft">30dp</item>
         <item name="cornerSizeBottomRight">30dp</item>
     </style>
-    
+
+
+    <!--  lounge user edit text style  -->
+    <style name="RoundedInputText" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">30dp</item>
+    </style>
 
 
 </resources>

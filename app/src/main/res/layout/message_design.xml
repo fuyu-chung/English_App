@@ -6,6 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="10dp"
     android:layout_margin="10dp"
+    android:elevation="5dp"
     app:cardBackgroundColor="@color/msg_card_view"
     >
     <androidx.constraintlayout.widget.ConstraintLayout
