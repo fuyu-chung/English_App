@@ -98,6 +98,10 @@ public class DormFragment extends Fragment {
             Intent intent = new Intent(getActivity(), UserProfileActivity.class);
             startActivity(intent);
         });
+        imgbtnFriend.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), MyFriendActivity.class);
+            startActivity(intent);
+        });
         return view;
     }
 }
