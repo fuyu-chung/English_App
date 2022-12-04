@@ -13,6 +13,19 @@
 <!--        app:layout_constraintBottom_toTopOf="@+id/msgLayout"-->
 <!--        app:layout_constraintTop_toTopOf="parent"-->
 <!--        />-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/msgLayout"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/TextView01"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="123"/>
+
+    </ScrollView>
 
     <LinearLayout
         android:id="@+id/msgLayout"
@@ -35,6 +48,7 @@
                 android:layout_height="wrap_content"
 
                 android:hint="輸入文字"
+                app:hintTextColor="@color/words_user_input"
                 app:boxBackgroundColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -43,6 +57,7 @@
                 android:layout_marginBottom="5dp"
 
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:boxStrokeColor="@color/user_msg_text"
                 app:boxCornerRadiusTopStart="30dp"
                 app:boxCornerRadiusTopEnd="30dp"
                 app:boxCornerRadiusBottomEnd="30dp"
@@ -98,11 +113,5 @@
 
     <!--    </LinearLayout>-->
 
-        <TextView
-            android:id="@+id/TextView01"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="123"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
