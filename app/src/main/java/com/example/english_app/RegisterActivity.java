@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Looper;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
+import android.widget.CheckBox;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
@@ -28,6 +31,7 @@ import java.util.concurrent.Executors;
 
 public class RegisterActivity extends AppCompatActivity {
     private TextInputEditText user_name, user_phone, user_birthday, user_password, user_check;
+    private CheckBox showCb;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -39,6 +43,7 @@ public class RegisterActivity extends AppCompatActivity {
         user_birthday = findViewById(R.id.user_birthday);
         user_password = findViewById(R.id.user_password);
         user_check = findViewById(R.id.user_check);
+        showCb = findViewById(R.id.show_password);
 
         MaterialButton enrollBtn = findViewById(R.id.enrollBtn);
         enrollBtn.setOnClickListener(v -> {
@@ -162,7 +167,6 @@ public class RegisterActivity extends AppCompatActivity {
                     Looper.prepare();
                     Toast.makeText(this, "註冊成功", Toast.LENGTH_SHORT).show();
                     Looper.loop();
-
                 }
                 catch (SQLException e) {
                     System.out.println("sql failed");
@@ -174,7 +178,19 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             });
         });
+
+        showCb = findViewById(R.id.show_password);
+        showCb.setOnClickListener(
+                view -> {
+                    if(showCb.isChecked()){
+                        (user_password).setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                        (user_check).setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    }
+                    else{
+                        (user_password).setTransformationMethod(PasswordTransformationMethod.getInstance());
+                        (user_check).setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    }
+                }
+        );
     }
-
-
 }
