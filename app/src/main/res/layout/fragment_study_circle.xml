@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bottom_bar_icons_bg04"
-    tools:context=".CollegeFragment">
+    tools:context=".mainpage_fragments.CollegeFragment">
 
     <TextView
         android:layout_width="match_parent"

@@ -1,4 +1,4 @@
-package com.example.english_app;
+package com.example.english_app.mainpage_fragments;
 
 import android.os.Bundle;
 import android.transition.AutoTransition;
@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+
+import com.example.english_app.R;
 
 /**
  * A simple {@link Fragment} subclass.

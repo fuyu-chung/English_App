@@ -18,6 +18,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.english_app.mainpage_fragments.CollegeFragment;
+import com.example.english_app.mainpage_fragments.DormFragment;
+import com.example.english_app.mainpage_fragments.LibraryFragment;
+import com.example.english_app.mainpage_fragments.LoungeFragment;
+import com.example.english_app.mainpage_fragments.StudyCircleFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainPageActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {

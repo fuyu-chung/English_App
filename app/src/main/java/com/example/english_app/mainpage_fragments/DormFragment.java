@@ -1,4 +1,4 @@
-package com.example.english_app;
+package com.example.english_app.mainpage_fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,9 @@ import android.widget.LinearLayout;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.english_app.MyFriendActivity;
+import com.example.english_app.R;
+import com.example.english_app.UserProfileActivity;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
 

@@ -1,4 +1,4 @@
-package com.example.english_app;
+package com.example.english_app.mainpage_fragments;
 
 import android.os.Bundle;
 
@@ -8,19 +8,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.english_app.R;
+
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link StudyCircleFragment#newInstance} factory method to
+ * Use the {@link LibraryFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class StudyCircleFragment extends Fragment {
+public class LibraryFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    public StudyCircleFragment() {
+    public LibraryFragment() {
         // Required empty public constructor
     }
 
@@ -30,11 +32,11 @@ public class StudyCircleFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment StudyCircleFragment.
+     * @return A new instance of fragment LibraryFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static StudyCircleFragment newInstance(String param1, String param2) {
-        StudyCircleFragment fragment = new StudyCircleFragment();
+    public static LibraryFragment newInstance(String param1, String param2) {
+        LibraryFragment fragment = new LibraryFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -56,6 +58,6 @@ public class StudyCircleFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_study_circle, container, false);
+        return inflater.inflate(R.layout.fragment_library, container, false);
     }
 }

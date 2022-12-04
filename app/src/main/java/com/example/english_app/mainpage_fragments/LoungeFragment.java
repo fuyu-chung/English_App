@@ -1,4 +1,4 @@
-package com.example.english_app;
+package com.example.english_app.mainpage_fragments;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -13,6 +13,10 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.english_app.Message;
+import com.example.english_app.R;
+import com.example.english_app.RecyclerViewAdapter;
 
 import java.io.BufferedReader;
 import java.io.IOException;
