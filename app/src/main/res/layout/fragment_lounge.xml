@@ -19,11 +19,19 @@
         app:layout_constraintBottom_toTopOf="@id/msgLayout"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/TextView01"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="123"/>
+
+
+<!--            <TextView-->
+<!--                android:id="@+id/TextView01"-->
+<!--                android:layout_width="fill_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="123"/>-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"/>
+
+
+
 
     </ScrollView>
 
