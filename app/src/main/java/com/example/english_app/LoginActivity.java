@@ -120,14 +120,4 @@ public class LoginActivity extends AppCompatActivity {
                 }
         );
     }
-
-
-    /*---------- Back pressed ----------*/
-    @Override
-    public void onBackPressed() {
-            super.onBackPressed();
-
-    }
-
-
 }

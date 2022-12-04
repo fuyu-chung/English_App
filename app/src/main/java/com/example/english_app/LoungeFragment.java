@@ -94,8 +94,8 @@ public class LoungeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_lounge, container, false);
         TextView01 = view.findViewById(R.id.TextView01);
         EditTextMsg = view.findViewById(R.id.EditTextMsg);
-        ImageButton sendBtn = view.findViewById(R.id.sendBtn);
 
+        ImageButton sendBtn = view.findViewById(R.id.sendBtn);
         sendBtn.setOnClickListener(v -> {
             ExecutorService executor3 = Executors.newSingleThreadExecutor(); // 建立新的thread
             executor3.execute(() -> {
@@ -106,12 +106,13 @@ public class LoungeFragment extends Fragment {
                     PrintWriter pw = new PrintWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
 
                     if (clientSocket.isConnected()) {
-                        String msg = EditTextMsg.getText().toString();
+                        String msg = (EditTextMsg).getText().toString();
                         SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences("User", MODE_PRIVATE);
                         String name = sharedPreferences.getString("user_name", "");
                         String phone = sharedPreferences.getString("user_phone", "");
                         pw.println(phone + name + " : " + msg);
                         pw.flush();
+                        getActivity().runOnUiThread(() -> (EditTextMsg).getText().clear());
                     }
 
                 } catch (IOException | InterruptedException e) {
