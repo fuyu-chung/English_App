@@ -71,4 +71,10 @@
     <color name="msg_card_view">#FFF7DA</color>
     <color name="send_btn_color">#EAD380</color>
 
+    <!--  Vocabulary page  -->
+    <color name="vocab_bg">#FFFBEB</color>
+    <color name="vocab_topbar">#EAD380</color>
+    <color name="vocab_collapse_topbar">#D6B326</color>
+
+
 </resources>

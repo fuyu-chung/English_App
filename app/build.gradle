@@ -15,8 +15,8 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    dataBinding{
-        enabled = true
+    buildFeatures{
+        dataBinding true
     }
 
     buildTypes {
@@ -43,6 +43,7 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation "androidx.recyclerview:recyclerview:1.2.1"
     //circle image 的library
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
