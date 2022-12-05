@@ -38,20 +38,8 @@ public class LoungeFragment extends Fragment {
     RecyclerView recyclerView;
     ArrayList<Message> list;
 
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
     public LoungeFragment() {
         // Required empty public constructor
-    }
-
-    public static LoungeFragment newInstance(String param1, String param2) {
-        LoungeFragment fragment = new LoungeFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
     }
 
     @Override
@@ -90,7 +78,6 @@ public class LoungeFragment extends Fragment {
             }
         });
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

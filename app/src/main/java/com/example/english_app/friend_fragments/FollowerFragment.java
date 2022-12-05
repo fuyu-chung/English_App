@@ -1,14 +1,13 @@
 package com.example.english_app.friend_fragments;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.example.english_app.R;
 import com.example.english_app.User;
@@ -47,6 +46,7 @@ public class FollowerFragment extends Fragment {
 
     private List<User> getListUser(){
         List<User> list = new ArrayList<>();
+        List<String> users = new ArrayList<>();
         list.add(new User("User name 1", "User ID 1"));
         list.add(new User("User name 2", "User ID 2"));
         list.add(new User("User name 3", "User ID 3"));
