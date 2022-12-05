@@ -102,8 +102,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
+                        android:layout_alignParentStart="true"
                         android:layout_below="@id/textViewVocab"
-                        android:paddingVertical="20dp">
+                        android:paddingTop="30dp">
 
                         <TextView
                             android:id="@+id/detailCollegeText"
@@ -117,9 +118,31 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/goToVocabLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/extendText01"
+                        android:gravity="center"
+                        >
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/vocab_btn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/vocab_topic_words"
+                            android:text="進入學院"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/white"
+                            app:cornerRadius="30dp"
+                            android:visibility="gone"
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/extendText01"
+                        android:layout_below="@id/goToVocabLayout"
                         android:layout_alignParentEnd="true"
                         android:paddingBottom="20dp">
 
@@ -232,8 +255,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
                         android:layout_below="@id/textViewPhrase"
-                        android:paddingBottom="20dp"
                         android:paddingTop="20dp">
 
                         <TextView
@@ -247,9 +270,32 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/goToPhraseLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/extendText02"
+                        android:gravity="center"
+                        >
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/phrase_btn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/phrase_topic_words"
+                            android:text="進入學院"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/white"
+                            app:cornerRadius="30dp"
+                            android:visibility="gone"
+                            />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/extendText02"
+                        android:layout_below="@id/goToPhraseLayout"
                         android:paddingBottom="20dp">
 
                         <TextView
@@ -365,8 +411,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
+                        android:layout_alignParentStart="true"
                         android:layout_below="@id/textViewReading"
-                        android:paddingVertical="20dp">
+                        android:paddingTop="20dp">
 
                         <TextView
                             android:id="@+id/detailReadingText"
@@ -381,9 +428,31 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/goToReadingLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/extendText03"
+                        android:gravity="center"
+                        >
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/reading_btn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/reading_topic_words"
+                            android:text="進入學院"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/white"
+                            app:cornerRadius="30dp"
+                            android:visibility="gone"
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/extendText03"
+                        android:layout_below="@id/goToReadingLayout"
                         android:layout_alignParentEnd="true"
                         android:paddingBottom="20dp">
 
@@ -499,9 +568,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
                         android:layout_below="@id/textViewCompete"
-                        android:paddingTop="30dp"
-                        android:paddingBottom="20dp">
+                        android:paddingTop="30dp">
 
                         <TextView
                             android:id="@+id/detailCompeteText"
@@ -516,9 +585,31 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/goToCompeteLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/extendText04"
+                        android:gravity="center"
+                        >
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/compete_btn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/compete_topic_words"
+                            android:text="進入學院"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/white"
+                            app:cornerRadius="30dp"
+                            android:visibility="gone"
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/extendText04"
+                        android:layout_below="@id/goToCompeteLayout"
                         android:paddingBottom="20dp">
 
                         <TextView
