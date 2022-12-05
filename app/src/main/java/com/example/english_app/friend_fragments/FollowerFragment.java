@@ -3,64 +3,79 @@ package com.example.english_app.friend_fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.english_app.R;
+import com.example.english_app.User;
+import com.example.english_app.UserAdapter;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link FollowerFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+import java.util.List;
+
+
 public class FollowerFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private RecyclerView rcvFollower;
+    private View mView;
 
     public FollowerFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FollowerFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static FollowerFragment newInstance(String param1, String param2) {
-        FollowerFragment fragment = new FollowerFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_follower, container, false);
+        mView = inflater.inflate(R.layout.fragment_follower, container, false);
+
+        rcvFollower = mView.findViewById(R.id.rcv_follower);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        rcvFollower.setLayoutManager(linearLayoutManager);
+
+        UserAdapter userAdapter = new UserAdapter();
+        userAdapter.setData(getListUser());
+
+        rcvFollower.setAdapter(userAdapter);
+        return mView;
+    }
+
+    private List<User> getListUser(){
+        List<User> list = new ArrayList<>();
+        list.add(new User("User name 1", "User ID 1"));
+        list.add(new User("User name 2", "User ID 2"));
+        list.add(new User("User name 3", "User ID 3"));
+        list.add(new User("User name 4", "User ID 4"));
+        list.add(new User("User name 5", "User ID 5"));
+        list.add(new User("User name 6", "User ID 6"));
+        list.add(new User("User name 7", "User ID 7"));
+        list.add(new User("User name 1", "User ID 1"));
+        list.add(new User("User name 2", "User ID 2"));
+        list.add(new User("User name 3", "User ID 3"));
+        list.add(new User("User name 4", "User ID 4"));
+        list.add(new User("User name 5", "User ID 5"));
+        list.add(new User("User name 6", "User ID 6"));
+        list.add(new User("User name 7", "User ID 7"));
+        list.add(new User("User name 1", "User ID 1"));
+        list.add(new User("User name 2", "User ID 2"));
+        list.add(new User("User name 3", "User ID 3"));
+        list.add(new User("User name 4", "User ID 4"));
+        list.add(new User("User name 5", "User ID 5"));
+        list.add(new User("User name 6", "User ID 6"));
+        list.add(new User("User name 7", "User ID 7"));
+        list.add(new User("User name 1", "User ID 1"));
+        list.add(new User("User name 2", "User ID 2"));
+        list.add(new User("User name 3", "User ID 3"));
+        list.add(new User("User name 4", "User ID 4"));
+        list.add(new User("User name 5", "User ID 5"));
+        list.add(new User("User name 6", "User ID 6"));
+        list.add(new User("User name 7", "User ID 7"));
+
+        return list;
     }
 }

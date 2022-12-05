@@ -23,9 +23,6 @@ public class MyFriendActivity extends AppCompatActivity {
     private TabLayout friendTablayout;
     private ViewPager friendViewpager;
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

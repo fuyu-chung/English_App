@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,11 +9,9 @@
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/friend_collapsing_appbar"
         android:layout_width="match_parent"
-        android:layout_height="280dp"
+        android:layout_height="320dp"
         android:fitsSystemWindows="true"
-        android:theme="@style/FriendTheme"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:theme="@style/FriendTheme">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/friend_collapsing_toolbar"
@@ -25,7 +23,9 @@
             app:expandedTitleGravity="center_horizontal|bottom"
             app:expandedTitleTextColor="?attr/colorOnPrimary"
             app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
-            app:title="我的好友">
+            app:title="我的好友"
+            app:collapsedTitleTextColor="@color/icon_bg"
+            app:expandedTitleMarginBottom="70dp">
 
             <ImageView
                 android:layout_width="320dp"
@@ -37,54 +37,59 @@
             <androidx.appcompat.widget.Toolbar
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:layout_collapseMode="pin" />
+                app:layout_collapseMode="pin"
+                android:layout_marginBottom="48dp"/>
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/friend_tablayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom">
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="粉絲" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="追蹤中" />
+
+            </com.google.android.material.tabs.TabLayout>
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/friend_tablayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/friend_collapsing_appbar"
-        app:layout_constraintStart_toStartOf="parent">
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="粉絲" />
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="追蹤中"/>
 
-    </com.google.android.material.tabs.TabLayout>
 
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/friend_viewpager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/friend_tablayout"/>
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        app:layout_constraintTop_toBottomOf="@id/friend_tablayout" />
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="-27dp"
-        android:layout_marginEnd="30dp"
+
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="30dp"
         android:backgroundTint="@color/nav_selected_bg"
         android:baselineAlignBottom="false"
         android:clickable="true"
         android:outlineSpotShadowColor="@color/nav_selected_bg"
         android:src="@drawable/add_friend"
         app:fabSize="normal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/friend_collapsing_appbar"
+
+        app:layout_anchor="@id/friend_tablayout"
+        app:layout_anchorGravity="end|bottom"
         app:tint="@color/nav_selected_text" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
