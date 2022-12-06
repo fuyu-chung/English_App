@@ -3,7 +3,7 @@
     <item>
         <shape android:shape="rectangle">
             <gradient android:startColor="@color/compete_topbar"
-                android:endColor="#D38D51"
+                android:endColor="#FFB07A"
                 android:angle="315"/>
             <corners android:bottomLeftRadius="30dp"
                 android:bottomRightRadius="30dp"/>

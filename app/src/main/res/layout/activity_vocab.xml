@@ -9,7 +9,6 @@
     >
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appbar01"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/transparent" >
@@ -88,9 +87,5 @@
 
 
     </androidx.core.widget.NestedScrollView>
-
-
-
-
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

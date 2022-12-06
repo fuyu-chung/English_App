@@ -3,7 +3,7 @@
     <item>
         <shape android:shape="rectangle">
             <gradient android:startColor="@color/vocab_topbar"
-                android:endColor="#EECB3C"
+                android:endColor="#FFDF52"
                 android:angle="315"/>
             <corners android:bottomLeftRadius="30dp"
                 android:bottomRightRadius="30dp"/>
