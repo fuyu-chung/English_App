@@ -1,7 +1,6 @@
 package com.example.english_app;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Looper;
 import android.text.method.HideReturnsTransformationMethod;
@@ -9,7 +8,6 @@ import android.text.method.PasswordTransformationMethod;
 import android.widget.CheckBox;
 import android.widget.Toast;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.button.MaterialButton;
@@ -33,7 +31,6 @@ public class RegisterActivity extends AppCompatActivity {
     private TextInputEditText user_name, user_phone, user_birthday, user_password, user_check;
     private CheckBox showCb;
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
