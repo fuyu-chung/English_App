@@ -94,7 +94,7 @@
                         app:boxCornerRadiusBottomStart="30dp">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/EditTextID"
+                            android:id="@+id/friend_ID"
                             android:textColor="@color/black"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"

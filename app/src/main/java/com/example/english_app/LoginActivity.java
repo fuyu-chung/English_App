@@ -56,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
                         resultSet = statement.executeQuery();
                         if (resultSet.next()) {
                             SharedPreferences sharedPreferences = getSharedPreferences("User", MODE_PRIVATE);
-                            sharedPreferences.edit().putString("user_id", resultSet.getString(1)).apply();
+                            sharedPreferences.edit().putInt("user_id", resultSet.getInt(1)).apply();
                             sharedPreferences.edit().putString("user_name", resultSet.getString(2)).apply();
                             sharedPreferences.edit().putString("user_phone", resultSet.getString(3)).apply();
                             sharedPreferences.edit().putString("user_birthday", resultSet.getString(4)).apply();
