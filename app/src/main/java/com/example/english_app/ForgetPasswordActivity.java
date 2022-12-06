@@ -198,7 +198,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
                         statement.setString(3, salt2);
                         statement.setString(4, phoneText);
                         statement.setString(5, nameText);
-                        statement.execute();
+                        statement.executeUpdate();
                         System.out.println("Successful");
                         Intent intent = new Intent(this, LoginActivity.class);
                         startActivity(intent);
