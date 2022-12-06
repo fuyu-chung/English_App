@@ -74,22 +74,22 @@
     <!--  Vocabulary page  -->
     <color name="vocab_bg">#FFFBEB</color>
     <color name="vocab_topbar">#EEDD90</color>
-    <color name="vocab_collapse_topbar">#B59E3A</color>
+    <color name="vocab_collapse_topbar">#DFC242</color>
 
     <!--  Phrase page  -->
-    <color name="phrase_bg">#F5FEFF</color>
+    <color name="phrase_bg">#F9FEFF</color>
     <color name="phrase_topbar">#ADD8DE</color>
     <color name="phrase_collapse_topbar">#569098</color>
 
     <!--  Reading page  -->
-    <color name="reading_bg">#F0FFEB</color>
+    <color name="reading_bg">#F5FFF2</color>
     <color name="reading_topbar">#ADDAB4</color>
     <color name="reading_collapse_topbar">#558E5E</color>
 
     <!--  Competition page  -->
-    <color name="compete_bg">#FFF4EB</color>
+    <color name="compete_bg">#FFF9F4</color>
     <color name="compete_topbar">#F1CDB4</color>
-    <color name="compete_collapse_topbar">#AE764E</color>
+    <color name="compete_collapse_topbar">#DF9865</color>
 
 
 </resources>
