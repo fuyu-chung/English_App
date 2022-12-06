@@ -2,8 +2,8 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <shape android:shape="rectangle">
-            <gradient android:startColor="@color/phrase_topbar"
-                android:endColor="#2B93A1"
+            <gradient android:startColor="@color/reading_topbar"
+                android:endColor="#419C5A"
                 android:angle="315"/>
             <corners android:bottomLeftRadius="30dp"
                 android:bottomRightRadius="30dp"/>
@@ -12,6 +12,3 @@
     </item>
 
 </selector>
-
-<!--61604
-45460-->
