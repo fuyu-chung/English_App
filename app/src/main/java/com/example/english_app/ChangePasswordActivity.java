@@ -111,9 +111,9 @@ public class ChangePasswordActivity extends AppCompatActivity {
                     statement.setString(2, salt1);
                     statement.setString(3, salt2);
                     statement.setString(4, phone);
-                    boolean resultSet = statement.execute();
+                    int resultSet = statement.executeUpdate();
 
-                    if (resultSet) {
+                    if (resultSet != 0) {
                         Intent intent = new Intent(this, MainPageActivity.class);
                         startActivity(intent);
                         Looper.prepare();
@@ -123,6 +123,10 @@ public class ChangePasswordActivity extends AppCompatActivity {
                         sharedPreferences.edit().putString("user_password", passwordText).apply();
                         sharedPreferences.edit().putString("user_salt1", salt1).apply();
                         sharedPreferences.edit().putString("user_salt2", salt2).apply();
+
+                        runOnUiThread(() -> (user_old_password).setText(""));
+                        runOnUiThread(() -> (user_password).setText(""));
+                        runOnUiThread(() -> (user_check).setText(""));
                     }
 
                 } catch (SQLException e) {
@@ -163,20 +167,20 @@ public class ChangePasswordActivity extends AppCompatActivity {
                     PreparedStatement statement = connection.prepareStatement(query);
                     statement.setString(1, nameText);
                     statement.setString(2, phone);
-                    boolean resultSet = statement.execute();
-
-                    if (resultSet) {
+                    int resultSet = statement.executeUpdate();
+                    System.out.println(resultSet);
+                    if (resultSet != 0) {
                         Intent intent = new Intent(this, MainPageActivity.class);
                         startActivity(intent);
                         Looper.prepare();
                         Toast.makeText(this, "更改成功", Toast.LENGTH_LONG).show();
                         Looper.loop();
-
                         sharedPreferences.edit().putString("user_name", nameText).apply();
+                        runOnUiThread(() -> (user_name).setText(""));
                     }
 
                 } catch (SQLException e) {
-                    System.out.println(e.getMessage());
+                    e.printStackTrace();
                 }
             });
         });

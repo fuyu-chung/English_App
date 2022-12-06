@@ -157,7 +157,7 @@ public class RegisterActivity extends AppCompatActivity {
                     statement.setString(5, passwordText);
                     statement.setString(6, salt1);
                     statement.setString(7, salt2);
-                    statement.execute();
+                    statement.executeUpdate();
                     System.out.println("Successful");
                     Intent mainIntent = new Intent(this, LoginActivity.class);
                     startActivity(mainIntent);
