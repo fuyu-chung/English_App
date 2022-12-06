@@ -25,7 +25,8 @@
             app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
             app:title="我的好友"
             app:collapsedTitleTextColor="@color/icon_bg"
-            app:expandedTitleMarginBottom="130dp">
+            app:expandedTitleMarginBottom="130dp"
+            >
 
             <ImageView
                 android:layout_width="320dp"
@@ -38,7 +39,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
-                android:layout_marginBottom="115dp"/>
+                android:layout_marginBottom="115dp">
+
+
+            </androidx.appcompat.widget.Toolbar>
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/friend_tablayout"
