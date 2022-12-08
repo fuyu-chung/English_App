@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.english_app.FollowingAdapter;
 import com.example.english_app.R;
-import com.example.english_app.User;
+import com.example.english_app.mainpage_fragments.Following;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -54,9 +54,9 @@ public class FollowingFragment extends Fragment {
         return mView;
     }
 
-    private List<User> getListFollowing() {
-        List<User> list = new ArrayList<>();
-        List<User> temp = new ArrayList<>();
+    private List<Following> getListFollowing() {
+        List<Following> list = new ArrayList<>();
+        List<Following> temp = new ArrayList<>();
         ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
         executor.execute(() -> {
             try {
@@ -69,7 +69,7 @@ public class FollowingFragment extends Fragment {
                 statement.setInt(1, id);
                 ResultSet resultSet = statement.executeQuery();
                 while (resultSet.next()) {
-                    list.add(new User(resultSet.getInt(1), resultSet.getString(2)));
+                    list.add(new Following(resultSet.getInt(1), resultSet.getString(2)));
                 }
             } catch (SQLException e) {
                 e.printStackTrace();

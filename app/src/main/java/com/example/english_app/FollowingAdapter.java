@@ -16,7 +16,7 @@ public class FollowingAdapter extends RecyclerView.Adapter<FollowingAdapter.Foll
     //list of Following
     private List<Following> mListFollowing;
 
-    public void setData(List<User> list) {
+    public void setData(List<Following> list) {
         //現在這個list的data
         this.mListFollowing = list;
         notifyDataSetChanged();
