@@ -49,14 +49,14 @@ public class FollowerFragment extends Fragment {
         rcvFollower.setLayoutManager(linearLayoutManager);
         UserAdapter userAdapter = new UserAdapter();
         //這裡呼叫UserAdapter裡面的setData class
-        userAdapter.setData(getListUser());
+        userAdapter.setData(getListFollower());
         rcvFollower.setAdapter(userAdapter);
         return mView;
     }
 
-    private List<User> getListUser() {
+    private List<User> getListFollower() {
         List<User> list = new ArrayList<>();
-        list.add(new User(00000, "friend robot"));
+        List<User> temp = new ArrayList<>();
         ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
         executor.execute(() -> {
             try {
@@ -64,7 +64,7 @@ public class FollowerFragment extends Fragment {
                 int id = sharedPreferences.getInt("user_id", 0);
                 String s1 = "jdbc:jtds:sqlserver://myenglishserver.database.windows.net:1433/englishapp_db;user=englishapp@myenglishserver;password=English1234@@;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;ssl=request;"; //訪問azure的db的網址
                 Connection connection = DriverManager.getConnection(s1); //建立連線
-                String query = "select friends.friend_id, account.user_name from friends, account where friends.friend_id = account.user_id AND friends.user_id = ? ";
+                String query = "select friends.friend_id, account.user_name from friends, account where friends.friend_id = account.user_id AND friends.friend_id = ? ";
                 PreparedStatement statement = connection.prepareStatement(query);
                 statement.setInt(1, id);
                 ResultSet resultSet = statement.executeQuery();
@@ -75,8 +75,8 @@ public class FollowerFragment extends Fragment {
                 e.printStackTrace();
             }
         });
-        list.add(new User(2, "friend robot"));
-        return list;
+        temp = list;
+        return temp;
     }
     public void onStart(){
         super.onStart();
