@@ -13,8 +13,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.english_app.R;
-import com.example.english_app.User;
-import com.example.english_app.UserAdapter;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -47,16 +45,16 @@ public class FollowerFragment extends Fragment {
         rcvFollower = mView.findViewById(R.id.rcv_follower);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         rcvFollower.setLayoutManager(linearLayoutManager);
-        UserAdapter userAdapter = new UserAdapter();
+        FollowerAdapter followerAdapter = new FollowerAdapter();
         //這裡呼叫UserAdapter裡面的setData class
-        userAdapter.setData(getListFollower());
-        rcvFollower.setAdapter(userAdapter);
+        followerAdapter.setData(getListFollower());
+        rcvFollower.setAdapter(followerAdapter);
         return mView;
     }
 
-    private List<User> getListFollower() {
-        List<User> list = new ArrayList<>();
-        List<User> temp = new ArrayList<>();
+    private List<Follower> getListFollower() {
+        List<Follower> list = new ArrayList<>();
+        List<Follower> temp = new ArrayList<>();
         ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
         executor.execute(() -> {
             try {
@@ -69,7 +67,7 @@ public class FollowerFragment extends Fragment {
                 statement.setInt(1, id);
                 ResultSet resultSet = statement.executeQuery();
                 while (resultSet.next()) {
-                    list.add(new User(resultSet.getInt(1), resultSet.getString(2)));
+                    list.add(new Follower(resultSet.getInt(1), resultSet.getString(2)));
                 }
             } catch (SQLException e) {
                 e.printStackTrace();

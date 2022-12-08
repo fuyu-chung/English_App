@@ -1,4 +1,4 @@
-package com.example.english_app.mainpage_fragments;
+package com.example.english_app.friend_fragments;
 
 public class Following {    //這裡和最後顯示在fragment的list有關
     //這裡是你的User裡面要顯示的有幾個物件的list，我們有userName和ID要顯示

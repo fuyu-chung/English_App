@@ -12,9 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.english_app.FollowingAdapter;
 import com.example.english_app.R;
-import com.example.english_app.mainpage_fragments.Following;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
