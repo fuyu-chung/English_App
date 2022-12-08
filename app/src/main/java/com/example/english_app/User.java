@@ -7,7 +7,7 @@ public class User {
     private int userId;
 
     //在fragment java裡面的User function格式在這裡宣告有什麼變數
-    public User(int userId, String  userName) {
+    public User(int userId, String userName) {
         this.userId = userId;
         this.userName = userName;
     }
