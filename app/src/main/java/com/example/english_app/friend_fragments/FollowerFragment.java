@@ -64,7 +64,7 @@ public class FollowerFragment extends Fragment {
                 int id = sharedPreferences.getInt("user_id", 0);
                 String s1 = "jdbc:jtds:sqlserver://myenglishserver.database.windows.net:1433/englishapp_db;user=englishapp@myenglishserver;password=English1234@@;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;ssl=request;"; //訪問azure的db的網址
                 Connection connection = DriverManager.getConnection(s1); //建立連線
-                String query = "select friends.friend_id, account.user_name from friends, account where friends.friend_id = account.user_id AND friends.friend_id = ? ";
+                String query = "select friends.user_id, account.user_name from friends, account where friends.user_id = account.user_id AND friends.friend_id = ? ";
                 PreparedStatement statement = connection.prepareStatement(query);
                 statement.setInt(1, id);
                 ResultSet resultSet = statement.executeQuery();
