@@ -41,7 +41,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         }
         //印出來的文字，這裡的getUserName連接到UserAdapter
         holder.userName.setText(user.getUserName());
-        holder.userId.setText(String.valueOf("ID: "+ user.getUserId()));
+        holder.userId.setText(String.valueOf("ID: " + user.getUserId()));
     }
 
     @Override

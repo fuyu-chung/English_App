@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.english_app.R;
+import com.example.english_app.User;
+import com.example.english_app.UserAdapter;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -45,16 +47,15 @@ public class FollowerFragment extends Fragment {
         rcvFollower = mView.findViewById(R.id.rcv_follower);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         rcvFollower.setLayoutManager(linearLayoutManager);
-        FollowerAdapter followerAdapter = new FollowerAdapter();
+        UserAdapter userAdapter = new UserAdapter();
         //這裡呼叫UserAdapter裡面的setData class
-        followerAdapter.setData(getListFollower());
-        rcvFollower.setAdapter(followerAdapter);
+        userAdapter.setData(getListFollower());
+        rcvFollower.setAdapter(userAdapter);
         return mView;
     }
 
-    private List<Follower> getListFollower() {
-        List<Follower> list = new ArrayList<>();
-        List<Follower> temp = new ArrayList<>();
+    private List<User> getListFollower() {
+        List<User> list = new ArrayList<>();
         ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
         executor.execute(() -> {
             try {
@@ -62,21 +63,21 @@ public class FollowerFragment extends Fragment {
                 int id = sharedPreferences.getInt("user_id", 0);
                 String s1 = "jdbc:jtds:sqlserver://myenglishserver.database.windows.net:1433/englishapp_db;user=englishapp@myenglishserver;password=English1234@@;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;ssl=request;"; //訪問azure的db的網址
                 Connection connection = DriverManager.getConnection(s1); //建立連線
-                String query = "select friends.friend_id, account.user_name from friends, account where friends.friend_id = account.user_id AND friends.friend_id = ? ";
+                String query = "select friends.user_id, account.user_name from friends, account where friends.user_id = account.user_id AND friends.friend_id = ? ";
                 PreparedStatement statement = connection.prepareStatement(query);
                 statement.setInt(1, id);
                 ResultSet resultSet = statement.executeQuery();
                 while (resultSet.next()) {
-                    list.add(new Follower(resultSet.getInt(1), resultSet.getString(2)));
+                    list.add(new User(resultSet.getInt(1), resultSet.getString(2)));
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         });
-        temp = list;
-        return temp;
+        return list;
     }
-    public void onStart(){
+
+    public void onStart() {
         super.onStart();
         Executors.newSingleThreadExecutor();
     }

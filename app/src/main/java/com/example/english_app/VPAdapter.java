@@ -22,13 +22,11 @@ public class VPAdapter extends FragmentPagerAdapter {
     @NonNull
     @Override
     public Fragment getItem(int position) {
-
         return fragmentArrayList.get(position);
     }
 
     @Override
     public int getCount() {
-
         return fragmentArrayList.size();
     }
 
@@ -40,7 +38,6 @@ public class VPAdapter extends FragmentPagerAdapter {
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-
         return titleArrayList.get(position);
     }
 }
