@@ -1,10 +1,10 @@
 package com.example.english_app;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class UserProfileActivity extends AppCompatActivity {
 
@@ -22,25 +22,18 @@ public class UserProfileActivity extends AppCompatActivity {
         userPhone = findViewById(R.id.user_phone);
         userBirthday = findViewById(R.id.user_birthday);
 
-        //call readDataFromSharedPreferences function
-        readDataFromSharedPreferences();
-    }
-
-    //get userINFOs from loginActivity byP
-    private void readDataFromSharedPreferences() {
-
         SharedPreferences sharedPreferences = getSharedPreferences("User", MODE_PRIVATE);
         String name = sharedPreferences.getString("user_name","");
-        userName.setText(name);
+        runOnUiThread(() -> (userName).setText(name));
 
-        String id = sharedPreferences.getString("user_id","");
-        userID.setText(id);
+        int id = sharedPreferences.getInt("user_id",0);
+        String ids = Integer.toString(id);
+        runOnUiThread(() -> (userID).setText(ids));
 
         String phone = sharedPreferences.getString("user_phone","");
-        userPhone.setText(phone);
+        runOnUiThread(() -> (userPhone).setText(phone));
 
         String birthday = sharedPreferences.getString("user_birthday","");
-        userBirthday.setText(birthday);
-
+        runOnUiThread(() -> (userBirthday).setText(birthday));
     }
 }
