@@ -56,6 +56,7 @@ public class FollowerFragment extends Fragment {
 
     private List<User> getListUser() {
         List<User> list = new ArrayList<>();
+        list.add(new User(00000, "friend robot"));
         ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
         executor.execute(() -> {
             try {
@@ -74,7 +75,12 @@ public class FollowerFragment extends Fragment {
                 e.printStackTrace();
             }
         });
+        list.add(new User(2, "friend robot"));
         return list;
+    }
+    public void onStart(){
+        super.onStart();
+        Executors.newSingleThreadExecutor();
     }
 
 }
