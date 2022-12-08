@@ -1,5 +1,8 @@
 package com.example.english_app.friend_fragments;
 
+import static android.content.Context.MODE_PRIVATE;
+
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,8 +16,15 @@ import com.example.english_app.R;
 import com.example.english_app.User;
 import com.example.english_app.UserAdapter;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 
 public class FollowerFragment extends Fragment {
@@ -26,56 +36,40 @@ public class FollowerFragment extends Fragment {
         // Required empty public constructor
     }
 
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         mView = inflater.inflate(R.layout.fragment_follower, container, false);
-
         rcvFollower = mView.findViewById(R.id.rcv_follower);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         rcvFollower.setLayoutManager(linearLayoutManager);
-
         UserAdapter userAdapter = new UserAdapter();
         userAdapter.setData(getListUser());
-
         rcvFollower.setAdapter(userAdapter);
         return mView;
     }
 
-    private List<User> getListUser(){
+    private List<User> getListUser() {
         List<User> list = new ArrayList<>();
-        List<String> users = new ArrayList<>();
-        list.add(new User("User name 1", "User ID 1"));
-        list.add(new User("User name 2", "User ID 2"));
-        list.add(new User("User name 3", "User ID 3"));
-        list.add(new User("User name 4", "User ID 4"));
-        list.add(new User("User name 5", "User ID 5"));
-        list.add(new User("User name 6", "User ID 6"));
-        list.add(new User("User name 7", "User ID 7"));
-        list.add(new User("User name 1", "User ID 1"));
-        list.add(new User("User name 2", "User ID 2"));
-        list.add(new User("User name 3", "User ID 3"));
-        list.add(new User("User name 4", "User ID 4"));
-        list.add(new User("User name 5", "User ID 5"));
-        list.add(new User("User name 6", "User ID 6"));
-        list.add(new User("User name 7", "User ID 7"));
-        list.add(new User("User name 1", "User ID 1"));
-        list.add(new User("User name 2", "User ID 2"));
-        list.add(new User("User name 3", "User ID 3"));
-        list.add(new User("User name 4", "User ID 4"));
-        list.add(new User("User name 5", "User ID 5"));
-        list.add(new User("User name 6", "User ID 6"));
-        list.add(new User("User name 7", "User ID 7"));
-        list.add(new User("User name 1", "User ID 1"));
-        list.add(new User("User name 2", "User ID 2"));
-        list.add(new User("User name 3", "User ID 3"));
-        list.add(new User("User name 4", "User ID 4"));
-        list.add(new User("User name 5", "User ID 5"));
-        list.add(new User("User name 6", "User ID 6"));
-        list.add(new User("User name 7", "User ID 7"));
-
+        ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
+        executor.execute(() -> {
+            try {
+                SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences("User", MODE_PRIVATE);
+                int id = sharedPreferences.getInt("user_id", 0);
+                String s1 = "jdbc:jtds:sqlserver://myenglishserver.database.windows.net:1433/englishapp_db;user=englishapp@myenglishserver;password=English1234@@;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;ssl=request;"; //訪問azure的db的網址
+                Connection connection = DriverManager.getConnection(s1); //建立連線
+                String query = "select friends.friend_id, account.user_name from friends, account where friends.friend_id = account.user_id AND friends.user_id = ? ";
+                PreparedStatement statement = connection.prepareStatement(query);
+                statement.setInt(1, id);
+                ResultSet resultSet = statement.executeQuery();
+                while (resultSet.next()) {
+                    list.add(new User(resultSet.getInt(1), resultSet.getString(2)));
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        });
         return list;
     }
+
 }

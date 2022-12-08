@@ -1,24 +1,13 @@
 package com.example.english_app;
 
 public class User {
-
-//    private int resourceId;
     private String userName;
-    private String userId;
+    private int userId;
 
-    public User(String userName, String userId) {
-//        this.resourceId = resourceId;
-        this.userName = userName;
+    public User(int userId, String  userName) {
         this.userId = userId;
+        this.userName = userName;
     }
-
-//    public int getResourceId() {
-//        return resourceId;
-//    }
-//
-//    public void setResourceId(int resourceId) {
-//        this.resourceId = resourceId;
-//    }
 
     public String getUserName() {
         return userName;
@@ -28,11 +17,11 @@ public class User {
         this.userName = userName;
     }
 
-    public String getUserId() {
+    public int getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 }

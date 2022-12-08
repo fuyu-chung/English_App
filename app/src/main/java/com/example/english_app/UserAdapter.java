@@ -4,7 +4,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,8 +19,6 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         notifyDataSetChanged();
     }
 
-
-    @NonNull
     @Override
     public UserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.follower_item, parent, false);
@@ -36,8 +33,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         }
         //TODO: 從這裡連到User java
         holder.userName.setText(user.getUserName());
-        holder.userId.setText(user.getUserId());
-
+        holder.userId.setText(String.valueOf(user.getUserId()));
     }
 
     @Override
@@ -48,10 +44,10 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         return 0;
     }
 
-    public class UserViewHolder extends RecyclerView.ViewHolder {
+    public static class UserViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView userName;
-        private TextView userId;
+        private final TextView userName;
+        private final TextView userId;
 
         public UserViewHolder(@NonNull View itemView) {
             super(itemView);

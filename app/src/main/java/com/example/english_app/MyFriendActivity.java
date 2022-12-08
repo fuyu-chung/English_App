@@ -12,8 +12,6 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.english_app.friend_fragments.FollowerFragment;
 import com.example.english_app.friend_fragments.FollowingFragment;
-import com.google.android.material.appbar.AppBarLayout;
-import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -27,7 +25,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class MyFriendActivity extends AppCompatActivity {
-    int idValue, IDValue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,14 +32,19 @@ public class MyFriendActivity extends AppCompatActivity {
         setContentView(R.layout.activity_my_friend);
         TabLayout friendTabLayout = findViewById(R.id.friend_tablayout);
         ViewPager friendViewpager = findViewById(R.id.friend_viewpager);
-        AppBarLayout mAppBarLayout = findViewById(R.id.friend_collapsing_appbar);
-        CollapsingToolbarLayout mToolBar = findViewById(R.id.friend_collapsing_toolbar);
 
         friendTabLayout.setupWithViewPager(friendViewpager);
         VPAdapter vpAdapter = new VPAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         vpAdapter.addFragment(new FollowerFragment(), "粉絲");
         vpAdapter.addFragment(new FollowingFragment(), "追蹤中");
         friendViewpager.setAdapter(vpAdapter);
+
+//        if (savedInstanceState == null) {
+//            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+//            FollowerFragment fragment = new FollowerFragment();
+//            transaction.replace(R.id.rcv_follower, fragment);
+//            transaction.commit();
+//        }
 
         SharedPreferences sharedPreferences = getSharedPreferences("User", MODE_PRIVATE);
         int id = sharedPreferences.getInt("user_id", 0);
@@ -64,7 +66,7 @@ public class MyFriendActivity extends AppCompatActivity {
                         isCorrect = false;
                     }
 
-                    if (id == IDValue){
+                    if (id == IDValue) {
                         runOnUiThread(() -> (friend_ID).setError("請勿輸入自己的ID"));
                         runOnUiThread(() -> (friend_ID).setText(""));
                         isCorrect = false;
@@ -87,28 +89,28 @@ public class MyFriendActivity extends AppCompatActivity {
                         statement = connection.prepareStatement(query);
                         statement.setInt(1, IDValue);
                         resultSet = statement.executeQuery();
-                        if (resultSet.next()){
-                            sharedPreferences.edit().putInt("friend_id", IDValue).apply();
+                        if (resultSet.next()) {
+//                            sharedPreferences.edit().putInt("friend_id", IDValue).apply();
                             sharedPreferences.edit().putString("friend_name", resultSet.getString(1)).apply();
+//                            User u = new User(IDValue, resultSet.getString(1));
                             query = "insert into friends values (?, ?);";
                             statement = connection.prepareStatement((query));
                             statement.setInt(1, id);
                             statement.setInt(2, IDValue);
                             resultSet2 = statement.executeUpdate();
                             if (resultSet2 != 0) {
+//                                String friend_name = u.getUserName();
                                 String friend_name = sharedPreferences.getString("friend_name", "");
                                 Looper.prepare();
                                 Toast.makeText(this, "開始追蹤 " + friend_name, Toast.LENGTH_LONG).show();
                                 Looper.loop();
                                 (friend_ID).setText("");
                             }
-                        }
-                        else {
+                        } else {
                             runOnUiThread(() -> (friend_ID).setError("請輸入正確的ID"));
                             runOnUiThread(() -> (friend_ID).setText(""));
                         }
-                    }
-                    else {
+                    } else {
                         runOnUiThread(() -> (friend_ID).setError("好友已存在"));
                         runOnUiThread(() -> (friend_ID).setText(""));
                     }
@@ -119,6 +121,4 @@ public class MyFriendActivity extends AppCompatActivity {
             });
         });
     }
-
-
 }
