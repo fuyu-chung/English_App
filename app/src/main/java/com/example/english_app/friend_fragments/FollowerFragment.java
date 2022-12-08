@@ -13,8 +13,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.english_app.R;
-import com.example.english_app.User;
-import com.example.english_app.UserAdapter;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
