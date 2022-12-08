@@ -20,7 +20,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -57,9 +56,13 @@ public class MyFriendActivity extends AppCompatActivity {
             executor.execute(() -> {
                 try {
                     String IDText = Objects.requireNonNull((friend_ID).getText()).toString();
-                    int IDValue = Integer.parseInt(IDText);
                     String idPattern = "[0-9]{5}";
                     boolean isCorrect = true;
+
+//                    if(IDText.isEmpty()) {
+//                        runOnUiThread(() -> (friend_ID).setError("欄位不可為空白"));
+//                        isCorrect = false;
+//                    }
 
                     if (!IDText.matches(idPattern)) {
                         runOnUiThread(() -> (friend_ID).setError("ID格式錯誤"));
@@ -67,13 +70,20 @@ public class MyFriendActivity extends AppCompatActivity {
                         isCorrect = false;
                     }
 
+                    if (!isCorrect) {
+                        return;
+                    }
+
+                    boolean isCorrect1 = true;
+
+                    int IDValue = Integer.parseInt(IDText);
                     if (id == IDValue) {
                         runOnUiThread(() -> (friend_ID).setError("請勿輸入自己的ID"));
                         runOnUiThread(() -> (friend_ID).setText(""));
-                        isCorrect = false;
+                        isCorrect1 = false;
                     }
 
-                    if (!isCorrect) {
+                    if (!isCorrect1) {
                         return;
                     }
 
