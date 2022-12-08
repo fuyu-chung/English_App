@@ -29,7 +29,7 @@ import java.util.concurrent.Executors;
 
 public class FollowerFragment extends Fragment {
 
-    //連接userAdapter 先宣告變數
+    //連接followerAdapter 先宣告變數
     private RecyclerView rcvFollower;
     //跟fragment 有關的view 宣告
     private View mView;
@@ -47,15 +47,15 @@ public class FollowerFragment extends Fragment {
         rcvFollower = mView.findViewById(R.id.rcv_follower);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         rcvFollower.setLayoutManager(linearLayoutManager);
-        UserAdapter userAdapter = new UserAdapter();
-        //這裡呼叫UserAdapter裡面的setData class
-        userAdapter.setData(getListFollower());
-        rcvFollower.setAdapter(userAdapter);
+        FollowerAdapter followerAdapter = new FollowerAdapter();
+        //這裡呼叫FollowerAdapter裡面的setData class
+        followerAdapter.setData(getListFollower());
+        rcvFollower.setAdapter(followerAdapter);
         return mView;
     }
 
-    private List<User> getListFollower() {
-        List<User> list = new ArrayList<>();
+    private List<Follower> getListFollower() {
+        List<Follower> list = new ArrayList<>();
         ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
         executor.execute(() -> {
             try {
@@ -68,7 +68,7 @@ public class FollowerFragment extends Fragment {
                 statement.setInt(1, id);
                 ResultSet resultSet = statement.executeQuery();
                 while (resultSet.next()) {
-                    list.add(new User(resultSet.getInt(1), resultSet.getString(2)));
+                    list.add(new Follower(resultSet.getInt(1), resultSet.getString(2)));
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
