@@ -20,12 +20,13 @@
             android:fitsSystemWindows="true"
             app:collapsedTitleGravity="center"
             app:contentScrim="?attr/colorPrimary"
-            app:expandedTitleGravity="center_horizontal|bottom"
+            app:expandedTitleGravity="center_horizontal|top"
             app:expandedTitleTextColor="?attr/colorOnPrimary"
             app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
             app:title="我的好友"
             app:collapsedTitleTextColor="@color/icon_bg"
-            app:expandedTitleMarginBottom="130dp">
+            app:expandedTitleMarginTop="220dp"
+            >
 
             <ImageView
                 android:layout_width="320dp"
@@ -38,26 +39,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
-                android:layout_marginBottom="115dp"/>
+                android:layout_marginBottom="115dp">
 
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/friend_tablayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                >
 
-                <com.google.android.material.tabs.TabItem
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="粉絲" />
-
-                <com.google.android.material.tabs.TabItem
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="追蹤中" />
-
-            </com.google.android.material.tabs.TabLayout>
+            </androidx.appcompat.widget.Toolbar>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -65,7 +50,7 @@
                 android:paddingHorizontal="2dp"
                 android:padding="5dp"
                 android:layout_gravity="bottom"
-                android:layout_marginBottom="45dp"
+                android:layout_marginBottom="47dp"
                 android:background="@color/blue_color_02">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -119,8 +104,26 @@
 
             </LinearLayout>
 
-        </com.google.android.material.appbar.CollapsingToolbarLayout>
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/friend_tablayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                >
 
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="粉絲" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="追蹤中" />
+
+            </com.google.android.material.tabs.TabLayout>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -133,6 +136,8 @@
         android:layout_height="match_parent"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
         app:layout_constraintTop_toBottomOf="@id/friend_tablayout" />
+
+
 
 
 
