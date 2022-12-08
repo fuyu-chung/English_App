@@ -29,7 +29,9 @@ import java.util.concurrent.Executors;
 
 public class FollowerFragment extends Fragment {
 
+    //連接userAdapter 先宣告變數
     private RecyclerView rcvFollower;
+    //跟fragment 有關的view 宣告
     private View mView;
 
     public FollowerFragment() {
@@ -40,10 +42,13 @@ public class FollowerFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         mView = inflater.inflate(R.layout.fragment_follower, container, false);
+
+        //因為我的recycler view 在linear layout 裡面，所以它去裡面找
         rcvFollower = mView.findViewById(R.id.rcv_follower);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         rcvFollower.setLayoutManager(linearLayoutManager);
         UserAdapter userAdapter = new UserAdapter();
+        //這裡呼叫UserAdapter裡面的setData class
         userAdapter.setData(getListUser());
         rcvFollower.setAdapter(userAdapter);
         return mView;
