@@ -130,7 +130,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
                         runOnUiThread(() -> (user_password).setText(""));
                         runOnUiThread(() -> (user_check).setText(""));
                     }
-
+                    executor.shutdown();
                 } catch (SQLException e) {
                     System.out.println(e.getMessage());
                 }
@@ -180,7 +180,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
                         sharedPreferences.edit().putString("user_name", nameText).apply();
                         runOnUiThread(() -> (user_name).setText(""));
                     }
-
+                    executor.shutdown();
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }

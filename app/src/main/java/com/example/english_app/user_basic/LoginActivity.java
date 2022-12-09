@@ -85,6 +85,7 @@ public class LoginActivity extends AppCompatActivity {
 //                        Toast.makeText(this, "請重新輸入或前往註冊", Toast.LENGTH_LONG).show();
 //                        Looper.loop();
                     }
+                    executor.shutdown();
                 } catch (SQLException e) {
                     System.out.println(e.getMessage());
                 }
@@ -98,6 +99,7 @@ public class LoginActivity extends AppCompatActivity {
             executor.execute(() -> {
                 Intent intent = new Intent(this, RegisterActivity.class);
                 startActivity(intent);
+                executor.shutdown();
             });
         });
 
@@ -107,6 +109,7 @@ public class LoginActivity extends AppCompatActivity {
             executor.execute(() -> {
                 Intent intent = new Intent(this, ForgetPasswordActivity.class); //
                 startActivity(intent);
+                executor.shutdown();
             });
         });
 
