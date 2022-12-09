@@ -1,10 +1,12 @@
-package com.example.english_app;
+package com.example.english_app.user_basic;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.english_app.R;
 
 public class UserProfileActivity extends AppCompatActivity {
 

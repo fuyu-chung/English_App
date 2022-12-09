@@ -54,6 +54,7 @@ public class FollowingFragment extends Fragment {
 
     private List<Following> getListFollowing() {
         List<Following> list = new ArrayList<>();
+
         ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
         executor.execute(() -> {
             try {
@@ -72,6 +73,7 @@ public class FollowingFragment extends Fragment {
                 e.printStackTrace();
             }
         });
+
         return list;
     }
 }

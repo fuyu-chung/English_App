@@ -52,20 +52,20 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".ChangePasswordActivity"
+            android:name=".user_basic.ChangePasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".UserProfileActivity"
+            android:name=".user_basic.UserProfileActivity"
             android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".ForgetPasswordActivity"
+            android:name=".user_basic.ForgetPasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".user_basic.RegisterActivity"
             android:exported="false" /> <!-- <activity -->
         <!-- android:name=".Login" -->
         <!-- android:exported="false" /> -->
@@ -73,7 +73,7 @@
             android:name=".MainPageActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".user_basic.LoginActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

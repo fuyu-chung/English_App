@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.english_app.MyFriendActivity;
 import com.example.english_app.R;
-import com.example.english_app.UserProfileActivity;
+import com.example.english_app.user_basic.UserProfileActivity;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
 

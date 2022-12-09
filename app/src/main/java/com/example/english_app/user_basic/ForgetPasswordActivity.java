@@ -1,4 +1,4 @@
-package com.example.english_app;
+package com.example.english_app.user_basic;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -13,6 +13,9 @@ import android.widget.Toast;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.english_app.Encryption;
+import com.example.english_app.R;
+import com.example.english_app.user_basic.LoginActivity;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 
