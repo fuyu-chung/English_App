@@ -45,7 +45,7 @@ public class LoungeFragment extends Fragment {
             try {
                 clientSocket = new Socket("20.243.200.205", 1098);
             } catch (IOException e) {
-                throw new RuntimeException(e);
+                getActivity().runOnUiThread(() -> TextView01.setText("伺服器暫時關閉，請稍後再試"));
             }
         });
 
