@@ -15,10 +15,10 @@ import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import com.example.english_app.R;
-import com.example.english_app.colleges.compete.CompeteActivity;
+import com.example.english_app.colleges.competition.CompeteActivity;
 import com.example.english_app.colleges.phrase.PhraseActivity;
-import com.example.english_app.colleges.read.ReadingActivity;
-import com.example.english_app.colleges.vocab.VocabActivity;
+import com.example.english_app.colleges.reading.ReadingActivity;
+import com.example.english_app.colleges.vocabulary.VocabActivity;
 import com.google.android.material.button.MaterialButton;
 
 
