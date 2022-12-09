@@ -1,5 +1,6 @@
 package com.example.english_app.colleges.vocab;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.view.LayoutInflater;
@@ -13,26 +14,33 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.english_app.R;
+import com.example.english_app.colleges.vocab.DRcvInterface.UpdateRecyclerView;
 
 import java.util.ArrayList;
 
 public class StaticRcvAdapter extends RecyclerView.Adapter<StaticRcvAdapter.StaticRcvViewHolder>{
 
-    private ArrayList<StaticRcvModel> catItems;
+    private final ArrayList<StaticRcvModel> catItems;
     int check_position = 0; //-1為no default，0為第一選項clicked
     private Context context;
+    UpdateRecyclerView updateRecyclerView;
+    Activity activity;
+    boolean check = true;
+    boolean select = true;
 
-    public StaticRcvAdapter(ArrayList<StaticRcvModel> catItems) {
-        this.context = context;
+    private DynamicRcvAdapter dynamicRcvAdapter;
+
+    public StaticRcvAdapter(ArrayList<StaticRcvModel> catItems, Activity activity, UpdateRecyclerView updateRecyclerView) {
         this.catItems = catItems;
+        this.activity = activity;
+        this.updateRecyclerView = updateRecyclerView;
     }
 
     @NonNull
     @Override
     public StaticRcvViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.static_rcv_item, parent, false);
-        StaticRcvViewHolder staticRcvViewHolder = new StaticRcvViewHolder(view);
-        return staticRcvViewHolder;
+        return new StaticRcvViewHolder(view);
     }
 
     @Override
@@ -41,18 +49,40 @@ public class StaticRcvAdapter extends RecyclerView.Adapter<StaticRcvAdapter.Stat
         holder.vocImage.setImageResource(currentItem.getImage());
         holder.vocText.setText(currentItem.getText());
 
-//        holder.vocSelectedLayout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                check_position = position;
-//                notifyDataSetChanged();
-//            }
-//        });
+
+        //確定是哪個catItem 被點擊，以轉換下方的unitItem
+        if(check){
+
+            ArrayList<DynamicRcvModel> unitItem = new ArrayList<>();
+            unitItem.add(new DynamicRcvModel("Unit 01","#CEB443"));
+            unitItem.add(new DynamicRcvModel("Unit 02","#CEB443"));
+            unitItem.add(new DynamicRcvModel("Unit 03","#CEB443"));
+            unitItem.add(new DynamicRcvModel("Unit 04","#CEB443"));
+            unitItem.add(new DynamicRcvModel("Unit 05","#CEB443"));
+            unitItem.add(new DynamicRcvModel("Unit 06","#CEB443"));
+            unitItem.add(new DynamicRcvModel("Unit 07","#CEB443"));
+            unitItem.add(new DynamicRcvModel("Unit 08","#CEB443"));
+            unitItem.add(new DynamicRcvModel("Unit 09","#CEB443"));
+            unitItem.add(new DynamicRcvModel("Unit 10","#CEB443"));
+            unitItem.add(new DynamicRcvModel("Unit 11","#CEB443"));
+
+            updateRecyclerView.callback(check_position, unitItem);
+
+            check = false;
+        }
+
+
+
+//        if(select){
+//            if(position == 0)
+//        }//https://www.youtube.com/watch?v=QqumtCxBgvI&list=PLa6GatdK1iFtxLu6VL3HndOiHAHE24D4H&index=18&t=132s //18:29
 
         if(check_position == position){
             holder.vocSelectedLayout.setBackgroundResource(R.drawable.voc_cat_rcv_selected);
+            holder.vocText.setTextColor(Color.parseColor("#A18720"));
         }else{
             holder.vocSelectedLayout.setBackgroundResource(R.drawable.voc_cat_rcv_bg);
+            holder.vocText.setTextColor(Color.parseColor("#8F9193"));
         }
 
     }
@@ -75,13 +105,8 @@ public class StaticRcvAdapter extends RecyclerView.Adapter<StaticRcvAdapter.Stat
             vocText = itemView.findViewById(R.id.vocCatText);
             vocSelectedLayout = itemView.findViewById(R.id.voc_rcv_linearlayout);
 
-            vocSelectedLayout.setOnClickListener(new View.OnClickListener(){
-                @Override
-                public void onClick(View v) {
-                    checkPosition(getAbsoluteAdapterPosition());
-
-                }
-            });
+            //得到現在的item position
+            vocSelectedLayout.setOnClickListener(v -> checkPosition(getAbsoluteAdapterPosition()));
 
 
         }
@@ -92,7 +117,85 @@ public class StaticRcvAdapter extends RecyclerView.Adapter<StaticRcvAdapter.Stat
             notifyItemChanged(check_position);
             check_position = adapterPosition;
             notifyItemChanged(check_position);
+
+            //elem
+            if(check_position == 0){
+                ArrayList<DynamicRcvModel> unitItem = new ArrayList<>();
+                unitItem.add(new DynamicRcvModel("Unit 01","#CEB443"));
+                unitItem.add(new DynamicRcvModel("Unit 02","#CEB443"));
+                unitItem.add(new DynamicRcvModel("Unit 03","#CEB443"));
+                unitItem.add(new DynamicRcvModel("Unit 04","#CEB443"));
+                unitItem.add(new DynamicRcvModel("Unit 05","#CEB443"));
+                unitItem.add(new DynamicRcvModel("Unit 06","#CEB443"));
+                unitItem.add(new DynamicRcvModel("Unit 07","#CEB443"));
+                unitItem.add(new DynamicRcvModel("Unit 08","#CEB443"));
+                unitItem.add(new DynamicRcvModel("Unit 09","#CEB443"));
+                unitItem.add(new DynamicRcvModel("Unit 10","#CEB443"));
+                unitItem.add(new DynamicRcvModel("Unit 11","#CEB443"));
+
+                updateRecyclerView.callback(check_position, unitItem);
+            }
+            //jhs
+            else if(check_position == 1){
+                ArrayList<DynamicRcvModel> unitItem = new ArrayList<>();
+                unitItem.add(new DynamicRcvModel("Unit 01","#3FA0B5"));
+                unitItem.add(new DynamicRcvModel("Unit 02","#3FA0B5"));
+                unitItem.add(new DynamicRcvModel("Unit 03","#3FA0B5"));
+                unitItem.add(new DynamicRcvModel("Unit 04","#3FA0B5"));
+                unitItem.add(new DynamicRcvModel("Unit 05","#3FA0B5"));
+                unitItem.add(new DynamicRcvModel("Unit 06","#3FA0B5"));
+                unitItem.add(new DynamicRcvModel("Unit 07","#3FA0B5"));
+                unitItem.add(new DynamicRcvModel("Unit 08","#3FA0B5"));
+                unitItem.add(new DynamicRcvModel("Unit 09","#3FA0B5"));
+                unitItem.add(new DynamicRcvModel("Unit 10","#3FA0B5"));
+                unitItem.add(new DynamicRcvModel("Unit 11","#3FA0B5"));
+                unitItem.add(new DynamicRcvModel("Unit 12","#3FA0B5"));
+                unitItem.add(new DynamicRcvModel("Unit 13","#3FA0B5"));
+                unitItem.add(new DynamicRcvModel("Unit 14","#3FA0B5"));
+                unitItem.add(new DynamicRcvModel("Unit 15","#3FA0B5"));
+                unitItem.add(new DynamicRcvModel("Unit 16","#3FA0B5"));
+                unitItem.add(new DynamicRcvModel("Unit 17","#3FA0B5"));
+                unitItem.add(new DynamicRcvModel("Unit 18","#3FA0B5"));
+                unitItem.add(new DynamicRcvModel("Unit 19","#3FA0B5"));
+                unitItem.add(new DynamicRcvModel("Unit 20","#3FA0B5"));
+                unitItem.add(new DynamicRcvModel("Unit 21","#3FA0B5"));
+                unitItem.add(new DynamicRcvModel("Unit 22","#3FA0B5"));
+                unitItem.add(new DynamicRcvModel("Unit 23","#3FA0B5"));
+                unitItem.add(new DynamicRcvModel("Unit 24","#3FA0B5"));
+                unitItem.add(new DynamicRcvModel("Unit 25","#3FA0B5"));
+
+                updateRecyclerView.callback(check_position, unitItem);
+            }
+            //hs
+            else if(check_position == 2){
+
+                ArrayList<DynamicRcvModel> unitItem = new ArrayList<>();
+                unitItem.add(new DynamicRcvModel("Level 01","#CEB443"));
+                unitItem.add(new DynamicRcvModel("Level 02","#CEB443"));
+                unitItem.add(new DynamicRcvModel("Level 03","#CEB443"));
+                unitItem.add(new DynamicRcvModel("Level 04","#CEB443"));
+                unitItem.add(new DynamicRcvModel("Level 05","#CEB443"));
+                unitItem.add(new DynamicRcvModel("Level 06","#CEB443"));
+
+                updateRecyclerView.callback(check_position, unitItem);
+            }
+            //TOEIC
+            else if(check_position == 3){
+                ArrayList<DynamicRcvModel> unitItem = new ArrayList<>();
+                unitItem.add(new DynamicRcvModel("Level 01","#3FA0B5"));
+
+                updateRecyclerView.callback(check_position, unitItem);
+            }
+            //TOEFL
+            else if(check_position == 4){
+                ArrayList<DynamicRcvModel> unitItem = new ArrayList<>();
+                unitItem.add(new DynamicRcvModel("Level 01","#CEB443"));
+                unitItem.add(new DynamicRcvModel("Level 02","#CEB443"));
+                unitItem.add(new DynamicRcvModel("Level 03","#CEB443"));
+                updateRecyclerView.callback(check_position, unitItem);
+            }
+
         }
-        
+
     }
 }
