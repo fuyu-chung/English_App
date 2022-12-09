@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/reading_bg"
-    tools:context=".colleges.read.ReadingActivity">
+    tools:context=".colleges.reading.ReadingActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"

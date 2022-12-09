@@ -1,7 +1,6 @@
-package com.example.english_app.colleges.vocab;
+package com.example.english_app.colleges.vocabulary;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

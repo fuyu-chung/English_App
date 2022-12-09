@@ -17,7 +17,7 @@
         android:theme="@style/Theme.English_App"
         tools:targetApi="31" >
         <activity
-            android:name=".colleges.compete.CompeteActivity"
+            android:name=".colleges.competition.CompeteActivity"
             android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
@@ -31,14 +31,14 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".colleges.read.ReadingActivity"
+            android:name=".colleges.reading.ReadingActivity"
             android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".colleges.vocab.VocabActivity"
+            android:name=".colleges.vocabulary.VocabActivity"
             android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"

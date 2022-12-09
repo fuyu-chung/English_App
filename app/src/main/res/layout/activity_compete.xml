@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/compete_bg"
-    tools:context=".colleges.compete.CompeteActivity">
+    tools:context=".colleges.competition.CompeteActivity">
 
 
     <com.google.android.material.appbar.AppBarLayout

@@ -1,4 +1,4 @@
-package com.example.english_app.colleges.vocab;
+package com.example.english_app.colleges.vocabulary;
 
 public class StaticRcvModel {
 

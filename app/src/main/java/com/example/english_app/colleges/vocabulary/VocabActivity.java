@@ -1,4 +1,4 @@
-package com.example.english_app.colleges.vocab;
+package com.example.english_app.colleges.vocabulary;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
