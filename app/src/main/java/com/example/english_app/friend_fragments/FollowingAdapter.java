@@ -19,7 +19,7 @@ public class FollowingAdapter extends RecyclerView.Adapter<FollowingAdapter.Foll
     public void setData(List<Following> list) {
         //現在這個list的data
         this.mListFollowing = list;
-        notifyDataSetChanged();
+//        notifyDataSetChanged();
     }
 
 
@@ -43,7 +43,8 @@ public class FollowingAdapter extends RecyclerView.Adapter<FollowingAdapter.Foll
         }
         //印出來的文字，這裡的getUserName連接到UserAdapter
         holder.userName.setText(following.getUserName());
-        holder.userId.setText("ID: " + String.valueOf(following.getUserId()));
+        String ID = "ID" + following.getUserId();
+        holder.userId.setText(ID);
     }
 
     @Override

@@ -7,11 +7,11 @@ public class Message {
 
 
     //for sql get string data
-    public Message(){
+    public Message() {
 
     }
 
-    public Message(String userName, String userMsg, String userTime){
+    public Message(String userName, String userMsg, String userTime) {
         this.userName = userName;
         this.userMsg = userMsg;
         this.userTime = userTime;

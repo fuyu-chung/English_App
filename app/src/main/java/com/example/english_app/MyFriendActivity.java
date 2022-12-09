@@ -124,17 +124,11 @@ public class MyFriendActivity extends AppCompatActivity {
                         runOnUiThread(() -> (friend_ID).setError("好友已存在"));
                         runOnUiThread(() -> (friend_ID).setText(""));
                     }
-
+                    executor.shutdown();
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
             });
         });
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-//        getlist();
     }
 }

@@ -165,7 +165,9 @@ public class RegisterActivity extends AppCompatActivity {
                     Looper.prepare();
                     Toast.makeText(this, "註冊成功", Toast.LENGTH_SHORT).show();
                     Looper.loop();
+                    executor.shutdown();
                 }
+
                 catch (SQLException e) {
                     System.out.println("sql failed");
                     System.out.println(e.getMessage());

@@ -84,7 +84,9 @@ public class ForgetPasswordActivity extends AppCompatActivity {
                     } else {
                         runOnUiThread(() -> (user_phone).setError("使用者不存在"));
                     }
-                } catch (SQLException e) {
+                    executor.shutdown();
+                }
+                catch (SQLException e) {
                     System.out.println(e.getMessage());
                 }
             });
@@ -112,6 +114,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
                         runOnUiThread(() -> (user_verify).setError("驗證碼錯誤，請重新輸入！"));
                         System.out.println("code wrong");
                     }
+                    executor.shutdown();
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
@@ -211,6 +214,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
                         System.out.println("user name error");
                         runOnUiThread(() -> (user_name).setError("使用者名字輸入錯誤"));
                     }
+                    executor.shutdown();
                 } catch (SQLException e) {
                     System.out.println(e.getMessage());
                 }
@@ -223,6 +227,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
             executor.execute(() -> {
                 Intent intent = new Intent(this, LoginActivity.class);
                 startActivity(intent);
+                executor.shutdown();
             });
         });
 

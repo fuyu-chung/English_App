@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class FollowingFragment extends Fragment {
 
@@ -69,11 +70,19 @@ public class FollowingFragment extends Fragment {
                 while (resultSet.next()) {
                     list.add(new Following(resultSet.getInt(1), resultSet.getString(2)));
                 }
+                executor.shutdown();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         });
-
+        try {
+            boolean e = executor.awaitTermination(10, TimeUnit.SECONDS); // await會有錯誤
+            if (!e) {
+                System.out.println("time out");
+            }
+        } catch (InterruptedException i) {
+            i.printStackTrace();
+        }
         return list;
     }
 }
