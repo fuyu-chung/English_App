@@ -76,6 +76,20 @@
     <color name="vocab_topbar">#EEDD90</color>
     <color name="vocab_collapse_topbar">#DFC242</color>
 
+<!--    <color name="voc_rcv_elem">#EEDD90</color>-->
+<!--    <color name="voc_rcv_jhs">#F1DC7C</color>-->
+<!--    <color name="voc_rcv_hs">#F1D868</color>-->
+<!--    <color name="voc_rcv_toeic">#F4D753</color>-->
+<!--    <color name="voc_rcv_toefl">#F3D139</color>-->
+
+    <color name="voc_rcv_elem">#3FA0B5</color>
+    <color name="voc_rcv_jhs">#3FA0B5</color>
+    <color name="voc_rcv_hs">#3FA0B5</color>
+    <color name="voc_rcv_toeic">#3FA0B5</color>
+    <color name="voc_rcv_toefl">#3FA0B5</color>
+
+<!--  3FA0B5  -->
+
     <!--  Phrase page  -->
     <color name="phrase_bg">#F9FEFF</color>
     <color name="phrase_topbar">#ADD8DE</color>
