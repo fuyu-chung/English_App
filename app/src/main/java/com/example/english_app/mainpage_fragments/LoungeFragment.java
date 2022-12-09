@@ -12,11 +12,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.english_app.Message;
 import com.example.english_app.R;
-import com.example.english_app.RecyclerViewAdapter;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -24,7 +21,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
-import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -33,10 +29,6 @@ public class LoungeFragment extends Fragment {
     private Socket clientSocket;
     private TextView TextView01;
     private EditText EditTextMsg;
-
-    private RecyclerViewAdapter adapter;
-    RecyclerView recyclerView;
-    ArrayList<Message> list;
 
     public LoungeFragment() {
         // Required empty public constructor
