@@ -1,4 +1,4 @@
-package com.example.english_app.colleges.vocab.DRcvInterface;
+package com.example.english_app.colleges.vocabulary.DRcvInterface;
 
 public interface LoadMore {
     void onLoadMore();

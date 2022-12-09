@@ -1,25 +1,19 @@
-package com.example.english_app.colleges.vocab;
+package com.example.english_app.colleges.vocabulary;
 
 
-import android.app.Activity;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.english_app.R;
-import com.example.english_app.colleges.vocab.DRcvInterface.LoadMore;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class DynamicRcvAdapter extends RecyclerView.Adapter<DynamicRcvAdapter.DynamicRcvHolder>{
 

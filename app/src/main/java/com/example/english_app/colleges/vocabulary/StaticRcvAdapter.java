@@ -2,6 +2,7 @@ package com.example.english_app.colleges.vocabulary;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.english_app.R;
-import com.example.english_app.colleges.vocab.DRcvInterface.UpdateRecyclerView;
+import com.example.english_app.colleges.vocabulary.DRcvInterface.UpdateRecyclerView;
 
 import java.util.ArrayList;
 
@@ -27,7 +28,6 @@ public class StaticRcvAdapter extends RecyclerView.Adapter<StaticRcvAdapter.Stat
     boolean check = true;
     boolean select = true;
 
-    private DynamicRcvAdapter dynamicRcvAdapter;
 
     public StaticRcvAdapter(ArrayList<StaticRcvModel> catItems, Activity activity, UpdateRecyclerView updateRecyclerView) {
         this.catItems = catItems;

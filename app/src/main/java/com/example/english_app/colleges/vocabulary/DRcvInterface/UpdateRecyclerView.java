@@ -1,6 +1,6 @@
-package com.example.english_app.colleges.vocab.DRcvInterface;
+package com.example.english_app.colleges.vocabulary.DRcvInterface;
 
-import com.example.english_app.colleges.vocab.DynamicRcvModel;
+import com.example.english_app.colleges.vocabulary.DynamicRcvModel;
 
 import java.util.ArrayList;
 

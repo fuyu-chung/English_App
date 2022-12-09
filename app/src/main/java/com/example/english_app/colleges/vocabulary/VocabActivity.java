@@ -6,16 +6,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.os.Handler;
-import android.widget.Toast;
 
 import com.example.english_app.R;
-import com.example.english_app.colleges.vocab.DRcvInterface.LoadMore;
-import com.example.english_app.colleges.vocab.DRcvInterface.UpdateRecyclerView;
+import com.example.english_app.colleges.vocabulary.DRcvInterface.UpdateRecyclerView;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
 
 public class VocabActivity extends AppCompatActivity implements UpdateRecyclerView {
 
