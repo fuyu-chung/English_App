@@ -58,6 +58,12 @@
     <string name="c_title">- Competition -</string>
     <string name="c_sub_title">歡迎來到競賽學院</string>
 
+    <!--  Vocabulary RCV  -->
+    <string name="voc_rcv_text_elem">國小</string>
+    <string name="voc_rcv_text_jhs">國中</string>
+    <string name="voc_rcv_text_hs">高中</string>
+    <string name="voc_rcv_text_toeic">TOEIC</string>
+    <string name="voc_rcv_text_toefl">TOEFL</string>
 
 
 </resources>
