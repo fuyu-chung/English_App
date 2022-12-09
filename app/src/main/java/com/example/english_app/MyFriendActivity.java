@@ -95,7 +95,6 @@ public class MyFriendActivity extends AppCompatActivity {
                     statement.setInt(2, IDValue);
                     ResultSet resultSet = statement.executeQuery(); // 把結果存在resultSet
                     if (!resultSet.next()) {
-                        int resultSet2;
                         query = "select user_name from account where user_id = ?";
                         statement = connection.prepareStatement(query);
                         statement.setInt(1, IDValue);
@@ -108,14 +107,14 @@ public class MyFriendActivity extends AppCompatActivity {
                             statement = connection.prepareStatement((query));
                             statement.setInt(1, id);
                             statement.setInt(2, IDValue);
-                            resultSet2 = statement.executeUpdate();
+                            int resultSet2 = statement.executeUpdate();
                             if (resultSet2 != 0) {
 //                                String friend_name = u.getUserName();
                                 String friend_name = sharedPreferences.getString("friend_name", "");
+                                (friend_ID).setText("");
                                 Looper.prepare();
                                 Toast.makeText(this, "開始追蹤 " + friend_name, Toast.LENGTH_LONG).show();
                                 Looper.loop();
-                                (friend_ID).setText("");
                             }
                         } else {
                             runOnUiThread(() -> (friend_ID).setError("請輸入正確的ID"));
