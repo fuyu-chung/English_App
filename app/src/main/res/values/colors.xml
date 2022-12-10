@@ -76,6 +76,9 @@
     <color name="vocab_topbar">#EEDD90</color>
     <color name="vocab_collapse_topbar">#DFC242</color>
 
+    <color name="vocabulary">#474438</color>
+    <color name="chinese">#5E5C55</color>
+
 <!--    <color name="voc_rcv_elem">#EEDD90</color>-->
 <!--    <color name="voc_rcv_jhs">#F1DC7C</color>-->
 <!--    <color name="voc_rcv_hs">#F1D868</color>-->
