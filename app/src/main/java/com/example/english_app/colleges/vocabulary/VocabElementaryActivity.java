@@ -37,22 +37,23 @@ public class VocabElementaryActivity extends AppCompatActivity {
 ////        unitText.setText(vocabularyTopTitle);
 
 
-
         //要改變的單字顯示區(To鍾後端連線)
+
 //        ArrayList<VocabularyRcvModel> vocabularyList = new ArrayList<>();
 //
 //        vocabularyList.add(new VocabularyRcvModel("ABC", "就是ABC"));
 //        vocabularyList.add(new VocabularyRcvModel("ABC", "就是ABC"));
 //        vocabularyList.add(new VocabularyRcvModel("ABC", "就是ABC"));
 //        vocabularyList.add(new VocabularyRcvModel("ABC", "就是ABC"));
-//
-//        RecyclerView rcvVocabulary = findViewById(R.id.elem_rcv_vocabulary);
-//        VocabularyRcvAdapter vocabularyRcvAdapter = new VocabularyRcvAdapter(vocabularyList);
-//        rcvVocabulary.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
-//        rcvVocabulary.setAdapter(vocabularyRcvAdapter);
+
+        RecyclerView rcvVocabulary = findViewById(R.id.elem_rcv_vocabulary);
+        VocabularyRcvAdapter vocabularyRcvAdapter = new VocabularyRcvAdapter(getListVocabulary(1,50));
+        rcvVocabulary.setAdapter(vocabularyRcvAdapter);
+        rcvVocabulary.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
     }
-    private List<VocabularyRcvModel> getListVocabulary(int start, int count) {
-        List<VocabularyRcvModel> list = new ArrayList<>();
+
+    private ArrayList<VocabularyRcvModel> getListVocabulary(int start, int count) {
+        ArrayList<VocabularyRcvModel> list = new ArrayList<>();
         ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
         executor.execute(() -> {
             try {
@@ -60,7 +61,7 @@ public class VocabElementaryActivity extends AppCompatActivity {
                 Connection connection = DriverManager.getConnection(s1); //建立連線
                 String query = "select Vocabulary, Chinese from elem_voc where Orders = ? ";
                 PreparedStatement statement = connection.prepareStatement(query);
-                for (int i = 0; i < count; i++){
+                for (int i = 0; i < count; i++) {
                     statement.setInt(1, start + i);
                     ResultSet resultSet = statement.executeQuery();
                     while (resultSet.next()) {
@@ -83,7 +84,7 @@ public class VocabElementaryActivity extends AppCompatActivity {
         return list;
     }
 
-    private String getWhichTitle(){
+    private String getWhichTitle() {
         return "elementary";
     }
 }
