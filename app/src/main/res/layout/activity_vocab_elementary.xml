@@ -22,7 +22,6 @@
             android:id="@+id/elem_unit_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Unit 01"
             android:textStyle="bold"
             android:textColor="@color/white"
             android:fontFamily="@font/baloo"

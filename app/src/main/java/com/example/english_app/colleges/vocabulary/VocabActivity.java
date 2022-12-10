@@ -5,14 +5,16 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.english_app.R;
 import com.example.english_app.colleges.vocabulary.DRcvInterface.UpdateRecyclerView;
+import com.example.english_app.colleges.vocabulary.VRcvInterface.RecyclerViewInterface;
 
 import java.util.ArrayList;
 
-public class VocabActivity extends AppCompatActivity implements UpdateRecyclerView {
+public class VocabActivity extends AppCompatActivity implements UpdateRecyclerView, RecyclerViewInterface {
 
     private RecyclerView rcvVocUnit;
     private DynamicRcvAdapter dynamicRcvAdapter;
@@ -49,7 +51,7 @@ public class VocabActivity extends AppCompatActivity implements UpdateRecyclerVi
         unitItem.add(new DynamicRcvModel("Unit 11","#CEB443"));
 
         rcvVocUnit = findViewById(R.id.voc_rcv_unit);
-        dynamicRcvAdapter = new DynamicRcvAdapter(unitItem);
+        dynamicRcvAdapter = new DynamicRcvAdapter(unitItem,this);
         rcvVocUnit.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
         rcvVocUnit.setAdapter(dynamicRcvAdapter);
 
@@ -59,55 +61,17 @@ public class VocabActivity extends AppCompatActivity implements UpdateRecyclerVi
 
     @Override
     public void callback(int position, ArrayList<DynamicRcvModel> items) {
-        dynamicRcvAdapter = new DynamicRcvAdapter(items);
+        dynamicRcvAdapter = new DynamicRcvAdapter(items,this);
         dynamicRcvAdapter.notifyDataSetChanged();
         rcvVocUnit.setAdapter((dynamicRcvAdapter));
 
     }
-}
 
-//unitItem.add(new DynamicRcvModel("Unit 01"));
-//        unitItem.add(new DynamicRcvModel("Unit 02"));
-//        unitItem.add(new DynamicRcvModel("Unit 03"));
-//        unitItem.add(new DynamicRcvModel("Unit 04"));
-//        unitItem.add(new DynamicRcvModel("Unit 05"));
-//        unitItem.add(new DynamicRcvModel("Unit 06"));
-//        unitItem.add(new DynamicRcvModel("Unit 07"));
-//        unitItem.add(new DynamicRcvModel("Unit 08"));
-//        unitItem.add(new DynamicRcvModel("Unit 09"));
-//        unitItem.add(new DynamicRcvModel("Unit 10"));
-//        unitItem.add(new DynamicRcvModel("Unit 11"));
-//
-//        RecyclerView drv = findViewById(R.id.voc_rcv_unit);
-//        drv.setLayoutManager(new LinearLayoutManager(this));
-//        dynamicRcvAdapter = new DynamicRcvAdapter(drv,this,unitItem);
-//        drv.setAdapter(dynamicRcvAdapter);
-//
-//        dynamicRcvAdapter.setLoadMore(new LoadMore() {
-//@Override
-//public void onLoadMore() {
-//        if (unitItem.size()<=10){
-//        catItem.add(null);
-//        dynamicRcvAdapter.notifyItemInserted(unitItem.size()-1);
-//        new Handler().postDelayed(new Runnable() {
-//@Override
-//public void run() {
-//        unitItem.remove(unitItem.size()-1);
-//        dynamicRcvAdapter.notifyItemRemoved(unitItem.size());
-//
-//        int index = unitItem.size();
-//        int end = index+10;
-//        for(int i = index; i<end; i++){
-//        String name = UUID.randomUUID().toString();
-//        DynamicRcvModel item = new DynamicRcvModel(name);
-//        unitItem.add(item);
-//        }
-//        dynamicRcvAdapter.notifyDataSetChanged();
-//        dynamicRcvAdapter.setLoaded();
-//        }
-//        }, 2000);//delay 的loading 時間
-//        }
-//        else
-//        Toast.makeText(VocabActivity.this, "已顯示全部單元", Toast.LENGTH_SHORT).show();
-//        }
-//        });
+    @Override
+    public void onItemClicked(int position) {
+        Intent intent = new Intent(VocabActivity.this,VocabElementaryActivity.class);
+
+
+        startActivity(intent);
+    }
+}
