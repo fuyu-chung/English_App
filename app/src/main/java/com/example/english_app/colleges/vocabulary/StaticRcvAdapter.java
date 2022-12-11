@@ -111,9 +111,9 @@ public class StaticRcvAdapter extends RecyclerView.Adapter<StaticRcvAdapter.Stat
             check_position = adapterPosition;
             notifyItemChanged(check_position);
 
-            if (checkWhatTitleInterface != null) {
-                checkWhatTitleInterface.onTitleClicked(check_position);
-            }
+//            if (checkWhatTitleInterface != null) {
+//                checkWhatTitleInterface.onTitleClicked(check_position);
+//            }
 
 
             //elem
@@ -130,7 +130,7 @@ public class StaticRcvAdapter extends RecyclerView.Adapter<StaticRcvAdapter.Stat
                     }
                 }
                 updateRecyclerView.callback(check_position, unitItem);
-
+                checkWhatTitleInterface.onTitleClicked(check_position);
             }
             //jhs
             else if (check_position == 1) {
@@ -146,7 +146,7 @@ public class StaticRcvAdapter extends RecyclerView.Adapter<StaticRcvAdapter.Stat
                     }
                 }
                 updateRecyclerView.callback(check_position, unitItem);
-
+                checkWhatTitleInterface.onTitleClicked(check_position);
             }
             //hs
             else if (check_position == 2) {
@@ -162,7 +162,7 @@ public class StaticRcvAdapter extends RecyclerView.Adapter<StaticRcvAdapter.Stat
                     }
                 }
                 updateRecyclerView.callback(check_position, unitItem);
-
+                checkWhatTitleInterface.onTitleClicked(check_position);
             }
 
             //TOEIC
@@ -179,7 +179,7 @@ public class StaticRcvAdapter extends RecyclerView.Adapter<StaticRcvAdapter.Stat
                     }
                 }
                 updateRecyclerView.callback(check_position, unitItem);
-
+                checkWhatTitleInterface.onTitleClicked(check_position);
             }
             //TOEFL
             else if (check_position == 4) {
@@ -195,7 +195,7 @@ public class StaticRcvAdapter extends RecyclerView.Adapter<StaticRcvAdapter.Stat
                     }
                 }
                 updateRecyclerView.callback(check_position, unitItem);
-
+                checkWhatTitleInterface.onTitleClicked(check_position);
             }
         }
 

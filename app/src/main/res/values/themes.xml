@@ -56,11 +56,17 @@
         <item name="colorSecondary">@color/white</item>
     </style>
 
-    <!--  my friend page  -->
+    <!--  my collection page  -->
     <style name="CollectionTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/topic_color</item>
         <item name="android:textColorPrimary">@color/words_topic01</item>
         <item name="colorSecondary">@color/white</item>
+    </style>
+    <style name="expandedBarTextStyle00" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:textSize">40sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="fontFamily">@font/baloo</item>
+        <item name="android:textColor">@color/topic_color</item>
     </style>
 
 
@@ -72,6 +78,7 @@
         <item name="fontFamily">@font/baloo</item>
         <item name="android:textColor">@color/vocab_topic_words</item>
     </style>
+
 
     <!--  phrase page  -->
     <style name="expandedBarTextStyle02" parent="Theme.AppCompat.DayNight.NoActionBar">
