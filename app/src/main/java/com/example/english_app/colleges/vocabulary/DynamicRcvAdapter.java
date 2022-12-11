@@ -16,15 +16,14 @@ import com.example.english_app.colleges.vocabulary.VRcvInterface.RecyclerViewInt
 
 import java.util.ArrayList;
 
-public class DynamicRcvAdapter extends RecyclerView.Adapter<DynamicRcvAdapter.DynamicRcvHolder>{
+public class DynamicRcvAdapter extends RecyclerView.Adapter<DynamicRcvAdapter.DynamicRcvHolder> {
 
     private final RecyclerViewInterface recyclerViewInterface;
     int check_position = -1;
-    boolean check = true;
 
     public ArrayList<DynamicRcvModel> dynamicRcvModels;
 
-    public DynamicRcvAdapter(ArrayList<DynamicRcvModel> dynamicRcvModels,RecyclerViewInterface recyclerViewInterface){
+    public DynamicRcvAdapter(ArrayList<DynamicRcvModel> dynamicRcvModels, RecyclerViewInterface recyclerViewInterface) {
         this.dynamicRcvModels = dynamicRcvModels;
         this.recyclerViewInterface = recyclerViewInterface;
     }
@@ -39,18 +38,15 @@ public class DynamicRcvAdapter extends RecyclerView.Adapter<DynamicRcvAdapter.Dy
             super(itemView);
             textView = itemView.findViewById(R.id.voc_rcv_unitText);
             constraintLayout = itemView.findViewById(R.id.voc_unit_layout);
-
-
             constraintLayout.setOnClickListener(v -> checkPosition(getAbsoluteAdapterPosition()));
-
-
         }
-        private void checkPosition(int adapterPosition){
-            check_position=-1;
+
+        private void checkPosition(int adapterPosition) {
+            check_position = -1;
             System.out.println(check_position);
             System.out.println(adapterPosition);
 
-            if(adapterPosition == RecyclerView.NO_POSITION){
+            if (adapterPosition == RecyclerView.NO_POSITION) {
                 return;
             }
             notifyItemChanged(check_position);
@@ -60,11 +56,9 @@ public class DynamicRcvAdapter extends RecyclerView.Adapter<DynamicRcvAdapter.Dy
             System.out.println(check_position);
             System.out.println(adapterPosition);
 
-            if(recyclerViewInterface != null){
+            if (recyclerViewInterface != null) {
                 recyclerViewInterface.onItemClicked(check_position);
             }
-
-
         }
     }
 
@@ -73,7 +67,6 @@ public class DynamicRcvAdapter extends RecyclerView.Adapter<DynamicRcvAdapter.Dy
     public DynamicRcvAdapter.DynamicRcvHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.dynamic_rcv_item, parent, false);
         return new DynamicRcvHolder(view);
-
     }
 
     @Override
@@ -82,14 +75,11 @@ public class DynamicRcvAdapter extends RecyclerView.Adapter<DynamicRcvAdapter.Dy
         holder.textView.setText(currentItem.getUnitText());
         holder.textView.setTextColor(Color.parseColor(currentItem.getColor()));//改變顏色
         holder.constraintLayout.setBackgroundResource(R.drawable.voc_unit_rcv_bg);
-
     }
 
     @Override
     public int getItemCount() {
         return dynamicRcvModels.size();
     }
-
-
 }
 

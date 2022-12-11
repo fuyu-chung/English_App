@@ -2,8 +2,8 @@ package com.example.english_app.colleges.vocabulary;
 
 public class DynamicRcvModel {
 
-    private String unitText;
-    private String color;
+    private final String unitText;
+    private final String color;
 
 
     public DynamicRcvModel(String unitText, String color) {

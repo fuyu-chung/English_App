@@ -1,7 +1,6 @@
 package com.example.english_app.colleges.vocabulary;
 
 import android.app.Activity;
-import android.content.Context;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,16 +17,13 @@ import com.example.english_app.colleges.vocabulary.DRcvInterface.UpdateRecyclerV
 
 import java.util.ArrayList;
 
-public class StaticRcvAdapter extends RecyclerView.Adapter<StaticRcvAdapter.StaticRcvViewHolder>{
+public class StaticRcvAdapter extends RecyclerView.Adapter<StaticRcvAdapter.StaticRcvViewHolder> {
 
     private final ArrayList<StaticRcvModel> catItems;
     int check_position = 0; //-1為no default，0為第一選項clicked
-    private Context context;
     UpdateRecyclerView updateRecyclerView;
     Activity activity;
     boolean check = true;
-    boolean select = true;
-
 
     public StaticRcvAdapter(ArrayList<StaticRcvModel> catItems, Activity activity, UpdateRecyclerView updateRecyclerView) {
         this.catItems = catItems;
@@ -50,36 +46,29 @@ public class StaticRcvAdapter extends RecyclerView.Adapter<StaticRcvAdapter.Stat
 
 
         //確定是哪個catItem 被點擊，以轉換下方的unitItem
-        if(check){
-
+        if (check) {
             ArrayList<DynamicRcvModel> unitItem = new ArrayList<>();
-            unitItem.add(new DynamicRcvModel("Unit 01","#CEB443"));
-            unitItem.add(new DynamicRcvModel("Unit 02","#CEB443"));
-            unitItem.add(new DynamicRcvModel("Unit 03","#CEB443"));
-            unitItem.add(new DynamicRcvModel("Unit 04","#CEB443"));
-            unitItem.add(new DynamicRcvModel("Unit 05","#CEB443"));
-            unitItem.add(new DynamicRcvModel("Unit 06","#CEB443"));
-            unitItem.add(new DynamicRcvModel("Unit 07","#CEB443"));
-            unitItem.add(new DynamicRcvModel("Unit 08","#CEB443"));
-            unitItem.add(new DynamicRcvModel("Unit 09","#CEB443"));
-            unitItem.add(new DynamicRcvModel("Unit 10","#CEB443"));
-            unitItem.add(new DynamicRcvModel("Unit 11","#CEB443"));
+            unitItem.add(new DynamicRcvModel("Unit 01", "#CEB443"));
+            unitItem.add(new DynamicRcvModel("Unit 02", "#CEB443"));
+            unitItem.add(new DynamicRcvModel("Unit 03", "#CEB443"));
+            unitItem.add(new DynamicRcvModel("Unit 04", "#CEB443"));
+            unitItem.add(new DynamicRcvModel("Unit 05", "#CEB443"));
+            unitItem.add(new DynamicRcvModel("Unit 06", "#CEB443"));
+            unitItem.add(new DynamicRcvModel("Unit 07", "#CEB443"));
+            unitItem.add(new DynamicRcvModel("Unit 08", "#CEB443"));
+            unitItem.add(new DynamicRcvModel("Unit 09", "#CEB443"));
+            unitItem.add(new DynamicRcvModel("Unit 10", "#CEB443"));
+            unitItem.add(new DynamicRcvModel("Unit 11", "#CEB443"));
 
             updateRecyclerView.callback(check_position, unitItem);
 
             check = false;
         }
 
-
-
-//        if(select){
-//            if(position == 0)
-//        }//https://www.youtube.com/watch?v=QqumtCxBgvI&list=PLa6GatdK1iFtxLu6VL3HndOiHAHE24D4H&index=18&t=132s //18:29
-
-        if(check_position == position){
+        if (check_position == position) {
             holder.vocSelectedLayout.setBackgroundResource(R.drawable.voc_cat_rcv_selected);
             holder.vocText.setTextColor(Color.parseColor("#A18720"));
-        }else{
+        } else {
             holder.vocSelectedLayout.setBackgroundResource(R.drawable.voc_cat_rcv_bg);
             holder.vocText.setTextColor(Color.parseColor("#8F9193"));
         }
@@ -109,8 +98,9 @@ public class StaticRcvAdapter extends RecyclerView.Adapter<StaticRcvAdapter.Stat
 
 
         }
-        private void checkPosition(int adapterPosition){
-            if(adapterPosition == RecyclerView.NO_POSITION){
+
+        private void checkPosition(int adapterPosition) {
+            if (adapterPosition == RecyclerView.NO_POSITION) {
                 return;
             }
             notifyItemChanged(check_position);
@@ -118,82 +108,81 @@ public class StaticRcvAdapter extends RecyclerView.Adapter<StaticRcvAdapter.Stat
             notifyItemChanged(check_position);
 
             //elem
-            if(check_position == 0){
+            if (check_position == 0) {
                 ArrayList<DynamicRcvModel> unitItem = new ArrayList<>();
-                unitItem.add(new DynamicRcvModel("Unit 01","#CEB443"));
-                unitItem.add(new DynamicRcvModel("Unit 02","#CEB443"));
-                unitItem.add(new DynamicRcvModel("Unit 03","#CEB443"));
-                unitItem.add(new DynamicRcvModel("Unit 04","#CEB443"));
-                unitItem.add(new DynamicRcvModel("Unit 05","#CEB443"));
-                unitItem.add(new DynamicRcvModel("Unit 06","#CEB443"));
-                unitItem.add(new DynamicRcvModel("Unit 07","#CEB443"));
-                unitItem.add(new DynamicRcvModel("Unit 08","#CEB443"));
-                unitItem.add(new DynamicRcvModel("Unit 09","#CEB443"));
-                unitItem.add(new DynamicRcvModel("Unit 10","#CEB443"));
-                unitItem.add(new DynamicRcvModel("Unit 11","#CEB443"));
-
+                for (int i = 1; i <= 11; i++) {
+                    String units;
+                    if (i <= 9) {
+                        units = "Unit 0" + i;
+                        unitItem.add(new DynamicRcvModel(units, "#CEB443"));
+                    } else {
+                        units = "Unit " + i;
+                        unitItem.add(new DynamicRcvModel(units, "#CEB443"));
+                    }
+                }
                 updateRecyclerView.callback(check_position, unitItem);
             }
             //jhs
-            else if(check_position == 1){
+            else if (check_position == 1) {
                 ArrayList<DynamicRcvModel> unitItem = new ArrayList<>();
-                unitItem.add(new DynamicRcvModel("Unit 01","#3FA0B5"));
-                unitItem.add(new DynamicRcvModel("Unit 02","#3FA0B5"));
-                unitItem.add(new DynamicRcvModel("Unit 03","#3FA0B5"));
-                unitItem.add(new DynamicRcvModel("Unit 04","#3FA0B5"));
-                unitItem.add(new DynamicRcvModel("Unit 05","#3FA0B5"));
-                unitItem.add(new DynamicRcvModel("Unit 06","#3FA0B5"));
-                unitItem.add(new DynamicRcvModel("Unit 07","#3FA0B5"));
-                unitItem.add(new DynamicRcvModel("Unit 08","#3FA0B5"));
-                unitItem.add(new DynamicRcvModel("Unit 09","#3FA0B5"));
-                unitItem.add(new DynamicRcvModel("Unit 10","#3FA0B5"));
-                unitItem.add(new DynamicRcvModel("Unit 11","#3FA0B5"));
-                unitItem.add(new DynamicRcvModel("Unit 12","#3FA0B5"));
-                unitItem.add(new DynamicRcvModel("Unit 13","#3FA0B5"));
-                unitItem.add(new DynamicRcvModel("Unit 14","#3FA0B5"));
-                unitItem.add(new DynamicRcvModel("Unit 15","#3FA0B5"));
-                unitItem.add(new DynamicRcvModel("Unit 16","#3FA0B5"));
-                unitItem.add(new DynamicRcvModel("Unit 17","#3FA0B5"));
-                unitItem.add(new DynamicRcvModel("Unit 18","#3FA0B5"));
-                unitItem.add(new DynamicRcvModel("Unit 19","#3FA0B5"));
-                unitItem.add(new DynamicRcvModel("Unit 20","#3FA0B5"));
-                unitItem.add(new DynamicRcvModel("Unit 21","#3FA0B5"));
-                unitItem.add(new DynamicRcvModel("Unit 22","#3FA0B5"));
-                unitItem.add(new DynamicRcvModel("Unit 23","#3FA0B5"));
-                unitItem.add(new DynamicRcvModel("Unit 24","#3FA0B5"));
-                unitItem.add(new DynamicRcvModel("Unit 25","#3FA0B5"));
-
+                for (int i = 1; i <= 25; i++) {
+                    String units;
+                    if (i <= 9) {
+                        units = "Unit 0" + i;
+                        unitItem.add(new DynamicRcvModel(units, "#3FA0B5"));
+                    } else {
+                        units = "Unit " + i;
+                        unitItem.add(new DynamicRcvModel(units, "#3FA0B5"));
+                    }
+                }
                 updateRecyclerView.callback(check_position, unitItem);
             }
             //hs
-            else if(check_position == 2){
-
+            else if (check_position == 2) {
                 ArrayList<DynamicRcvModel> unitItem = new ArrayList<>();
-                unitItem.add(new DynamicRcvModel("Level 01","#CEB443"));
-                unitItem.add(new DynamicRcvModel("Level 02","#CEB443"));
-                unitItem.add(new DynamicRcvModel("Level 03","#CEB443"));
-                unitItem.add(new DynamicRcvModel("Level 04","#CEB443"));
-                unitItem.add(new DynamicRcvModel("Level 05","#CEB443"));
-                unitItem.add(new DynamicRcvModel("Level 06","#CEB443"));
-
+                for (int i = 1; i <= 125; i++) {
+                    String units;
+                    if (i <= 9) {
+                        units = "Unit 0" + i;
+                        unitItem.add(new DynamicRcvModel(units, "#CEB443"));
+                    } else {
+                        units = "Unit " + i;
+                        unitItem.add(new DynamicRcvModel(units, "#CEB443"));
+                    }
+                }
                 updateRecyclerView.callback(check_position, unitItem);
             }
-            //TOEIC
-            else if(check_position == 3){
-                ArrayList<DynamicRcvModel> unitItem = new ArrayList<>();
-                unitItem.add(new DynamicRcvModel("Level 01","#3FA0B5"));
 
+            //TOEIC
+            else if (check_position == 3) {
+                ArrayList<DynamicRcvModel> unitItem = new ArrayList<>();
+                for (int i = 1; i <= 50; i++) {
+                    String units;
+                    if (i <= 9) {
+                        units = "Unit 0" + i;
+                        unitItem.add(new DynamicRcvModel(units, "#3FA0B5"));
+                    } else {
+                        units = "Unit " + i;
+                        unitItem.add(new DynamicRcvModel(units, "#3FA0B5"));
+                    }
+                }
                 updateRecyclerView.callback(check_position, unitItem);
             }
             //TOEFL
-            else if(check_position == 4){
+            else if (check_position == 4) {
                 ArrayList<DynamicRcvModel> unitItem = new ArrayList<>();
-                unitItem.add(new DynamicRcvModel("Level 01","#CEB443"));
-                unitItem.add(new DynamicRcvModel("Level 02","#CEB443"));
-                unitItem.add(new DynamicRcvModel("Level 03","#CEB443"));
+                for (int i = 1; i <= 50; i++) {
+                    String units;
+                    if (i <= 9) {
+                        units = "Unit 0" + i;
+                        unitItem.add(new DynamicRcvModel(units, "#CEB443"));
+                    } else {
+                        units = "Unit " + i;
+                        unitItem.add(new DynamicRcvModel(units, "#CEB443"));
+                    }
+                }
                 updateRecyclerView.callback(check_position, unitItem);
             }
-
         }
 
     }

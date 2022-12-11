@@ -2,8 +2,8 @@ package com.example.english_app.colleges.vocabulary;
 
 public class StaticRcvModel {
 
-    private int image;
-    private String text;
+    private final int image;
+    private final String text;
 
     public StaticRcvModel(int image, String text) {
         this.image = image;

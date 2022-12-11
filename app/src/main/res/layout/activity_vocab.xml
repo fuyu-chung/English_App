@@ -5,53 +5,55 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/vocab_bg"
-    tools:context=".colleges.vocabulary.VocabActivity"
-    >
+    tools:context=".colleges.vocabulary.VocabActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/transparent" >
+        android:background="@color/transparent">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:title="@string/v_title"
-            app:contentScrim="@color/vocab_collapse_topbar"
-
-            app:expandedTitleGravity="top"
-            app:expandedTitleMarginTop="75dp"
-            app:expandedTitleMarginStart="20dp"
-            app:expandedTitleTextAppearance="@style/expandedBarTextStyle01"
-
             app:collapsedTitleGravity="center"
             app:collapsedTitleTextAppearance="@style/collapseBarTextStyle01"
+
+            app:contentScrim="@color/vocab_collapse_topbar"
+            app:expandedTitleGravity="top"
+            app:expandedTitleMarginStart="20dp"
+            app:expandedTitleMarginTop="75dp"
+
+            app:expandedTitleTextAppearance="@style/expandedBarTextStyle01"
             app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
-            >
+            app:title="@string/v_title">
+
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="330dp"
-                >
+                android:layout_height="330dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="300dp"
                     android:background="@drawable/vocab_topbar"
                     android:orientation="vertical"
-                    android:paddingHorizontal="20dp"/>
+                    android:paddingHorizontal="20dp" />
+
                 <ImageView
                     android:layout_width="250dp"
                     android:layout_height="250dp"
-                    android:layout_marginBottom="-42dp"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
                     android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="-42dp"
                     android:src="@drawable/house_vocabulary" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="300dp"
                     android:background="@color/transparent"
                     android:orientation="vertical"
                     android:paddingHorizontal="20dp">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -67,8 +69,7 @@
             <androidx.appcompat.widget.Toolbar
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="@color/transparent"
-                />
+                android:background="@color/transparent" />
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
@@ -88,18 +89,18 @@
                 android:id="@+id/voc_rcv_cat"
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/voc_rcv_unit"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="20dp"
-                app:layout_constraintTop_toBottomOf="@id/voc_rcv_cat"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintTop_toBottomOf="@id/voc_rcv_cat" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
