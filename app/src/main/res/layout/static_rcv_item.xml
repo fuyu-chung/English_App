@@ -37,4 +37,5 @@
         android:textColor="@color/user_msg_name"
         android:textStyle="bold" />
 
+
 </LinearLayout>

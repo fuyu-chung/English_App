@@ -64,9 +64,13 @@
     <string name="voc_rcv_text_hs">高中</string>
     <string name="voc_rcv_text_toeic">TOEIC</string>
     <string name="voc_rcv_text_toefl">TOEFL</string>
+    <string name="voc_rcv_text2">單元</string>
 
     <!--  Collection Activity  -->
     <string name="coll_title">我的收藏</string>
+
+    <!--  Task Activity  -->
+    <string name="task_title">我的任務</string>
 
     <string name="score">Score 0/8</string>
     <string name="question_number">1/8 Question</string>
