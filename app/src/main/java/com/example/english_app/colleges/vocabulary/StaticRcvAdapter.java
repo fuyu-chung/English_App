@@ -111,9 +111,6 @@ public class StaticRcvAdapter extends RecyclerView.Adapter<StaticRcvAdapter.Stat
             check_position = adapterPosition;
             notifyItemChanged(check_position);
 
-            if (checkWhatTitleInterface != null) {
-                checkWhatTitleInterface.onTitleClicked(check_position);
-            }
 
             //elem
             if (check_position == 0) {
@@ -129,6 +126,11 @@ public class StaticRcvAdapter extends RecyclerView.Adapter<StaticRcvAdapter.Stat
                     }
                 }
                 updateRecyclerView.callback(check_position, unitItem);
+
+                if (checkWhatTitleInterface != null) {
+                    checkWhatTitleInterface.onTitleClicked("elem_voc");
+                }
+
             }
             //jhs
             else if (check_position == 1) {
@@ -144,6 +146,10 @@ public class StaticRcvAdapter extends RecyclerView.Adapter<StaticRcvAdapter.Stat
                     }
                 }
                 updateRecyclerView.callback(check_position, unitItem);
+                if (checkWhatTitleInterface != null) {
+                    checkWhatTitleInterface.onTitleClicked("jhs_voc");
+                }
+
             }
             //hs
             else if (check_position == 2) {
@@ -159,6 +165,10 @@ public class StaticRcvAdapter extends RecyclerView.Adapter<StaticRcvAdapter.Stat
                     }
                 }
                 updateRecyclerView.callback(check_position, unitItem);
+                if (checkWhatTitleInterface != null) {
+                    checkWhatTitleInterface.onTitleClicked("hs_voc");
+                }
+
             }
 
             //TOEIC
@@ -175,6 +185,10 @@ public class StaticRcvAdapter extends RecyclerView.Adapter<StaticRcvAdapter.Stat
                     }
                 }
                 updateRecyclerView.callback(check_position, unitItem);
+                if (checkWhatTitleInterface != null) {
+                    checkWhatTitleInterface.onTitleClicked("toeic_voc");
+                }
+
             }
             //TOEFL
             else if (check_position == 4) {
@@ -190,6 +204,10 @@ public class StaticRcvAdapter extends RecyclerView.Adapter<StaticRcvAdapter.Stat
                     }
                 }
                 updateRecyclerView.callback(check_position, unitItem);
+                if (checkWhatTitleInterface != null) {
+                    checkWhatTitleInterface.onTitleClicked("toefl_voc");
+                }
+
             }
         }
 

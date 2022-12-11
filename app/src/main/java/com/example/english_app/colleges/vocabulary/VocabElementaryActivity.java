@@ -42,8 +42,11 @@ public class VocabElementaryActivity extends AppCompatActivity {
         SharedPreferences sharedPreferencesTitle = getSharedPreferences("Position", MODE_PRIVATE);
         SharedPreferences sharedPreferences = getSharedPreferences("Position", MODE_PRIVATE);
 
-        int title = sharedPreferencesTitle.getInt("title",0);
+        String title = sharedPreferencesTitle.getString("title","elem_voc");
         int position = sharedPreferences.getInt("position", 0);
+
+
+
         String units;
         if (position < 9) {
             units = "Unit 0" + (position + 1);
