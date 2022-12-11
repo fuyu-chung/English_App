@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".friend_fragments.FollowingFragment"
+    tools:context=".user_dorm.friend_fragments.FollowingFragment"
     android:background="@color/vocab_bg">
 
     <androidx.recyclerview.widget.RecyclerView

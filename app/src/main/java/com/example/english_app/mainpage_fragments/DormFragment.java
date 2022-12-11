@@ -10,9 +10,9 @@ import android.widget.LinearLayout;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.english_app.MyFriendActivity;
+import com.example.english_app.user_dorm.MyFriendActivity;
 import com.example.english_app.R;
-import com.example.english_app.user_basic.UserProfileActivity;
+import com.example.english_app.user_dorm.UserProfileActivity;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
 

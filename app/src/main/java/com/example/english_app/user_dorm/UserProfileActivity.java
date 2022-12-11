@@ -1,4 +1,4 @@
-package com.example.english_app.user_basic;
+package com.example.english_app.user_dorm;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;

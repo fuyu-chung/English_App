@@ -65,9 +65,9 @@ public class VocabActivity extends AppCompatActivity implements UpdateRecyclerVi
     }
 
     @Override
-    public void onTitleClicked(String name) {
+    public void onTitleClicked(int position) {
         SharedPreferences sharedPreferences = getSharedPreferences("Position", MODE_PRIVATE);
-        sharedPreferences.edit().putString("title", name).apply();
+        sharedPreferences.edit().putInt("title", position).apply();
     }
 
     @Override

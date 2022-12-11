@@ -1,4 +1,4 @@
-package com.example.english_app;
+package com.example.english_app.user_dorm;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -10,8 +10,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.english_app.friend_fragments.FollowerFragment;
-import com.example.english_app.friend_fragments.FollowingFragment;
+import com.example.english_app.R;
+import com.example.english_app.VPAdapter;
+import com.example.english_app.user_dorm.friend_fragments.FollowerFragment;
+import com.example.english_app.user_dorm.friend_fragments.FollowingFragment;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.textfield.TextInputEditText;
 

@@ -2,5 +2,8 @@ package com.example.english_app.colleges.vocabulary.VRcvInterface;
 
 //檢查是哪個static item被抓
 public interface CheckWhatTitleInterface {
-    void onTitleClicked(String name);
+    void onTitleClicked(int position);
 }
+//public interface CheckWhatTitleInterface {
+//    void onTitleClicked(String name);
+//}

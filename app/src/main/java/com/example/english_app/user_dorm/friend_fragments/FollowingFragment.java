@@ -1,4 +1,4 @@
-package com.example.english_app.friend_fragments;
+package com.example.english_app.user_dorm.friend_fragments;
 
 import static android.content.Context.MODE_PRIVATE;
 

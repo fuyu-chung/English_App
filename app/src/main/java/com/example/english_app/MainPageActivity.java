@@ -25,7 +25,7 @@ import com.example.english_app.mainpage_fragments.LoungeFragment;
 import com.example.english_app.mainpage_fragments.StudyCircleFragment;
 import com.example.english_app.user_basic.ChangePasswordActivity;
 import com.example.english_app.user_basic.LoginActivity;
-import com.example.english_app.user_basic.UserProfileActivity;
+import com.example.english_app.user_dorm.UserProfileActivity;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainPageActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {

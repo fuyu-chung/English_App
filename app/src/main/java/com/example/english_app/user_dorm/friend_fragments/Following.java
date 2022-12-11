@@ -1,14 +1,12 @@
-package com.example.english_app.friend_fragments;
+package com.example.english_app.user_dorm.friend_fragments;
 
-public class Follower {
-
-    //這裡和最後顯示在fragment的list有關
+public class Following {    //這裡和最後顯示在fragment的list有關
     //這裡是你的User裡面要顯示的有幾個物件的list，我們有userName和ID要顯示
     private String userName;
     private int userId;
 
     //在fragment java裡面的User function格式在這裡宣告有什麼變數
-    public Follower(int userId, String  userName) {
+    public Following(int userId, String  userName) {
         this.userId = userId;
         this.userName = userName;
     }
