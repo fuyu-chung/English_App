@@ -47,6 +47,7 @@ public class StaticRcvAdapter extends RecyclerView.Adapter<StaticRcvAdapter.Stat
         StaticRcvModel currentItem = catItems.get(position);
         holder.vocImage.setImageResource(currentItem.getImage());
         holder.vocText.setText(currentItem.getText());
+        holder.vocText2.setText(currentItem.getText2());
 
 
         //確定是哪個catItem 被點擊，以轉換下方的unitItem
@@ -86,7 +87,7 @@ public class StaticRcvAdapter extends RecyclerView.Adapter<StaticRcvAdapter.Stat
 
     public class StaticRcvViewHolder extends RecyclerView.ViewHolder {
 
-        private final TextView vocText;
+        private final TextView vocText,vocText2;
         private final ImageView vocImage;
         private final LinearLayout vocSelectedLayout;
 
@@ -95,6 +96,7 @@ public class StaticRcvAdapter extends RecyclerView.Adapter<StaticRcvAdapter.Stat
             super(itemView);
             vocImage = itemView.findViewById(R.id.vocCatImage);
             vocText = itemView.findViewById(R.id.vocCatText);
+            vocText2 = itemView.findViewById(R.id.vocHowManyUnitText);
             vocSelectedLayout = itemView.findViewById(R.id.voc_rcv_linearlayout);
 
             //得到現在的item position
@@ -184,16 +186,30 @@ public class StaticRcvAdapter extends RecyclerView.Adapter<StaticRcvAdapter.Stat
             //TOEFL
             else if (check_position == 4) {
                 ArrayList<DynamicRcvModel> unitItem = new ArrayList<>();
-                for (int i = 1; i <= 50; i++) {
+
+                for (int i = 1; i <= 40; i++) {
                     String units;
                     if (i <= 9) {
-                        units = "Unit 0" + i;
+                        units = "Basic 0" + i + " (U.0" + i + ")";
                         unitItem.add(new DynamicRcvModel(units, "#CEB443"));
                     } else {
-                        units = "Unit " + i;
+                        units = "Basic " + i + " (U." + i + ")";
                         unitItem.add(new DynamicRcvModel(units, "#CEB443"));
                     }
                 }
+
+                unitItem.add(new DynamicRcvModel("Anthropology", "#CEB443"));
+                unitItem.add(new DynamicRcvModel("Astronomy", "#CEB443"));
+                unitItem.add(new DynamicRcvModel("Chemistry", "#CEB443"));
+                unitItem.add(new DynamicRcvModel("Environmental Science", "#CEB443"));
+                unitItem.add(new DynamicRcvModel("Math", "#CEB443"));
+                unitItem.add(new DynamicRcvModel("Meteorology", "#CEB443"));
+                unitItem.add(new DynamicRcvModel("Physics", "#CEB443"));
+                unitItem.add(new DynamicRcvModel("Politics", "#CEB443"));
+                unitItem.add(new DynamicRcvModel("Research", "#CEB443"));
+                unitItem.add(new DynamicRcvModel("Sociology", "#CEB443"));
+                unitItem.add(new DynamicRcvModel("Sustainable Development", "#CEB443"));
+
                 updateRecyclerView.callback(check_position, unitItem);
                 checkWhatTitleInterface.onTitleClicked(check_position);
             }

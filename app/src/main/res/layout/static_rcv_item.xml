@@ -26,5 +26,15 @@
         android:textSize="18sp"
         android:textColor="@color/user_msg_name"
         android:textStyle="bold" />
+    <TextView
+        android:id="@+id/vocHowManyUnitText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/voc_rcv_text2"
+        android:layout_gravity="center"
+        android:textSize="12sp"
+        android:fontFamily="@font/baloo"
+        android:textColor="@color/user_msg_name"
+        android:textStyle="bold" />
 
 </LinearLayout>

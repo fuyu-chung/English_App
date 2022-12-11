@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.english_app.user_dorm.MyFriendActivity;
 import com.example.english_app.R;
+import com.example.english_app.user_dorm.MyTaskActivity;
 import com.example.english_app.user_dorm.UserProfileActivity;
 import com.example.english_app.user_dorm.collections.MyCollectionActivity;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
@@ -108,6 +109,10 @@ public class DormFragment extends Fragment {
         });
         imgbtnColl.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), MyCollectionActivity.class);
+            startActivity(intent);
+        });
+        imgbtnTask.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), MyTaskActivity.class);
             startActivity(intent);
         });
         return view;

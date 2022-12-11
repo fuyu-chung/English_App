@@ -27,11 +27,11 @@ public class VocabActivity extends AppCompatActivity implements UpdateRecyclerVi
         setContentView(R.layout.activity_vocab);
 
         ArrayList<StaticRcvModel> catItem = new ArrayList<>();
-        catItem.add(new StaticRcvModel(R.drawable.ic_elem, "國小"));
-        catItem.add(new StaticRcvModel(R.drawable.ic_jhs, "國中"));
-        catItem.add(new StaticRcvModel(R.drawable.ic_hs, "高中"));
-        catItem.add(new StaticRcvModel(R.drawable.ic_toeic, "多益"));
-        catItem.add(new StaticRcvModel(R.drawable.ic_toefl, "托福"));
+        catItem.add(new StaticRcvModel(R.drawable.ic_elem, "國小", "11單元"));
+        catItem.add(new StaticRcvModel(R.drawable.ic_jhs, "國中", "25單元"));
+        catItem.add(new StaticRcvModel(R.drawable.ic_hs, "高中", "125單元"));
+        catItem.add(new StaticRcvModel(R.drawable.ic_toeic, "多益", "?單元"));
+        catItem.add(new StaticRcvModel(R.drawable.ic_toefl, "托福", "51單元"));
 
         RecyclerView rcvVocTitle = findViewById(R.id.voc_rcv_cat);
         staticRcvAdapter = new StaticRcvAdapter(catItem, this, this,this);
