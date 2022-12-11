@@ -38,21 +38,15 @@ public class VocabElementaryActivity extends AppCompatActivity {
 
     private ArrayList<VocabularyRcvModel> getListVocabulary() {
         ArrayList<VocabularyRcvModel> list = new ArrayList<>();
-
-        SharedPreferences sharedPreferencesTitle = getSharedPreferences("Position", MODE_PRIVATE);
         SharedPreferences sharedPreferences = getSharedPreferences("Position", MODE_PRIVATE);
-
-        int title = sharedPreferencesTitle.getInt("title",0);
         int position = sharedPreferences.getInt("position", 0);
-
-
-
         String units;
         if (position < 9) {
             units = "Unit 0" + (position + 1);
         } else {
             units = "Unit " + (position + 1);
         }
+
         TextView unitText = findViewById(R.id.elem_unit_text);
         runOnUiThread(() -> (unitText).setText(units));
         ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
@@ -60,7 +54,23 @@ public class VocabElementaryActivity extends AppCompatActivity {
             try {
                 String s1 = "jdbc:jtds:sqlserver://myenglishserver.database.windows.net:1433/englishapp_db;user=englishapp@myenglishserver;password=English1234@@;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;ssl=request;"; //訪問azure的db的網址
                 Connection connection = DriverManager.getConnection(s1); //建立連線
+                int titles = sharedPreferences.getInt("title", 0);
                 String query = "select Vocabulary, Chinese from elem_voc where Unit = ? ";
+                if (titles == 0) {
+                    query = "select Vocabulary, Chinese from elem_voc where Unit = ? ";
+                }
+                if (titles == 1) {
+                    query = "select Vocabulary, Chinese from jhs_voc where Unit = ? ";
+                }
+                if (titles == 2) {
+                    query = "select Vocabulary, Chinese from hs_voc where Unit = ? ";
+                }
+                if (titles == 3) {
+                    query = "select Vocabulary, Chinese from toeic_voc where Unit = ? ";
+                }
+                if (titles == 4) {
+                    query = "select Vocabulary, Chinese from toefl_voc where Unit = ? ";
+                }
                 PreparedStatement statement = connection.prepareStatement(query);
                 statement.setString(1, units);
                 ResultSet resultSet = statement.executeQuery();
@@ -73,7 +83,7 @@ public class VocabElementaryActivity extends AppCompatActivity {
             }
         });
         try {
-            boolean e = executor.awaitTermination(10, TimeUnit.SECONDS); // await會有錯誤
+            boolean e = executor.awaitTermination(20, TimeUnit.SECONDS); // await會有錯誤
             if (!e) {
                 System.out.println("time out");
             }
@@ -83,7 +93,7 @@ public class VocabElementaryActivity extends AppCompatActivity {
         return list;
     }
 
-    private String getWhichTitle() {
-        return "elementary";
-    }
+//    private String getWhichTitle() {
+//        return "elementary";
+//    }
 }
