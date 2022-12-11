@@ -10,14 +10,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.english_app.R;
 import com.example.english_app.colleges.vocabulary.DRcvInterface.UpdateRecyclerView;
+import com.example.english_app.colleges.vocabulary.VRcvInterface.CheckWhatTitleInterface;
 import com.example.english_app.colleges.vocabulary.VRcvInterface.RecyclerViewInterface;
 
 import java.util.ArrayList;
 
-public class VocabActivity extends AppCompatActivity implements UpdateRecyclerView, RecyclerViewInterface {
+public class VocabActivity extends AppCompatActivity implements UpdateRecyclerView, RecyclerViewInterface, CheckWhatTitleInterface {
 
     private RecyclerView rcvVocUnit;
     private DynamicRcvAdapter dynamicRcvAdapter;
+    private StaticRcvAdapter staticRcvAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +34,7 @@ public class VocabActivity extends AppCompatActivity implements UpdateRecyclerVi
         catItem.add(new StaticRcvModel(R.drawable.ic_toefl, "托福"));
 
         RecyclerView rcvVocTitle = findViewById(R.id.voc_rcv_cat);
-        StaticRcvAdapter staticRcvAdapter = new StaticRcvAdapter(catItem, this, this);
+        staticRcvAdapter = new StaticRcvAdapter(catItem, this, this,this);
         rcvVocTitle.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
         rcvVocTitle.setAdapter(staticRcvAdapter);
 
@@ -63,10 +65,18 @@ public class VocabActivity extends AppCompatActivity implements UpdateRecyclerVi
     }
 
     @Override
+    public void onTitleClicked(int position) {
+        SharedPreferences sharedPreferences = getSharedPreferences("Title", MODE_PRIVATE);
+        sharedPreferences.edit().putInt("title", position).apply();
+    }
+
+    @Override
     public void onItemClicked(int position) {
         SharedPreferences sharedPreferences = getSharedPreferences("Position", MODE_PRIVATE);
         sharedPreferences.edit().putInt("position", position).apply();
         Intent intent = new Intent(VocabActivity.this,VocabElementaryActivity.class);
         startActivity(intent);
     }
+
+
 }

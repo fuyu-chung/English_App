@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.english_app.R;
+import com.example.english_app.colleges.vocabulary.DRcvInterface.UpdateRecyclerView;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -21,6 +22,9 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 public class VocabElementaryActivity extends AppCompatActivity {
+
+    UpdateRecyclerView updateRecyclerView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +38,11 @@ public class VocabElementaryActivity extends AppCompatActivity {
 
     private ArrayList<VocabularyRcvModel> getListVocabulary() {
         ArrayList<VocabularyRcvModel> list = new ArrayList<>();
+
+        SharedPreferences sharedPreferencesTitle = getSharedPreferences("Title", MODE_PRIVATE);
         SharedPreferences sharedPreferences = getSharedPreferences("Position", MODE_PRIVATE);
+
+        int title = sharedPreferencesTitle.getInt("title",0);
         int position = sharedPreferences.getInt("position", 0);
         String units;
         if (position < 9) {

@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.english_app.R;
 import com.example.english_app.colleges.vocabulary.DRcvInterface.UpdateRecyclerView;
+import com.example.english_app.colleges.vocabulary.VRcvInterface.CheckWhatTitleInterface;
 
 import java.util.ArrayList;
 
@@ -25,10 +26,13 @@ public class StaticRcvAdapter extends RecyclerView.Adapter<StaticRcvAdapter.Stat
     Activity activity;
     boolean check = true;
 
-    public StaticRcvAdapter(ArrayList<StaticRcvModel> catItems, Activity activity, UpdateRecyclerView updateRecyclerView) {
+    CheckWhatTitleInterface checkWhatTitleInterface;
+
+    public StaticRcvAdapter(ArrayList<StaticRcvModel> catItems, Activity activity, UpdateRecyclerView updateRecyclerView, CheckWhatTitleInterface checkWhatTitleInterface) {
         this.catItems = catItems;
         this.activity = activity;
         this.updateRecyclerView = updateRecyclerView;
+        this.checkWhatTitleInterface = checkWhatTitleInterface;
     }
 
     @NonNull
@@ -106,6 +110,10 @@ public class StaticRcvAdapter extends RecyclerView.Adapter<StaticRcvAdapter.Stat
             notifyItemChanged(check_position);
             check_position = adapterPosition;
             notifyItemChanged(check_position);
+
+            if (checkWhatTitleInterface != null) {
+                checkWhatTitleInterface.onTitleClicked(check_position);
+            }
 
             //elem
             if (check_position == 0) {
