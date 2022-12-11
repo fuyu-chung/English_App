@@ -112,5 +112,11 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
+    <style name="collapseBarTextStyle02" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
 
 </resources>
