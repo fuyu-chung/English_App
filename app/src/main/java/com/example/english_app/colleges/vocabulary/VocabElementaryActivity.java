@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.english_app.R;
-import com.example.english_app.colleges.vocabulary.DRcvInterface.UpdateRecyclerView;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -22,8 +21,6 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 public class VocabElementaryActivity extends AppCompatActivity {
-
-    UpdateRecyclerView updateRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,8 +89,4 @@ public class VocabElementaryActivity extends AppCompatActivity {
         }
         return list;
     }
-
-//    private String getWhichTitle() {
-//        return "elementary";
-//    }
 }
