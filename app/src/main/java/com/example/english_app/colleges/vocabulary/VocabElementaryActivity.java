@@ -39,7 +39,7 @@ public class VocabElementaryActivity extends AppCompatActivity {
     private ArrayList<VocabularyRcvModel> getListVocabulary() {
         ArrayList<VocabularyRcvModel> list = new ArrayList<>();
 
-        SharedPreferences sharedPreferencesTitle = getSharedPreferences("Title", MODE_PRIVATE);
+        SharedPreferences sharedPreferencesTitle = getSharedPreferences("Position", MODE_PRIVATE);
         SharedPreferences sharedPreferences = getSharedPreferences("Position", MODE_PRIVATE);
 
         int title = sharedPreferencesTitle.getInt("title",0);
