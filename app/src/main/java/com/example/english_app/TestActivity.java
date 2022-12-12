@@ -1,7 +1,6 @@
 package com.example.english_app;
 
 import android.annotation.SuppressLint;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -33,7 +32,7 @@ public class TestActivity extends AppCompatActivity {
             new Answer(R.string.question_8, R.string.question_8A, R.string.question_8B, R.string.question_8C, R.string.question_8D, R.string.answer_8),
     };
 
-    final int PROGRESS_BAR = (int) Math.ceil(100 / questionBank.length);
+    final int PROGRESS_BAR = (100 / questionBank.length);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +47,7 @@ public class TestActivity extends AppCompatActivity {
         score = findViewById(R.id.score);
         questionNumber = findViewById(R.id.QuestionNumber);
 
-        checkOut1 = findViewById(R.id.selectoption);
+        checkOut1 = findViewById(R.id.select_option);
         checkOut2 = findViewById(R.id.CorrectAnswer);
         progressBar = findViewById(R.id.progress_bar);
 
@@ -62,6 +61,8 @@ public class TestActivity extends AppCompatActivity {
         optionC.setText(CurrentOptionC);
         CurrentOptionD = questionBank[currentIndex].getOptionD();
         optionD.setText(CurrentOptionD);
+
+
 
         optionA.setOnClickListener(v -> {
             checkAnswer(CurrentOptionA);
@@ -86,15 +87,12 @@ public class TestActivity extends AppCompatActivity {
     }
 
     private void checkAnswer(int userSelection) {
-
-        int correctanswer = questionBank[currentIndex].getAnswerId();
-
+        int correct_answer = questionBank[currentIndex].getAnswerId();
         checkOut1.setText(userSelection);
-        checkOut2.setText(correctanswer);
+        checkOut2.setText(correct_answer);
 
         String m = checkOut1.getText().toString().trim();
         String n = checkOut2.getText().toString().trim();
-
         if (m.equals(n)) {
             Toast.makeText(getApplicationContext(), "Right", Toast.LENGTH_SHORT).show();
             mScore = mScore + 1;
@@ -114,22 +112,16 @@ public class TestActivity extends AppCompatActivity {
             alert.setTitle("Game Over");
             alert.setCancelable(false);
             alert.setMessage("Your Score" + mScore + "points");
-            alert.setPositiveButton("Close Application", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    finish();
-                }
+            alert.setPositiveButton("Close Application", (dialog, which) -> {
+                finish();
             });
 
-            alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    mScore = 0;
-                    qn = 1;
-                    progressBar.setProgress(0);
-                    score.setText("Score" + mScore + "/" + questionBank.length);
-                    questionNumber.setText(qn + "/" + questionBank.length + "Question");
-                }
+            alert.setNegativeButton("No", (dialog, which) -> {
+                mScore = 0;
+                qn = 1;
+                progressBar.setProgress(0);
+                score.setText("Score" + mScore + "/" + questionBank.length);
+                questionNumber.setText(qn + "/" + questionBank.length + "Question");
             });
             alert.show();
         }
