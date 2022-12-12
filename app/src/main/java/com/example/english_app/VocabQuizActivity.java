@@ -27,6 +27,7 @@ public class VocabQuizActivity extends AppCompatActivity {
     ProgressBar progressBar;
     final int PROGRESS_BAR = 10;
     String Score, Total;
+    int question;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,13 +63,13 @@ public class VocabQuizActivity extends AppCompatActivity {
         runOnUiThread(() -> (qNumber).setText(Total));
         runOnUiThread(() -> (cNumber).setText(Score));
         if (total <= 10) {
-            optionA.setOnClickListener(v -> checkAnswer(sharedPreferences.getString("A", ""), sharedPreferences.getString("Ans", "")));
+            optionA.setOnClickListener(v -> checkAnswer(0, question));
 
-            optionB.setOnClickListener(v -> checkAnswer(sharedPreferences.getString("B", ""), sharedPreferences.getString("Ans", "")));
+            optionB.setOnClickListener(v -> checkAnswer(1, question));
 
-            optionC.setOnClickListener(v -> checkAnswer(sharedPreferences.getString("C", ""), sharedPreferences.getString("Ans", "")));
+            optionC.setOnClickListener(v -> checkAnswer(2, question));
 
-            optionD.setOnClickListener(v -> checkAnswer(sharedPreferences.getString("D", ""), sharedPreferences.getString("Ans", "")));
+            optionD.setOnClickListener(v -> checkAnswer(3, question));
         }
     }
 
@@ -89,9 +90,8 @@ public class VocabQuizActivity extends AppCompatActivity {
                     random_answer[i] = answer;
                     System.out.println(answer);
                 }
-                int question = (int) (Math.random() * 4);
+                question = (int) (Math.random() * 4);
                 System.out.println(random_answer[question]);
-                //int correctAnswer = random_answer[question];
                 statement.setInt(1, random_answer[0]);
                 statement.setInt(2, random_answer[1]);
                 statement.setInt(3, random_answer[2]);
@@ -125,9 +125,9 @@ public class VocabQuizActivity extends AppCompatActivity {
         });
     }
 
-    private void checkAnswer(String userSelection, String ansText) {
+    private void checkAnswer(int userSelection, int ans) {
         //SharedPreferences sharedPreferences = getSharedPreferences("VocabCompetition", MODE_PRIVATE);
-        if (userSelection.equals(ansText)) {
+        if (userSelection == ans) {
             if (total < 10) {
                 Toast.makeText(this, "Right！", Toast.LENGTH_SHORT).show();
                 correct++;
