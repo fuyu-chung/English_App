@@ -52,13 +52,15 @@
 
         <ImageButton
             android:id="@+id/vocabulary_collection_btn"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:background="@color/transparent"
             android:src="@drawable/star_unclick"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
+
+
 
         <View
             android:layout_width="match_parent"
