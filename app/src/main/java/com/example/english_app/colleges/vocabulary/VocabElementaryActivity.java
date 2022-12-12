@@ -1,7 +1,11 @@
 package com.example.english_app.colleges.vocabulary;
 
+import static android.app.PendingIntent.getActivity;
+
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,6 +35,13 @@ public class VocabElementaryActivity extends AppCompatActivity {
         VocabularyRcvAdapter vocabularyRcvAdapter = new VocabularyRcvAdapter(getListVocabulary());
         rcvVocabulary.setAdapter(vocabularyRcvAdapter);
         rcvVocabulary.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+
+//        ImageView backBtn = findViewById(R.id.vocBackBtn);
+//        backBtn.setOnClickListener(v -> {
+//            Intent intent = new Intent(getActivity(), VocabElementaryActivity.class);
+//            st
+//        });
+
     }
 
     private ArrayList<VocabularyRcvModel> getListVocabulary() {

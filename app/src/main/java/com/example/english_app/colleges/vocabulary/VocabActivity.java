@@ -19,7 +19,6 @@ public class VocabActivity extends AppCompatActivity implements UpdateRecyclerVi
 
     private RecyclerView rcvVocUnit;
     private DynamicRcvAdapter dynamicRcvAdapter;
-    private StaticRcvAdapter staticRcvAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +33,7 @@ public class VocabActivity extends AppCompatActivity implements UpdateRecyclerVi
         catItem.add(new StaticRcvModel(R.drawable.ic_toefl, "托福", "51單元"));
 
         RecyclerView rcvVocTitle = findViewById(R.id.voc_rcv_cat);
-        staticRcvAdapter = new StaticRcvAdapter(catItem, this, this,this);
+        StaticRcvAdapter staticRcvAdapter = new StaticRcvAdapter(catItem, this, this, this);
         rcvVocTitle.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
         rcvVocTitle.setAdapter(staticRcvAdapter);
 
@@ -61,7 +60,7 @@ public class VocabActivity extends AppCompatActivity implements UpdateRecyclerVi
     public void callback(int position, ArrayList<DynamicRcvModel> items) {
         dynamicRcvAdapter = new DynamicRcvAdapter(items,this);
         dynamicRcvAdapter.notifyDataSetChanged();
-        rcvVocUnit.setAdapter((dynamicRcvAdapter));
+        rcvVocUnit.setAdapter(dynamicRcvAdapter);
     }
 
     @Override

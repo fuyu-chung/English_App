@@ -1,104 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".user_dorm.collections.MyCollectionActivity">
-
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/collect_collapsing_appbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fitsSystemWindows="true"
-        android:background="@color/transparent"
-        android:theme="@style/CollectionTheme">
-
-        <com.google.android.material.appbar.CollapsingToolbarLayout
-            android:id="@+id/collect_collapsing_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fitsSystemWindows="true"
-
-            app:collapsedTitleGravity="center"
-            app:collapsedTitleTextAppearance="@style/collapseBarTextStyle02"
-            app:contentScrim="?attr/colorPrimary"
-
-            app:expandedTitleGravity="right"
-            app:expandedTitleMarginTop="160dp"
-
-            app:expandedTitleTextAppearance="@style/expandedBarTextStyle00"
-            app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
-            app:title="@string/coll_title">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="320dp">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="300dp"
-                    android:background="@drawable/collection_topbar"
-                    android:orientation="vertical"/>
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="250dp"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginStart="10dp">
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        >
-
-                        <ImageView
-                            android:id="@+id/imgbtn_profile"
-                            android:layout_width="182dp"
-                            android:layout_height="250dp"
-                            android:src="@drawable/imgbtn_profile"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toStartOf="parent" />
-
-                        <ImageView
-                            android:id="@+id/imgbtn_coll"
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:layout_gravity="center_horizontal"
-                            android:src="@drawable/imgbtn_coll"
-                            app:layout_constraintTop_toTopOf="@id/imgbtn_profile"
-                            app:layout_constraintStart_toEndOf="@id/imgbtn_profile"
-                            android:layout_marginTop="25dp"
-                            android:layout_marginStart="-30dp"/>
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                </LinearLayout>
-
-            </RelativeLayout>
-
-            <androidx.appcompat.widget.Toolbar
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="@color/transparent">
-            </androidx.appcompat.widget.Toolbar>
-
-        </com.google.android.material.appbar.CollapsingToolbarLayout>
-
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <androidx.core.widget.NestedScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="10dp"
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintlayout"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/topic_color"
+            android:elevation="5dp"
+            android:paddingHorizontal="10dp">
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="25sp"
-            android:text="@string/dummy_text"/>
 
-    </androidx.core.widget.NestedScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
+    </LinearLayout>
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

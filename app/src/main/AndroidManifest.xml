@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools" >
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -15,32 +15,39 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.English_App"
-        tools:targetApi="31">
-
-        <activity
-            android:name=".TestActivity"
-            android:exported="false">
-
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-
-        <activity
-            android:name=".user_dorm.MyTaskActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+        tools:targetApi="31" >
         <activity
             android:name=".user_dorm.collections.MyCollectionActivity"
-            android:exported="false">
-            <!--            <intent-filter>-->
-            <!--                <action android:name="android.intent.action.MAIN" />-->
+            android:exported="false" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".TestActivity"
+            android:exported="false" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".user_dorm.MyTaskActivity"
+            android:exported="false" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".user_dorm.collections.MyCollectionMainActivity"
+            android:exported="false"
+            android:parentActivityName=".MainPageActivity">
 
-            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
-            <!--            </intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
 
             <meta-data
                 android:name="android.app.lib_name"
@@ -48,71 +55,81 @@
         </activity>
         <activity
             android:name=".colleges.vocabulary.VocabElementaryActivity"
-            android:exported="false">
+            android:exported="false"
+            android:parentActivityName=".colleges.vocabulary.VocabActivity">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".colleges.competition.CompeteActivity"
-            android:exported="false">
+            android:exported="false"
+            android:parentActivityName=".MainPageActivity">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".colleges.phrase.PhraseActivity"
-            android:exported="false">
+            android:exported="false"
+            android:parentActivityName=".MainPageActivity">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".colleges.reading.ReadingActivity"
-            android:exported="false">
+            android:exported="false"
+            android:parentActivityName=".MainPageActivity">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".colleges.vocabulary.VocabActivity"
-            android:exported="false">
+            android:exported="false"
+            android:parentActivityName=".MainPageActivity">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".user_dorm.MyFriendActivity"
-            android:exported="false">
+            android:exported="false"
+            android:parentActivityName=".MainPageActivity">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".user_basic.ChangePasswordActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainPageActivity"/>
         <activity
             android:name=".user_dorm.UserProfileActivity"
-            android:exported="false">
+            android:exported="false"
+            android:parentActivityName=".MainPageActivity">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".user_basic.ForgetPasswordActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".user_basic.LoginActivity"/>
         <activity
             android:name=".user_basic.RegisterActivity"
-            android:exported="false" /> <!-- <activity -->
+            android:exported="false"
+            android:parentActivityName=".user_basic.LoginActivity"/> <!-- <activity -->
         <!-- android:name=".Login" -->
         <!-- android:exported="false" /> -->
         <activity
             android:name=".MainPageActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".user_basic.LoginActivity"/>
         <activity
             android:name=".user_basic.LoginActivity"
-            android:exported="true">
-
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
