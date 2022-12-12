@@ -1,19 +1,31 @@
 package com.example.english_app.user_basic;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Looper;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.english_app.MainPageActivity;
 import com.example.english_app.R;
+import com.example.english_app.TestActivity;
+import com.example.english_app.colleges.vocabulary.VocabActivity;
+import com.example.english_app.user_dorm.collections.MyCollectionMainActivity;
 import com.example.english_app.VocabQuizActivity;
 import com.google.android.material.button.MaterialButton;
 
@@ -126,4 +138,43 @@ public class LoginActivity extends AppCompatActivity {
                 }
         );
     }
+
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this, R.style.AlertDialogTheme);
+        View view = LayoutInflater.from(this).inflate(
+          R.layout.warning_dialog,(RelativeLayout)findViewById(R.id.layoutWarningDialog)
+        );
+        builder.setView(view);
+        ((TextView) view.findViewById(R.id.dialogTextTitle)).setText("英格利許學校大聲公");
+        ((TextView) view.findViewById(R.id.dailogText)).setText("確定離開學校?");
+        ((Button) view.findViewById(R.id.noBtn)).setText("NO");
+        ((Button) view.findViewById(R.id.yesBtn)).setText("YES");
+        ((ImageView) view.findViewById(R.id.megaPhoneImg)).setImageResource(R.drawable.ic_megaphone);
+
+        final AlertDialog alertDialog = builder.create();
+        builder.setCancelable(true);
+        view.findViewById(R.id.noBtn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog.cancel();
+            }
+        });
+
+        view.findViewById(R.id.yesBtn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                moveTaskToBack(true);
+                android.os.Process.killProcess(android.os.Process.myPid());
+                System.exit(1);
+                finish();
+            }
+        });
+        if(alertDialog.getWindow() != null){
+            alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
+        }
+
+        alertDialog.show();
+    }
+
 }
