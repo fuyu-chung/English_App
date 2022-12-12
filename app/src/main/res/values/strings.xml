@@ -72,8 +72,8 @@
     <!--  Task Activity  -->
     <string name="task_title">我的任務</string>
 
-    <string name="score">Score 0/8</string>
-    <string name="question_number">1/8 Question</string>
+    <string name="score">Score 0/10</string>
+    <string name="question_number">1/10 Question</string>
 
     <string name="question_1">What technology is used to make telephone calls over the internet possible?</string>
     <string name="question1_A">Bluetooth</string>
@@ -132,8 +132,8 @@
     <string name="question_8C">Record</string>
     <string name="question_8D">File</string>
     <string name="answer_8">Field</string>
-    <string name="selctedoption">SelctedOption</string>
-    <string name="correctanswer">CorrectAnswer</string>
+    <string name="selected_option">SelectedOption</string>
+    <string name="correct_answer">CorrectAnswer</string>
 
 
 </resources>

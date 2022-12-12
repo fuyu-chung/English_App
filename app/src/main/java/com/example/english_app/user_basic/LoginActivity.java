@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.english_app.MainPageActivity;
 import com.example.english_app.R;
-import com.example.english_app.TestActivity;
+import com.example.english_app.VocabQuizActivity;
 import com.google.android.material.button.MaterialButton;
 
 import java.sql.Connection;
@@ -98,7 +98,7 @@ public class LoginActivity extends AppCompatActivity {
         registerBtn.setOnClickListener(v -> {
             ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
             executor.execute(() -> {
-                Intent intent = new Intent(this, TestActivity.class);
+                Intent intent = new Intent(this, VocabQuizActivity.class);
                 startActivity(intent);
                 executor.shutdown();
             });
