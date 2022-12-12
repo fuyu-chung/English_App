@@ -3,6 +3,7 @@ package com.example.english_app.colleges.vocabulary;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -17,14 +18,17 @@ public class VocabularyRcvAdapter extends RecyclerView.Adapter<VocabularyRcvAdap
 
     //list of vocabulary items
     public ArrayList<VocabularyRcvModel> vocabularyList;
+    int check_StarPosition = -1; //沒有任何星星被選擇
+    private int star_click_ct = -1;
 
     public VocabularyRcvAdapter(ArrayList<VocabularyRcvModel> vocabularyList) {
         this.vocabularyList = vocabularyList;
     }
 
     public class VocabularyRcvViewHolder extends RecyclerView.ViewHolder {
-        public TextView vocText,chText;
+        public TextView vocText, chText;
         LinearLayout linearLayout;
+        private ImageButton imgBtnStar;
         //之後要補btn
 
 
@@ -33,6 +37,20 @@ public class VocabularyRcvAdapter extends RecyclerView.Adapter<VocabularyRcvAdap
             vocText = itemView.findViewById(R.id.vocabulary);
             chText = itemView.findViewById(R.id.chinese);
             linearLayout = itemView.findViewById(R.id.vocabulary_rcv_linearlayout);
+            imgBtnStar = itemView.findViewById(R.id.vocabulary_collection_btn);
+
+            //星星取得按下的position
+            imgBtnStar.setOnClickListener(v -> checkPosition(getAbsoluteAdapterPosition()));
+
+        }
+
+        private void checkPosition(int adapterPosition) {
+            if (adapterPosition == RecyclerView.NO_POSITION) {
+                return;
+            }
+            notifyItemChanged(check_StarPosition);
+            check_StarPosition = adapterPosition;
+            notifyItemChanged(check_StarPosition);
 
         }
     }
@@ -46,9 +64,22 @@ public class VocabularyRcvAdapter extends RecyclerView.Adapter<VocabularyRcvAdap
 
     @Override
     public void onBindViewHolder(@NonNull VocabularyRcvAdapter.VocabularyRcvViewHolder holder, int position) {
-        VocabularyRcvModel currentItem=vocabularyList.get(position);
+        VocabularyRcvModel currentItem = vocabularyList.get(position);
         holder.vocText.setText(currentItem.getVocText());
         holder.chText.setText(currentItem.getChText());
+        //btn
+        if (check_StarPosition == position) {
+            star_click_ct = 0;
+            holder.imgBtnStar.setImageResource(R.drawable.star_click);
+        }
+        else {
+            if (star_click_ct == 0) {
+                holder.imgBtnStar.setImageResource(R.drawable.star_unclick);
+            } else {
+                holder.imgBtnStar.setImageResource(R.drawable.star_click);
+            }
+        }
+
     }
 
     @Override
