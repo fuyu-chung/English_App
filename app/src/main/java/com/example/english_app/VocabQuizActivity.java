@@ -85,7 +85,7 @@ public class VocabQuizActivity extends AppCompatActivity {
                 PreparedStatement statement = connection.prepareStatement(query);
                 int[] random_answer = new int[4];
                 for (int i = 0; i < 4; i++) {
-                    answer = (int) (Math.random() * 552 + 1);
+                    answer = (int) (Math.random() * 552) + 1;
                     random_answer[i] = answer;
                     System.out.println(answer);
                 }
