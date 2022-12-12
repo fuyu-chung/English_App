@@ -63,6 +63,7 @@ public class RegisterActivity extends AppCompatActivity {
                     String birthdayPattern = "^(((?:19|20)[0-9]{2})(0?[1-9]|1[012])(0?[1-9]|[12][0-9]|3[01]))$";
 
                     String passwordText = Objects.requireNonNull((user_password).getText()).toString();
+                    int password_length = passwordText.length();
                     String checkText = Objects.requireNonNull((user_check).getText()).toString();
                     String passwordPattern = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}$";
 
@@ -137,14 +138,8 @@ public class RegisterActivity extends AppCompatActivity {
 
                     String salt1 = Encryption.generatedSalt();
                     String salt2 = Encryption.generatedSalt();
-
                     passwordText = Encryption.sha1(salt1+ Encryption.md5(salt2 + passwordText));
                     System.out.println(passwordText);
-//                    query = "select count(*) from account";
-//                    statement = connection.prepareStatement(query);
-//                    resultSet = statement.executeQuery();
-//                    resultSet.next();
-//                    int number = resultSet.getInt(1);
                     Random r = new Random();
                     int number = r.nextInt(100000);
                     System.out.println(number);
