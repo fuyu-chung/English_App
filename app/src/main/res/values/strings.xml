@@ -41,6 +41,9 @@
     <string name="imgbtn_coll">btn to user collections</string>
     <string name="imgbtn_wrong">btn to user wrong notes</string>
 
+    <!--  My Friend  -->
+    <string name="addFriendHint">欲加好友可於"我的個人檔案"提供ID給好友喔!</string>
+
     <!--  Vocabulary activity  -->
     <string name="v_title">- Vocabulary -</string>
     <string name="v_sub_title">歡迎來到單字學院</string>

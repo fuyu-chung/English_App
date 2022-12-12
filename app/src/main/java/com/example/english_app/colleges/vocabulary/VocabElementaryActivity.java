@@ -5,6 +5,7 @@ import static android.app.PendingIntent.getActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -36,11 +37,8 @@ public class VocabElementaryActivity extends AppCompatActivity {
         rcvVocabulary.setAdapter(vocabularyRcvAdapter);
         rcvVocabulary.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
-//        ImageView backBtn = findViewById(R.id.vocBackBtn);
-//        backBtn.setOnClickListener(v -> {
-//            Intent intent = new Intent(getActivity(), VocabElementaryActivity.class);
-//            st
-//        });
+        ImageView backBtn = findViewById(R.id.vocBackBtn);
+        backBtn.setOnClickListener(v -> onBackPressed());
 
     }
 

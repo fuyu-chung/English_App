@@ -5,53 +5,55 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/phrase_bg"
-    tools:context=".colleges.phrase.PhraseActivity"
-    >
+    tools:context=".colleges.phrase.PhraseActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/transparent" >
+        android:background="@color/transparent">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:title="@string/p_title"
-            app:contentScrim="@color/phrase_collapse_topbar"
-
-            app:expandedTitleGravity="top"
-            app:expandedTitleMarginTop="75dp"
-            app:expandedTitleMarginStart="20dp"
-            app:expandedTitleTextAppearance="@style/expandedBarTextStyle02"
-
             app:collapsedTitleGravity="center"
             app:collapsedTitleTextAppearance="@style/collapseBarTextStyle01"
+
+            app:contentScrim="@color/phrase_collapse_topbar"
+            app:expandedTitleGravity="top"
+            app:expandedTitleMarginStart="20dp"
+            app:expandedTitleMarginTop="75dp"
+
+            app:expandedTitleTextAppearance="@style/expandedBarTextStyle02"
             app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
-            >
+            app:title="@string/p_title">
+
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="330dp"
-                >
+                android:layout_height="330dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="300dp"
                     android:background="@drawable/phrase_topbar"
                     android:orientation="vertical"
-                    android:paddingHorizontal="20dp"/>
+                    android:paddingHorizontal="20dp" />
+
                 <ImageView
                     android:layout_width="250dp"
                     android:layout_height="250dp"
-                    android:layout_marginBottom="-36dp"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
                     android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="-36dp"
                     android:src="@drawable/house_phrase" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="300dp"
                     android:background="@color/transparent"
                     android:orientation="vertical"
                     android:paddingHorizontal="20dp">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -67,8 +69,7 @@
             <androidx.appcompat.widget.Toolbar
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="@color/transparent"
-                />
+                android:background="@color/transparent" />
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
@@ -79,11 +80,27 @@
         android:padding="16dp"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="25sp"
-            android:text="@string/dummy_text"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/phrase_rcv_cat"
+                android:layout_width="match_parent"
+                android:layout_height="185dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/phrase_rcv_unit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/phrase_rcv_cat" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
 

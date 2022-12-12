@@ -16,11 +16,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.English_App"
         tools:targetApi="31">
+        <activity
+            android:name=".colleges.phrase.PhraseUnitActivity"
 
-
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".user_dorm.collections.MyCollectionActivity"
-            android:exported="false" >
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -39,10 +45,9 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".user_dorm.MyTaskActivity"
-            android:exported="false" >
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -54,6 +59,7 @@
 
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->
+
 
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->
@@ -117,7 +123,7 @@
         <activity
             android:name=".user_basic.ChangePasswordActivity"
             android:exported="false"
-            android:parentActivityName=".MainPageActivity"/>
+            android:parentActivityName=".MainPageActivity" />
         <activity
             android:name=".user_dorm.UserProfileActivity"
             android:exported="false"
@@ -129,20 +135,20 @@
         <activity
             android:name=".user_basic.ForgetPasswordActivity"
             android:exported="false"
-            android:parentActivityName=".user_basic.LoginActivity"/>
+            android:parentActivityName=".user_basic.LoginActivity" />
         <activity
             android:name=".user_basic.RegisterActivity"
             android:exported="false"
-            android:parentActivityName=".user_basic.LoginActivity"/> <!-- <activity -->
+            android:parentActivityName=".user_basic.LoginActivity" /> <!-- <activity -->
         <!-- android:name=".Login" -->
         <!-- android:exported="false" /> -->
         <activity
             android:name=".MainPageActivity"
             android:exported="false"
-            android:parentActivityName=".user_basic.LoginActivity"/>
+            android:parentActivityName=".user_basic.LoginActivity" />
         <activity
             android:name=".user_basic.LoginActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

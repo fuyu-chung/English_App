@@ -125,6 +125,16 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_gravity="bottom|end"
+        app:fabSize="normal"
+        android:src="@drawable/ic_info"
+        app:backgroundTint="@color/cframe_color_o"
+        app:tint="@android:color/white"/>
+
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/friend_viewpager"

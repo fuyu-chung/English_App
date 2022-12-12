@@ -3,6 +3,7 @@ package com.example.english_app.user_dorm;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Looper;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -14,6 +15,7 @@ import com.example.english_app.R;
 import com.example.english_app.VPAdapter;
 import com.example.english_app.user_dorm.friend_fragments.FollowerFragment;
 import com.example.english_app.user_dorm.friend_fragments.FollowingFragment;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -27,6 +29,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class MyFriendActivity extends AppCompatActivity {
+    private FloatingActionButton floatingActionButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,12 +44,13 @@ public class MyFriendActivity extends AppCompatActivity {
         vpAdapter.addFragment(new FollowingFragment(), "追蹤中");
         friendViewpager.setAdapter(vpAdapter);
 
-//        if (savedInstanceState == null) {
-//            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-//            FollowerFragment fragment = new FollowerFragment();
-//            transaction.replace(R.id.rcv_follower, fragment);
-//            transaction.commit();
-//        }
+//        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
+
 
         SharedPreferences sharedPreferences = getSharedPreferences("User", MODE_PRIVATE);
         int id = sharedPreferences.getInt("user_id", 0);

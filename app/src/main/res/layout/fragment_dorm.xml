@@ -19,9 +19,9 @@
         android:textStyle="bold"
         android:textColor="@color/words_topic01"
         android:gravity="end"
-        android:backgroundTint="@color/blue_color_02"
+        android:backgroundTint="@color/bottom_bar_icons"
         app:icon="@drawable/ic_info"
-        app:iconTint="@color/words_topic01"
+        app:iconTint="@color/white"
         />
 
     <ScrollView
