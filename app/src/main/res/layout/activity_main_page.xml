@@ -162,36 +162,36 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/studyCircleLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_weight="1"
-                android:background="@color/transparent"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:paddingStart="5dp"
-                android:paddingEnd="5dp">
+<!--            <LinearLayout-->
+<!--                android:id="@+id/studyCircleLayout"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="40dp"-->
+<!--                android:layout_weight="1"-->
+<!--                android:background="@color/transparent"-->
+<!--                android:gravity="center"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:paddingStart="5dp"-->
+<!--                android:paddingEnd="5dp">-->
 
-                <ImageView
-                    android:id="@+id/studyCircleImage"
-                    android:layout_width="20dp"
-                    android:layout_height="wrap_content"
-                    android:adjustViewBounds="true"
-                    android:src="@drawable/study_circle" />
+<!--                <ImageView-->
+<!--                    android:id="@+id/studyCircleImage"-->
+<!--                    android:layout_width="20dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:adjustViewBounds="true"-->
+<!--                    android:src="@drawable/study_circle" />-->
 
-                <TextView
-                    android:id="@+id/studyCircleText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="讀書會"
-                    android:textColor="@color/bottom_bar_icons_clicked04"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:visibility="gone" />
+<!--                <TextView-->
+<!--                    android:id="@+id/studyCircleText"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_margin="10dp"-->
+<!--                    android:text="讀書會"-->
+<!--                    android:textColor="@color/bottom_bar_icons_clicked04"-->
+<!--                    android:textSize="16sp"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:visibility="gone" />-->
 
-            </LinearLayout>
+<!--            </LinearLayout>-->
 
             <LinearLayout
                 android:id="@+id/libraryLayout"
