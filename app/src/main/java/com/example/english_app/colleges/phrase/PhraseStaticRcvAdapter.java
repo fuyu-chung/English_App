@@ -13,64 +13,64 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.english_app.R;
-import com.example.english_app.user_dorm.collections.CollectionDynamicRcvModel;
-import com.example.english_app.user_dorm.collections.CollectionInterface.CheckWhatCollectInterface;
-import com.example.english_app.user_dorm.collections.CollectionInterface.UpdateCollectionRecyclerView;
-import com.example.english_app.user_dorm.collections.CollectionStaticRcvModel;
+import com.example.english_app.colleges.phrase.phraseInterface.CheckWhatPhraseInterface;
+import com.example.english_app.colleges.phrase.phraseInterface.UpdatePhraseRecyclerView;
 
 import java.util.ArrayList;
 
-public class PhraseStaticRcvAdapter extends RecyclerView.Adapter<PhraseStaticRcvAdapter.CollectionStaticRcvViewHolder> {
+public class PhraseStaticRcvAdapter extends RecyclerView.Adapter<PhraseStaticRcvAdapter.PhraseStaticRcvViewHolder> {
 
-    private final ArrayList<CollectionStaticRcvModel> catItems;
+    private final ArrayList<PhraseStaticRcvModel> catItems;
     int check_position = 0; //-1為no default，0為第一選項clicked
-    UpdateCollectionRecyclerView updateCollectionRecyclerView;
+    UpdatePhraseRecyclerView updatePhraseRecyclerView;
     Activity activity;
     boolean check = true;
 
-    CheckWhatCollectInterface checkWhatCollectInterface;
+    CheckWhatPhraseInterface checkWhatPhraseInterface;
 
-    public PhraseStaticRcvAdapter(ArrayList<CollectionStaticRcvModel> catItems, Activity activity, UpdateCollectionRecyclerView updateCollectionRecyclerView, CheckWhatCollectInterface checkWhatCollectInterface) {
+    public PhraseStaticRcvAdapter(ArrayList<PhraseStaticRcvModel> catItems, Activity activity, UpdatePhraseRecyclerView updatePhraseRecyclerView, CheckWhatPhraseInterface checkWhatPhraseInterface) {
         this.catItems = catItems;
         this.activity = activity;
-        this.updateCollectionRecyclerView = updateCollectionRecyclerView;
-        this.checkWhatCollectInterface = checkWhatCollectInterface;
+        this.updatePhraseRecyclerView = updatePhraseRecyclerView;
+        this.checkWhatPhraseInterface = checkWhatPhraseInterface;
     }
 
     @NonNull
     @Override
-    public CollectionStaticRcvViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.collection_vocabulary_item, parent, false);
-        return new CollectionStaticRcvViewHolder(view);
+    public PhraseStaticRcvViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.stativ_phrase_rcv_item, parent, false);
+        return new PhraseStaticRcvViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CollectionStaticRcvViewHolder holder, final int position) {
-        CollectionStaticRcvModel currentItem = catItems.get(position);
-        holder.colImage.setImageResource(currentItem.getImage());
-        holder.colText.setText(currentItem.getText());
+    public void onBindViewHolder(@NonNull PhraseStaticRcvViewHolder holder, final int position) {
+        PhraseStaticRcvModel currentItem = catItems.get(position);
+        holder.phraseImage.setImageResource(currentItem.getImage());
+        holder.phraseText.setText(currentItem.getText());
 
 
-        //確定是哪個catItem 被點擊，以轉換下方的collectItem
+        //確定是哪個catItem 被點擊，以轉換下方的phraseItem
         if (check) {
-            ArrayList<CollectionDynamicRcvModel> collectItem = new ArrayList<>();
-            collectItem.add(new CollectionDynamicRcvModel("國小單字 Collections", "#CEB443"));
-            collectItem.add(new CollectionDynamicRcvModel("國中單字 Collections", "#CEB443"));
-            collectItem.add(new CollectionDynamicRcvModel("高中單字 Collections", "#CEB443"));
-            collectItem.add(new CollectionDynamicRcvModel("多益單字 Collections", "#CEB443"));
-            collectItem.add(new CollectionDynamicRcvModel("托福單字 Collections", "#CEB443"));
+            ArrayList<PhraseDynamicRcvModel> phraseItem = new ArrayList<>();
+            phraseItem.add(new PhraseDynamicRcvModel("Unit 01", "#CEB443"));
+            phraseItem.add(new PhraseDynamicRcvModel("Unit 02", "#CEB443"));
+            phraseItem.add(new PhraseDynamicRcvModel("Unit 03", "#CEB443"));
+            phraseItem.add(new PhraseDynamicRcvModel("Unit 04", "#CEB443"));
+            phraseItem.add(new PhraseDynamicRcvModel("Unit 05", "#CEB443"));
+            phraseItem.add(new PhraseDynamicRcvModel("Unit 06", "#CEB443"));
+            phraseItem.add(new PhraseDynamicRcvModel("Unit 07", "#CEB443"));
 
-            updateCollectionRecyclerView.collcallback(check_position, collectItem);
+            updatePhraseRecyclerView.callback(check_position, phraseItem);
 
             check = false;
         }
 
         if (check_position == position) {
-            holder.colSelectedLayout.setBackgroundResource(R.drawable.col_rcv_selected);
-            holder.colText.setTextColor(Color.parseColor("#A18720"));
+            holder.phraseSelectedLayout.setBackgroundResource(R.drawable.phrase_cat_rcv_select);
+            holder.phraseText.setTextColor(Color.parseColor("#A18720"));
         } else {
-            holder.colSelectedLayout.setBackgroundResource(R.drawable.col_rcv_bg);
-            holder.colText.setTextColor(Color.parseColor("#8F9193"));
+            holder.phraseSelectedLayout.setBackgroundResource(R.drawable.voc_unit_rcv_bg);
+            holder.phraseText.setTextColor(Color.parseColor("#8F9193"));
         }
 
     }
@@ -80,21 +80,23 @@ public class PhraseStaticRcvAdapter extends RecyclerView.Adapter<PhraseStaticRcv
         return catItems.size();
     }
 
-    public class CollectionStaticRcvViewHolder extends RecyclerView.ViewHolder {
+    public class PhraseStaticRcvViewHolder extends RecyclerView.ViewHolder {
 
-        private final TextView colText;
-        private final ImageView colImage;
-        private final LinearLayout colSelectedLayout;
+        private final TextView phraseText;
+        private final TextView phraseText2;
+        private final ImageView phraseImage;
+        private final LinearLayout phraseSelectedLayout;
 
 
-        public CollectionStaticRcvViewHolder(@NonNull View itemView) {
+        public PhraseStaticRcvViewHolder(@NonNull View itemView) {
             super(itemView);
-            colImage = itemView.findViewById(R.id.collCollegeImg);
-            colText = itemView.findViewById(R.id.collCollegeText);
-            colSelectedLayout = itemView.findViewById(R.id.col_rcv_linearlayout);
+            phraseImage = itemView.findViewById(R.id.phraseCatImage);
+            phraseText = itemView.findViewById(R.id.phraseCatText);
+            phraseText2 = itemView.findViewById(R.id.phraseHowManyUnitText);
+            phraseSelectedLayout = itemView.findViewById(R.id.phrase_rcv_linearlayout);
 
             //得到現在的item position
-            colSelectedLayout.setOnClickListener(v -> checkPosition(getAbsoluteAdapterPosition()));
+            phraseSelectedLayout.setOnClickListener(v -> checkPosition(getAbsoluteAdapterPosition()));
 
 
         }
@@ -108,37 +110,45 @@ public class PhraseStaticRcvAdapter extends RecyclerView.Adapter<PhraseStaticRcv
             notifyItemChanged(check_position);
 
 
-            //單字
+            //ALL
             if (check_position == 0) {
-                ArrayList<CollectionDynamicRcvModel> collectItem = new ArrayList<>();
-                collectItem.add(new CollectionDynamicRcvModel("國小單字 Collections", "#CEB443"));
-                collectItem.add(new CollectionDynamicRcvModel("國中單字 Collections", "#CEB443"));
-                collectItem.add(new CollectionDynamicRcvModel("高中單字 Collections", "#CEB443"));
-                collectItem.add(new CollectionDynamicRcvModel("多益單字 Collections", "#CEB443"));
-                collectItem.add(new CollectionDynamicRcvModel("托福單字 Collections", "#CEB443"));
-                updateCollectionRecyclerView.collcallback(check_position, collectItem);
-                checkWhatCollectInterface.onCollectClicked(check_position);
+                ArrayList<PhraseDynamicRcvModel> phraseItem = new ArrayList<>();
+                phraseItem.add(new PhraseDynamicRcvModel("Unit 01", "#CEB443"));
+                phraseItem.add(new PhraseDynamicRcvModel("Unit 02", "#CEB443"));
+                phraseItem.add(new PhraseDynamicRcvModel("Unit 03", "#CEB443"));
+                phraseItem.add(new PhraseDynamicRcvModel("Unit 04", "#CEB443"));
+                phraseItem.add(new PhraseDynamicRcvModel("Unit 05", "#CEB443"));
+                phraseItem.add(new PhraseDynamicRcvModel("Unit 06", "#CEB443"));
+                phraseItem.add(new PhraseDynamicRcvModel("Unit 07", "#CEB443"));
+                updatePhraseRecyclerView.callback(check_position, phraseItem);
+                checkWhatPhraseInterface.onClicked(check_position);
             }
-            //片語
+            //學測
             else if (check_position == 1) {
-                ArrayList<CollectionDynamicRcvModel> collectItem = new ArrayList<>();
-                collectItem.add(new CollectionDynamicRcvModel("全片語 Collections", "#3FA0B5"));
-                collectItem.add(new CollectionDynamicRcvModel("學測片語 Collections", "#3FA0B5"));
-                collectItem.add(new CollectionDynamicRcvModel("指考片語 Collections", "#3FA0B5"));
+                ArrayList<PhraseDynamicRcvModel> phraseItem = new ArrayList<>();
+                phraseItem.add(new PhraseDynamicRcvModel("Unit 01", "#3FA0B5"));
+                phraseItem.add(new PhraseDynamicRcvModel("Unit 02", "#3FA0B5"));
+                phraseItem.add(new PhraseDynamicRcvModel("Unit 03", "#3FA0B5"));
+                phraseItem.add(new PhraseDynamicRcvModel("Unit 04", "#3FA0B5"));
+                phraseItem.add(new PhraseDynamicRcvModel("Unit 05", "#3FA0B5"));
+                phraseItem.add(new PhraseDynamicRcvModel("Unit 06", "#3FA0B5"));
+                phraseItem.add(new PhraseDynamicRcvModel("Unit 07", "#3FA0B5"));
 
-                updateCollectionRecyclerView.collcallback(check_position, collectItem);
-                checkWhatCollectInterface.onCollectClicked(check_position);
+                updatePhraseRecyclerView.callback(check_position, phraseItem);
+                checkWhatPhraseInterface.onClicked(check_position);
             }
-            //題目
+            //指考
             else if (check_position == 2) {
-                ArrayList<CollectionDynamicRcvModel> collectItem = new ArrayList<>();
-                collectItem.add(new CollectionDynamicRcvModel("國小單字 Collections", "#CEB443"));
-                collectItem.add(new CollectionDynamicRcvModel("國中單字 Collections", "#CEB443"));
-                collectItem.add(new CollectionDynamicRcvModel("高中單字 Collections", "#CEB443"));
-                collectItem.add(new CollectionDynamicRcvModel("多益單字 Collections", "#CEB443"));
-                collectItem.add(new CollectionDynamicRcvModel("托福單字 Collections", "#CEB443"));
-                updateCollectionRecyclerView.collcallback(check_position, collectItem);
-                checkWhatCollectInterface.onCollectClicked(check_position);
+                ArrayList<PhraseDynamicRcvModel> phraseItem = new ArrayList<>();
+                phraseItem.add(new PhraseDynamicRcvModel("Unit 01", "#CEB443"));
+                phraseItem.add(new PhraseDynamicRcvModel("Unit 02", "#CEB443"));
+                phraseItem.add(new PhraseDynamicRcvModel("Unit 03", "#CEB443"));
+                phraseItem.add(new PhraseDynamicRcvModel("Unit 04", "#CEB443"));
+                phraseItem.add(new PhraseDynamicRcvModel("Unit 05", "#CEB443"));
+                phraseItem.add(new PhraseDynamicRcvModel("Unit 06", "#CEB443"));
+                phraseItem.add(new PhraseDynamicRcvModel("Unit 07", "#CEB443"));
+                updatePhraseRecyclerView.callback(check_position, phraseItem);
+                checkWhatPhraseInterface.onClicked(check_position);
             }
 
         }
