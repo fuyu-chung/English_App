@@ -1,12 +1,12 @@
 package com.example.english_app.colleges.phrase;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.english_app.R;
 import com.example.english_app.colleges.phrase.phraseInterface.CheckWhatPhraseInterface;
@@ -36,13 +36,16 @@ public class PhraseActivity extends AppCompatActivity implements UpdatePhraseRec
         recyclerView.setAdapter(phraseStaticRcvAdapter);
 
         ArrayList<PhraseDynamicRcvModel> phraseItem = new ArrayList<>();
-        phraseItem.add(new PhraseDynamicRcvModel("Unit 01", "#CEB443"));
-        phraseItem.add(new PhraseDynamicRcvModel("Unit 02", "#CEB443"));
-        phraseItem.add(new PhraseDynamicRcvModel("Unit 03", "#CEB443"));
-        phraseItem.add(new PhraseDynamicRcvModel("Unit 04", "#CEB443"));
-        phraseItem.add(new PhraseDynamicRcvModel("Unit 05", "#CEB443"));
-        phraseItem.add(new PhraseDynamicRcvModel("Unit 06", "#CEB443"));
-        phraseItem.add(new PhraseDynamicRcvModel("Unit 07", "#CEB443"));
+        for (int i = 1; i <= 12; i++) {
+            String units;
+            if (i <= 9) {
+                units = "Unit 0" + i;
+                phraseItem.add(new PhraseDynamicRcvModel(units, "#CEB443"));
+            } else {
+                units = "Unit " + i;
+                phraseItem.add(new PhraseDynamicRcvModel(units, "#CEB443"));
+            }
+        }
 
         rcvPhraseUnit = findViewById(R.id.phrase_rcv_unit);
         phraseDynamicRcvAdapter = new PhraseDynamicRcvAdapter(phraseItem, this);

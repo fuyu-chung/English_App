@@ -113,40 +113,48 @@ public class PhraseStaticRcvAdapter extends RecyclerView.Adapter<PhraseStaticRcv
             //ALL
             if (check_position == 0) {
                 ArrayList<PhraseDynamicRcvModel> phraseItem = new ArrayList<>();
-                phraseItem.add(new PhraseDynamicRcvModel("Unit 01", "#CEB443"));
-                phraseItem.add(new PhraseDynamicRcvModel("Unit 02", "#CEB443"));
-                phraseItem.add(new PhraseDynamicRcvModel("Unit 03", "#CEB443"));
-                phraseItem.add(new PhraseDynamicRcvModel("Unit 04", "#CEB443"));
-                phraseItem.add(new PhraseDynamicRcvModel("Unit 05", "#CEB443"));
-                phraseItem.add(new PhraseDynamicRcvModel("Unit 06", "#CEB443"));
-                phraseItem.add(new PhraseDynamicRcvModel("Unit 07", "#CEB443"));
+                for (int i = 1; i <= 12; i++) {
+                    String units;
+                    if (i <= 9) {
+                        units = "Unit 0" + i;
+                        phraseItem.add(new PhraseDynamicRcvModel(units, "#CEB443"));
+                    } else {
+                        units = "Unit " + i;
+                        phraseItem.add(new PhraseDynamicRcvModel(units, "#CEB443"));
+                    }
+                }
                 updatePhraseRecyclerView.callback(check_position, phraseItem);
                 checkWhatPhraseInterface.onClicked(check_position);
             }
             //學測
             else if (check_position == 1) {
                 ArrayList<PhraseDynamicRcvModel> phraseItem = new ArrayList<>();
-                phraseItem.add(new PhraseDynamicRcvModel("Unit 01", "#3FA0B5"));
-                phraseItem.add(new PhraseDynamicRcvModel("Unit 02", "#3FA0B5"));
-                phraseItem.add(new PhraseDynamicRcvModel("Unit 03", "#3FA0B5"));
-                phraseItem.add(new PhraseDynamicRcvModel("Unit 04", "#3FA0B5"));
-                phraseItem.add(new PhraseDynamicRcvModel("Unit 05", "#3FA0B5"));
-                phraseItem.add(new PhraseDynamicRcvModel("Unit 06", "#3FA0B5"));
-                phraseItem.add(new PhraseDynamicRcvModel("Unit 07", "#3FA0B5"));
-
+                for (int i = 1; i <= 3; i++) {
+                    String units;
+                    if (i <= 9) {
+                        units = "Unit 0" + i;
+                        phraseItem.add(new PhraseDynamicRcvModel(units, "#3FA0B5"));
+                    } else {
+                        units = "Unit " + i;
+                        phraseItem.add(new PhraseDynamicRcvModel(units, "#3FA0B5"));
+                    }
+                }
                 updatePhraseRecyclerView.callback(check_position, phraseItem);
                 checkWhatPhraseInterface.onClicked(check_position);
             }
             //指考
             else if (check_position == 2) {
                 ArrayList<PhraseDynamicRcvModel> phraseItem = new ArrayList<>();
-                phraseItem.add(new PhraseDynamicRcvModel("Unit 01", "#CEB443"));
-                phraseItem.add(new PhraseDynamicRcvModel("Unit 02", "#CEB443"));
-                phraseItem.add(new PhraseDynamicRcvModel("Unit 03", "#CEB443"));
-                phraseItem.add(new PhraseDynamicRcvModel("Unit 04", "#CEB443"));
-                phraseItem.add(new PhraseDynamicRcvModel("Unit 05", "#CEB443"));
-                phraseItem.add(new PhraseDynamicRcvModel("Unit 06", "#CEB443"));
-                phraseItem.add(new PhraseDynamicRcvModel("Unit 07", "#CEB443"));
+                for (int i = 1; i <= 5; i++) {
+                    String units;
+                    if (i <= 9) {
+                        units = "Unit 0" + i;
+                        phraseItem.add(new PhraseDynamicRcvModel(units, "#CEB443"));
+                    } else {
+                        units = "Unit " + i;
+                        phraseItem.add(new PhraseDynamicRcvModel(units, "#CEB443"));
+                    }
+                }
                 updatePhraseRecyclerView.callback(check_position, phraseItem);
                 checkWhatPhraseInterface.onClicked(check_position);
             }
