@@ -151,7 +151,6 @@
                                 android:layout_height="wrap_content"
                                 android:textAlignment="center"
                                 android:layout_marginBottom="5dp"
-                                android:text="user_achv"
                                 android:fontFamily="@font/baloo"
                                 android:textSize="20sp"/>
 
@@ -189,12 +188,11 @@
                                 android:text="粉絲 / 追蹤中"
                                 android:textSize="12sp"/>
                             <TextView
-                                android:id="@+id/user_money"
+                                android:id="@+id/user_friend"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:textAlignment="center"
                                 android:layout_marginBottom="5dp"
-                                android:text="user_friend"
                                 android:fontFamily="@font/baloo"
                                 android:textSize="20sp"/>
 

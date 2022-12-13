@@ -41,7 +41,6 @@ public class VocabQuizActivity extends AppCompatActivity {
         qNumber = findViewById(R.id.QuestionNumber);
         cNumber = findViewById(R.id.score);
         progressBar = findViewById(R.id.progress_bar);
-        SharedPreferences sharedPreferences = getSharedPreferences("VocabCompetition", MODE_PRIVATE);
         updateQuestion();
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
         alert.setMessage("歡迎進入單字學院 (國小 中翻英)");
@@ -82,7 +81,7 @@ public class VocabQuizActivity extends AppCompatActivity {
                 int k = 0;
                 String s1 = "jdbc:jtds:sqlserver://myenglishserver.database.windows.net:1433/englishapp_db;user=englishapp@myenglishserver;password=English1234@@;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;ssl=request;"; //訪問azure的db的網址
                 Connection connection = DriverManager.getConnection(s1); //建立連線
-                String query = "select Chinese, Vocabulary from elem_voc where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
+                String query = "select Chinese, Vocabulary from voc_elem where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
                 PreparedStatement statement = connection.prepareStatement(query);
                 int[] random_answer = new int[4];
                 for (int i = 0; i < 4; i++) {

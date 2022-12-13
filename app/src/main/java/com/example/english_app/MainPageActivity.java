@@ -22,7 +22,7 @@ import com.example.english_app.mainpage_fragments.CollegeFragment;
 import com.example.english_app.mainpage_fragments.DormFragment;
 import com.example.english_app.mainpage_fragments.LibraryFragment;
 import com.example.english_app.mainpage_fragments.LoungeFragment;
-import com.example.english_app.user_basic.ChangePasswordActivity;
+import com.example.english_app.user_basic.ChangeUserProfileActivity;
 import com.example.english_app.user_basic.LoginActivity;
 import com.example.english_app.user_dorm.UserProfileActivity;
 import com.google.android.material.navigation.NavigationView;
@@ -69,17 +69,17 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
         if (imageNum == 1){
             image.setImageResource(R.drawable.pic_penguin);
         }
-        else if (imageNum == 2){
-            image.setImageResource(R.drawable.pic_penguin);
+        if (imageNum == 2){
+            image.setImageResource(R.drawable.pic_dino);
         }
-        else if (imageNum == 3){
-            image.setImageResource(R.drawable.pic_penguin);
+        if (imageNum == 3){
+            image.setImageResource(R.drawable.pic_duck);
         }
-        else if (imageNum == 4){
-            image.setImageResource(R.drawable.pic_penguin);
+        if (imageNum == 4){
+            image.setImageResource(R.drawable.pic_fox);
         }
-        else if (imageNum == 5){
-            image.setImageResource(R.drawable.pic_penguin);
+        if (imageNum == 5){
+            image.setImageResource(R.drawable.pic_hedge);
         }
 
 
@@ -429,7 +429,7 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
                 startActivity(intent);
                 break;
             case R.id.nav_passwordChange:
-                Intent intent2 = new Intent(this, ChangePasswordActivity.class);
+                Intent intent2 = new Intent(this, ChangeUserProfileActivity.class);
                 startActivity(intent2);
                 break;
             case R.id.nav_logout:

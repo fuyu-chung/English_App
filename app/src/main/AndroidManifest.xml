@@ -121,7 +121,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".user_basic.ChangePasswordActivity"
+            android:name=".user_basic.ChangeUserProfileActivity"
             android:exported="false"
             android:parentActivityName=".MainPageActivity" />
         <activity

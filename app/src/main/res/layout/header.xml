@@ -24,7 +24,5 @@
         android:textColor="@color/words_user_name"
         android:textStyle="bold"/>
 
-
-
 </LinearLayout>
 

@@ -137,6 +137,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
                     String namePattern = "^(?=.*[a-z]).{6,20}$";
 
                     String passwordText = Objects.requireNonNull((user_password).getText()).toString();
+                    int password_length = passwordText.length();
                     String checkText = Objects.requireNonNull((user_check).getText()).toString();
                     String passwordPattern = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}$";
 
@@ -195,13 +196,14 @@ public class ForgetPasswordActivity extends AppCompatActivity {
                     String salt2 = Encryption.generatedSalt();
                     passwordText = Encryption.sha1(salt1 + Encryption.md5(salt2 + passwordText));
                     if (resultSet.next()) {
-                        query = "UPDATE account SET user_password = ?, user_salt1 = ?, user_salt2 = ? where user_phone = ? and user_name = ?";
+                        query = "UPDATE account SET user_password = ?, user_salt1 = ?, user_salt2 = ?, password_length = ? where user_phone = ? and user_name = ?";
                         statement = connection.prepareStatement(query);
                         statement.setString(1, passwordText); // 把?替換成phoneText，前面的數字是代表第幾褪號
                         statement.setString(2, salt1);
                         statement.setString(3, salt2);
-                        statement.setString(4, phoneText);
-                        statement.setString(5, nameText);
+                        statement.setInt(4, password_length);
+                        statement.setString(5, phoneText);
+                        statement.setString(6, nameText);
                         statement.executeUpdate();
                         System.out.println("Successful");
                         Intent intent = new Intent(this, LoginActivity.class);

@@ -24,13 +24,13 @@ import java.util.Objects;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class ChangePasswordActivity extends AppCompatActivity {
+public class ChangeUserProfileActivity extends AppCompatActivity {
     private TextInputEditText user_old_password, user_password, user_check, user_name;
     private CheckBox showCb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_change_password);
+        setContentView(R.layout.activity_change_user_profile);
         user_old_password = findViewById(R.id.user_old_password);
         user_password = findViewById(R.id.user_password);
         user_check = findViewById(R.id.user_check);
@@ -52,6 +52,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
                     String old_salt2 = sharedPreferences.getString("user_salt2", "");
                     String oldPasswordText = Objects.requireNonNull((user_old_password).getText()).toString();
                     String passwordText = Objects.requireNonNull((user_password).getText()).toString();
+                    int password_length = passwordText.length();
                     String checkText = Objects.requireNonNull((user_check).getText()).toString();
 
                     if (oldPasswordText.isEmpty()) {
@@ -107,12 +108,13 @@ public class ChangePasswordActivity extends AppCompatActivity {
                     String salt1 = Encryption.generatedSalt();
                     String salt2 = Encryption.generatedSalt();
                     passwordText = Encryption.sha1(salt1 + Encryption.md5(salt2 + passwordText));
-                    String query = "UPDATE account SET user_password = ?, user_salt1 = ?, user_salt2 = ? where user_phone = ?";
+                    String query = "UPDATE account SET user_password = ?, user_salt1 = ?, user_salt2 = ?, password_length = ? where user_phone = ?";
                     PreparedStatement statement = connection.prepareStatement(query);
                     statement.setString(1, passwordText);
                     statement.setString(2, salt1);
                     statement.setString(3, salt2);
-                    statement.setString(4, phone);
+                    statement.setInt(4, password_length);
+                    statement.setString(5, phone);
                     int resultSet = statement.executeUpdate();
 
                     if (resultSet != 0) {

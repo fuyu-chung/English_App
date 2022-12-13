@@ -1,11 +1,7 @@
 package com.example.english_app.colleges.vocabulary;
 
-import static android.app.PendingIntent.getActivity;
-
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -61,21 +57,21 @@ public class VocabElementaryActivity extends AppCompatActivity {
                 String s1 = "jdbc:jtds:sqlserver://myenglishserver.database.windows.net:1433/englishapp_db;user=englishapp@myenglishserver;password=English1234@@;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;ssl=request;"; //訪問azure的db的網址
                 Connection connection = DriverManager.getConnection(s1); //建立連線
                 int titles = sharedPreferences.getInt("title", 0);
-                String query = "select Vocabulary, Chinese from elem_voc where Unit = ? ";
+                String query = "select Vocabulary, Chinese from voc_elem where Unit = ? ";
                 if (titles == 0) {
-                    query = "select Vocabulary, Chinese from elem_voc where Unit = ? ";
+                    query = "select Vocabulary, Chinese from voc_elem where Unit = ? ";
                 }
                 if (titles == 1) {
-                    query = "select Vocabulary, Chinese from jhs_voc where Unit = ? ";
+                    query = "select Vocabulary, Chinese from voc_jhs where Unit = ? ";
                 }
                 if (titles == 2) {
-                    query = "select Vocabulary, Chinese from hs_voc where Unit = ? ";
+                    query = "select Vocabulary, Chinese from voc_shs where Unit = ? ";
                 }
                 if (titles == 3) {
-                    query = "select Vocabulary, Chinese from toeic_voc where Unit = ? ";
+                    query = "select Vocabulary, Chinese from voc_toeic where Unit = ? ";
                 }
                 if (titles == 4) {
-                    query = "select Vocabulary, Chinese from toefl_voc where Unit = ? ";
+                    query = "select Vocabulary, Chinese from voc_toefl where Unit = ? ";
                 }
                 PreparedStatement statement = connection.prepareStatement(query);
                 statement.setString(1, units);
