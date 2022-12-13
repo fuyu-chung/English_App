@@ -53,20 +53,17 @@ public class StaticRcvAdapter extends RecyclerView.Adapter<StaticRcvAdapter.Stat
         //確定是哪個catItem 被點擊，以轉換下方的unitItem
         if (check) {
             ArrayList<DynamicRcvModel> unitItem = new ArrayList<>();
-            unitItem.add(new DynamicRcvModel("Unit 01", "#CEB443"));
-            unitItem.add(new DynamicRcvModel("Unit 02", "#CEB443"));
-            unitItem.add(new DynamicRcvModel("Unit 03", "#CEB443"));
-            unitItem.add(new DynamicRcvModel("Unit 04", "#CEB443"));
-            unitItem.add(new DynamicRcvModel("Unit 05", "#CEB443"));
-            unitItem.add(new DynamicRcvModel("Unit 06", "#CEB443"));
-            unitItem.add(new DynamicRcvModel("Unit 07", "#CEB443"));
-            unitItem.add(new DynamicRcvModel("Unit 08", "#CEB443"));
-            unitItem.add(new DynamicRcvModel("Unit 09", "#CEB443"));
-            unitItem.add(new DynamicRcvModel("Unit 10", "#CEB443"));
-            unitItem.add(new DynamicRcvModel("Unit 11", "#CEB443"));
-
+            for (int i = 1; i <= 11; i++) {
+                String units;
+                if (i <= 9) {
+                    units = "Unit 0" + i;
+                    unitItem.add(new DynamicRcvModel(units, "#CEB443"));
+                } else {
+                    units = "Unit " + i;
+                    unitItem.add(new DynamicRcvModel(units, "#CEB443"));
+                }
+            }
             updateRecyclerView.callback(check_position, unitItem);
-
             check = false;
         }
 

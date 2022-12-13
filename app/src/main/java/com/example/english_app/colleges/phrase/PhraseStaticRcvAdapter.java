@@ -129,7 +129,7 @@ public class PhraseStaticRcvAdapter extends RecyclerView.Adapter<PhraseStaticRcv
             //學測
             else if (check_position == 1) {
                 ArrayList<PhraseDynamicRcvModel> phraseItem = new ArrayList<>();
-                for (int i = 1; i <= 3; i++) {
+                for (int i = 1; i <= 4; i++) {
                     String units;
                     if (i <= 9) {
                         units = "Unit 0" + i;
@@ -145,7 +145,7 @@ public class PhraseStaticRcvAdapter extends RecyclerView.Adapter<PhraseStaticRcv
             //指考
             else if (check_position == 2) {
                 ArrayList<PhraseDynamicRcvModel> phraseItem = new ArrayList<>();
-                for (int i = 1; i <= 5; i++) {
+                for (int i = 1; i <= 3; i++) {
                     String units;
                     if (i <= 9) {
                         units = "Unit 0" + i;

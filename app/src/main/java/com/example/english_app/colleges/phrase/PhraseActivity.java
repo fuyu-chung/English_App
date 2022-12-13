@@ -26,9 +26,9 @@ public class PhraseActivity extends AppCompatActivity implements UpdatePhraseRec
         setContentView(R.layout.activity_phrase);
 
         ArrayList<PhraseStaticRcvModel> catItem = new ArrayList<>();
-        catItem.add(new PhraseStaticRcvModel(R.drawable.ic_all, "全部", "7單元"));
-        catItem.add(new PhraseStaticRcvModel(R.drawable.ic_gsat, "學測", "3單元"));
-        catItem.add(new PhraseStaticRcvModel(R.drawable.ic_ast, "指考", "?單元"));
+        catItem.add(new PhraseStaticRcvModel(R.drawable.ic_all, "全部", "12單元"));
+        catItem.add(new PhraseStaticRcvModel(R.drawable.ic_gsat, "學測", "4單元"));
+        catItem.add(new PhraseStaticRcvModel(R.drawable.ic_ast, "指考", "3單元"));
 
         RecyclerView recyclerView = findViewById(R.id.phrase_rcv_cat);
         PhraseStaticRcvAdapter phraseStaticRcvAdapter = new PhraseStaticRcvAdapter(catItem, this, this, this);
