@@ -9,7 +9,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.example.english_app.R;
-import com.example.english_app.colleges.vocabulary.VocabElementaryActivity;
 import com.example.english_app.user_dorm.collections.CollectionInterface.CheckWhatCollectInterface;
 import com.example.english_app.user_dorm.collections.CollectionInterface.RecyclerColViewInterface;
 import com.example.english_app.user_dorm.collections.CollectionInterface.UpdateCollectionRecyclerView;

@@ -74,7 +74,7 @@ public class VocabActivity extends AppCompatActivity implements UpdateRecyclerVi
     public void onItemClicked(int position) {
         SharedPreferences sharedPreferences = getSharedPreferences("Position", MODE_PRIVATE);
         sharedPreferences.edit().putInt("position", position).apply();
-        Intent intent = new Intent(VocabActivity.this,VocabElementaryActivity.class);
+        Intent intent = new Intent(VocabActivity.this, VocabUnitActivity.class);
         startActivity(intent);
     }
 }

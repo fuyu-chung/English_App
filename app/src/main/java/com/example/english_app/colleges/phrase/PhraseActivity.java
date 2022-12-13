@@ -64,7 +64,6 @@ public class PhraseActivity extends AppCompatActivity implements UpdatePhraseRec
     public void onClicked(int position) {
         SharedPreferences sharedPreferences = getSharedPreferences("Position", MODE_PRIVATE);
         sharedPreferences.edit().putInt("title", position).apply();
-
     }
 
     @Override

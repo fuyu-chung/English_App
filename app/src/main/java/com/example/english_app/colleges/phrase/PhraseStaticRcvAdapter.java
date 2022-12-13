@@ -52,16 +52,18 @@ public class PhraseStaticRcvAdapter extends RecyclerView.Adapter<PhraseStaticRcv
         //確定是哪個catItem 被點擊，以轉換下方的phraseItem
         if (check) {
             ArrayList<PhraseDynamicRcvModel> phraseItem = new ArrayList<>();
-            phraseItem.add(new PhraseDynamicRcvModel("Unit 01", "#CEB443"));
-            phraseItem.add(new PhraseDynamicRcvModel("Unit 02", "#CEB443"));
-            phraseItem.add(new PhraseDynamicRcvModel("Unit 03", "#CEB443"));
-            phraseItem.add(new PhraseDynamicRcvModel("Unit 04", "#CEB443"));
-            phraseItem.add(new PhraseDynamicRcvModel("Unit 05", "#CEB443"));
-            phraseItem.add(new PhraseDynamicRcvModel("Unit 06", "#CEB443"));
-            phraseItem.add(new PhraseDynamicRcvModel("Unit 07", "#CEB443"));
+            for (int i = 1; i <= 12; i++) {
+                String units;
+                if (i <= 9) {
+                    units = "Unit 0" + i;
+                    phraseItem.add(new PhraseDynamicRcvModel(units, "#CEB443"));
+                } else {
+                    units = "Unit " + i;
+                    phraseItem.add(new PhraseDynamicRcvModel(units, "#CEB443"));
+                }
+            }
 
             updatePhraseRecyclerView.callback(check_position, phraseItem);
-
             check = false;
         }
 
@@ -97,8 +99,6 @@ public class PhraseStaticRcvAdapter extends RecyclerView.Adapter<PhraseStaticRcv
 
             //得到現在的item position
             phraseSelectedLayout.setOnClickListener(v -> checkPosition(getAbsoluteAdapterPosition()));
-
-
         }
 
         private void checkPosition(int adapterPosition) {

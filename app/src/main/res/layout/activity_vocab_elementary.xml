@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/vocab_bg"
-    tools:context=".colleges.vocabulary.VocabElementaryActivity">
+    tools:context=".colleges.vocabulary.VocabUnitActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -73,7 +73,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".colleges.vocabulary.VocabElementaryActivity"
+            android:name=".colleges.vocabulary.VocabUnitActivity"
             android:exported="false"
             android:parentActivityName=".colleges.vocabulary.VocabActivity">
             <meta-data
