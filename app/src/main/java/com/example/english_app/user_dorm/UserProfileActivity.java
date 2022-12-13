@@ -2,6 +2,7 @@ package com.example.english_app.user_dorm;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +13,7 @@ public class UserProfileActivity extends AppCompatActivity {
 
     //show user's info
     TextView userName, userID, userPhone, userBirthday;
+    ImageView image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +25,26 @@ public class UserProfileActivity extends AppCompatActivity {
         userID = findViewById(R.id.user_id);
         userPhone = findViewById(R.id.user_phone);
         userBirthday = findViewById(R.id.user_birthday);
+        image = findViewById(R.id.user_photo);
 
         SharedPreferences sharedPreferences = getSharedPreferences("User", MODE_PRIVATE);
+        int imageNum = sharedPreferences.getInt("image", 0);
+        if (imageNum == 1){
+            image.setImageResource(R.drawable.pic_penguin);
+        }
+        if (imageNum == 2){
+            image.setImageResource(R.drawable.pic_penguin);
+        }
+        if (imageNum == 3){
+            image.setImageResource(R.drawable.pic_penguin);
+        }
+        if (imageNum == 4){
+            image.setImageResource(R.drawable.pic_penguin);
+        }
+        if (imageNum == 5){
+            image.setImageResource(R.drawable.pic_penguin);
+        }
+
         String name = sharedPreferences.getString("user_name","");
         runOnUiThread(() -> (userName).setText(name));
 

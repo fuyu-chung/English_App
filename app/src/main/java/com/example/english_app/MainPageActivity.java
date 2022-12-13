@@ -22,7 +22,6 @@ import com.example.english_app.mainpage_fragments.CollegeFragment;
 import com.example.english_app.mainpage_fragments.DormFragment;
 import com.example.english_app.mainpage_fragments.LibraryFragment;
 import com.example.english_app.mainpage_fragments.LoungeFragment;
-import com.example.english_app.mainpage_fragments.StudyCircleFragment;
 import com.example.english_app.user_basic.ChangePasswordActivity;
 import com.example.english_app.user_basic.LoginActivity;
 import com.example.english_app.user_dorm.UserProfileActivity;
@@ -64,6 +63,26 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
         /*---------------------- CALL CURRENT USERNAME -------------------------------*/
         //set into navigation View header byP
         headerView = navigationView.getHeaderView(0);
+        ImageView image = headerView.findViewById(R.id.user_photo);
+        SharedPreferences sharedPreferences = getSharedPreferences("User", MODE_PRIVATE);
+        int imageNum = sharedPreferences.getInt("image", 0);
+        if (imageNum == 1){
+            image.setImageResource(R.drawable.pic_penguin);
+        }
+        else if (imageNum == 2){
+            image.setImageResource(R.drawable.pic_penguin);
+        }
+        else if (imageNum == 3){
+            image.setImageResource(R.drawable.pic_penguin);
+        }
+        else if (imageNum == 4){
+            image.setImageResource(R.drawable.pic_penguin);
+        }
+        else if (imageNum == 5){
+            image.setImageResource(R.drawable.pic_penguin);
+        }
+
+
         navUserTextView = headerView.findViewById(R.id.user_name);
 
 

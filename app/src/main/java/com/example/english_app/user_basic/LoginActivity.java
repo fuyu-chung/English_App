@@ -1,6 +1,5 @@
 package com.example.english_app.user_basic;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
@@ -14,7 +13,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,9 +21,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.english_app.MainPageActivity;
 import com.example.english_app.R;
-import com.example.english_app.TestActivity;
-import com.example.english_app.colleges.vocabulary.VocabActivity;
-import com.example.english_app.user_dorm.collections.MyCollectionMainActivity;
 import com.example.english_app.VocabQuizActivity;
 import com.google.android.material.button.MaterialButton;
 
@@ -78,6 +73,8 @@ public class LoginActivity extends AppCompatActivity {
                             sharedPreferences.edit().putString("user_password", resultSet.getString(5)).apply();
                             sharedPreferences.edit().putString("user_salt1", resultSet.getString(6)).apply();
                             sharedPreferences.edit().putString("user_salt2", resultSet.getString(7)).apply();
+                            sharedPreferences.edit().putInt("password_length", resultSet.getInt(8)).apply();
+                            sharedPreferences.edit().putInt("image", resultSet.getInt(9)).apply();
 
                             Intent intent = new Intent(this, MainPageActivity.class);
                             startActivity(intent);
@@ -143,7 +140,7 @@ public class LoginActivity extends AppCompatActivity {
     public void onBackPressed() {
         AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this, R.style.AlertDialogTheme);
         View view = LayoutInflater.from(this).inflate(
-          R.layout.warning_dialog,(RelativeLayout)findViewById(R.id.layoutWarningDialog)
+          R.layout.warning_dialog, findViewById(R.id.layoutWarningDialog)
         );
         builder.setView(view);
         ((TextView) view.findViewById(R.id.dialogTextTitle)).setText("英格利許學校大聲公");
@@ -154,21 +151,13 @@ public class LoginActivity extends AppCompatActivity {
 
         final AlertDialog alertDialog = builder.create();
         builder.setCancelable(true);
-        view.findViewById(R.id.noBtn).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                alertDialog.cancel();
-            }
-        });
+        view.findViewById(R.id.noBtn).setOnClickListener(v -> alertDialog.cancel());
 
-        view.findViewById(R.id.yesBtn).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                moveTaskToBack(true);
-                android.os.Process.killProcess(android.os.Process.myPid());
-                System.exit(1);
-                finish();
-            }
+        view.findViewById(R.id.yesBtn).setOnClickListener(v -> {
+            moveTaskToBack(true);
+            android.os.Process.killProcess(android.os.Process.myPid());
+            System.exit(1);
+            finish();
         });
         if(alertDialog.getWindow() != null){
             alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));

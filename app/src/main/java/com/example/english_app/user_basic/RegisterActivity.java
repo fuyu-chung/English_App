@@ -143,7 +143,8 @@ public class RegisterActivity extends AppCompatActivity {
                     Random r = new Random();
                     int number = r.nextInt(100000);
                     System.out.println(number);
-                    query = "insert into account values (?, ?, ?, ?, ?, ?, ?);";
+                    int image = (int) (Math.random() * 5) + 1;
+                    query = "insert into account values (?, ?, ?, ?, ?, ?, ?, ?, ?);";
                     // 1: user_id, 2: user_name, 3: user_phone, 4: user_birthday, 5:user_password_hash, 6: user_password_salt
                     statement = connection.prepareStatement(query);
                     statement.setInt(1, (((number + 1) * 19379 + 62327) % 89989) + 10000);
@@ -153,6 +154,8 @@ public class RegisterActivity extends AppCompatActivity {
                     statement.setString(5, passwordText);
                     statement.setString(6, salt1);
                     statement.setString(7, salt2);
+                    statement.setInt(8, password_length);
+                    statement.setInt(9, image);
                     statement.executeUpdate();
                     System.out.println("Successful");
                     Intent mainIntent = new Intent(this, LoginActivity.class);
