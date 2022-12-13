@@ -157,12 +157,20 @@ public class RegisterActivity extends AppCompatActivity {
                     statement.setInt(8, password_length);
                     statement.setInt(9, image);
                     statement.executeUpdate();
+
+                    query = "insert into achievement values (?, ?);";
+                    statement = connection.prepareStatement(query);
+                    statement.setString(1, phoneText);
+                    statement.setInt(2, 0);
+                    statement.executeUpdate();
+
                     System.out.println("Successful");
                     Intent mainIntent = new Intent(this, LoginActivity.class);
                     startActivity(mainIntent);
                     Looper.prepare();
                     Toast.makeText(this, "註冊成功", Toast.LENGTH_SHORT).show();
                     Looper.loop();
+
                     executor.shutdown();
                 }
 

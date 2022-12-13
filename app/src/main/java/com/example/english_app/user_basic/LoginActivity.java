@@ -47,6 +47,7 @@ public class LoginActivity extends AppCompatActivity {
             ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
             executor.execute(() -> {
                 try { //試跑try有問題就跑catch
+                    SharedPreferences sharedPreferences = getSharedPreferences("User", MODE_PRIVATE);
                     String s1 = "jdbc:jtds:sqlserver://myenglishserver.database.windows.net:1433/englishapp_db;user=englishapp@myenglishserver;password=English1234@@;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;ssl=request;"; //訪問azure的db的網址
                     Connection connection = DriverManager.getConnection(s1); //建立連線
                     String query = "select * from account where user_phone = ?";
@@ -65,7 +66,6 @@ public class LoginActivity extends AppCompatActivity {
                         statement.setString(2, passwordText);
                         resultSet = statement.executeQuery();
                         if (resultSet.next()) {
-                            SharedPreferences sharedPreferences = getSharedPreferences("User", MODE_PRIVATE);
                             sharedPreferences.edit().putInt("user_id", resultSet.getInt(1)).apply();
                             sharedPreferences.edit().putString("user_name", resultSet.getString(2)).apply();
                             sharedPreferences.edit().putString("user_phone", resultSet.getString(3)).apply();
@@ -75,6 +75,14 @@ public class LoginActivity extends AppCompatActivity {
                             sharedPreferences.edit().putString("user_salt2", resultSet.getString(7)).apply();
                             sharedPreferences.edit().putInt("password_length", resultSet.getInt(8)).apply();
                             sharedPreferences.edit().putInt("image", resultSet.getInt(9)).apply();
+
+                            query = "select total from achievement where user_phone = ?";
+                            statement = connection.prepareStatement(query);
+                            statement.setString(1, sharedPreferences.getString("user_phone", ""));
+                            resultSet = statement.executeQuery();
+                            if (resultSet.next()){
+                                sharedPreferences.edit().putInt("total", resultSet.getInt(1)).apply();
+                            }
 
                             Intent intent = new Intent(this, MainPageActivity.class);
                             startActivity(intent);
@@ -95,6 +103,7 @@ public class LoginActivity extends AppCompatActivity {
 //                        Toast.makeText(this, "請重新輸入或前往註冊", Toast.LENGTH_LONG).show();
 //                        Looper.loop();
                     }
+
                     executor.shutdown();
                 } catch (SQLException e) {
                     System.out.println(e.getMessage());

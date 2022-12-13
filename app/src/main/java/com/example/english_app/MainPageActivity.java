@@ -22,7 +22,6 @@ import com.example.english_app.mainpage_fragments.CollegeFragment;
 import com.example.english_app.mainpage_fragments.DormFragment;
 import com.example.english_app.mainpage_fragments.LibraryFragment;
 import com.example.english_app.mainpage_fragments.LoungeFragment;
-import com.example.english_app.user_basic.ChangeUserProfileActivity;
 import com.example.english_app.user_basic.LoginActivity;
 import com.example.english_app.user_dorm.UserProfileActivity;
 import com.google.android.material.navigation.NavigationView;
@@ -429,7 +428,7 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
                 startActivity(intent);
                 break;
             case R.id.nav_passwordChange:
-                Intent intent2 = new Intent(this, ChangeUserProfileActivity.class);
+                Intent intent2 = new Intent(this, VocabQuizActivity.class);
                 startActivity(intent2);
                 break;
             case R.id.nav_logout:

@@ -118,6 +118,7 @@ public class VocabQuizActivity extends AppCompatActivity {
                     }
                     k++;
                 }
+
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -125,7 +126,8 @@ public class VocabQuizActivity extends AppCompatActivity {
     }
 
     private void checkAnswer(int userSelection, int ans) {
-        //SharedPreferences sharedPreferences = getSharedPreferences("VocabCompetition", MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences("User", MODE_PRIVATE);
+        int temp_score = sharedPreferences.getInt("total", 0);
         if (userSelection == ans) {
             if (total < 10) {
                 Toast.makeText(this, "Right！", Toast.LENGTH_SHORT).show();
@@ -151,6 +153,22 @@ public class VocabQuizActivity extends AppCompatActivity {
                 if (correct == 10) {
                     score += 100;
                 }
+                temp_score += score;
+                sharedPreferences.edit().putInt("total", temp_score).apply();
+                ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
+                executor.execute(() -> {
+                    try {
+                        String s1 = "jdbc:jtds:sqlserver://myenglishserver.database.windows.net:1433/englishapp_db;user=englishapp@myenglishserver;password=English1234@@;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;ssl=request;"; //訪問azure的db的網址
+                        Connection connection = DriverManager.getConnection(s1); //建立連線
+                        String query = "update achievement set total = ? where user_phone = ?";
+                        PreparedStatement statement = connection.prepareStatement(query);
+                        statement.setInt(1, sharedPreferences.getInt("total", 0));
+                        statement.setString(2, sharedPreferences.getString("user_phone", ""));
+                        statement.executeUpdate();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                });
 
                 AlertDialog.Builder alert = new AlertDialog.Builder(this);
                 alert.setTitle("遊戲結束");
@@ -161,6 +179,7 @@ public class VocabQuizActivity extends AppCompatActivity {
                     startActivity(intent);
                 });
                 alert.show();
+
             }
         } else {
             if (total < 10) {
@@ -179,6 +198,23 @@ public class VocabQuizActivity extends AppCompatActivity {
                 runOnUiThread(() -> (cNumber).setText(Score));
                 runOnUiThread(() -> (qNumber).setText(Total));
                 progressBar.setProgress(100);
+
+                temp_score += score;
+                sharedPreferences.edit().putInt("total", temp_score).apply();
+                ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
+                executor.execute(() -> {
+                    try {
+                        String s1 = "jdbc:jtds:sqlserver://myenglishserver.database.windows.net:1433/englishapp_db;user=englishapp@myenglishserver;password=English1234@@;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;ssl=request;"; //訪問azure的db的網址
+                        Connection connection = DriverManager.getConnection(s1); //建立連線
+                        String query = "update achievement set total = ? where user_phone = ?";
+                        PreparedStatement statement = connection.prepareStatement(query);
+                        statement.setInt(1, sharedPreferences.getInt("total", 0));
+                        statement.setString(2, sharedPreferences.getString("user_phone", ""));
+                        statement.executeUpdate();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                });
 
                 AlertDialog.Builder alert = new AlertDialog.Builder(this);
                 alert.setTitle("遊戲結束");
