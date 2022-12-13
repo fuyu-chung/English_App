@@ -25,7 +25,7 @@
                 <item
                     android:id="@+id/nav_passwordChange"
                     android:icon="@drawable/canva_lock_icon"
-                    android:title="更改密碼" />
+                    android:title="更改個人資料" />
             </group>
         </menu>
     </item>
