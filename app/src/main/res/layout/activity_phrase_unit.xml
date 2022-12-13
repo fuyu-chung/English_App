@@ -25,7 +25,7 @@
             android:paddingHorizontal="10dp">
 
             <TextView
-                android:id="@+id/elem_unit_text"
+                android:id="@+id/phrase_unit_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/baloo"
@@ -62,7 +62,7 @@
                 android:layout_height="wrap_content">
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/elem_rcv_vocabulary"
+                    android:id="@+id/phrase_rcv"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="20dp"
