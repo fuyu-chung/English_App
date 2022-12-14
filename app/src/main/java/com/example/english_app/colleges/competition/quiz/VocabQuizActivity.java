@@ -28,6 +28,7 @@ import java.util.concurrent.TimeUnit;
 
 public class VocabQuizActivity extends AppCompatActivity {
     private TextView questionText, optionA, optionB, optionC, optionD, qNumber, cNumber;
+    private ImageView checkViewA, checkViewB, checkViewC, checkViewD, crossViewA, crossViewB, crossViewC, crossViewD;
     int total = 1;
     int score, correct;
     ProgressBar progressBar;
@@ -39,6 +40,14 @@ public class VocabQuizActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vocab_quiz);
+        checkViewA = findViewById(R.id.checkA);
+        checkViewB = findViewById(R.id.checkB);
+        checkViewC = findViewById(R.id.checkC);
+        checkViewD = findViewById(R.id.checkD);
+        crossViewA = findViewById(R.id.crossA);
+        crossViewB = findViewById(R.id.crossB);
+        crossViewC = findViewById(R.id.crossC);
+        crossViewD = findViewById(R.id.crossD);
 
         questionText = findViewById(R.id.question);
         optionA = findViewById(R.id.optionA);
@@ -50,7 +59,7 @@ public class VocabQuizActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progress_bar);
         updateQuestion();
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this,R.style.AlertDialogTheme);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialogTheme);
         @SuppressLint({"MissingInflatedId", "LocalSuppress"})
         View view = LayoutInflater.from(this).inflate(
                 R.layout.check_dialog, findViewById(R.id.layoutCheckDialog)
@@ -62,7 +71,7 @@ public class VocabQuizActivity extends AppCompatActivity {
         ((Button) view.findViewById(R.id.yesBtn)).setText("開始遊戲");
         ((ImageView) view.findViewById(R.id.megaPhoneImg)).setImageResource(R.drawable.ic_megaphone);
 
-        final AlertDialog alertDialog =builder.create();
+        final AlertDialog alertDialog = builder.create();
         builder.setCancelable(false);
         //取消
         view.findViewById(R.id.noBtn).setOnClickListener(v -> {
@@ -76,7 +85,7 @@ public class VocabQuizActivity extends AppCompatActivity {
             progressBar.setProgress(0);
             alertDialog.cancel();
         });
-        if(alertDialog.getWindow() != null){
+        if (alertDialog.getWindow() != null) {
             alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
         }
 
@@ -86,39 +95,37 @@ public class VocabQuizActivity extends AppCompatActivity {
         Score = "Score " + correct + " / 10";
         runOnUiThread(() -> (qNumber).setText(Total));
         runOnUiThread(() -> (cNumber).setText(Score));
-        if (total <= 10) {
-            optionA.setOnClickListener(v -> {
-                try {
-                    checkAnswer(0, question);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            });
+        optionA.setOnClickListener(v -> {
+            try {
+                checkAnswer(0, question);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
 
-            optionB.setOnClickListener(v -> {
-                try {
-                    checkAnswer(1, question);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            });
+        optionB.setOnClickListener(v -> {
+            try {
+                checkAnswer(1, question);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
 
-            optionC.setOnClickListener(v -> {
-                try {
-                    checkAnswer(2, question);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            });
+        optionC.setOnClickListener(v -> {
+            try {
+                checkAnswer(2, question);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
 
-            optionD.setOnClickListener(v -> {
-                try {
-                    checkAnswer(3, question);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            });
-        }
+        optionD.setOnClickListener(v -> {
+            try {
+                checkAnswer(3, question);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
     private void updateQuestion() {
@@ -142,72 +149,63 @@ public class VocabQuizActivity extends AppCompatActivity {
                         random_answer[i] = answer;
                         System.out.println(answer);
                     }
-                }
-                else if (level == 2) {
+                } else if (level == 2) {
                     query = "select Vocabulary, Chinese from voc_elem where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
                     for (int i = 0; i < 4; i++) {
                         answer = (int) (Math.random() * 552) + 1;
                         random_answer[i] = answer;
                         System.out.println(answer);
                     }
-                }
-                else if (level == 3) {
+                } else if (level == 3) {
                     query = "select Chinese, Vocabulary from voc_jhs where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
                     for (int i = 0; i < 4; i++) {
                         answer = (int) (Math.random() * 1248) + 1;
                         random_answer[i] = answer;
                         System.out.println(answer);
                     }
-                }
-                else if (level == 4) {
+                } else if (level == 4) {
                     query = "select  Vocabulary, Chinese from voc_jhs where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
                     for (int i = 0; i < 4; i++) {
                         answer = (int) (Math.random() * 1248) + 1;
                         random_answer[i] = answer;
                         System.out.println(answer);
                     }
-                }
-                else if (level == 5) {
+                } else if (level == 5) {
                     query = "select Chinese, Vocabulary from voc_shs where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
                     for (int i = 0; i < 4; i++) {
                         answer = (int) (Math.random() * 6239) + 1;
                         random_answer[i] = answer;
                         System.out.println(answer);
                     }
-                }
-                else if (level == 6) {
+                } else if (level == 6) {
                     query = "select  Vocabulary, Chinese from voc_shs where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
                     for (int i = 0; i < 4; i++) {
                         answer = (int) (Math.random() * 6239) + 1;
                         random_answer[i] = answer;
                         System.out.println(answer);
                     }
-                }
-                else if (level == 7) {
+                } else if (level == 7) {
                     query = "select Chinese, Vocabulary from voc_toeic where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
                     for (int i = 0; i < 4; i++) {
                         answer = (int) (Math.random() * 910) + 1;
                         random_answer[i] = answer;
                         System.out.println(answer);
                     }
-                }
-                else if (level == 8) {
+                } else if (level == 8) {
                     query = "select  Vocabulary, Chinese from voc_toeic where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
                     for (int i = 0; i < 4; i++) {
                         answer = (int) (Math.random() * 910) + 1;
                         random_answer[i] = answer;
                         System.out.println(answer);
                     }
-                }
-                else if (level == 9) {
+                } else if (level == 9) {
                     query = "select Chinese, Vocabulary from voc_toefl where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
                     for (int i = 0; i < 4; i++) {
                         answer = (int) (Math.random() * 2286) + 1;
                         random_answer[i] = answer;
                         System.out.println(answer);
                     }
-                }
-                else if (level == 10) {
+                } else if (level == 10) {
                     query = "select  Vocabulary, Chinese from voc_toefl where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
                     for (int i = 0; i < 4; i++) {
                         answer = (int) (Math.random() * 2286) + 1;
@@ -252,6 +250,14 @@ public class VocabQuizActivity extends AppCompatActivity {
                     }
                     k++;
                 }
+                checkViewA.setVisibility(View.INVISIBLE);
+                checkViewB.setVisibility(View.INVISIBLE);
+                checkViewC.setVisibility(View.INVISIBLE);
+                checkViewD.setVisibility(View.INVISIBLE);
+                crossViewA.setVisibility(View.INVISIBLE);
+                crossViewB.setVisibility(View.INVISIBLE);
+                crossViewC.setVisibility(View.INVISIBLE);
+                crossViewD.setVisibility(View.INVISIBLE);
 
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -262,38 +268,18 @@ public class VocabQuizActivity extends AppCompatActivity {
     private void checkAnswer(int userSelection, int ans) throws InterruptedException {
         SharedPreferences sharedPreferences = getSharedPreferences("User", MODE_PRIVATE);
         int temp_score = sharedPreferences.getInt("total", 0);
-        final ImageView checkViewA = findViewById(R.id.checkA);
-        final ImageView checkViewB = findViewById(R.id.checkB);
-        final ImageView checkViewC = findViewById(R.id.checkC);
-        final ImageView checkViewD = findViewById(R.id.checkD);
-        final ImageView crossViewA = findViewById(R.id.crossA);
-        final ImageView crossViewB = findViewById(R.id.crossB);
-        final ImageView crossViewC = findViewById(R.id.crossC);
-        final ImageView crossViewD = findViewById(R.id.crossD);
         if (userSelection == ans) {
+            if (userSelection == 0) {
+                checkViewA.setVisibility(View.VISIBLE);
+            } else if (userSelection == 1) {
+                checkViewB.setVisibility(View.VISIBLE);
+            } else if (userSelection == 2) {
+                checkViewC.setVisibility(View.VISIBLE);
+            } else if (userSelection == 3) {
+                checkViewD.setVisibility(View.VISIBLE);
+            }
             if (total < 10) {
                 //要正確勾勾 checkViewABCD.setVisibility(View.VISIBLE);
-                if (userSelection == 0){
-                    checkViewA.setVisibility(View.VISIBLE);
-                    TimeUnit.MICROSECONDS.sleep(500);
-                    checkViewA.setVisibility(View.INVISIBLE);
-                }
-                else if (userSelection == 1){
-                    checkViewB.setVisibility(View.VISIBLE);
-                    TimeUnit.MICROSECONDS.sleep(500);
-                    checkViewB.setVisibility(View.INVISIBLE);
-                }
-                else  if (userSelection == 2){
-                    checkViewC.setVisibility(View.VISIBLE);
-                    TimeUnit.MICROSECONDS.sleep(500);
-                    checkViewC.setVisibility(View.INVISIBLE);
-                }
-                else if (userSelection == 3){
-                    checkViewD.setVisibility(View.VISIBLE);
-                    TimeUnit.MICROSECONDS.sleep(500);
-                    checkViewD.setVisibility(View.INVISIBLE);
-                }
-
                 Toast.makeText(this, "Right！", Toast.LENGTH_SHORT).show();
                 correct++;
                 total++;
@@ -302,7 +288,7 @@ public class VocabQuizActivity extends AppCompatActivity {
                 Total = total + " / 10 Question";
                 runOnUiThread(() -> (cNumber).setText(Score));
                 try {
-                    TimeUnit.SECONDS.sleep(1);
+                    TimeUnit.MILLISECONDS.sleep(500);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -313,27 +299,6 @@ public class VocabQuizActivity extends AppCompatActivity {
             } else if (total == 10) {
                 //要正確勾勾 checkViewABCD.setVisibility(View.VISIBLE);
                 Toast.makeText(this, "Right！", Toast.LENGTH_SHORT).show();
-                if (userSelection == 0){
-                    checkViewA.setVisibility(View.VISIBLE);
-                    TimeUnit.MICROSECONDS.sleep(500);
-                    checkViewA.setVisibility(View.INVISIBLE);
-                }
-                else if (userSelection == 1){
-                    checkViewB.setVisibility(View.VISIBLE);
-                    TimeUnit.MICROSECONDS.sleep(500);
-                    checkViewB.setVisibility(View.INVISIBLE);
-                }
-                else  if (userSelection == 2){
-                    checkViewC.setVisibility(View.VISIBLE);
-                    TimeUnit.MICROSECONDS.sleep(500);
-                    checkViewC.setVisibility(View.INVISIBLE);
-                }
-                else if (userSelection == 3){
-                    checkViewD.setVisibility(View.VISIBLE);
-                    TimeUnit.MICROSECONDS.sleep(500);
-                    checkViewD.setVisibility(View.INVISIBLE);
-                }
-
                 correct++;
                 score += 50;
                 Score = "Score " + correct + " / 10";
@@ -362,7 +327,7 @@ public class VocabQuizActivity extends AppCompatActivity {
                     }
                 });
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(this,R.style.AlertDialogTheme);
+                AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialogTheme);
                 View view = LayoutInflater.from(this).inflate(
                         R.layout.gameover_dialog, findViewById(R.id.layoutGameOverDialog)
                 );
@@ -372,66 +337,42 @@ public class VocabQuizActivity extends AppCompatActivity {
                 ((Button) view.findViewById(R.id.backComBtn)).setText("返回競賽學院");
                 ((ImageView) view.findViewById(R.id.megaPhoneImg)).setImageResource(R.drawable.achievement);
 
-                final AlertDialog alertDialog =builder.create();
+                final AlertDialog alertDialog = builder.create();
                 builder.setCancelable(false);
                 //取消
                 view.findViewById(R.id.backComBtn).setOnClickListener(v -> {
                     this.finish();//退出Quiz Activity
                 });
 
-                if(alertDialog.getWindow() != null){
+                if (alertDialog.getWindow() != null) {
                     alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
                 }
                 alertDialog.show();
 
             }
-        }
+        } else {
+            if (userSelection == 0) {
+                crossViewA.setVisibility(View.VISIBLE);
+            } else if (userSelection == 1) {
+                crossViewB.setVisibility(View.VISIBLE);
+            } else if (userSelection == 2) {
+                crossViewC.setVisibility(View.VISIBLE);
+            } else if (userSelection == 3) {
+                crossViewD.setVisibility(View.VISIBLE);
+            }
 
-        else {
+            if (ans == 0) {
+                checkViewA.setVisibility(View.VISIBLE);
+            } else if (ans == 1) {
+                checkViewB.setVisibility(View.VISIBLE);
+            } else if (ans == 2) {
+                checkViewC.setVisibility(View.VISIBLE);
+            } else if (ans == 3) {
+                checkViewD.setVisibility(View.VISIBLE);
+            }
             if (total < 10) {
                 //要錯誤 crossViewABCD.setVisibility(View.VISIBLE);
                 Toast.makeText(this, "Wrong！", Toast.LENGTH_SHORT).show();
-                if (userSelection == 0){
-                    crossViewA.setVisibility(View.VISIBLE);
-                    TimeUnit.MICROSECONDS.sleep(500);
-                    crossViewA.setVisibility(View.INVISIBLE);
-                }
-                else if (userSelection == 1){
-                    crossViewB.setVisibility(View.VISIBLE);
-                    TimeUnit.MICROSECONDS.sleep(500);
-                    crossViewB.setVisibility(View.INVISIBLE);
-                }
-                else  if (userSelection == 2){
-                    crossViewC.setVisibility(View.VISIBLE);
-                    TimeUnit.MICROSECONDS.sleep(500);
-                    crossViewC.setVisibility(View.INVISIBLE);
-                }
-                else if (userSelection == 3){
-                    crossViewD.setVisibility(View.VISIBLE);
-                    TimeUnit.MICROSECONDS.sleep(500);
-                    crossViewD.setVisibility(View.INVISIBLE);
-                }
-
-                if (ans == 0){
-                    checkViewA.setVisibility(View.VISIBLE);
-                    TimeUnit.MICROSECONDS.sleep(500);
-                    checkViewA.setVisibility(View.INVISIBLE);
-                }
-                else if (ans == 1){
-                    checkViewB.setVisibility(View.VISIBLE);
-                    TimeUnit.MICROSECONDS.sleep(500);
-                    checkViewB.setVisibility(View.INVISIBLE);
-                }
-                else  if (ans == 2){
-                    checkViewC.setVisibility(View.VISIBLE);
-                    TimeUnit.MICROSECONDS.sleep(500);
-                    checkViewC.setVisibility(View.INVISIBLE);
-                }
-                else if (ans == 3){
-                    checkViewD.setVisibility(View.VISIBLE);
-                    TimeUnit.MICROSECONDS.sleep(500);
-                    checkViewD.setVisibility(View.INVISIBLE);
-                }
                 total++;
                 Score = "Score " + correct + " / 10";
                 Total = total + " / 10 Question";
@@ -443,7 +384,6 @@ public class VocabQuizActivity extends AppCompatActivity {
                 }
 
                 updateQuestion();
-
                 runOnUiThread(() -> (qNumber).setText(Total));
                 progressBar.setProgress((total - 1) * PROGRESS_BAR);
             } else if (total == 10) {
@@ -480,7 +420,7 @@ public class VocabQuizActivity extends AppCompatActivity {
 //                    this.finish();//退出Quiz Activity
 //                });
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(this,R.style.AlertDialogTheme);
+                AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialogTheme);
                 View view = LayoutInflater.from(this).inflate(
                         R.layout.gameover_dialog, findViewById(R.id.layoutGameOverDialog)
                 );
@@ -490,21 +430,65 @@ public class VocabQuizActivity extends AppCompatActivity {
                 ((Button) view.findViewById(R.id.backComBtn)).setText("返回競賽學院");
                 ((ImageView) view.findViewById(R.id.megaPhoneImg)).setImageResource(R.drawable.achievement);
 
-                final AlertDialog alertDialog =builder.create();
+                final AlertDialog alertDialog = builder.create();
                 builder.setCancelable(false);
                 //取消
                 view.findViewById(R.id.backComBtn).setOnClickListener(v -> {
                     this.finish();//退出Quiz Activity
                 });
 
-                if(alertDialog.getWindow() != null){
+                if (alertDialog.getWindow() != null) {
                     alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
                 }
                 alertDialog.show();
             }
         }
-        private void checkIcon(int userSelection, int ans)  {
+    }
 
+    private void checkIcon(int userSelection, int ans) throws InterruptedException {
+        if (userSelection == ans) {
+            if (userSelection == 0) {
+                checkViewA.setVisibility(View.VISIBLE);
+                TimeUnit.MICROSECONDS.sleep(500);
+            } else if (userSelection == 1) {
+                checkViewB.setVisibility(View.VISIBLE);
+                TimeUnit.MICROSECONDS.sleep(500);
+            } else if (userSelection == 2) {
+                checkViewC.setVisibility(View.VISIBLE);
+                TimeUnit.MICROSECONDS.sleep(500);
+            } else if (userSelection == 3) {
+                checkViewD.setVisibility(View.VISIBLE);
+                TimeUnit.MICROSECONDS.sleep(500);
+            }
+        } else {
+            if (userSelection == 0) {
+                crossViewA.setVisibility(View.VISIBLE);
+                TimeUnit.MICROSECONDS.sleep(500);
+            } else if (userSelection == 1) {
+                crossViewB.setVisibility(View.VISIBLE);
+                TimeUnit.MICROSECONDS.sleep(500);
+            } else if (userSelection == 2) {
+                crossViewC.setVisibility(View.VISIBLE);
+                TimeUnit.MICROSECONDS.sleep(500);
+            } else if (userSelection == 3) {
+                crossViewD.setVisibility(View.VISIBLE);
+                TimeUnit.MICROSECONDS.sleep(500);
+            }
+
+            if (ans == 0) {
+                checkViewA.setVisibility(View.VISIBLE);
+                TimeUnit.MICROSECONDS.sleep(500);
+            } else if (ans == 1) {
+                checkViewB.setVisibility(View.VISIBLE);
+                TimeUnit.MICROSECONDS.sleep(500);
+            } else if (ans == 2) {
+                checkViewC.setVisibility(View.VISIBLE);
+                TimeUnit.MICROSECONDS.sleep(500);
+            } else if (ans == 3) {
+                checkViewD.setVisibility(View.VISIBLE);
+                TimeUnit.MICROSECONDS.sleep(500);
+            }
         }
+
     }
 }
