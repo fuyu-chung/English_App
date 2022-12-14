@@ -58,7 +58,7 @@
         <LinearLayout
             android:id="@+id/optionLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="290dp"
             android:orientation="vertical"
             android:paddingHorizontal="50dp"
             android:layout_marginTop="50dp"
