@@ -54,8 +54,7 @@ public class VocabQuizActivity extends AppCompatActivity {
         });
 
         alert.setNeutralButton("取消", (dialog, which) -> {
-            Intent intent = new Intent(this, CompeteActivity.class);
-            startActivity(intent);
+            onBackPressed();
         });
         alert.show();
         Total = total + " / 10 Question";
