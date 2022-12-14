@@ -25,6 +25,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class VocabQuizActivity extends AppCompatActivity {
     private TextView questionText, optionA, optionB, optionC, optionD, qNumber, cNumber;
@@ -39,6 +40,16 @@ public class VocabQuizActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vocab_test);
+
+        final ImageView checkViewA = findViewById(R.id.checkA);
+        final ImageView checkViewB = findViewById(R.id.checkB);
+        final ImageView checkViewC = findViewById(R.id.checkC);
+        final ImageView checkViewD = findViewById(R.id.checkD);
+        final ImageView crossViewA = findViewById(R.id.crossA);
+        final ImageView crossViewB = findViewById(R.id.crossB);
+        final ImageView crossViewC = findViewById(R.id.crossC);
+        final ImageView crossViewD = findViewById(R.id.crossD);
+
         questionText = findViewById(R.id.question);
         optionA = findViewById(R.id.optionA);
         optionB = findViewById(R.id.optionB);
@@ -153,6 +164,7 @@ public class VocabQuizActivity extends AppCompatActivity {
         int temp_score = sharedPreferences.getInt("total", 0);
         if (userSelection == ans) {
             if (total < 10) {
+                //要正確勾勾 checkViewABCD.setVisibility(View.VISIBLE);
                 Toast.makeText(this, "Right！", Toast.LENGTH_SHORT).show();
                 correct++;
                 total++;
@@ -160,10 +172,16 @@ public class VocabQuizActivity extends AppCompatActivity {
                 Score = "Score " + correct + " / 10";
                 Total = total + " / 10 Question";
                 runOnUiThread(() -> (cNumber).setText(Score));
+                try {
+                    TimeUnit.SECONDS.sleep(1);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 updateQuestion();
                 runOnUiThread(() -> (qNumber).setText(Total));
                 progressBar.setProgress((total - 1) * PROGRESS_BAR);
             } else if (total == 10) {
+                //要正確勾勾 checkViewABCD.setVisibility(View.VISIBLE);
                 Toast.makeText(this, "Right！", Toast.LENGTH_SHORT).show();
                 correct++;
                 score += 50;
@@ -219,11 +237,17 @@ public class VocabQuizActivity extends AppCompatActivity {
             }
         } else {
             if (total < 10) {
+                //要錯誤 crossViewABCD.setVisibility(View.VISIBLE);
                 Toast.makeText(this, "Wrong！", Toast.LENGTH_SHORT).show();
                 total++;
                 Score = "Score " + correct + " / 10";
                 Total = total + " / 10 Question";
                 runOnUiThread(() -> (cNumber).setText(Score));
+                try {
+                    TimeUnit.SECONDS.sleep(1);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 updateQuestion();
                 runOnUiThread(() -> (qNumber).setText(Total));
                 progressBar.setProgress((total - 1) * PROGRESS_BAR);
