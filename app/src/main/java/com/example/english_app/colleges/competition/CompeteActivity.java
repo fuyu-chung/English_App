@@ -37,7 +37,7 @@ public class CompeteActivity extends AppCompatActivity implements UpdateComRecyc
         rcvComTitle.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         rcvComTitle.setAdapter(comStaticRcvAdapter);
 
-        //TODO: 補上下方遊戲進入點Recycler View ArrayList
+
         ArrayList<ComDynamicRcvModel> gameItem = new ArrayList<>();
         gameItem.add(new ComDynamicRcvModel("國小單字 - 中翻英", "#CEB443"));
         gameItem.add(new ComDynamicRcvModel("國小單字 - 英翻中", "#CEB443"));

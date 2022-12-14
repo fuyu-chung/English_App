@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/nav_color0_white01"
-    tools:context=".user_dorm.collections.MyCollectionMainActivity">
+    tools:context=".user_dorm.wrong.MyWrongMainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/collect_collapsing_appbar"
@@ -26,11 +26,11 @@
             app:contentScrim="?attr/colorPrimary"
 
             app:expandedTitleGravity="right"
-            app:expandedTitleMarginTop="160dp"
+            app:expandedTitleMarginTop="30dp"
 
             app:expandedTitleTextAppearance="@style/expandedBarTextStyle00"
             app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
-            app:title="@string/coll_title">
+            app:title="@string/wrong_title">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -62,15 +62,15 @@
                             app:layout_constraintStart_toStartOf="parent" />
 
                         <ImageView
-                            android:id="@+id/imgbtn_coll"
+                            android:id="@+id/imgbtn_wrong"
                             android:layout_width="100dp"
                             android:layout_height="100dp"
                             android:layout_gravity="center_horizontal"
-                            android:layout_marginStart="-30dp"
+                            android:layout_marginBottom="30dp"
                             android:layout_marginTop="25dp"
-                            android:src="@drawable/imgbtn_coll"
+                            android:src="@drawable/imgbtn_wrong"
                             app:layout_constraintStart_toEndOf="@id/imgbtn_profile"
-                            app:layout_constraintTop_toTopOf="@id/imgbtn_profile" />
+                            app:layout_constraintBottom_toBottomOf="@id/imgbtn_profile" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </LinearLayout>
@@ -89,35 +89,31 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp"
+        android:padding="10dp"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/coll_rcv_01"
+                android:id="@+id/wrong_rcv_cat"
                 android:layout_width="match_parent"
-                android:layout_height="185dp"
+                android:layout_height="190dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/coll_rcv_02"
+                android:id="@+id/wrong_rcv_unit"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/coll_rcv_01" />
-
+                app:layout_constraintTop_toBottomOf="@id/wrong_rcv_cat" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-
     </androidx.core.widget.NestedScrollView>
-
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

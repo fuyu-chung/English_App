@@ -33,7 +33,7 @@ public class PhraseUnitActivity extends AppCompatActivity {
         rcvPhraseUnit.setAdapter(phraseRcvAdapter);
         rcvPhraseUnit.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
-        ImageView backBtn = findViewById(R.id.vocBackBtn);
+        ImageView backBtn = findViewById(R.id.phraseBackBtn);
         backBtn.setOnClickListener(v -> onBackPressed());
     }
 

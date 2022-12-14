@@ -125,7 +125,7 @@
                         android:paddingHorizontal="15dp"
                         android:paddingVertical="10dp"
                         android:layout_marginTop="10dp"
-                        android:background="@drawable/option_design">
+                        android:background="@drawable/option_design02">
 
                         <TextView
                             android:id="@+id/optionB"
@@ -215,7 +215,7 @@
                         android:paddingHorizontal="15dp"
                         android:paddingVertical="10dp"
                         android:layout_marginTop="10dp"
-                        android:background="@drawable/option_design">
+                        android:background="@drawable/option_design02">
 
                         <TextView
                             android:id="@+id/optionD"
@@ -281,7 +281,6 @@
                 style="@android:style/Widget.ProgressBar.Horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#ffa384"
                 android:indeterminate="false"
                 android:progressDrawable="@drawable/game_proogress_bar"/>
 

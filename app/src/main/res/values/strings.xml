@@ -77,6 +77,9 @@
     <string name="coll_title">我的收藏</string>
     <string name="coll_college">單字學院</string>
 
+    <!--  My Wrong Activity -->
+    <string name="wrong_title">錯誤題目</string>
+
     <!--  Task Activity  -->
     <string name="task_title">我的任務</string>
 

@@ -15,6 +15,7 @@ import com.example.english_app.R;
 import com.example.english_app.user_dorm.MyTaskActivity;
 import com.example.english_app.user_dorm.UserProfileActivity;
 import com.example.english_app.user_dorm.collections.MyCollectionMainActivity;
+import com.example.english_app.user_dorm.wrong.MyWrongMainActivity;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
 
@@ -23,8 +24,6 @@ public class DormFragment extends Fragment {
 
     private ExtendedFloatingActionButton dormInfo;
     private Boolean isFABVisible;
-
-    private ImageButton imgbtnCal, imgbtnProfile, imgbtnTask, imgbtnClock, imgbtnFriend, imgbtnNote, imgbtnColl;
 
 
     public DormFragment() {
@@ -113,6 +112,10 @@ public class DormFragment extends Fragment {
         });
         imgbtnTask.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), MyTaskActivity.class);
+            startActivity(intent);
+        });
+        imgbtnWrong.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), MyWrongMainActivity.class);
             startActivity(intent);
         });
         return view;

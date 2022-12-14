@@ -379,6 +379,7 @@ public class VocabQuizActivity extends AppCompatActivity {
                 updateQuestion();
                 runOnUiThread(() -> (qNumber).setText(Total));
                 progressBar.setProgress((total - 1) * PROGRESS_BAR);
+
             } else if (total == 10) {
                 //Toast.makeText(this, "Wrong！", Toast.LENGTH_SHORT).show();
                 Score = "Score " + correct + " / 10";

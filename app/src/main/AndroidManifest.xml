@@ -17,6 +17,20 @@
         android:theme="@style/Theme.English_App"
         tools:targetApi="31" >
         <activity
+            android:name=".user_dorm.wrong.WrongActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".user_dorm.wrong.MyWrongMainActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".colleges.competition.quiz.VocabExamActivity"
             android:exported="false" >
             <meta-data

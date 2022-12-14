@@ -38,7 +38,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/vocBackBtn"
+                android:id="@+id/phraseBackBtn"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/ic_back2"
