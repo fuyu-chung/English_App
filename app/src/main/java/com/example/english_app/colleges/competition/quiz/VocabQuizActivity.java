@@ -1,6 +1,6 @@
 package com.example.english_app.colleges.competition.quiz;
 
-import android.content.Intent;
+import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -16,7 +16,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.english_app.R;
-import com.example.english_app.colleges.competition.CompeteActivity;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -39,16 +38,7 @@ public class VocabQuizActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_vocab_test);
-
-        final ImageView checkViewA = findViewById(R.id.checkA);
-        final ImageView checkViewB = findViewById(R.id.checkB);
-        final ImageView checkViewC = findViewById(R.id.checkC);
-        final ImageView checkViewD = findViewById(R.id.checkD);
-        final ImageView crossViewA = findViewById(R.id.crossA);
-        final ImageView crossViewB = findViewById(R.id.crossB);
-        final ImageView crossViewC = findViewById(R.id.crossC);
-        final ImageView crossViewD = findViewById(R.id.crossD);
+        setContentView(R.layout.activity_vocab_quiz);
 
         questionText = findViewById(R.id.question);
         optionA = findViewById(R.id.optionA);
@@ -61,6 +51,7 @@ public class VocabQuizActivity extends AppCompatActivity {
         updateQuestion();
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this,R.style.AlertDialogTheme);
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"})
         View view = LayoutInflater.from(this).inflate(
                 R.layout.check_dialog, findViewById(R.id.layoutCheckDialog)
         );
@@ -96,13 +87,37 @@ public class VocabQuizActivity extends AppCompatActivity {
         runOnUiThread(() -> (qNumber).setText(Total));
         runOnUiThread(() -> (cNumber).setText(Score));
         if (total <= 10) {
-            optionA.setOnClickListener(v -> checkAnswer(0, question));
+            optionA.setOnClickListener(v -> {
+                try {
+                    checkAnswer(0, question);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            });
 
-            optionB.setOnClickListener(v -> checkAnswer(1, question));
+            optionB.setOnClickListener(v -> {
+                try {
+                    checkAnswer(1, question);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            });
 
-            optionC.setOnClickListener(v -> checkAnswer(2, question));
+            optionC.setOnClickListener(v -> {
+                try {
+                    checkAnswer(2, question);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            });
 
-            optionD.setOnClickListener(v -> checkAnswer(3, question));
+            optionD.setOnClickListener(v -> {
+                try {
+                    checkAnswer(3, question);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            });
         }
     }
 
@@ -116,13 +131,96 @@ public class VocabQuizActivity extends AppCompatActivity {
                 String s1 = "jdbc:jtds:sqlserver://myenglishserver.database.windows.net:1433/englishapp_db;user=englishapp@myenglishserver;password=English1234@@;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;ssl=request;"; //訪問azure的db的網址
                 Connection connection = DriverManager.getConnection(s1); //建立連線
                 String query = "select Chinese, Vocabulary from voc_elem where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
-                PreparedStatement statement = connection.prepareStatement(query);
                 int[] random_answer = new int[4];
-                for (int i = 0; i < 4; i++) {
-                    answer = (int) (Math.random() * 552) + 1;
-                    random_answer[i] = answer;
-                    System.out.println(answer);
+                int level = sharedPreferences.getInt("position", 0) + 1;
+                if (level == 1) {
+                    query = "select Chinese, Vocabulary from voc_elem where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
+                    for (int i = 0; i < 4; i++) {
+                        answer = (int) (Math.random() * 552) + 1;
+                        random_answer[i] = answer;
+                        System.out.println(answer);
+                    }
                 }
+                else if (level == 2) {
+                    query = "select Vocabulary, Chinese from voc_elem where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
+                    for (int i = 0; i < 4; i++) {
+                        answer = (int) (Math.random() * 552) + 1;
+                        random_answer[i] = answer;
+                        System.out.println(answer);
+                    }
+                }
+                else if (level == 3) {
+                    query = "select Chinese, Vocabulary from voc_jhs where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
+                    for (int i = 0; i < 4; i++) {
+                        answer = (int) (Math.random() * 1248) + 1;
+                        random_answer[i] = answer;
+                        System.out.println(answer);
+                    }
+                }
+                else if (level == 4) {
+                    query = "select  Vocabulary, Chines from voc_jhs where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
+                    for (int i = 0; i < 4; i++) {
+                        answer = (int) (Math.random() * 1248) + 1;
+                        random_answer[i] = answer;
+                        System.out.println(answer);
+                    }
+                }
+                else if (level == 5) {
+                    query = "select Chinese, Vocabulary from voc_shs where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
+                    for (int i = 0; i < 4; i++) {
+                        answer = (int) (Math.random() * 6239) + 1;
+                        random_answer[i] = answer;
+                        System.out.println(answer);
+                    }
+                }
+                else if (level == 6) {
+                    query = "select  Vocabulary, Chines from voc_shs where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
+                    for (int i = 0; i < 4; i++) {
+                        answer = (int) (Math.random() * 6239) + 1;
+                        random_answer[i] = answer;
+                        System.out.println(answer);
+                    }
+                }
+                else if (level == 7) {
+                    query = "select Chinese, Vocabulary from voc_toeic where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
+                    for (int i = 0; i < 4; i++) {
+                        answer = (int) (Math.random() * 910) + 1;
+                        random_answer[i] = answer;
+                        System.out.println(answer);
+                    }
+                }
+                else if (level == 8) {
+                    query = "select  Vocabulary, Chines from voc_toeic where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
+                    for (int i = 0; i < 4; i++) {
+                        answer = (int) (Math.random() * 910) + 1;
+                        random_answer[i] = answer;
+                        System.out.println(answer);
+                    }
+                }
+                else if (level == 9) {
+                    query = "select Chinese, Vocabulary from voc_toefl where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
+                    for (int i = 0; i < 4; i++) {
+                        answer = (int) (Math.random() * 2286) + 1;
+                        random_answer[i] = answer;
+                        System.out.println(answer);
+                    }
+                }
+                else if (level == 10) {
+                    query = "select  Vocabulary, Chines from voc_toefl where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
+                    for (int i = 0; i < 4; i++) {
+                        answer = (int) (Math.random() * 2286) + 1;
+                        random_answer[i] = answer;
+                        System.out.println(answer);
+                    }
+                }
+//                else if (level == 11) {
+//                    query = "select Chinese, Vocabulary from voc_elem where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
+//                }
+//                else if (level == 12) {
+//                    query = "select  Vocabulary, Chines from voc_elem where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
+//                }
+
+                PreparedStatement statement = connection.prepareStatement(query);
                 question = (int) (Math.random() * 4);
                 System.out.println(random_answer[question]);
                 statement.setInt(1, random_answer[0]);
@@ -159,12 +257,41 @@ public class VocabQuizActivity extends AppCompatActivity {
         });
     }
 
-    private void checkAnswer(int userSelection, int ans) {
+    private void checkAnswer(int userSelection, int ans) throws InterruptedException {
         SharedPreferences sharedPreferences = getSharedPreferences("User", MODE_PRIVATE);
         int temp_score = sharedPreferences.getInt("total", 0);
+        final ImageView checkViewA = findViewById(R.id.checkA);
+        final ImageView checkViewB = findViewById(R.id.checkB);
+        final ImageView checkViewC = findViewById(R.id.checkC);
+        final ImageView checkViewD = findViewById(R.id.checkD);
+        final ImageView crossViewA = findViewById(R.id.crossA);
+        final ImageView crossViewB = findViewById(R.id.crossB);
+        final ImageView crossViewC = findViewById(R.id.crossC);
+        final ImageView crossViewD = findViewById(R.id.crossD);
         if (userSelection == ans) {
             if (total < 10) {
                 //要正確勾勾 checkViewABCD.setVisibility(View.VISIBLE);
+                if (userSelection == 0){
+                    checkViewA.setVisibility(View.VISIBLE);
+                    TimeUnit.MICROSECONDS.sleep(500);
+                    checkViewA.setVisibility(View.INVISIBLE);
+                }
+                else if (userSelection == 1){
+                    checkViewB.setVisibility(View.VISIBLE);
+                    TimeUnit.MICROSECONDS.sleep(500);
+                    checkViewB.setVisibility(View.INVISIBLE);
+                }
+                else  if (userSelection == 2){
+                    checkViewC.setVisibility(View.VISIBLE);
+                    TimeUnit.MICROSECONDS.sleep(500);
+                    checkViewC.setVisibility(View.INVISIBLE);
+                }
+                else if (userSelection == 3){
+                    checkViewD.setVisibility(View.VISIBLE);
+                    TimeUnit.MICROSECONDS.sleep(500);
+                    checkViewD.setVisibility(View.INVISIBLE);
+                }
+
                 Toast.makeText(this, "Right！", Toast.LENGTH_SHORT).show();
                 correct++;
                 total++;
@@ -177,12 +304,34 @@ public class VocabQuizActivity extends AppCompatActivity {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+
                 updateQuestion();
                 runOnUiThread(() -> (qNumber).setText(Total));
                 progressBar.setProgress((total - 1) * PROGRESS_BAR);
             } else if (total == 10) {
                 //要正確勾勾 checkViewABCD.setVisibility(View.VISIBLE);
                 Toast.makeText(this, "Right！", Toast.LENGTH_SHORT).show();
+                if (userSelection == 0){
+                    checkViewA.setVisibility(View.VISIBLE);
+                    TimeUnit.MICROSECONDS.sleep(500);
+                    checkViewA.setVisibility(View.INVISIBLE);
+                }
+                else if (userSelection == 1){
+                    checkViewB.setVisibility(View.VISIBLE);
+                    TimeUnit.MICROSECONDS.sleep(500);
+                    checkViewB.setVisibility(View.INVISIBLE);
+                }
+                else  if (userSelection == 2){
+                    checkViewC.setVisibility(View.VISIBLE);
+                    TimeUnit.MICROSECONDS.sleep(500);
+                    checkViewC.setVisibility(View.INVISIBLE);
+                }
+                else if (userSelection == 3){
+                    checkViewD.setVisibility(View.VISIBLE);
+//                    TimeUnit.MICROSECONDS.sleep(500);
+//                    checkViewD.setVisibility(View.INVISIBLE);
+                }
+
                 correct++;
                 score += 50;
                 Score = "Score " + correct + " / 10";
@@ -231,24 +380,68 @@ public class VocabQuizActivity extends AppCompatActivity {
                 if(alertDialog.getWindow() != null){
                     alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
                 }
-
                 alertDialog.show();
 
             }
-        } else {
+        }
+
+        else {
             if (total < 10) {
                 //要錯誤 crossViewABCD.setVisibility(View.VISIBLE);
                 Toast.makeText(this, "Wrong！", Toast.LENGTH_SHORT).show();
+                if (userSelection == 0){
+                    crossViewA.setVisibility(View.VISIBLE);
+//                    TimeUnit.MICROSECONDS.sleep(500);
+//                    crossViewA.setVisibility(View.INVISIBLE);
+                }
+                else if (userSelection == 1){
+                    crossViewB.setVisibility(View.VISIBLE);
+//                    TimeUnit.MICROSECONDS.sleep(500);
+//                    crossViewB.setVisibility(View.INVISIBLE);
+                }
+                else  if (userSelection == 2){
+                    crossViewC.setVisibility(View.VISIBLE);
+//                    TimeUnit.MICROSECONDS.sleep(500);
+//                    crossViewC.setVisibility(View.INVISIBLE);
+                }
+                else if (userSelection == 3){
+                    crossViewD.setVisibility(View.VISIBLE);
+//                    TimeUnit.MICROSECONDS.sleep(500);
+//                    crossViewD.setVisibility(View.INVISIBLE);
+                }
+
+                if (ans == 0){
+                    checkViewA.setVisibility(View.VISIBLE);
+//                    TimeUnit.MICROSECONDS.sleep(500);
+//                    checkViewA.setVisibility(View.INVISIBLE);
+                }
+                else if (ans == 1){
+                    checkViewB.setVisibility(View.VISIBLE);
+//                    TimeUnit.MICROSECONDS.sleep(500);
+//                    checkViewB.setVisibility(View.INVISIBLE);
+                }
+                else  if (ans == 2){
+                    checkViewC.setVisibility(View.VISIBLE);
+//                    TimeUnit.MICROSECONDS.sleep(500);
+//                    checkViewC.setVisibility(View.INVISIBLE);
+                }
+                else if (ans == 3){
+                    checkViewD.setVisibility(View.VISIBLE);
+//                    TimeUnit.MICROSECONDS.sleep(500);
+//                    checkViewD.setVisibility(View.INVISIBLE);
+                }
                 total++;
                 Score = "Score " + correct + " / 10";
                 Total = total + " / 10 Question";
                 runOnUiThread(() -> (cNumber).setText(Score));
                 try {
-                    TimeUnit.SECONDS.sleep(1);
+                    TimeUnit.MICROSECONDS.sleep(500);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+
                 updateQuestion();
+
                 runOnUiThread(() -> (qNumber).setText(Total));
                 progressBar.setProgress((total - 1) * PROGRESS_BAR);
             } else if (total == 10) {
@@ -305,11 +498,7 @@ public class VocabQuizActivity extends AppCompatActivity {
                 if(alertDialog.getWindow() != null){
                     alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
                 }
-
                 alertDialog.show();
-
-
-
             }
         }
     }
