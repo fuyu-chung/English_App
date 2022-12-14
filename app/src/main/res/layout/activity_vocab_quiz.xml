@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/vocabulary"
     android:orientation="vertical"
     tools:context=".colleges.competition.quiz.VocabQuizActivity">
@@ -13,46 +13,44 @@
         android:layout_height="match_parent">
 
 
-
         <TextView
             android:id="@+id/QuestionNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:text="@string/question_number"
+            android:layout_marginTop="40dp"
             android:fontFamily="@font/baloo"
+            android:text="@string/question_number"
             android:textAlignment="center"
             android:textColor="#C9EEFF"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:layout_marginTop="40dp"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/questionLayout"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:paddingHorizontal="50dp"
             android:layout_marginTop="20dp"
-            app:layout_constraintTop_toBottomOf="@id/QuestionNumber"
-            app:layout_constraintStart_toStartOf="parent"
+            android:paddingHorizontal="50dp"
             app:layout_constraintEnd_toEndOf="parent"
-            >
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/QuestionNumber">
 
             <TextView
                 android:id="@+id/question"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#ffffff"
                 android:textAlignment="center"
+                android:textColor="#ffffff"
                 android:textSize="28sp"
 
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -60,190 +58,167 @@
             android:id="@+id/optionLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
             android:orientation="vertical"
             android:paddingHorizontal="50dp"
-            android:layout_marginTop="50dp"
             app:layout_constraintTop_toBottomOf="@id/questionLayout">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingHorizontal="15dp"
-                android:paddingVertical="10dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/option_design">
+                android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/optionA"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:textColor="@color/vocabulary"
-                    android:textSize="24sp"
-                    android:fontFamily="@font/baloo"
+                    android:orientation="vertical">
 
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/option_design"
+                        android:paddingHorizontal="15dp"
+                        android:paddingVertical="10dp">
 
-                <ImageView
-                    android:id="@+id/checkA"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:src="@drawable/ic_check"
-                    android:visibility="invisible"/>
-                <ImageView
-                    android:id="@+id/crossA"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:src="@drawable/ic_cross"
-                    android:visibility="invisible"/>
+                        <TextView
+                            android:id="@+id/optionB"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/baloo"
+                            android:textAlignment="center"
+                            android:textColor="@color/vocabulary"
+                            android:textSize="24sp"
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingHorizontal="15dp"
-                android:paddingVertical="10dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/option_design">
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/optionB"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:textColor="@color/vocabulary"
-                    android:textSize="24sp"
-                    android:fontFamily="@font/baloo"
+                        <ImageView
+                            android:id="@+id/checkB"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:src="@drawable/ic_check"
+                            android:visibility="invisible"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
-                <ImageView
-                    android:id="@+id/checkB"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:src="@drawable/ic_check"
-                    android:visibility="invisible"/>
-                <ImageView
-                    android:id="@+id/crossB"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:src="@drawable/ic_cross"
-                    android:visibility="invisible"/>
+                        <ImageView
+                            android:id="@+id/crossB"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:src="@drawable/ic_cross"
+                            android:visibility="invisible"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingHorizontal="15dp"
-                android:paddingVertical="10dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/option_design">
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/option_design"
+                        android:paddingHorizontal="15dp"
+                        android:paddingVertical="10dp">
 
-                <TextView
-                    android:id="@+id/optionC"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:textColor="@color/vocabulary"
-                    android:textSize="24sp"
-                    android:fontFamily="@font/baloo"
+                        <TextView
+                            android:id="@+id/optionC"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/baloo"
+                            android:textAlignment="center"
+                            android:textColor="@color/vocabulary"
+                            android:textSize="24sp"
 
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
-                <ImageView
-                    android:id="@+id/checkC"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:src="@drawable/ic_check"
-                    android:visibility="invisible"/>
-                <ImageView
-                    android:id="@+id/crossC"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:src="@drawable/ic_cross"
-                    android:visibility="invisible"/>
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                        <ImageView
+                            android:id="@+id/checkC"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:src="@drawable/ic_check"
+                            android:visibility="invisible"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingHorizontal="15dp"
-                android:paddingVertical="10dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/option_design">
+                        <ImageView
+                            android:id="@+id/crossC"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:src="@drawable/ic_cross"
+                            android:visibility="invisible"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/optionD"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:textColor="@color/vocabulary"
-                    android:textSize="24sp"
-                    android:fontFamily="@font/baloo"
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
-                <ImageView
-                    android:id="@+id/checkD"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:src="@drawable/ic_check"
-                    android:visibility="invisible"/>
-                <ImageView
-                    android:id="@+id/crossD"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:src="@drawable/ic_cross"
-                    android:visibility="invisible"/>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/option_design"
+                        android:paddingHorizontal="15dp"
+                        android:paddingVertical="10dp">
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                        <TextView
+                            android:id="@+id/optionD"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/baloo"
+                            android:textAlignment="center"
+                            android:textColor="@color/vocabulary"
+                            android:textSize="24sp"
+
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/checkD"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:src="@drawable/ic_check"
+                            android:visibility="invisible"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/crossD"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:src="@drawable/ic_cross"
+                            android:visibility="invisible"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+
+            </ScrollView>
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingHorizontal="50dp"
             android:layout_marginTop="20dp"
             android:orientation="vertical"
-            app:layout_constraintTop_toBottomOf="@id/optionLayout"
+            android:paddingHorizontal="50dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/optionLayout">
+
             <TextView
                 android:id="@+id/score"
                 android:layout_width="match_parent"
@@ -261,11 +236,10 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="#ffa384"
                 android:indeterminate="false"
-                android:progressDrawable="@drawable/game_proogress_bar"/>
+                android:progressDrawable="@drawable/game_proogress_bar" />
 
 
         </LinearLayout>
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

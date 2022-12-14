@@ -123,6 +123,7 @@ public class VocabQuizActivity extends AppCompatActivity {
 
     private void updateQuestion() {
         SharedPreferences sharedPreferences = getSharedPreferences("VocabCompetition", MODE_PRIVATE);
+        SharedPreferences sharedPreferences1 = getSharedPreferences("Position", MODE_PRIVATE);
         ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
         executor.execute(() -> {
             try { //試跑try有問題就跑catch
@@ -130,9 +131,10 @@ public class VocabQuizActivity extends AppCompatActivity {
                 int k = 0;
                 String s1 = "jdbc:jtds:sqlserver://myenglishserver.database.windows.net:1433/englishapp_db;user=englishapp@myenglishserver;password=English1234@@;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;ssl=request;"; //訪問azure的db的網址
                 Connection connection = DriverManager.getConnection(s1); //建立連線
-                String query = "select Chinese, Vocabulary from voc_elem where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
+                String query = "";
                 int[] random_answer = new int[4];
-                int level = sharedPreferences.getInt("position", 0) + 1;
+                int level = sharedPreferences1.getInt("position", 0) + 1;
+                System.out.println(level);
                 if (level == 1) {
                     query = "select Chinese, Vocabulary from voc_elem where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
                     for (int i = 0; i < 4; i++) {
@@ -158,7 +160,7 @@ public class VocabQuizActivity extends AppCompatActivity {
                     }
                 }
                 else if (level == 4) {
-                    query = "select  Vocabulary, Chines from voc_jhs where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
+                    query = "select  Vocabulary, Chinese from voc_jhs where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
                     for (int i = 0; i < 4; i++) {
                         answer = (int) (Math.random() * 1248) + 1;
                         random_answer[i] = answer;
@@ -174,7 +176,7 @@ public class VocabQuizActivity extends AppCompatActivity {
                     }
                 }
                 else if (level == 6) {
-                    query = "select  Vocabulary, Chines from voc_shs where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
+                    query = "select  Vocabulary, Chinese from voc_shs where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
                     for (int i = 0; i < 4; i++) {
                         answer = (int) (Math.random() * 6239) + 1;
                         random_answer[i] = answer;
@@ -190,7 +192,7 @@ public class VocabQuizActivity extends AppCompatActivity {
                     }
                 }
                 else if (level == 8) {
-                    query = "select  Vocabulary, Chines from voc_toeic where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
+                    query = "select  Vocabulary, Chinese from voc_toeic where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
                     for (int i = 0; i < 4; i++) {
                         answer = (int) (Math.random() * 910) + 1;
                         random_answer[i] = answer;
@@ -206,7 +208,7 @@ public class VocabQuizActivity extends AppCompatActivity {
                     }
                 }
                 else if (level == 10) {
-                    query = "select  Vocabulary, Chines from voc_toefl where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
+                    query = "select  Vocabulary, Chinese from voc_toefl where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
                     for (int i = 0; i < 4; i++) {
                         answer = (int) (Math.random() * 2286) + 1;
                         random_answer[i] = answer;
@@ -328,8 +330,8 @@ public class VocabQuizActivity extends AppCompatActivity {
                 }
                 else if (userSelection == 3){
                     checkViewD.setVisibility(View.VISIBLE);
-//                    TimeUnit.MICROSECONDS.sleep(500);
-//                    checkViewD.setVisibility(View.INVISIBLE);
+                    TimeUnit.MICROSECONDS.sleep(500);
+                    checkViewD.setVisibility(View.INVISIBLE);
                 }
 
                 correct++;
@@ -391,44 +393,44 @@ public class VocabQuizActivity extends AppCompatActivity {
                 Toast.makeText(this, "Wrong！", Toast.LENGTH_SHORT).show();
                 if (userSelection == 0){
                     crossViewA.setVisibility(View.VISIBLE);
-//                    TimeUnit.MICROSECONDS.sleep(500);
-//                    crossViewA.setVisibility(View.INVISIBLE);
+                    TimeUnit.MICROSECONDS.sleep(500);
+                    crossViewA.setVisibility(View.INVISIBLE);
                 }
                 else if (userSelection == 1){
                     crossViewB.setVisibility(View.VISIBLE);
-//                    TimeUnit.MICROSECONDS.sleep(500);
-//                    crossViewB.setVisibility(View.INVISIBLE);
+                    TimeUnit.MICROSECONDS.sleep(500);
+                    crossViewB.setVisibility(View.INVISIBLE);
                 }
                 else  if (userSelection == 2){
                     crossViewC.setVisibility(View.VISIBLE);
-//                    TimeUnit.MICROSECONDS.sleep(500);
-//                    crossViewC.setVisibility(View.INVISIBLE);
+                    TimeUnit.MICROSECONDS.sleep(500);
+                    crossViewC.setVisibility(View.INVISIBLE);
                 }
                 else if (userSelection == 3){
                     crossViewD.setVisibility(View.VISIBLE);
-//                    TimeUnit.MICROSECONDS.sleep(500);
-//                    crossViewD.setVisibility(View.INVISIBLE);
+                    TimeUnit.MICROSECONDS.sleep(500);
+                    crossViewD.setVisibility(View.INVISIBLE);
                 }
 
                 if (ans == 0){
                     checkViewA.setVisibility(View.VISIBLE);
-//                    TimeUnit.MICROSECONDS.sleep(500);
-//                    checkViewA.setVisibility(View.INVISIBLE);
+                    TimeUnit.MICROSECONDS.sleep(500);
+                    checkViewA.setVisibility(View.INVISIBLE);
                 }
                 else if (ans == 1){
                     checkViewB.setVisibility(View.VISIBLE);
-//                    TimeUnit.MICROSECONDS.sleep(500);
-//                    checkViewB.setVisibility(View.INVISIBLE);
+                    TimeUnit.MICROSECONDS.sleep(500);
+                    checkViewB.setVisibility(View.INVISIBLE);
                 }
                 else  if (ans == 2){
                     checkViewC.setVisibility(View.VISIBLE);
-//                    TimeUnit.MICROSECONDS.sleep(500);
-//                    checkViewC.setVisibility(View.INVISIBLE);
+                    TimeUnit.MICROSECONDS.sleep(500);
+                    checkViewC.setVisibility(View.INVISIBLE);
                 }
                 else if (ans == 3){
                     checkViewD.setVisibility(View.VISIBLE);
-//                    TimeUnit.MICROSECONDS.sleep(500);
-//                    checkViewD.setVisibility(View.INVISIBLE);
+                    TimeUnit.MICROSECONDS.sleep(500);
+                    checkViewD.setVisibility(View.INVISIBLE);
                 }
                 total++;
                 Score = "Score " + correct + " / 10";
@@ -500,6 +502,9 @@ public class VocabQuizActivity extends AppCompatActivity {
                 }
                 alertDialog.show();
             }
+        }
+        private void checkIcon(int userSelection, int ans)  {
+
         }
     }
 }
