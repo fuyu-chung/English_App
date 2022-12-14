@@ -18,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.english_app.colleges.competition.quiz.VocabQuizActivity;
 import com.example.english_app.mainpage_fragments.CollegeFragment;
 import com.example.english_app.mainpage_fragments.DormFragment;
 import com.example.english_app.mainpage_fragments.LibraryFragment;

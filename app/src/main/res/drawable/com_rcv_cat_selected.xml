@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <shape>
+            <solid android:color="@color/compete_bg"/>
+            <corners android:radius="30dp" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <stroke
+                android:width="10dp"
+                android:color="#FFB07A" />
+            <corners android:radius="25dp" />
+        </shape>
+    </item>
+
+    <item android:bottom="14dp"
+        android:gravity="center"
+        android:left="14dp"
+        android:right="14dp"
+        android:top="14dp">
+        <shape>
+            <corners android:radius="20dp"/>
+            <solid android:color="#DFDFDF"/>
+        </shape>
+
+    </item>
+
+    <item android:bottom="15dp"
+        android:gravity="center"
+        android:left="15dp"
+        android:right="15dp"
+        android:top="15dp">
+        <shape>
+            <corners android:radius="19dp"/>
+            <solid android:color="#E6FFFFFF"/>
+            <!--            <gradient android:startColor="@color/white"-->
+            <!--                android:centerColor="@color/white"-->
+            <!--                android:endColor="#FFDF52"-->
+            <!--                android:angle="315"/>-->
+        </shape>
+
+    </item>
+
+</layer-list>

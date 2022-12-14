@@ -1,4 +1,4 @@
-package com.example.english_app;
+package com.example.english_app.colleges.competition.quiz;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,6 +10,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.english_app.R;
 import com.example.english_app.colleges.competition.CompeteActivity;
 
 import java.sql.Connection;

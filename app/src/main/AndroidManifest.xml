@@ -32,7 +32,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".VocabQuizActivity"
+            android:name=".colleges.competition.quiz.VocabQuizActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
