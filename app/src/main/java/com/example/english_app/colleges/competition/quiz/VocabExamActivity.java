@@ -25,7 +25,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-public class VocabQuizActivity extends AppCompatActivity {
+public class VocabExamActivity extends AppCompatActivity {
     private TextView questionText, optionA, optionB, optionC, optionD, qNumber, cNumber;
     private ImageView checkViewA, checkViewB, checkViewC, checkViewD, crossViewA, crossViewB, crossViewC, crossViewD;
     int total = 1;
@@ -33,12 +33,13 @@ public class VocabQuizActivity extends AppCompatActivity {
     ProgressBar progressBar;
     final int PROGRESS_BAR = 10;
     String Score, Total;
-    int question;
+    int random_question;
+    String answer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_vocab_quiz);
+        setContentView(R.layout.activity_vocab_exam);
         checkViewA = findViewById(R.id.checkA);
         checkViewB = findViewById(R.id.checkB);
         checkViewC = findViewById(R.id.checkC);
@@ -96,7 +97,7 @@ public class VocabQuizActivity extends AppCompatActivity {
         runOnUiThread(() -> (cNumber).setText(Score));
         optionA.setOnClickListener(v -> {
             try {
-                checkAnswer(0, question);
+                checkAnswer("A", answer);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -104,7 +105,7 @@ public class VocabQuizActivity extends AppCompatActivity {
 
         optionB.setOnClickListener(v -> {
             try {
-                checkAnswer(1, question);
+                checkAnswer("B", answer);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -112,7 +113,7 @@ public class VocabQuizActivity extends AppCompatActivity {
 
         optionC.setOnClickListener(v -> {
             try {
-                checkAnswer(2, question);
+                checkAnswer("C", answer);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -120,7 +121,7 @@ public class VocabQuizActivity extends AppCompatActivity {
 
         optionD.setOnClickListener(v -> {
             try {
-                checkAnswer(3, question);
+                checkAnswer("D", answer);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -133,115 +134,40 @@ public class VocabQuizActivity extends AppCompatActivity {
         ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
         executor.execute(() -> {
             try { //試跑try有問題就跑catch
-                int answer;
                 int k = 0;
                 String s1 = "jdbc:jtds:sqlserver://myenglishserver.database.windows.net:1433/englishapp_db;user=englishapp@myenglishserver;password=English1234@@;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;ssl=request;"; //訪問azure的db的網址
                 Connection connection = DriverManager.getConnection(s1); //建立連線
                 String query = "";
-                int[] random_answer = new int[4];
                 int level = sharedPreferences1.getInt("position", 0) + 1;
                 System.out.println(level);
-                if (level == 1) {
-                    query = "select Chinese, Vocabulary from voc_elem where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
-                    for (int i = 0; i < 4; i++) {
-                        answer = (int) (Math.random() * 552) + 1;
-                        random_answer[i] = answer;
-                        System.out.println(answer);
-                    }
-                } else if (level == 2) {
-                    query = "select Vocabulary, Chinese from voc_elem where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
-                    for (int i = 0; i < 4; i++) {
-                        answer = (int) (Math.random() * 552) + 1;
-                        random_answer[i] = answer;
-                        System.out.println(answer);
-                    }
-                } else if (level == 3) {
-                    query = "select Chinese, Vocabulary from voc_jhs where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
-                    for (int i = 0; i < 4; i++) {
-                        answer = (int) (Math.random() * 1248) + 1;
-                        random_answer[i] = answer;
-                        System.out.println(answer);
-                    }
-                } else if (level == 4) {
-                    query = "select  Vocabulary, Chinese from voc_jhs where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
-                    for (int i = 0; i < 4; i++) {
-                        answer = (int) (Math.random() * 1248) + 1;
-                        random_answer[i] = answer;
-                        System.out.println(answer);
-                    }
-                } else if (level == 5) {
-                    query = "select Chinese, Vocabulary from voc_shs where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
-                    for (int i = 0; i < 4; i++) {
-                        answer = (int) (Math.random() * 6239) + 1;
-                        random_answer[i] = answer;
-                        System.out.println(answer);
-                    }
-                } else if (level == 6) {
-                    query = "select  Vocabulary, Chinese from voc_shs where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
-                    for (int i = 0; i < 4; i++) {
-                        answer = (int) (Math.random() * 6239) + 1;
-                        random_answer[i] = answer;
-                        System.out.println(answer);
-                    }
-                } else if (level == 7) {
-                    query = "select Chinese, Vocabulary from voc_toeic where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
-                    for (int i = 0; i < 4; i++) {
-                        answer = (int) (Math.random() * 910) + 1;
-                        random_answer[i] = answer;
-                        System.out.println(answer);
-                    }
-                } else if (level == 8) {
-                    query = "select  Vocabulary, Chinese from voc_toeic where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
-                    for (int i = 0; i < 4; i++) {
-                        answer = (int) (Math.random() * 910) + 1;
-                        random_answer[i] = answer;
-                        System.out.println(answer);
-                    }
-                } else if (level == 9) {
-                    query = "select Chinese, Vocabulary from voc_toefl where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
-                    for (int i = 0; i < 4; i++) {
-                        answer = (int) (Math.random() * 2286) + 1;
-                        random_answer[i] = answer;
-                        System.out.println(answer);
-                    }
-                } else if (level == 10) {
-                    query = "select  Vocabulary, Chinese from voc_toefl where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
-                    for (int i = 0; i < 4; i++) {
-                        answer = (int) (Math.random() * 2286) + 1;
-                        random_answer[i] = answer;
-                        System.out.println(answer);
-                    }
+
+                if (level == 11) {
+                    query = "select Question, optionA, optionB, optionC, optionD, Answer from voc_gsat where Orders = ?";
+                    random_question = (int) (Math.random() * 145) + 1;
+                    System.out.println(random_question);
+                } else if (level == 12) {
+                    query = "select Question, optionA, optionB, optionC, optionD, Answer from voc_ast where Orders = ?";
+                    random_question = (int) (Math.random() * 160) + 1;
+                    System.out.println(random_question);
                 }
 
                 PreparedStatement statement = connection.prepareStatement(query);
-                question = (int) (Math.random() * 4);
-                System.out.println(random_answer[question]);
-                statement.setInt(1, random_answer[0]);
-                statement.setInt(2, random_answer[1]);
-                statement.setInt(3, random_answer[2]);
-                statement.setInt(4, random_answer[3]);
+                statement.setInt(1, random_question);
                 ResultSet resultSet = statement.executeQuery();
-                while (resultSet.next()) {
-                    if (k == question) {
-                        sharedPreferences.edit().putString("Q", resultSet.getString(1)).apply();
-                        sharedPreferences.edit().putString("Ans", resultSet.getString(2)).apply();
-                        runOnUiThread(() -> (questionText).setText(sharedPreferences.getString("Q", "")));
-                    }
 
-                    if (k == 0) {
-                        sharedPreferences.edit().putString("A", resultSet.getString(2)).apply();
-                        runOnUiThread(() -> (optionA).setText(sharedPreferences.getString("A", "")));
-                    } else if (k == 1) {
-                        sharedPreferences.edit().putString("B", resultSet.getString(2)).apply();
-                        runOnUiThread(() -> (optionB).setText(sharedPreferences.getString("B", "")));
-                    } else if (k == 2) {
-                        sharedPreferences.edit().putString("C", resultSet.getString(2)).apply();
-                        runOnUiThread(() -> (optionC).setText(sharedPreferences.getString("C", "")));
-                    } else if (k == 3) {
-                        sharedPreferences.edit().putString("D", resultSet.getString(2)).apply();
-                        runOnUiThread(() -> (optionD).setText(sharedPreferences.getString("D", "")));
-                    }
-                    k++;
+                if (resultSet.next()) {
+                    sharedPreferences.edit().putString("Q", resultSet.getString(1)).apply();
+                    sharedPreferences.edit().putString("A", resultSet.getString(2)).apply();
+                    sharedPreferences.edit().putString("B", resultSet.getString(3)).apply();
+                    sharedPreferences.edit().putString("C", resultSet.getString(4)).apply();
+                    sharedPreferences.edit().putString("D", resultSet.getString(5)).apply();
+                    sharedPreferences.edit().putString("Ans", resultSet.getString(6)).apply();
+                    answer = sharedPreferences.getString("Ans", "");
+                    runOnUiThread(() -> (questionText).setText(sharedPreferences.getString("Q", "")));
+                    runOnUiThread(() -> (optionA).setText(sharedPreferences.getString("A", "")));
+                    runOnUiThread(() -> (optionB).setText(sharedPreferences.getString("B", "")));
+                    runOnUiThread(() -> (optionC).setText(sharedPreferences.getString("C", "")));
+                    runOnUiThread(() -> (optionD).setText(sharedPreferences.getString("D", "")));
                 }
                 checkViewA.setVisibility(View.INVISIBLE);
                 checkViewB.setVisibility(View.INVISIBLE);
@@ -258,17 +184,17 @@ public class VocabQuizActivity extends AppCompatActivity {
         });
     }
 
-    private void checkAnswer(int userSelection, int ans) throws InterruptedException {
+    private void checkAnswer(String userSelection, String answer) throws InterruptedException {
         SharedPreferences sharedPreferences = getSharedPreferences("User", MODE_PRIVATE);
         int temp_score = sharedPreferences.getInt("total", 0);
-        if (userSelection == ans) {
-            if (userSelection == 0) {
+        if (userSelection.equals(answer)) {
+            if (userSelection.equals("A")) {
                 checkViewA.setVisibility(View.VISIBLE);
-            } else if (userSelection == 1) {
+            } else if (userSelection.equals("B")) {
                 checkViewB.setVisibility(View.VISIBLE);
-            } else if (userSelection == 2) {
+            } else if (userSelection.equals("C")) {
                 checkViewC.setVisibility(View.VISIBLE);
-            } else if (userSelection == 3) {
+            } else if (userSelection.equals("D")) {
                 checkViewD.setVisibility(View.VISIBLE);
             }
             if (total < 10) {
@@ -344,23 +270,23 @@ public class VocabQuizActivity extends AppCompatActivity {
 
             }
         } else {
-            if (userSelection == 0) {
+            if (userSelection.equals("A")) {
                 crossViewA.setVisibility(View.VISIBLE);
-            } else if (userSelection == 1) {
+            } else if (userSelection.equals("B")) {
                 crossViewB.setVisibility(View.VISIBLE);
-            } else if (userSelection == 2) {
+            } else if (userSelection.equals("C")) {
                 crossViewC.setVisibility(View.VISIBLE);
-            } else if (userSelection == 3) {
+            } else if (userSelection.equals("D")) {
                 crossViewD.setVisibility(View.VISIBLE);
             }
 
-            if (ans == 0) {
+            if (answer.equals("A")) {
                 checkViewA.setVisibility(View.VISIBLE);
-            } else if (ans == 1) {
+            } else if (answer.equals("B")) {
                 checkViewB.setVisibility(View.VISIBLE);
-            } else if (ans == 2) {
+            } else if (answer.equals("C")) {
                 checkViewC.setVisibility(View.VISIBLE);
-            } else if (ans == 3) {
+            } else if (answer.equals("D")) {
                 checkViewD.setVisibility(View.VISIBLE);
             }
             if (total < 10) {

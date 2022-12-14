@@ -1,18 +1,19 @@
 package com.example.english_app.colleges.competition;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.english_app.R;
-import com.example.english_app.colleges.competition.quiz.VocabQuizActivity;
 import com.example.english_app.colleges.competition.competitionInterface.CheckWhatComInterface;
 import com.example.english_app.colleges.competition.competitionInterface.RecyclerComViewInterface;
 import com.example.english_app.colleges.competition.competitionInterface.UpdateComRecyclerView;
+import com.example.english_app.colleges.competition.quiz.VocabExamActivity;
+import com.example.english_app.colleges.competition.quiz.VocabQuizActivity;
 
 import java.util.ArrayList;
 
@@ -73,9 +74,13 @@ public class CompeteActivity extends AppCompatActivity implements UpdateComRecyc
     public void onItemClicked(int position) {
         SharedPreferences sharedPreferences = getSharedPreferences("Position", MODE_PRIVATE);
         sharedPreferences.edit().putInt("position", position).apply();
-        Intent intent = new Intent(CompeteActivity.this, VocabQuizActivity.class);
-        startActivity(intent);
+        if (position < 10) {
+            Intent intent = new Intent(CompeteActivity.this, VocabQuizActivity.class);
+            startActivity(intent);
+        }
+        else {
+            Intent intent = new Intent(CompeteActivity.this, VocabExamActivity.class);
+            startActivity(intent);
+        }
     }
-
-
 }
