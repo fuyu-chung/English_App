@@ -1,12 +1,19 @@
 package com.example.english_app.user_dorm;
 
+import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Looper;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
@@ -44,12 +51,10 @@ public class MyFriendActivity extends AppCompatActivity {
         vpAdapter.addFragment(new FollowingFragment(), "追蹤中");
         friendViewpager.setAdapter(vpAdapter);
 
-//        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
+        floatingActionButton = findViewById(R.id.fab_friendHint);
+        floatingActionButton.setOnClickListener(v -> {
+            showAlertDialog();
+        });
 
 
         SharedPreferences sharedPreferences = getSharedPreferences("User", MODE_PRIVATE);
@@ -136,5 +141,29 @@ public class MyFriendActivity extends AppCompatActivity {
                 }
             });
         });
+    }
+
+    private void showAlertDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialogTheme);
+        View view = LayoutInflater.from(this).inflate(
+                R.layout.friend_hint_dialog, findViewById(R.id.layoutHintDialog)
+        );
+        builder.setView(view);
+        ((TextView) view.findViewById(R.id.dialogTextTitle)).setText("注意事項!!!");
+        ((TextView) view.findViewById(R.id.dailogText)).setText(String.format("*可去「個人資料」查看個人ID\n*加完好友後務必按返回鍵，再度進來此頁面，以更新粉絲/追蹤者\n*可輸入「89216」即可追蹤Principal帳號，測試功能喔！"));
+        ((Button) view.findViewById(R.id.backComBtn)).setText("我了解了!");
+        ((ImageView) view.findViewById(R.id.megaPhoneImg)).setImageResource(R.drawable.ic_megaphone);
+
+        final AlertDialog alertDialog = builder.create();
+        builder.setCancelable(false);
+        //取消
+        view.findViewById(R.id.backComBtn).setOnClickListener(v2 -> {
+            alertDialog.cancel();
+        });
+
+        if (alertDialog.getWindow() != null) {
+            alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
+        }
+        alertDialog.show();
     }
 }

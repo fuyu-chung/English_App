@@ -39,19 +39,24 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             >
-
-            <TextView
-                android:id="@+id/question"
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#ffffff"
-                android:textAlignment="center"
-                android:textSize="28sp"
-
+                android:layout_height="match_parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintBottom_toBottomOf="parent">
+                <TextView
+                    android:id="@+id/question"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#ffffff"
+                    android:textAlignment="center"
+                    android:textSize="28sp"
+
+                    android:layout_gravity="center"/>
+
+            </ScrollView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -125,7 +130,7 @@
                         android:paddingHorizontal="15dp"
                         android:paddingVertical="10dp"
                         android:layout_marginTop="10dp"
-                        android:background="@drawable/option_design">
+                        android:background="@drawable/option_design02">
 
                         <TextView
                             android:id="@+id/optionB"
@@ -215,7 +220,7 @@
                         android:paddingHorizontal="15dp"
                         android:paddingVertical="10dp"
                         android:layout_marginTop="10dp"
-                        android:background="@drawable/option_design">
+                        android:background="@drawable/option_design02">
 
                         <TextView
                             android:id="@+id/optionD"

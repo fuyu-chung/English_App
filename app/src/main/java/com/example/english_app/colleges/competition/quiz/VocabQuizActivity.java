@@ -65,7 +65,7 @@ public class VocabQuizActivity extends AppCompatActivity {
         );
         builder.setView(view);
         ((TextView) view.findViewById(R.id.dialogTextTitle)).setText("英格利許學校大聲公");
-        ((TextView) view.findViewById(R.id.dailogText)).setText("歡迎進入國小單字 - 中翻英關卡");
+        ((TextView) view.findViewById(R.id.dailogText)).setText("準備好了嗎?");
         ((Button) view.findViewById(R.id.noBtn)).setText("取消");
         ((Button) view.findViewById(R.id.yesBtn)).setText("開始遊戲");
         ((ImageView) view.findViewById(R.id.megaPhoneImg)).setImageResource(R.drawable.ic_megaphone);
