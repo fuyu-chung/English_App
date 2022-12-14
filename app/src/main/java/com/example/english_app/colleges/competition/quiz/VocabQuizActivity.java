@@ -2,7 +2,12 @@ package com.example.english_app.colleges.competition.quiz;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -43,20 +48,38 @@ public class VocabQuizActivity extends AppCompatActivity {
         cNumber = findViewById(R.id.score);
         progressBar = findViewById(R.id.progress_bar);
         updateQuestion();
-        AlertDialog.Builder alert = new AlertDialog.Builder(this);
-        alert.setMessage("歡迎進入單字學院 (國小 中翻英)");
-        alert.setCancelable(false);
-        alert.setPositiveButton("開始遊戲", (dialog, which) -> {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this,R.style.AlertDialogTheme);
+        View view = LayoutInflater.from(this).inflate(
+                R.layout.check_dialog, findViewById(R.id.layoutCheckDialog)
+        );
+        builder.setView(view);
+        ((TextView) view.findViewById(R.id.dialogTextTitle)).setText("英格利許學校大聲公");
+        ((TextView) view.findViewById(R.id.dailogText)).setText("歡迎進入國小單字 - 中翻英關卡");
+        ((Button) view.findViewById(R.id.noBtn)).setText("取消");
+        ((Button) view.findViewById(R.id.yesBtn)).setText("開始遊戲");
+        ((ImageView) view.findViewById(R.id.megaPhoneImg)).setImageResource(R.drawable.ic_megaphone);
+
+        final AlertDialog alertDialog =builder.create();
+        builder.setCancelable(false);
+        //取消
+        view.findViewById(R.id.noBtn).setOnClickListener(v -> {
+            this.finish();//退出Quiz Activity
+        });
+
+        view.findViewById(R.id.yesBtn).setOnClickListener(v -> {
             total = 1;
             score = 0;
             correct = 0;
             progressBar.setProgress(0);
+            alertDialog.cancel();
         });
+        if(alertDialog.getWindow() != null){
+            alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
+        }
 
-        alert.setNeutralButton("取消", (dialog, which) -> {
-            onBackPressed();
-        });
-        alert.show();
+        alertDialog.show();
+
         Total = total + " / 10 Question";
         Score = "Score " + correct + " / 10";
         runOnUiThread(() -> (qNumber).setText(Total));
@@ -170,15 +193,28 @@ public class VocabQuizActivity extends AppCompatActivity {
                     }
                 });
 
-                AlertDialog.Builder alert = new AlertDialog.Builder(this);
-                alert.setTitle("遊戲結束");
-                alert.setCancelable(false);
-                alert.setMessage("正確題數 : " + correct + " / 10\n" + "成就  + " + score);
-                alert.setPositiveButton("返回競賽學院", (dialog, which) -> {
-                    Intent intent = new Intent(this, CompeteActivity.class);
-                    startActivity(intent);
+                AlertDialog.Builder builder = new AlertDialog.Builder(this,R.style.AlertDialogTheme);
+                View view = LayoutInflater.from(this).inflate(
+                        R.layout.gameover_dialog, findViewById(R.id.layoutGameOverDialog)
+                );
+                builder.setView(view);
+                ((TextView) view.findViewById(R.id.dialogTextTitle)).setText("GameOver!");
+                ((TextView) view.findViewById(R.id.dailogText)).setText("正確題數 : " + correct + " / 10\n" + "成就  + " + score);
+                ((Button) view.findViewById(R.id.backComBtn)).setText("返回競賽學院");
+                ((ImageView) view.findViewById(R.id.megaPhoneImg)).setImageResource(R.drawable.achievement);
+
+                final AlertDialog alertDialog =builder.create();
+                builder.setCancelable(false);
+                //取消
+                view.findViewById(R.id.backComBtn).setOnClickListener(v -> {
+                    this.finish();//退出Quiz Activity
                 });
-                alert.show();
+
+                if(alertDialog.getWindow() != null){
+                    alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
+                }
+
+                alertDialog.show();
 
             }
         } else {
@@ -216,15 +252,40 @@ public class VocabQuizActivity extends AppCompatActivity {
                     }
                 });
 
-                AlertDialog.Builder alert = new AlertDialog.Builder(this);
-                alert.setTitle("遊戲結束");
-                alert.setCancelable(false);
-                alert.setMessage("正確題數 : " + correct + " / 10\n" + "成就  + " + score);
-                alert.setPositiveButton("返回競賽學院", (dialog, which) -> {
-                    Intent intent = new Intent(this, CompeteActivity.class);
-                    startActivity(intent);
+//                AlertDialog.Builder alert = new AlertDialog.Builder(this);
+//                alert.setTitle("遊戲結束");
+//                alert.setCancelable(false);
+//                alert.setMessage("正確題數 : " + correct + " / 10\n" + "成就  + " + score);
+//                alert.setPositiveButton("返回競賽學院", (dialog, which) -> {
+//                    dialog.dismiss();
+//                    this.finish();//退出Quiz Activity
+//                });
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(this,R.style.AlertDialogTheme);
+                View view = LayoutInflater.from(this).inflate(
+                        R.layout.gameover_dialog, findViewById(R.id.layoutGameOverDialog)
+                );
+                builder.setView(view);
+                ((TextView) view.findViewById(R.id.dialogTextTitle)).setText("GameOver!");
+                ((TextView) view.findViewById(R.id.dailogText)).setText("正確題數 : " + correct + " / 10\n" + "成就  + " + score);
+                ((Button) view.findViewById(R.id.backComBtn)).setText("返回競賽學院");
+                ((ImageView) view.findViewById(R.id.megaPhoneImg)).setImageResource(R.drawable.achievement);
+
+                final AlertDialog alertDialog =builder.create();
+                builder.setCancelable(false);
+                //取消
+                view.findViewById(R.id.backComBtn).setOnClickListener(v -> {
+                    this.finish();//退出Quiz Activity
                 });
-                alert.show();
+
+                if(alertDialog.getWindow() != null){
+                    alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
+                }
+
+                alertDialog.show();
+
+
+
             }
         }
     }
