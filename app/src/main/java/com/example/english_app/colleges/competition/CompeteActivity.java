@@ -74,13 +74,13 @@ public class CompeteActivity extends AppCompatActivity implements UpdateComRecyc
     public void onItemClicked(int position) {
         SharedPreferences sharedPreferences = getSharedPreferences("Position", MODE_PRIVATE);
         sharedPreferences.edit().putInt("position", position).apply();
+        Intent intent;
         if (position < 10) {
-            Intent intent = new Intent(CompeteActivity.this, VocabQuizActivity.class);
-            startActivity(intent);
+            intent = new Intent(CompeteActivity.this, VocabQuizActivity.class);
         }
         else {
-            Intent intent = new Intent(CompeteActivity.this, VocabExamActivity.class);
-            startActivity(intent);
+            intent = new Intent(CompeteActivity.this, VocabExamActivity.class);
         }
+        startActivity(intent);
     }
 }
