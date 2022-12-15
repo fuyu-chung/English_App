@@ -12,6 +12,7 @@ import com.example.english_app.R;
 import com.example.english_app.colleges.competition.competitionInterface.CheckWhatComInterface;
 import com.example.english_app.colleges.competition.competitionInterface.RecyclerComViewInterface;
 import com.example.english_app.colleges.competition.competitionInterface.UpdateComRecyclerView;
+import com.example.english_app.colleges.competition.quiz.PhraseQuizActivity;
 import com.example.english_app.colleges.competition.quiz.VocabExamActivity;
 import com.example.english_app.colleges.competition.quiz.VocabQuizActivity;
 
@@ -74,13 +75,26 @@ public class CompeteActivity extends AppCompatActivity implements UpdateComRecyc
     public void onItemClicked(int position) {
         SharedPreferences sharedPreferences = getSharedPreferences("Position", MODE_PRIVATE);
         sharedPreferences.edit().putInt("position", position).apply();
-        Intent intent;
-        if (position < 10) {
-            intent = new Intent(CompeteActivity.this, VocabQuizActivity.class);
+        int title = sharedPreferences.getInt("title", 0);
+        if(title == 0){//單字
+            Intent intent;
+            if (position < 10) {
+                intent = new Intent(CompeteActivity.this, VocabQuizActivity.class);
+            }
+            else {
+                intent = new Intent(CompeteActivity.this, VocabExamActivity.class);
+            }
+            startActivity(intent);
         }
-        else {
-            intent = new Intent(CompeteActivity.this, VocabExamActivity.class);
+        else if(title == 1){//片語
+            Intent intent;
+            intent = new Intent(CompeteActivity.this, PhraseQuizActivity.class);
+            startActivity(intent);
         }
-        startActivity(intent);
+        else if(title == 2){
+            //跳到閱讀
+        }
+
+
     }
 }

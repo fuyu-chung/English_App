@@ -136,8 +136,12 @@ public class ComStaticRcvAdapter extends RecyclerView.Adapter<ComStaticRcvAdapte
             //學測
             else if (check_position == 1) {
                 ArrayList<ComDynamicRcvModel> gameItem = new ArrayList<>();
-                gameItem.add(new ComDynamicRcvModel("ALL片語", "#3FA0B5"));
-                gameItem.add(new ComDynamicRcvModel("片語", "#3FA0B5"));
+                gameItem.add(new ComDynamicRcvModel("ALL片語 - 中翻英", "#3FA0B5"));
+                gameItem.add(new ComDynamicRcvModel("ALL片語 - 英翻中", "#3FA0B5"));
+                gameItem.add(new ComDynamicRcvModel("學測片語 - 中翻英", "#3FA0B5"));
+                gameItem.add(new ComDynamicRcvModel("學測片語 - 英翻中", "#3FA0B5"));
+                gameItem.add(new ComDynamicRcvModel("指考片語 - 中翻英", "#3FA0B5"));
+                gameItem.add(new ComDynamicRcvModel("指考片語 - 英翻中", "#3FA0B5"));
                 updateComRecyclerView.callback(check_position, gameItem);
                 checkWhatComInterface.onClicked(check_position);
             }
