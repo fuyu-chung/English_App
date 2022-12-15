@@ -293,9 +293,7 @@ public class VocabExamActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 });
-            }
-
-            else {
+            } else {
                 executor.execute(() -> {
                     try {
                         String s1 = "jdbc:jtds:sqlserver://myenglishserver.database.windows.net:1433/englishapp_db;user=englishapp@myenglishserver;password=English1234@@;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;ssl=request;"; //訪問azure的db的網址

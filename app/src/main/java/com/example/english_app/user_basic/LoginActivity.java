@@ -21,7 +21,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.english_app.MainPageActivity;
 import com.example.english_app.R;
-import com.example.english_app.colleges.competition.quiz.VocabQuizActivity;
 import com.google.android.material.button.MaterialButton;
 
 import java.sql.Connection;
