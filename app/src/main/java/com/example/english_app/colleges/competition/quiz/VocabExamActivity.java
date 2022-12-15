@@ -136,7 +136,6 @@ public class VocabExamActivity extends AppCompatActivity {
         ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
         executor.execute(() -> {
             try { //試跑try有問題就跑catch
-                int k = 0;
                 String s1 = "jdbc:jtds:sqlserver://myenglishserver.database.windows.net:1433/englishapp_db;user=englishapp@myenglishserver;password=English1234@@;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;ssl=request;"; //訪問azure的db的網址
                 Connection connection = DriverManager.getConnection(s1); //建立連線
                 String query = "";
@@ -193,14 +192,19 @@ public class VocabExamActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences1 = getSharedPreferences("VocabCompetition", MODE_PRIVATE);
         int temp_score = sharedPreferences.getInt("total", 0);
         if (userSelection.equals(answer)) {
-            if (userSelection.equals("A")) {
-                checkViewA.setVisibility(View.VISIBLE);
-            } else if (userSelection.equals("B")) {
-                checkViewB.setVisibility(View.VISIBLE);
-            } else if (userSelection.equals("C")) {
-                checkViewC.setVisibility(View.VISIBLE);
-            } else if (userSelection.equals("D")) {
-                checkViewD.setVisibility(View.VISIBLE);
+            switch (userSelection) {
+                case "A":
+                    checkViewA.setVisibility(View.VISIBLE);
+                    break;
+                case "B":
+                    checkViewB.setVisibility(View.VISIBLE);
+                    break;
+                case "C":
+                    checkViewC.setVisibility(View.VISIBLE);
+                    break;
+                case "D":
+                    checkViewD.setVisibility(View.VISIBLE);
+                    break;
             }
             if (total < 10) {
                 //要正確勾勾 checkViewABCD.setVisibility(View.VISIBLE);
@@ -282,55 +286,79 @@ public class VocabExamActivity extends AppCompatActivity {
                     try {
                         String s1 = "jdbc:jtds:sqlserver://myenglishserver.database.windows.net:1433/englishapp_db;user=englishapp@myenglishserver;password=English1234@@;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;ssl=request;"; //訪問azure的db的網址
                         Connection connection = DriverManager.getConnection(s1); //建立連線
-                        String query = "insert into wrong values (?, ?, ?, ?);";
+                        String query = "select * from wrong where user_phone = ? AND Title = ? AND Vocabulary = ?";
                         PreparedStatement statement = connection.prepareStatement(query);
                         statement.setString(1, sharedPreferences.getString("user_phone", ""));
                         statement.setString(2, title);
                         statement.setString(3, sharedPreferences1.getString("Ans", ""));
-                        statement.setString(4, sharedPreferences1.getString("Q", ""));
-                        statement.executeUpdate();
+                        ResultSet resultSet = statement.executeQuery();
+                        if (!resultSet.next()) {
+                            query = "insert into wrong values (?, ?, ?, ?);";
+                            statement = connection.prepareStatement(query);
+                            statement.setString(1, sharedPreferences.getString("user_phone", ""));
+                            statement.setString(2, title);
+                            statement.setString(3, sharedPreferences1.getString("Ans", ""));
+                            statement.setString(4, sharedPreferences1.getString("Q", ""));
+                            statement.executeUpdate();
+                        }
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
                 });
-            }
-
-            else {
+            } else {
                 executor.execute(() -> {
                     try {
                         String s1 = "jdbc:jtds:sqlserver://myenglishserver.database.windows.net:1433/englishapp_db;user=englishapp@myenglishserver;password=English1234@@;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;ssl=request;"; //訪問azure的db的網址
                         Connection connection = DriverManager.getConnection(s1); //建立連線
-                        String query = "insert into wrong values (?, ?, ?, ?);";
+                        String query = "select * from wrong where user_phone = ? AND Title = ? AND Vocabulary = ?";
                         PreparedStatement statement = connection.prepareStatement(query);
                         statement.setString(1, sharedPreferences.getString("user_phone", ""));
                         statement.setString(2, title);
                         statement.setString(3, sharedPreferences1.getString("Q", ""));
-                        statement.setString(4, sharedPreferences1.getString("Ans", ""));
-                        statement.executeUpdate();
+                        ResultSet resultSet = statement.executeQuery();
+                        if (!resultSet.next()) {
+                            query = "insert into wrong values (?, ?, ?, ?);";
+                            statement = connection.prepareStatement(query);
+                            statement.setString(1, sharedPreferences.getString("user_phone", ""));
+                            statement.setString(2, title);
+                            statement.setString(3, sharedPreferences1.getString("Q", ""));
+                            statement.setString(4, sharedPreferences1.getString("Ans", ""));
+                            statement.executeUpdate();
+                        }
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
                 });
             }
 
-            if (userSelection.equals("A")) {
-                crossViewA.setVisibility(View.VISIBLE);
-            } else if (userSelection.equals("B")) {
-                crossViewB.setVisibility(View.VISIBLE);
-            } else if (userSelection.equals("C")) {
-                crossViewC.setVisibility(View.VISIBLE);
-            } else if (userSelection.equals("D")) {
-                crossViewD.setVisibility(View.VISIBLE);
+            switch (userSelection) {
+                case "A":
+                    crossViewA.setVisibility(View.VISIBLE);
+                    break;
+                case "B":
+                    crossViewB.setVisibility(View.VISIBLE);
+                    break;
+                case "C":
+                    crossViewC.setVisibility(View.VISIBLE);
+                    break;
+                case "D":
+                    crossViewD.setVisibility(View.VISIBLE);
+                    break;
             }
 
-            if (answer.equals("A")) {
-                checkViewA.setVisibility(View.VISIBLE);
-            } else if (answer.equals("B")) {
-                checkViewB.setVisibility(View.VISIBLE);
-            } else if (answer.equals("C")) {
-                checkViewC.setVisibility(View.VISIBLE);
-            } else if (answer.equals("D")) {
-                checkViewD.setVisibility(View.VISIBLE);
+            switch (answer) {
+                case "A":
+                    checkViewA.setVisibility(View.VISIBLE);
+                    break;
+                case "B":
+                    checkViewB.setVisibility(View.VISIBLE);
+                    break;
+                case "C":
+                    checkViewC.setVisibility(View.VISIBLE);
+                    break;
+                case "D":
+                    checkViewD.setVisibility(View.VISIBLE);
+                    break;
             }
             if (total < 10) {
                 total++;
