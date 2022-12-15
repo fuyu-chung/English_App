@@ -30,8 +30,9 @@ public class CompeteActivity extends AppCompatActivity implements UpdateComRecyc
 
         ArrayList<ComStaticRcvModel> catItem = new ArrayList<>();
         catItem.add(new ComStaticRcvModel(R.drawable.house_vocabulary, "單字測驗", "12關"));
-        catItem.add(new ComStaticRcvModel(R.drawable.house_phrase, "片語測驗", "??關"));
+        catItem.add(new ComStaticRcvModel(R.drawable.house_phrase, "片語測驗", "6關"));
         catItem.add(new ComStaticRcvModel(R.drawable.house_reading, "閱讀測驗", "??關"));
+        catItem.add(new ComStaticRcvModel(R.drawable.house_test, "歷屆測驗", "??關"));
 
         RecyclerView rcvComTitle = findViewById(R.id.com_rcv_cat);
         ComStaticRcvAdapter comStaticRcvAdapter = new ComStaticRcvAdapter(catItem, this, this, this);
