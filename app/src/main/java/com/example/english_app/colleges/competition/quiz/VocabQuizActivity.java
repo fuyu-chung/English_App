@@ -34,6 +34,8 @@ public class VocabQuizActivity extends AppCompatActivity {
     final int PROGRESS_BAR = 10;
     String Score, Total;
     int question;
+    int level;
+    String title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -139,7 +141,7 @@ public class VocabQuizActivity extends AppCompatActivity {
                 Connection connection = DriverManager.getConnection(s1); //建立連線
                 String query = "";
                 int[] random_answer = new int[4];
-                int level = sharedPreferences1.getInt("position", 0) + 1;
+                level = sharedPreferences1.getInt("position", 0) + 1;
                 System.out.println(level);
                 if (level == 1) {
                     query = "select Chinese, Vocabulary from voc_elem where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
@@ -147,6 +149,7 @@ public class VocabQuizActivity extends AppCompatActivity {
                         answer = (int) (Math.random() * 552) + 1;
                         random_answer[i] = answer;
                         System.out.println(answer);
+                        title = "voc_elem";
                     }
                 } else if (level == 2) {
                     query = "select Vocabulary, Chinese from voc_elem where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
@@ -154,6 +157,7 @@ public class VocabQuizActivity extends AppCompatActivity {
                         answer = (int) (Math.random() * 552) + 1;
                         random_answer[i] = answer;
                         System.out.println(answer);
+                        title = "voc_elem";
                     }
                 } else if (level == 3) {
                     query = "select Chinese, Vocabulary from voc_jhs where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
@@ -161,6 +165,7 @@ public class VocabQuizActivity extends AppCompatActivity {
                         answer = (int) (Math.random() * 1248) + 1;
                         random_answer[i] = answer;
                         System.out.println(answer);
+                        title = "voc_jhs";
                     }
                 } else if (level == 4) {
                     query = "select  Vocabulary, Chinese from voc_jhs where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
@@ -168,6 +173,7 @@ public class VocabQuizActivity extends AppCompatActivity {
                         answer = (int) (Math.random() * 1248) + 1;
                         random_answer[i] = answer;
                         System.out.println(answer);
+                        title = "voc_jhs";
                     }
                 } else if (level == 5) {
                     query = "select Chinese, Vocabulary from voc_shs where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
@@ -175,6 +181,7 @@ public class VocabQuizActivity extends AppCompatActivity {
                         answer = (int) (Math.random() * 6239) + 1;
                         random_answer[i] = answer;
                         System.out.println(answer);
+                        title = "voc_shs";
                     }
                 } else if (level == 6) {
                     query = "select  Vocabulary, Chinese from voc_shs where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
@@ -182,6 +189,7 @@ public class VocabQuizActivity extends AppCompatActivity {
                         answer = (int) (Math.random() * 6239) + 1;
                         random_answer[i] = answer;
                         System.out.println(answer);
+                        title = "voc_shs";
                     }
                 } else if (level == 7) {
                     query = "select Chinese, Vocabulary from voc_toeic where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
@@ -189,6 +197,7 @@ public class VocabQuizActivity extends AppCompatActivity {
                         answer = (int) (Math.random() * 910) + 1;
                         random_answer[i] = answer;
                         System.out.println(answer);
+                        title = "voc_toeic";
                     }
                 } else if (level == 8) {
                     query = "select  Vocabulary, Chinese from voc_toeic where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
@@ -196,6 +205,7 @@ public class VocabQuizActivity extends AppCompatActivity {
                         answer = (int) (Math.random() * 910) + 1;
                         random_answer[i] = answer;
                         System.out.println(answer);
+                        title = "voc_toeic";
                     }
                 } else if (level == 9) {
                     query = "select Chinese, Vocabulary from voc_toefl where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
@@ -203,6 +213,7 @@ public class VocabQuizActivity extends AppCompatActivity {
                         answer = (int) (Math.random() * 2286) + 1;
                         random_answer[i] = answer;
                         System.out.println(answer);
+                        title = "voc_toefl";
                     }
                 } else if (level == 10) {
                     query = "select  Vocabulary, Chinese from voc_toefl where Orders = ? OR Orders = ? OR Orders = ? OR Orders = ?";
@@ -210,6 +221,7 @@ public class VocabQuizActivity extends AppCompatActivity {
                         answer = (int) (Math.random() * 2286) + 1;
                         random_answer[i] = answer;
                         System.out.println(answer);
+                        title = "voc_toefl";
                     }
                 }
 
@@ -260,6 +272,7 @@ public class VocabQuizActivity extends AppCompatActivity {
 
     private void checkAnswer(int userSelection, int ans) throws InterruptedException {
         SharedPreferences sharedPreferences = getSharedPreferences("User", MODE_PRIVATE);
+        SharedPreferences sharedPreferences1 = getSharedPreferences("VocabCompetition", MODE_PRIVATE);
         int temp_score = sharedPreferences.getInt("total", 0);
         if (userSelection == ans) {
             if (userSelection == 0) {
@@ -272,8 +285,6 @@ public class VocabQuizActivity extends AppCompatActivity {
                 checkViewD.setVisibility(View.VISIBLE);
             }
             if (total < 10) {
-                //要正確勾勾 checkViewABCD.setVisibility(View.VISIBLE);
-                //Toast.makeText(this, "Right！", Toast.LENGTH_SHORT).show();
                 correct++;
                 total++;
                 score += 50;
@@ -290,8 +301,6 @@ public class VocabQuizActivity extends AppCompatActivity {
                 runOnUiThread(() -> (qNumber).setText(Total));
                 progressBar.setProgress((total - 1) * PROGRESS_BAR);
             } else if (total == 10) {
-                //要正確勾勾 checkViewABCD.setVisibility(View.VISIBLE);
-                //Toast.makeText(this, "Right！", Toast.LENGTH_SHORT).show();
                 correct++;
                 score += 50;
                 Score = "Score " + correct + " / 10";
@@ -363,9 +372,45 @@ public class VocabQuizActivity extends AppCompatActivity {
             } else if (ans == 3) {
                 checkViewD.setVisibility(View.VISIBLE);
             }
+            ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
+// 建立新的thread
+            if (level % 2 == 1) {
+                executor.execute(() -> {
+                    try {
+                        String s1 = "jdbc:jtds:sqlserver://myenglishserver.database.windows.net:1433/englishapp_db;user=englishapp@myenglishserver;password=English1234@@;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;ssl=request;"; //訪問azure的db的網址
+                        Connection connection = DriverManager.getConnection(s1); //建立連線
+                        String query = "insert into wrong values (?, ?, ?, ?);";
+                        PreparedStatement statement = connection.prepareStatement(query);
+                        statement.setString(1, sharedPreferences.getString("user_phone", ""));
+                        statement.setString(2, title);
+                        statement.setString(3, sharedPreferences1.getString("Ans", ""));
+                        statement.setString(4, sharedPreferences1.getString("Q", ""));
+                        statement.executeUpdate();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                });
+            }
+
+            else {
+                executor.execute(() -> {
+                    try {
+                        String s1 = "jdbc:jtds:sqlserver://myenglishserver.database.windows.net:1433/englishapp_db;user=englishapp@myenglishserver;password=English1234@@;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;ssl=request;"; //訪問azure的db的網址
+                        Connection connection = DriverManager.getConnection(s1); //建立連線
+                        String query = "insert into wrong values (?, ?, ?, ?);";
+                        PreparedStatement statement = connection.prepareStatement(query);
+                        statement.setString(1, sharedPreferences.getString("user_phone", ""));
+                        statement.setString(2, title);
+                        statement.setString(3, sharedPreferences1.getString("Q", ""));
+                        statement.setString(4, sharedPreferences1.getString("Ans", ""));
+                        statement.executeUpdate();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                });
+            }
+
             if (total < 10) {
-                //要錯誤 crossViewABCD.setVisibility(View.VISIBLE);
-                //Toast.makeText(this, "Wrong！", Toast.LENGTH_SHORT).show();
                 total++;
                 Score = "Score " + correct + " / 10";
                 Total = total + " / 10 Question";
@@ -381,7 +426,6 @@ public class VocabQuizActivity extends AppCompatActivity {
                 progressBar.setProgress((total - 1) * PROGRESS_BAR);
 
             } else if (total == 10) {
-                //Toast.makeText(this, "Wrong！", Toast.LENGTH_SHORT).show();
                 Score = "Score " + correct + " / 10";
                 Total = total + " / 10 Question";
                 runOnUiThread(() -> (cNumber).setText(Score));
@@ -390,7 +434,7 @@ public class VocabQuizActivity extends AppCompatActivity {
 
                 temp_score += score;
                 sharedPreferences.edit().putInt("total", temp_score).apply();
-                ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
+
                 executor.execute(() -> {
                     try {
                         String s1 = "jdbc:jtds:sqlserver://myenglishserver.database.windows.net:1433/englishapp_db;user=englishapp@myenglishserver;password=English1234@@;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;ssl=request;"; //訪問azure的db的網址
