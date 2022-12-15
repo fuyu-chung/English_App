@@ -37,10 +37,10 @@ public class VocabularyRcvAdapter extends RecyclerView.Adapter<VocabularyRcvAdap
             vocText = itemView.findViewById(R.id.vocabulary);
             chText = itemView.findViewById(R.id.chinese);
             linearLayout = itemView.findViewById(R.id.vocabulary_rcv_linearlayout);
-            imgBtnStar = itemView.findViewById(R.id.vocabulary_collection_btn);
+//            imgBtnStar = itemView.findViewById(R.id.vocabulary_collection_btn);
 
             //星星取得按下的position
-            imgBtnStar.setOnClickListener(v -> checkPosition(getAbsoluteAdapterPosition()));
+//            imgBtnStar.setOnClickListener(v -> checkPosition(getAbsoluteAdapterPosition()));
 
         }
 
@@ -69,7 +69,7 @@ public class VocabularyRcvAdapter extends RecyclerView.Adapter<VocabularyRcvAdap
         //btn
         if (check_StarPosition == position) {
             star_click_ct = 0;
-            holder.imgBtnStar.setImageResource(R.drawable.star_click);
+//            holder.imgBtnStar.setImageResource(R.drawable.star_click);
 
 
         }
