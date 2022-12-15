@@ -47,6 +47,7 @@ public class PhraseStaticRcvAdapter extends RecyclerView.Adapter<PhraseStaticRcv
         PhraseStaticRcvModel currentItem = catItems.get(position);
         holder.phraseImage.setImageResource(currentItem.getImage());
         holder.phraseText.setText(currentItem.getText());
+        holder.phraseText2.setText(currentItem.getText2());
 
 
         //確定是哪個catItem 被點擊，以轉換下方的phraseItem
