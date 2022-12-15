@@ -79,7 +79,7 @@ public class LoginActivity extends AppCompatActivity {
                             statement = connection.prepareStatement(query);
                             statement.setString(1, sharedPreferences.getString("user_phone", ""));
                             resultSet = statement.executeQuery();
-                            if (resultSet.next()){
+                            if (resultSet.next()) {
                                 sharedPreferences.edit().putInt("total", resultSet.getInt(1)).apply();
                             }
 
@@ -134,10 +134,9 @@ public class LoginActivity extends AppCompatActivity {
         showCb = findViewById(R.id.show_password);
         showCb.setOnClickListener(
                 view -> {
-                    if(showCb.isChecked()){
+                    if (showCb.isChecked()) {
                         (user_password).setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-                    }
-                    else{
+                    } else {
                         (user_password).setTransformationMethod(PasswordTransformationMethod.getInstance());
                     }
                 }
@@ -148,7 +147,7 @@ public class LoginActivity extends AppCompatActivity {
     public void onBackPressed() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialogTheme);
         View view = LayoutInflater.from(this).inflate(
-          R.layout.warning_dialog, findViewById(R.id.layoutWarningDialog)
+                R.layout.warning_dialog, findViewById(R.id.layoutWarningDialog)
         );
         builder.setView(view);
         ((TextView) view.findViewById(R.id.dialogTextTitle)).setText("英格利許學校大聲公");
@@ -167,7 +166,7 @@ public class LoginActivity extends AppCompatActivity {
             System.exit(1);
             finish();
         });
-        if(alertDialog.getWindow() != null){
+        if (alertDialog.getWindow() != null) {
             alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
         }
 

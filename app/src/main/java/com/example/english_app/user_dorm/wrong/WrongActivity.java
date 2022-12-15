@@ -48,28 +48,17 @@ public class WrongActivity extends AppCompatActivity {
                 String query = "";
                 if (position == 1) {
                     query = "select Vocabulary, Chinese from wrong where Title = 'voc_elem'";
-                }
-
-                else if (position == 2) {
+                } else if (position == 2) {
                     query = "select Vocabulary, Chinese from wrong where Title = 'voc_jhs'";
-                }
-
-                else if (position == 3) {
+                } else if (position == 3) {
                     query = "select Vocabulary, Chinese from wrong where Title = 'voc_shs'";
-                }
-
-                else if (position == 4) {
+                } else if (position == 4) {
                     query = "select Vocabulary, Chinese from wrong where Title = 'voc_toeic'";
-                }
-
-                else if (position == 5) {
+                } else if (position == 5) {
                     query = "select Vocabulary, Chinese from wrong where Title = 'voc_toefl'";
-                }
-
-                else if (position == 6){
+                } else if (position == 6) {
                     query = "select Vocabulary, Chinese from wrong where Title = 'voc_gsat'";
-                }
-                else if (position == 7){
+                } else if (position == 7) {
                     query = "select Vocabulary, Chinese from wrong where Title = 'voc_ast'";
                 }
                 PreparedStatement statement = connection.prepareStatement(query);

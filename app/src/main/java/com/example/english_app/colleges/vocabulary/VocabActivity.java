@@ -34,31 +34,30 @@ public class VocabActivity extends AppCompatActivity implements UpdateRecyclerVi
 
         RecyclerView rcvVocTitle = findViewById(R.id.voc_rcv_cat);
         StaticRcvAdapter staticRcvAdapter = new StaticRcvAdapter(catItem, this, this, this);
-        rcvVocTitle.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
+        rcvVocTitle.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         rcvVocTitle.setAdapter(staticRcvAdapter);
 
         ArrayList<DynamicRcvModel> unitItem = new ArrayList<>();
-        for (int i = 1; i <= 11; i++){
+        for (int i = 1; i <= 11; i++) {
             String units;
-            if (i <= 9){
+            if (i <= 9) {
                 units = "Unit 0" + i;
-                unitItem.add(new DynamicRcvModel(units,"#CEB443"));
-            }
-            else {
+                unitItem.add(new DynamicRcvModel(units, "#CEB443"));
+            } else {
                 units = "Unit " + i;
-                unitItem.add(new DynamicRcvModel(units,"#CEB443"));
+                unitItem.add(new DynamicRcvModel(units, "#CEB443"));
             }
         }
 
         rcvVocUnit = findViewById(R.id.voc_rcv_unit);
-        dynamicRcvAdapter = new DynamicRcvAdapter(unitItem,this);
-        rcvVocUnit.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
+        dynamicRcvAdapter = new DynamicRcvAdapter(unitItem, this);
+        rcvVocUnit.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         rcvVocUnit.setAdapter(dynamicRcvAdapter);
     }
 
     @Override
     public void callback(int position, ArrayList<DynamicRcvModel> items) {
-        dynamicRcvAdapter = new DynamicRcvAdapter(items,this);
+        dynamicRcvAdapter = new DynamicRcvAdapter(items, this);
         dynamicRcvAdapter.notifyDataSetChanged();
         rcvVocUnit.setAdapter(dynamicRcvAdapter);
     }

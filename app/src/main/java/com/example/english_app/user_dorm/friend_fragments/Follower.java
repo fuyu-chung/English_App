@@ -8,7 +8,7 @@ public class Follower {
     private int userId;
 
     //在fragment java裡面的User function格式在這裡宣告有什麼變數
-    public Follower(int userId, String  userName) {
+    public Follower(int userId, String userName) {
         this.userId = userId;
         this.userName = userName;
     }
