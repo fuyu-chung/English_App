@@ -53,7 +53,7 @@
                     android:textColor="#ffffff"
                     android:textAlignment="center"
                     android:textSize="28sp"
-
+                    android:layout_marginVertical="20dp"
                     android:layout_gravity="center"/>
 
             </ScrollView>
