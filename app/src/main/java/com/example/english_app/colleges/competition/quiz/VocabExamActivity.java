@@ -35,6 +35,8 @@ public class VocabExamActivity extends AppCompatActivity {
     String Score, Total;
     int random_question;
     String answer;
+    String title;
+    int level;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -138,17 +140,19 @@ public class VocabExamActivity extends AppCompatActivity {
                 String s1 = "jdbc:jtds:sqlserver://myenglishserver.database.windows.net:1433/englishapp_db;user=englishapp@myenglishserver;password=English1234@@;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;ssl=request;"; //訪問azure的db的網址
                 Connection connection = DriverManager.getConnection(s1); //建立連線
                 String query = "";
-                int level = sharedPreferences1.getInt("position", 0) + 1;
+                level = sharedPreferences1.getInt("position", 0) + 1;
                 System.out.println(level);
 
                 if (level == 11) {
                     query = "select Question, optionA, optionB, optionC, optionD, Answer from voc_gsat where Orders = ?";
                     random_question = (int) (Math.random() * 145) + 1;
                     System.out.println(random_question);
+                    title = "voc_gsat";
                 } else if (level == 12) {
                     query = "select Question, optionA, optionB, optionC, optionD, Answer from voc_ast where Orders = ?";
                     random_question = (int) (Math.random() * 160) + 1;
                     System.out.println(random_question);
+                    title = "voc_ast";
                 }
 
                 PreparedStatement statement = connection.prepareStatement(query);
@@ -186,6 +190,7 @@ public class VocabExamActivity extends AppCompatActivity {
 
     private void checkAnswer(String userSelection, String answer) throws InterruptedException {
         SharedPreferences sharedPreferences = getSharedPreferences("User", MODE_PRIVATE);
+        SharedPreferences sharedPreferences1 = getSharedPreferences("VocabCompetition", MODE_PRIVATE);
         int temp_score = sharedPreferences.getInt("total", 0);
         if (userSelection.equals(answer)) {
             if (userSelection.equals("A")) {
@@ -270,6 +275,44 @@ public class VocabExamActivity extends AppCompatActivity {
 
             }
         } else {
+            ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
+// 建立新的thread
+            if (level % 2 == 1) {
+                executor.execute(() -> {
+                    try {
+                        String s1 = "jdbc:jtds:sqlserver://myenglishserver.database.windows.net:1433/englishapp_db;user=englishapp@myenglishserver;password=English1234@@;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;ssl=request;"; //訪問azure的db的網址
+                        Connection connection = DriverManager.getConnection(s1); //建立連線
+                        String query = "insert into wrong values (?, ?, ?, ?);";
+                        PreparedStatement statement = connection.prepareStatement(query);
+                        statement.setString(1, sharedPreferences.getString("user_phone", ""));
+                        statement.setString(2, title);
+                        statement.setString(3, sharedPreferences1.getString("Ans", ""));
+                        statement.setString(4, sharedPreferences1.getString("Q", ""));
+                        statement.executeUpdate();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                });
+            }
+
+            else {
+                executor.execute(() -> {
+                    try {
+                        String s1 = "jdbc:jtds:sqlserver://myenglishserver.database.windows.net:1433/englishapp_db;user=englishapp@myenglishserver;password=English1234@@;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;ssl=request;"; //訪問azure的db的網址
+                        Connection connection = DriverManager.getConnection(s1); //建立連線
+                        String query = "insert into wrong values (?, ?, ?, ?);";
+                        PreparedStatement statement = connection.prepareStatement(query);
+                        statement.setString(1, sharedPreferences.getString("user_phone", ""));
+                        statement.setString(2, title);
+                        statement.setString(3, sharedPreferences1.getString("Q", ""));
+                        statement.setString(4, sharedPreferences1.getString("Ans", ""));
+                        statement.executeUpdate();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                });
+            }
+
             if (userSelection.equals("A")) {
                 crossViewA.setVisibility(View.VISIBLE);
             } else if (userSelection.equals("B")) {
@@ -290,8 +333,6 @@ public class VocabExamActivity extends AppCompatActivity {
                 checkViewD.setVisibility(View.VISIBLE);
             }
             if (total < 10) {
-                //要錯誤 crossViewABCD.setVisibility(View.VISIBLE);
-                //Toast.makeText(this, "Wrong！", Toast.LENGTH_SHORT).show();
                 total++;
                 Score = "Score " + correct + " / 10";
                 Total = total + " / 10 Question";
@@ -306,7 +347,6 @@ public class VocabExamActivity extends AppCompatActivity {
                 runOnUiThread(() -> (qNumber).setText(Total));
                 progressBar.setProgress((total - 1) * PROGRESS_BAR);
             } else if (total == 10) {
-                //Toast.makeText(this, "Wrong！", Toast.LENGTH_SHORT).show();
                 Score = "Score " + correct + " / 10";
                 Total = total + " / 10 Question";
                 runOnUiThread(() -> (cNumber).setText(Score));
@@ -315,7 +355,6 @@ public class VocabExamActivity extends AppCompatActivity {
 
                 temp_score += score;
                 sharedPreferences.edit().putInt("total", temp_score).apply();
-                ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
                 executor.execute(() -> {
                     try {
                         String s1 = "jdbc:jtds:sqlserver://myenglishserver.database.windows.net:1433/englishapp_db;user=englishapp@myenglishserver;password=English1234@@;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;ssl=request;"; //訪問azure的db的網址
