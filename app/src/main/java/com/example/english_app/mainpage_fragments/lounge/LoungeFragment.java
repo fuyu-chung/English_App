@@ -58,6 +58,7 @@ public class LoungeFragment extends Fragment {
         RecyclerView rcvMessage = view.findViewById(R.id.message_rcv);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         linearLayoutManager.setReverseLayout(true);
+        linearLayoutManager.setStackFromEnd(false);
         rcvMessage.setLayoutManager(linearLayoutManager);
         MesRcvAdapter mesRcvAdapter = new MesRcvAdapter();
         mesRcvAdapter.setData(getListMessage());
