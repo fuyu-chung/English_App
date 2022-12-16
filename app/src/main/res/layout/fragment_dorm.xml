@@ -261,7 +261,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="15dp"
                         android:layout_marginVertical="7dp"
-                        android:text="我的筆記"
+                        android:text="閱讀區"
                         android:textColor="@color/white"
                         android:textSize="24sp"
                         android:textStyle="bold" />
