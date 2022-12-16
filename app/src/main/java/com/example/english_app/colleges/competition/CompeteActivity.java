@@ -12,6 +12,7 @@ import com.example.english_app.R;
 import com.example.english_app.colleges.competition.competitionInterface.CheckWhatComInterface;
 import com.example.english_app.colleges.competition.competitionInterface.RecyclerComViewInterface;
 import com.example.english_app.colleges.competition.competitionInterface.UpdateComRecyclerView;
+import com.example.english_app.colleges.competition.quiz.ClozeQuizActivity;
 import com.example.english_app.colleges.competition.quiz.PhraseQuizActivity;
 import com.example.english_app.colleges.competition.quiz.VocabExamActivity;
 import com.example.english_app.colleges.competition.quiz.VocabQuizActivity;
@@ -51,17 +52,16 @@ public class CompeteActivity extends AppCompatActivity implements UpdateComRecyc
         gameItem.add(new ComDynamicRcvModel("多益單字 - 英翻中", "#CEB443"));
         gameItem.add(new ComDynamicRcvModel("托福單字 - 中翻英", "#CEB443"));
         gameItem.add(new ComDynamicRcvModel("托福單字 - 英翻中", "#CEB443"));
-        gameItem.add(new ComDynamicRcvModel("學測單字題", "#CEB443"));
-        gameItem.add(new ComDynamicRcvModel("指考單字題", "#CEB443"));
 
         rcvComGame = findViewById(R.id.com_rcv_unit);
-        comDynamicRcvAdapter = new ComDynamicRcvAdapter(gameItem,this);
-        rcvComGame.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
+        comDynamicRcvAdapter = new ComDynamicRcvAdapter(gameItem, this);
+        rcvComGame.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         rcvComGame.setAdapter(comDynamicRcvAdapter);
     }
+
     @Override
     public void callback(int position, ArrayList<ComDynamicRcvModel> items) {
-        comDynamicRcvAdapter = new ComDynamicRcvAdapter(items,this);
+        comDynamicRcvAdapter = new ComDynamicRcvAdapter(items, this);
         comDynamicRcvAdapter.notifyDataSetChanged();
         rcvComGame.setAdapter(comDynamicRcvAdapter);
     }
@@ -77,23 +77,35 @@ public class CompeteActivity extends AppCompatActivity implements UpdateComRecyc
         SharedPreferences sharedPreferences = getSharedPreferences("Position", MODE_PRIVATE);
         sharedPreferences.edit().putInt("position", position).apply();
         int title = sharedPreferences.getInt("title", 0);
-        if(title == 0){//單字
+        if (title == 0) {//單字
             Intent intent;
-            if (position < 10) {
-                intent = new Intent(CompeteActivity.this, VocabQuizActivity.class);
-            }
-            else {
-                intent = new Intent(CompeteActivity.this, VocabExamActivity.class);
-            }
+            intent = new Intent(CompeteActivity.this, VocabQuizActivity.class);
+
             startActivity(intent);
-        }
-        else if(title == 1){//片語
+        } else if (title == 1) {//片語
             Intent intent;
             intent = new Intent(CompeteActivity.this, PhraseQuizActivity.class);
             startActivity(intent);
-        }
-        else if(title == 2){
+        } else if (title == 2) {
             //跳到閱讀
+
+
+        } else if (title == 3) {//歷屆
+            if (position == 0 | position == 1){
+                //學測 指考單字
+                Intent intent;
+                intent = new Intent(CompeteActivity.this, VocabExamActivity.class);
+                startActivity(intent);
+            }
+            else if(position == 2){//cloze
+                Intent intent;
+                intent = new Intent(CompeteActivity.this, ClozeQuizActivity.class);
+                startActivity(intent);
+            }
+            else if(position == 3){//matching
+
+            }
+
         }
 
 

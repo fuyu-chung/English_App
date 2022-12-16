@@ -63,8 +63,6 @@ public class ComStaticRcvAdapter extends RecyclerView.Adapter<ComStaticRcvAdapte
             gameItem.add(new ComDynamicRcvModel("多益單字 - 英翻中", "#CE8443"));
             gameItem.add(new ComDynamicRcvModel("托福單字 - 中翻英", "#CE8443"));
             gameItem.add(new ComDynamicRcvModel("托福單字 - 英翻中", "#CE8443"));
-            gameItem.add(new ComDynamicRcvModel("學測單字題", "#CE8443"));
-            gameItem.add(new ComDynamicRcvModel("指考單字題", "#CE8443"));
 
             updateComRecyclerView.callback(check_position, gameItem);
             check = false;
@@ -127,8 +125,6 @@ public class ComStaticRcvAdapter extends RecyclerView.Adapter<ComStaticRcvAdapte
                 gameItem.add(new ComDynamicRcvModel("多益單字 - 英翻中", "#CE8443"));
                 gameItem.add(new ComDynamicRcvModel("托福單字 - 中翻英", "#CE8443"));
                 gameItem.add(new ComDynamicRcvModel("托福單字 - 英翻中", "#CE8443"));
-                gameItem.add(new ComDynamicRcvModel("學測單字題", "#CE8443"));
-                gameItem.add(new ComDynamicRcvModel("指考單字題", "#CE8443"));
 
                 updateComRecyclerView.callback(check_position, gameItem);
                 checkWhatComInterface.onClicked(check_position);
