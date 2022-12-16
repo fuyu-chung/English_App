@@ -37,7 +37,6 @@ public class VocabularyRcvAdapter extends RecyclerView.Adapter<VocabularyRcvAdap
             vocText = itemView.findViewById(R.id.vocabulary);
             chText = itemView.findViewById(R.id.chinese);
             linearLayout = itemView.findViewById(R.id.vocabulary_rcv_linearlayout);
-            imgBtnStar = itemView.findViewById(R.id.vocabulary_collection_btn);
 
             //星星取得按下的position
             imgBtnStar.setOnClickListener(v -> {
