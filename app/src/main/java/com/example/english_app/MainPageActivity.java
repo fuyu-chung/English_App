@@ -21,6 +21,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.example.english_app.colleges.competition.quiz.VocabQuizActivity;
 import com.example.english_app.mainpage_fragments.CollegeFragment;
 import com.example.english_app.mainpage_fragments.DormFragment;
+import com.example.english_app.mainpage_fragments.Library.LibraryFragment;
 import com.example.english_app.mainpage_fragments.lounge.LoungeFragment;
 import com.example.english_app.user_basic.LoginActivity;
 import com.example.english_app.user_dorm.UserProfileActivity;
@@ -305,7 +306,48 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
         libraryLayout.setOnClickListener(v -> {
 
             //check if library is selected
+            if (selectedTab != 5) {
 
+                //set library fragment
+                getSupportFragmentManager().beginTransaction()
+                        .setReorderingAllowed(true)
+                        .replace(R.id.fragmentContainer, LibraryFragment.class, null)
+                        .commit();
+
+                //unselect other tabs except library tab, here is text that we don't want to display
+                collegeText.setVisibility(View.GONE);
+                loungeText.setVisibility(View.GONE);
+                dormText.setVisibility(View.GONE);
+//                studyCircleText.setVisibility(View.GONE);
+
+                //icon before clicked will display
+                collegeImage.setImageResource(R.drawable.college);
+                loungeImage.setImageResource(R.drawable.lounge);
+                dormImage.setImageResource(R.drawable.dorm);
+//                studyCircleImage.setImageResource(R.drawable.study_circle);
+
+                //layout transparent
+                collegeLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+                loungeLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+                dormLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+//                studyCircleLayout.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+
+                //library visibility
+                libraryText.setVisibility(View.VISIBLE);
+                libraryImage.setImageResource(R.drawable.library_clicks);
+                libraryLayout.setBackgroundResource(R.drawable.round_back_library);
+
+                //animation
+                ScaleAnimation scaleAnimation = new ScaleAnimation(0.8f, 1.0f, 1f, 1f, Animation.RELATIVE_TO_SELF, 1.0f, Animation.RELATIVE_TO_SELF, 0.0f);
+                scaleAnimation.setDuration(200);
+                scaleAnimation.setFillAfter(true);
+                libraryLayout.startAnimation(scaleAnimation);
+
+                //set 5th tab as selected tab
+                selectedTab = 5;
+
+
+            }
         });
 
 
@@ -394,7 +436,10 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
                 Intent intent3 = new Intent(this, LoginActivity.class);
                 startActivity(intent3);
                 break;
-
+            case R.id.nav_aboutus:
+                Intent intent4 = new Intent(this,AboutUsActivity.class);
+                startActivity(intent4);
+                break;
 
         }
 
