@@ -1,4 +1,4 @@
-package com.example.english_app.mainpage_fragments;
+package com.example.english_app.mainpage_fragments.lounge;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -9,9 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.english_app.R;
 
@@ -21,6 +24,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -29,7 +33,6 @@ public class LoungeFragment extends Fragment {
     private Socket clientSocket;
     private TextView TextView01;
     private EditText EditTextMsg;
-
     public LoungeFragment() {
         // Required empty public constructor
     }
@@ -75,8 +78,17 @@ public class LoungeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_lounge, container, false);
-        TextView01 = view.findViewById(R.id.TextView01);
+//        TextView01 = view.findViewById(R.id.TextView01);
         EditTextMsg = view.findViewById(R.id.EditTextMsg);
+
+        //TODO Phoebe recycler
+        RecyclerView rcvMessage = view.findViewById(R.id.message_rcv);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        rcvMessage.setLayoutManager(linearLayoutManager);
+        MesRcvAdapter mesRcvAdapter = new MesRcvAdapter();
+        mesRcvAdapter.setData(getListMessage());
+        rcvMessage.setAdapter(mesRcvAdapter);
+
 
         ImageButton sendBtn = view.findViewById(R.id.sendBtn);
         sendBtn.setOnClickListener(v -> {
@@ -104,6 +116,12 @@ public class LoungeFragment extends Fragment {
             });
         });
         return view;
+    }
+    private ArrayList<MesRcvModel> getListMessage(){
+        ArrayList<MesRcvModel> mesList = new ArrayList<>();
+        mesList.add(new MesRcvModel("Phoebe","loveApo","2022-12-13 14:32"));
+
+        return mesList;
     }
 
     @Override

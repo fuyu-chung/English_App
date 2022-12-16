@@ -22,7 +22,7 @@ import com.example.english_app.colleges.competition.quiz.VocabQuizActivity;
 import com.example.english_app.mainpage_fragments.CollegeFragment;
 import com.example.english_app.mainpage_fragments.DormFragment;
 import com.example.english_app.mainpage_fragments.LibraryFragment;
-import com.example.english_app.mainpage_fragments.LoungeFragment;
+import com.example.english_app.mainpage_fragments.lounge.LoungeFragment;
 import com.example.english_app.user_basic.LoginActivity;
 import com.example.english_app.user_dorm.UserProfileActivity;
 import com.google.android.material.navigation.NavigationView;

@@ -1,6 +1,5 @@
 package com.example.english_app;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +22,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @NonNull
     @Override
     public RecyclerViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.message_design,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.message_item,parent,false);
         return new ViewHolder(view);
     }
 
