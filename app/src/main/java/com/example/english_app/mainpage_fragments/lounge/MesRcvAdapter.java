@@ -25,12 +25,13 @@ public class MesRcvAdapter extends RecyclerView.Adapter<MesRcvAdapter.MesRcvView
     }
 
     public class MesRcvViewHolder extends RecyclerView.ViewHolder {
-        private TextView userName, userMsg, userMsgTime;
+        private TextView userName, userMsg, userMsgTime,userId;
         ConstraintLayout constraintLayout;
 
         public MesRcvViewHolder(@NonNull View itemView) {
             super(itemView);
             userName = itemView.findViewById(R.id.user_name);
+            userId = itemView.findViewById(R.id.user_id);
             userMsg = itemView.findViewById(R.id.user_msg);
             userMsgTime = itemView.findViewById(R.id.user_msg_time);
             constraintLayout = itemView.findViewById(R.id.msgConstraintLayout);
@@ -45,7 +46,7 @@ public class MesRcvAdapter extends RecyclerView.Adapter<MesRcvAdapter.MesRcvView
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MesRcvAdapter.MesRcvViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MesRcvViewHolder holder, int position) {
         MesRcvModel currentItem = mesList.get(position);
         holder.userName.setText(currentItem.getUserName());
         holder.userId.setText(currentItem.getUserId());
