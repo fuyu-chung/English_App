@@ -142,12 +142,12 @@ public class VocabExamActivity extends AppCompatActivity {
                 level = sharedPreferences1.getInt("position", 0) + 1;
                 System.out.println(level);
 
-                if (level == 11) {
+                if (level == 1) {
                     query = "select Question, optionA, optionB, optionC, optionD, Answer from voc_gsat where Orders = ?";
                     random_question = (int) (Math.random() * 145) + 1;
                     System.out.println(random_question);
                     title = "voc_gsat";
-                } else if (level == 12) {
+                } else if (level == 2) {
                     query = "select Question, optionA, optionB, optionC, optionD, Answer from voc_ast where Orders = ?";
                     random_question = (int) (Math.random() * 160) + 1;
                     System.out.println(random_question);

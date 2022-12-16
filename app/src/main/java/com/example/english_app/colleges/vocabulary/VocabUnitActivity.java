@@ -58,20 +58,22 @@ public class VocabUnitActivity extends AppCompatActivity {
                 Connection connection = DriverManager.getConnection(s1); //建立連線
                 int titles = sharedPreferences.getInt("title", 0);
                 String query = "select Vocabulary, Chinese from voc_elem where Unit = ? ";
-                if (titles == 0) {
-                    query = "select Vocabulary, Chinese from voc_elem where Unit = ? ";
-                }
-                if (titles == 1) {
-                    query = "select Vocabulary, Chinese from voc_jhs where Unit = ? ";
-                }
-                if (titles == 2) {
-                    query = "select Vocabulary, Chinese from voc_shs where Unit = ? ";
-                }
-                if (titles == 3) {
-                    query = "select Vocabulary, Chinese from voc_toeic where Unit = ? ";
-                }
-                if (titles == 4) {
-                    query = "select Vocabulary, Chinese from voc_toefl where Unit = ? ";
+                switch (titles) {
+                    case 0:
+                        query = "select Vocabulary, Chinese from voc_elem where Unit = ? ";
+                        break;
+                    case 1:
+                        query = "select Vocabulary, Chinese from voc_jhs where Unit = ? ";
+                        break;
+                    case 2:
+                        query = "select Vocabulary, Chinese from voc_shs where Unit = ? ";
+                        break;
+                    case 3:
+                        query = "select Vocabulary, Chinese from voc_toeic where Unit = ? ";
+                        break;
+                    case 4:
+                        query = "select Vocabulary, Chinese from voc_toefl where Unit = ? ";
+                        break;
                 }
                 PreparedStatement statement = connection.prepareStatement(query);
                 statement.setString(1, units);
