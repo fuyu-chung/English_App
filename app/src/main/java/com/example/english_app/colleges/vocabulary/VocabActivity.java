@@ -29,7 +29,7 @@ public class VocabActivity extends AppCompatActivity implements UpdateRecyclerVi
         catItem.add(new StaticRcvModel(R.drawable.ic_elem, "國小", "11單元"));
         catItem.add(new StaticRcvModel(R.drawable.ic_jhs, "國中", "25單元"));
         catItem.add(new StaticRcvModel(R.drawable.ic_hs, "高中", "125單元"));
-        catItem.add(new StaticRcvModel(R.drawable.ic_toeic, "多益", "19單元"));
+        catItem.add(new StaticRcvModel(R.drawable.ic_toeic, "多益", "75單元"));
         catItem.add(new StaticRcvModel(R.drawable.ic_toefl, "托福", "51單元"));
 
         RecyclerView rcvVocTitle = findViewById(R.id.voc_rcv_cat);

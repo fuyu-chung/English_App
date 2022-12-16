@@ -167,7 +167,7 @@ public class StaticRcvAdapter extends RecyclerView.Adapter<StaticRcvAdapter.Stat
             //TOEIC
             else if (check_position == 3) {
                 ArrayList<DynamicRcvModel> unitItem = new ArrayList<>();
-                for (int i = 1; i <= 19; i++) {
+                for (int i = 1; i <= 75; i++) {
                     String units;
                     if (i <= 9) {
                         units = "Unit 0" + i;
