@@ -35,14 +35,6 @@
         <menu>
             <group android:checkableBehavior="single">
                 <item
-                    android:id="@+id/nav_share"
-                    android:icon="@drawable/canva_share_icon"
-                    android:title="分享" />
-                <item
-                    android:id="@+id/nav_rateus"
-                    android:icon="@drawable/canva_rateus_icon"
-                    android:title="評分" />
-                <item
                     android:id="@+id/nav_aboutus"
                     android:icon="@drawable/canva_aboutus_icon"
                     android:title="關於我們" />

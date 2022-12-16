@@ -28,7 +28,6 @@ public class MyWrongMainActivity extends AppCompatActivity implements UpdateWron
         ArrayList<WrongStaticRcvModel> catItem = new ArrayList<>();
         catItem.add(new WrongStaticRcvModel(R.drawable.house_vocabulary, "單字錯誤", "7類"));
         catItem.add(new WrongStaticRcvModel(R.drawable.house_phrase, "片語錯誤", "3類"));
-        catItem.add(new WrongStaticRcvModel(R.drawable.house_reading, "閱讀錯誤", "??類"));
         RecyclerView rcvWrongTitle = findViewById(R.id.wrong_rcv_cat);
         WrongStaticRcvAdapter wrongStaticRcvAdapter = new WrongStaticRcvAdapter(catItem, this, this, this);
         rcvWrongTitle.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
@@ -41,8 +40,6 @@ public class MyWrongMainActivity extends AppCompatActivity implements UpdateWron
         wrongItem.add(new WrongDynamicRcvModel("高中單字 - 錯誤題", "#CEB443"));
         wrongItem.add(new WrongDynamicRcvModel("多益單字 - 錯誤題", "#CEB443"));
         wrongItem.add(new WrongDynamicRcvModel("托福單字 - 錯誤題", "#CEB443"));
-        wrongItem.add(new WrongDynamicRcvModel("學測單字 - 錯誤題", "#CEB443"));
-        wrongItem.add(new WrongDynamicRcvModel("指考單字 - 錯誤題", "#CEB443"));
 
         rcvWrongGame = findViewById(R.id.wrong_rcv_unit);
         wrongDynamicRcvAdapter = new WrongDynamicRcvAdapter(wrongItem, this);

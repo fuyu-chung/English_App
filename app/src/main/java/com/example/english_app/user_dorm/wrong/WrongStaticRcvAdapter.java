@@ -92,7 +92,7 @@ public class WrongStaticRcvAdapter extends RecyclerView.Adapter<WrongStaticRcvAd
 
         public WrongStaticRcvViewHolder(@NonNull View itemView) {
             super(itemView);
-            //跟Competoition用一樣的
+            //跟Competition用一樣的
             wrongImage = itemView.findViewById(R.id.comCatImage);
             wrongText = itemView.findViewById(R.id.comCatText);
             wrongText2 = itemView.findViewById(R.id.comHowManyUnitText);
@@ -132,13 +132,6 @@ public class WrongStaticRcvAdapter extends RecyclerView.Adapter<WrongStaticRcvAd
                 wrongItem.add(new WrongDynamicRcvModel("ALL片語 - 錯誤題", "#3FA0B5"));
                 wrongItem.add(new WrongDynamicRcvModel("學測片語 - 錯誤題", "#3FA0B5"));
                 wrongItem.add(new WrongDynamicRcvModel("指考片語 - 錯誤題", "#3FA0B5"));
-                updateWrongRecyclerView.callback(check_position, wrongItem);
-                checkWhatWrongInterface.onClicked(check_position);
-            }
-            //閱讀
-            else if (check_position == 2) {
-                ArrayList<WrongDynamicRcvModel> wrongItem = new ArrayList<>();
-                wrongItem.add(new WrongDynamicRcvModel("閱讀 - 錯誤題", "#CEB443"));
                 updateWrongRecyclerView.callback(check_position, wrongItem);
                 checkWhatWrongInterface.onClicked(check_position);
             }
