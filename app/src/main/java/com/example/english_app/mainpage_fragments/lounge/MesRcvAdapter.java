@@ -48,6 +48,7 @@ public class MesRcvAdapter extends RecyclerView.Adapter<MesRcvAdapter.MesRcvView
     public void onBindViewHolder(@NonNull MesRcvAdapter.MesRcvViewHolder holder, int position) {
         MesRcvModel currentItem = mesList.get(position);
         holder.userName.setText(currentItem.getUserName());
+        holder.userId.setText(currentItem.getUserId());
         holder.userMsg.setText(currentItem.getUserMsg());
         holder.userMsgTime.setText(currentItem.getUerMsgTime());
     }

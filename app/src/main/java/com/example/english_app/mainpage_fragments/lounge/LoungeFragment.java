@@ -9,8 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -24,6 +22,11 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -31,8 +34,8 @@ import java.util.concurrent.TimeUnit;
 
 public class LoungeFragment extends Fragment {
     private Socket clientSocket;
-    private TextView TextView01;
     private EditText EditTextMsg;
+
     public LoungeFragment() {
         // Required empty public constructor
     }
@@ -48,7 +51,8 @@ public class LoungeFragment extends Fragment {
             try {
                 clientSocket = new Socket("20.243.200.205", 1098);
             } catch (IOException e) {
-                getActivity().runOnUiThread(() -> TextView01.setText("伺服器暫時關閉，請稍後再試"));
+                e.printStackTrace();
+                //getActivity().runOnUiThread(() -> TextView01.setText("伺服器暫時關閉，請稍後再試"));
             }
         });
 
@@ -66,7 +70,6 @@ public class LoungeFragment extends Fragment {
                         clientSocket.close();
                         break;
                     }
-                    getActivity().runOnUiThread(() -> TextView01.append(inputMsg + '\n'));
                 }
             } catch (IOException | InterruptedException e) {
                 e.printStackTrace();
@@ -78,7 +81,6 @@ public class LoungeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_lounge, container, false);
-//        TextView01 = view.findViewById(R.id.TextView01);
         EditTextMsg = view.findViewById(R.id.EditTextMsg);
 
         //TODO Phoebe recycler
@@ -117,10 +119,36 @@ public class LoungeFragment extends Fragment {
         });
         return view;
     }
-    private ArrayList<MesRcvModel> getListMessage(){
-        ArrayList<MesRcvModel> mesList = new ArrayList<>();
-        mesList.add(new MesRcvModel("Phoebe","loveApo","2022-12-13 14:32"));
 
+    private ArrayList<MesRcvModel> getListMessage() {
+        ArrayList<MesRcvModel> mesList = new ArrayList<>();
+
+        ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
+        executor.execute(() -> {
+            try {
+                SharedPreferences sharedPreferences = this.requireActivity().getSharedPreferences("User", MODE_PRIVATE);
+                String phone = sharedPreferences.getString("user_phone", "");
+                String s1 = "jdbc:jtds:sqlserver://myenglishserver.database.windows.net:1433/englishapp_db;user=englishapp@myenglishserver;password=English1234@@;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;ssl=request;"; //訪問azure的db的網址
+                Connection connection = DriverManager.getConnection(s1); //建立連線
+                String query = "select account.user_name, account.user_id, message.msg, message.receive_time from message, account where message.user_phone = account.user_phone";
+                PreparedStatement statement = connection.prepareStatement(query);
+                ResultSet resultSet = statement.executeQuery();
+                while (resultSet.next()) {
+                    mesList.add(new MesRcvModel(resultSet.getString(1),resultSet.getInt(2), resultSet.getString(3),resultSet.getTimestamp(4)));
+                }
+                executor.shutdown();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        });
+        try {
+            boolean e = executor.awaitTermination(10, TimeUnit.SECONDS); // await會有錯誤
+            if (!e) {
+                System.out.println("time out");
+            }
+        } catch (InterruptedException i) {
+            i.printStackTrace();
+        }
         return mesList;
     }
 
