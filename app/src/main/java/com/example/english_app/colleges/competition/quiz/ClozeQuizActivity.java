@@ -202,7 +202,6 @@ public class ClozeQuizActivity extends AppCompatActivity {
 
     private void checkAnswer(String userSelection, String ans) throws InterruptedException {
         SharedPreferences sharedPreferences = getSharedPreferences("User", MODE_PRIVATE);
-        SharedPreferences sharedPreferences1 = getSharedPreferences("VocabCompetition", MODE_PRIVATE);
         int temp_score = sharedPreferences.getInt("total", 0);
         if (userSelection.equals(ans)) {
             switch (userSelection) {
