@@ -436,6 +436,9 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
                 Intent intent3 = new Intent(this, LoginActivity.class);
                 startActivity(intent3);
                 break;
+            case R.id.nav_aboutus:
+                Intent intent4 = new Intent(this,AboutUsActivity.class);
+                break;
 
         }
 
