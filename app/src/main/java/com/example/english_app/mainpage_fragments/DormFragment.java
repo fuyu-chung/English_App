@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.english_app.colleges.reading.ReadingActivity;
 import com.example.english_app.user_dorm.MyFriendActivity;
 import com.example.english_app.R;
 import com.example.english_app.user_dorm.MyTaskActivity;
@@ -116,6 +117,10 @@ public class DormFragment extends Fragment {
         });
         imgbtnWrong.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), MyWrongMainActivity.class);
+            startActivity(intent);
+        });
+        imgbtnNote.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), ReadingActivity.class);
             startActivity(intent);
         });
         return view;

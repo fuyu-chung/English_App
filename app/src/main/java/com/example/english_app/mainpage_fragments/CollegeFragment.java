@@ -172,10 +172,7 @@ public class CollegeFragment extends Fragment {
             Intent intent = new Intent(getActivity(), CompeteActivity.class);
             startActivity(intent);
         });
-        readingBtn.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), ReadingActivity.class);
-            startActivity(intent);
-        });
+
 
         return view;
     }
