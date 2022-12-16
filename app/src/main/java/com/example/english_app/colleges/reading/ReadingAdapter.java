@@ -88,7 +88,7 @@ public class ReadingAdapter extends RecyclerView.Adapter<ReadingAdapter.ReadingV
     @Override
     public ReadingAdapter.ReadingViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.news_rcv_item, parent, false);
-        return new ReadingAdapter.ReadingViewHolder(view);
+        return new ReadingViewHolder(view);
     }
 
     @Override
