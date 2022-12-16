@@ -21,7 +21,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.example.english_app.colleges.competition.quiz.VocabQuizActivity;
 import com.example.english_app.mainpage_fragments.CollegeFragment;
 import com.example.english_app.mainpage_fragments.DormFragment;
-import com.example.english_app.mainpage_fragments.Library.LibraryFragment;
 import com.example.english_app.mainpage_fragments.lounge.LoungeFragment;
 import com.example.english_app.user_basic.LoginActivity;
 import com.example.english_app.user_dorm.UserProfileActivity;
@@ -436,10 +435,7 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
                 Intent intent3 = new Intent(this, LoginActivity.class);
                 startActivity(intent3);
                 break;
-            case R.id.nav_aboutus:
-                Intent intent4 = new Intent(this,AboutUsActivity.class);
-                startActivity(intent4);
-                break;
+
 
         }
 

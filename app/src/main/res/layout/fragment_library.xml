@@ -6,14 +6,12 @@
     android:background="@color/bottom_bar_icons_bg05"
     tools:context=".mainpage_fragments.CollegeFragment">
 
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:padding="16dp"
+        android:id="@+id/rcv_library"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="Library fragment"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:textColor="@color/black"/>
+        android:paddingVertical="16dp"/>
 
 
 
