@@ -39,11 +39,11 @@ public class VocabularyRcvAdapter extends RecyclerView.Adapter<VocabularyRcvAdap
             linearLayout = itemView.findViewById(R.id.vocabulary_rcv_linearlayout);
 
             //星星取得按下的position
-            imgBtnStar.setOnClickListener(v -> {
-                checkPosition(getAbsoluteAdapterPosition());
-                System.out.println("star click!" + getAbsoluteAdapterPosition());
-//                System.out.println("item" + VocabularyRcvModel.getText());
-            });
+//            imgBtnStar.setOnClickListener(v -> {
+//                checkPosition(getAbsoluteAdapterPosition());
+//                System.out.println("star click!" + getAbsoluteAdapterPosition());
+////                System.out.println("item" + VocabularyRcvModel.getText());
+//            });
 
         }
 
