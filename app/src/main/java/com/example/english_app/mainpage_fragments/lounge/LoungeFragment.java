@@ -131,7 +131,7 @@ public class LoungeFragment extends Fragment {
             try {
                 String s1 = "jdbc:jtds:sqlserver://myenglishserver.database.windows.net:1433/englishapp_db;user=englishapp@myenglishserver;password=English1234@@;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;ssl=request;"; //訪問azure的db的網址
                 Connection connection = DriverManager.getConnection(s1); //建立連線
-                String query = "select account.user_name, account.user_id, message.msg, message.receive_time from message, account where message.user_phone = account.user_phone";
+                String query = "select account.user_name, account.user_id, message.msg, message.receive_time from message, account where message.user_phone = account.user_phone order by receive_time desc";
                 PreparedStatement statement = connection.prepareStatement(query);
                 ResultSet resultSet = statement.executeQuery();
                 while (resultSet.next()) {
