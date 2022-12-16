@@ -1,8 +1,5 @@
 package com.example.english_app.colleges.competition.quiz;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -12,6 +9,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.english_app.R;
 
@@ -52,7 +52,7 @@ public class ClozeQuizActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progress_bar);
 
         //TODO 鍾鍾鍾鍾鍾鍾鍾鍾
-//        updateQuestion();
+        //updateQuestion();
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialogTheme);
         @SuppressLint({"MissingInflatedId", "LocalSuppress"})
@@ -61,7 +61,7 @@ public class ClozeQuizActivity extends AppCompatActivity {
         );
         builder.setView(view);
         ((TextView) view.findViewById(R.id.dialogTextTitle)).setText("英格利許學校大聲公");
-        ((TextView) view.findViewById(R.id.dailogText)).setText("克漏字一次五題，準備好了嗎?");
+        ((TextView) view.findViewById(R.id.dailogText)).setText("克漏字題組一次五題，準備好了嗎?");
         ((Button) view.findViewById(R.id.noBtn)).setText("取消");
         ((Button) view.findViewById(R.id.yesBtn)).setText("開始遊戲");
         ((ImageView) view.findViewById(R.id.megaPhoneImg)).setImageResource(R.drawable.ic_megaphone);
@@ -85,6 +85,46 @@ public class ClozeQuizActivity extends AppCompatActivity {
         }
 
         alertDialog.show();
+
+        Total = total + " / 5 Question";
+        Score = "Score " + correct + " / 5";
+        runOnUiThread(() -> (qNumber).setText(Total));
+        runOnUiThread(() -> (cNumber).setText(Score));
+
+//        optionA.setOnClickListener(v -> {
+//            try {
+//                //checkAnswer(0, question);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//        });
+
+//        optionB.setOnClickListener(v -> {
+//            try {
+//                checkAnswer(1, question);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//        });
+
+//        optionC.setOnClickListener(v -> {
+//            try {
+//                checkAnswer(2, question);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//        });
+//
+//        optionD.setOnClickListener(v -> {
+//            try {
+//                checkAnswer(3, question);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//        });
+
+
+
 
     }
 }

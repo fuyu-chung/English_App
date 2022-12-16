@@ -46,6 +46,22 @@ public class LoungeFragment extends Fragment {
 
         // 從資源檔裡取得位址後強制轉型成文字方塊
 
+
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_lounge, container, false);
+        EditTextMsg = view.findViewById(R.id.EditTextMsg);
+        //TODO Phoebe recycler
+        RecyclerView rcvMessage = view.findViewById(R.id.message_rcv);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        rcvMessage.setLayoutManager(linearLayoutManager);
+        MesRcvAdapter mesRcvAdapter = new MesRcvAdapter();
+        mesRcvAdapter.setData(getListMessage());
+        rcvMessage.setAdapter(mesRcvAdapter);
+
         ExecutorService executor1 = Executors.newSingleThreadExecutor(); // 建立新的thread
         executor1.execute(() -> {
             try {
@@ -75,22 +91,6 @@ public class LoungeFragment extends Fragment {
                 e.printStackTrace();
             }
         });
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_lounge, container, false);
-        EditTextMsg = view.findViewById(R.id.EditTextMsg);
-
-        //TODO Phoebe recycler
-        RecyclerView rcvMessage = view.findViewById(R.id.message_rcv);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-        rcvMessage.setLayoutManager(linearLayoutManager);
-        MesRcvAdapter mesRcvAdapter = new MesRcvAdapter();
-        mesRcvAdapter.setData(getListMessage());
-        rcvMessage.setAdapter(mesRcvAdapter);
-
 
         ImageButton sendBtn = view.findViewById(R.id.sendBtn);
         sendBtn.setOnClickListener(v -> {
@@ -117,6 +117,7 @@ public class LoungeFragment extends Fragment {
                 }
             });
         });
+
         return view;
     }
 
@@ -126,15 +127,13 @@ public class LoungeFragment extends Fragment {
         ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
         executor.execute(() -> {
             try {
-                SharedPreferences sharedPreferences = this.requireActivity().getSharedPreferences("User", MODE_PRIVATE);
-                String phone = sharedPreferences.getString("user_phone", "");
                 String s1 = "jdbc:jtds:sqlserver://myenglishserver.database.windows.net:1433/englishapp_db;user=englishapp@myenglishserver;password=English1234@@;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;ssl=request;"; //訪問azure的db的網址
                 Connection connection = DriverManager.getConnection(s1); //建立連線
                 String query = "select account.user_name, account.user_id, message.msg, message.receive_time from message, account where message.user_phone = account.user_phone";
                 PreparedStatement statement = connection.prepareStatement(query);
                 ResultSet resultSet = statement.executeQuery();
                 while (resultSet.next()) {
-                    mesList.add(new MesRcvModel(resultSet.getString(1),resultSet.getInt(2), resultSet.getString(3),resultSet.getTimestamp(4)));
+                    mesList.add(new MesRcvModel(resultSet.getString(1), resultSet.getInt(2), resultSet.getString(3), resultSet.getTimestamp(4)));
                 }
                 executor.shutdown();
             } catch (SQLException e) {

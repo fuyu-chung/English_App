@@ -3,18 +3,18 @@ package com.example.english_app.mainpage_fragments.lounge;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-
 import com.example.english_app.R;
-import com.example.english_app.colleges.vocabulary.VocabularyRcvModel;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 
 public class MesRcvAdapter extends RecyclerView.Adapter<MesRcvAdapter.MesRcvViewHolder> {
 
@@ -49,9 +49,11 @@ public class MesRcvAdapter extends RecyclerView.Adapter<MesRcvAdapter.MesRcvView
     public void onBindViewHolder(@NonNull MesRcvViewHolder holder, int position) {
         MesRcvModel currentItem = mesList.get(position);
         holder.userName.setText(currentItem.getUserName());
-        holder.userId.setText(currentItem.getUserId());
+        holder.userId.setText(String.valueOf(currentItem.getUserId()));
         holder.userMsg.setText(currentItem.getUserMsg());
-        holder.userMsgTime.setText(currentItem.getUerMsgTime());
+        Date date = new Date(currentItem.getUerMsgTime().getTime());
+        SimpleDateFormat format = new SimpleDateFormat( "yyyy-MM-dd HH:mm:ss", Locale.TAIWAN);
+        holder.userMsgTime.setText(format.format(currentItem.getUerMsgTime()));
     }
 
     @Override

@@ -96,6 +96,7 @@ public class VocabQuizActivity extends AppCompatActivity {
         Score = "Score " + correct + " / 10";
         runOnUiThread(() -> (qNumber).setText(Total));
         runOnUiThread(() -> (cNumber).setText(Score));
+
         optionA.setOnClickListener(v -> {
             try {
                 checkAnswer(0, question);

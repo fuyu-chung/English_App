@@ -35,7 +35,7 @@ public class FollowerFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        //跟fragment 有關的view 宣告
+        //跟fragment 有關的view 宣告`
         View mView = inflater.inflate(R.layout.fragment_follower, container, false);
         //因為我的recycler view 在linear layout 裡面，所以它去裡面找
         //連接followerAdapter 先宣告變數
