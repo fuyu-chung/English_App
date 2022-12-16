@@ -141,16 +141,7 @@ public class ComStaticRcvAdapter extends RecyclerView.Adapter<ComStaticRcvAdapte
                 updateComRecyclerView.callback(check_position, gameItem);
                 checkWhatComInterface.onClicked(check_position);
             }
-            //指考
             else if (check_position == 2) {
-                ArrayList<ComDynamicRcvModel> gameItem = new ArrayList<>();
-                gameItem.add(new ComDynamicRcvModel("ALL片語", "#CE8443"));
-                gameItem.add(new ComDynamicRcvModel("片語", "#CE8443"));
-                updateComRecyclerView.callback(check_position, gameItem);
-                checkWhatComInterface.onClicked(check_position);
-            }
-            //歷屆
-            else if (check_position == 3) {
                 ArrayList<ComDynamicRcvModel> gameItem = new ArrayList<>();
                 gameItem.add(new ComDynamicRcvModel("學測單字題","#EFB154"));
                 gameItem.add(new ComDynamicRcvModel("指考單字題","#EFB154"));

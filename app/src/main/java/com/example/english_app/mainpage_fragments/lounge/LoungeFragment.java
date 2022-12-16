@@ -57,6 +57,7 @@ public class LoungeFragment extends Fragment {
         //TODO Phoebe recycler
         RecyclerView rcvMessage = view.findViewById(R.id.message_rcv);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        linearLayoutManager.setReverseLayout(true);
         rcvMessage.setLayoutManager(linearLayoutManager);
         MesRcvAdapter mesRcvAdapter = new MesRcvAdapter();
         mesRcvAdapter.setData(getListMessage());
