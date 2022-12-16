@@ -17,6 +17,13 @@
         android:theme="@style/Theme.English_App"
         tools:targetApi="31">
         <activity
+            android:name=".colleges.competition.quiz.MatchingQuizActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".colleges.competition.quiz.ClozeQuizActivity"
             android:exported="false">
             <meta-data

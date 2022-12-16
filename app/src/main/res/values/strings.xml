@@ -86,6 +86,7 @@
     <string name="score">Score 0/10</string>
     <string name="question_number">1/10 Question</string>
     <string name="question_number5">1/5 Question</string>
+    <string name="question_number1">1 Question</string>
 
     <string name="question_1">What technology is used to make telephone calls over the internet possible?</string>
     <string name="question1_A">Bluetooth</string>
