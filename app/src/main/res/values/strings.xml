@@ -148,6 +148,28 @@
     <string name="selected_option">SelectedOption</string>
     <string name="correct_answer">CorrectAnswer</string>
 
+    <!--  About us  -->
+    <string name="abs_Title01">歡迎來到英格利許學校！</string>
+    <string name="abs_article01">這邊有提供單字、片語和閱讀方面的學習，也有測驗的功能能讓大家驗收學習成果，大家透過手機就能輕鬆學習英文。為了增加趣味性，我們也加入了許多社群功能，聽了是不是很心動呢～快跟我們一起快樂學英文吧！</string>
+    <string name="abs_Title02">以下會介紹app提供的服務</string>
+    <string name="abs_Title03">註冊/登入系統</string>
+
+    <string name="abs_Title04">以下會介紹app提供的服務</string>
+    <string name="abs_article02">每個玩家都有屬於自己的帳號，方便紀錄自己的好友、等級等等，忘記密碼的話也有提供更改資料的服務，玩家有能到「我的個人資料」查看所有相關資訊。</string>
+
+    <string name="abs_Title05">四大學院</string>
+    <string name="abs_article03">分別有單字學院、片語學院、閱讀學院和競賽學院，前面三個學院有提供適合各個年齡層的學習資提供大家閲讀，競賽學院則是提供各種類型的題目給大家練習，驗證前面學習的成果。</string>
+
+    <string name="abs_Title06">交誼廳</string>
+    <string name="abs_article04">玩家可以透過交誼廳和其他玩家聊天或是詢問問題（此為公開平台，而非私訊）</string>
+
+    <string name="abs_Title07">我的宿舍</string>
+    <string name="abs_article05">點擊圖像即可到達特定頁面，可點擊左上角的查看提示來查看app提供的服務，包括個人資料查詢、錯誤題目、收藏題目、我的任務及我的好友</string>
+
+    <string name="abs_Title08">圖書館</string>
+    <string name="abs_article06">這邊珍藏了我們推薦的學習資源，讓玩家能有更完善的學習</string>
+
+
 
 
 </resources>
