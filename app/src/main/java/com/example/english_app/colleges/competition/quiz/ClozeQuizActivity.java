@@ -318,23 +318,23 @@ public class ClozeQuizActivity extends AppCompatActivity {
                     break;
             }
 
-            ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
+
 // 建立新的thread
-            executor.execute(() -> {
-                try {
-                    String s1 = "jdbc:jtds:sqlserver://myenglishserver.database.windows.net:1433/englishapp_db;user=englishapp@myenglishserver;password=English1234@@;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;ssl=request;"; //訪問azure的db的網址
-                    Connection connection = DriverManager.getConnection(s1); //建立連線
-                    String query = "insert into wrong values (?, ?, ?, ?);";
-                    PreparedStatement statement = connection.prepareStatement(query);
-                    statement.setString(1, sharedPreferences.getString("user_phone", ""));
-                    statement.setString(2, title);
-                    statement.setString(3, sharedPreferences1.getString("Q", ""));
-                    statement.setString(4, sharedPreferences1.getString("Ans", ""));
-                    statement.executeUpdate();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            });
+//            executor.execute(() -> {
+//                try {
+//                    String s1 = "jdbc:jtds:sqlserver://myenglishserver.database.windows.net:1433/englishapp_db;user=englishapp@myenglishserver;password=English1234@@;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;ssl=request;"; //訪問azure的db的網址
+//                    Connection connection = DriverManager.getConnection(s1); //建立連線
+//                    String query = "insert into wrong values (?, ?, ?, ?);";
+//                    PreparedStatement statement = connection.prepareStatement(query);
+//                    statement.setString(1, sharedPreferences.getString("user_phone", ""));
+//                    statement.setString(2, title);
+//                    statement.setString(3, sharedPreferences1.getString("Q", ""));
+//                    statement.setString(4, sharedPreferences1.getString("Ans", ""));
+//                    statement.executeUpdate();
+//                } catch (SQLException e) {
+//                    e.printStackTrace();
+//                }
+//            });
 
             if (total < 5) {
                 total++;
@@ -360,7 +360,7 @@ public class ClozeQuizActivity extends AppCompatActivity {
 
                 temp_score += score;
                 sharedPreferences.edit().putInt("total", temp_score).apply();
-
+                ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
                 executor.execute(() -> {
                     try {
                         String s1 = "jdbc:jtds:sqlserver://myenglishserver.database.windows.net:1433/englishapp_db;user=englishapp@myenglishserver;password=English1234@@;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;ssl=request;"; //訪問azure的db的網址
