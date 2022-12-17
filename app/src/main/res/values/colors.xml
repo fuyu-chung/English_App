@@ -44,9 +44,9 @@
     <!--    icons select bg colors-->
     <color name="bottom_bar_icons_bg01">#4DFF7777</color>
     <color name="bottom_bar_icons_bg02">#4DFFE277</color>
-    <color name="bottom_bar_icons_bg03">#4DB6FF77</color>
+    <color name="bottom_bar_icons_bg03">#4DC2FF8D</color>
     <color name="bottom_bar_icons_bg04">#4D77FFFF</color>
-    <color name="bottom_bar_icons_bg05">#4DD677FF</color>
+    <color name="bottom_bar_icons_bg05">#4DE3A2FF</color>
 
     <color name="transparent">#00FF9292</color>
 
@@ -114,6 +114,12 @@
     <color name="novel_title">#5E2E2E</color>
     <color name="novel_author">#B67878</color>
     <color name="novel_rcv">#E1B5B5</color>
+
+    <color name="novel_layout01">#FFCDCD</color>
+    <color name="novel_topic_word01">#AF3D3D</color>
+
+    <color name="novel_layout02">#E1B5B5</color>
+    <color name="novel_layout03">#E1B5B5</color>
 
 
 </resources>

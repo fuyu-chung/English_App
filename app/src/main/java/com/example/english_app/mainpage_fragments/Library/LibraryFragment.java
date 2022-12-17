@@ -30,6 +30,9 @@ public class LibraryFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_library, container, false);
 
+        latestBtn = view.findViewById(R.id.novelLatestBtn);
+        childBtn = view.findViewById(R.id.novelChildBtn);
+        animalBtn = view.findViewById(R.id.novelAnimalBtn);
 
 
         latestBtn.setOnClickListener(v -> {

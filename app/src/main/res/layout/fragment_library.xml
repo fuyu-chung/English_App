@@ -81,7 +81,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:background="@drawable/college_layout01"
+                    android:background="@drawable/novel_layout01"
                     android:paddingHorizontal="20dp">
 
                     <TextView
@@ -91,7 +91,7 @@
                         android:fontFamily="@font/baloo"
                         android:paddingTop="30dp"
                         android:text="新網路英文書"
-                        android:textColor="@color/vocab_topic_words"
+                        android:textColor="@color/novel_topic_word01"
                         android:textSize="30sp"
                         android:textStyle="bold" />
 
@@ -106,8 +106,8 @@
                             android:id="@+id/novelLatestBtn"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:backgroundTint="@color/vocab_topic_words"
-                            android:text="進入學院"
+                            android:backgroundTint="@color/novel_topic_word01"
+                            android:text="進去看看"
                             android:textColor="@color/white"
                             android:textSize="16sp"
                             android:textStyle="bold"
@@ -158,7 +158,7 @@
                         android:layout_alignParentEnd="true"
                         android:fontFamily="@font/baloo"
                         android:paddingTop="30dp"
-                        android:text="新網路英文書"
+                        android:text="兒童書籍"
                         android:textColor="@color/vocab_topic_words"
                         android:textSize="30sp"
                         android:textStyle="bold" />
@@ -175,7 +175,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:backgroundTint="@color/vocab_topic_words"
-                            android:text="進入學院"
+                            android:text="進入看看"
                             android:textColor="@color/white"
                             android:textSize="16sp"
                             android:textStyle="bold"
@@ -192,7 +192,7 @@
                     android:layout_alignParentTop="true"
 
                     android:layout_marginTop="-30dp"
-                    app:srcCompat="@drawable/novel_latest" />
+                    app:srcCompat="@drawable/novel_child" />
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
@@ -226,7 +226,7 @@
                         android:layout_alignParentEnd="true"
                         android:fontFamily="@font/baloo"
                         android:paddingTop="30dp"
-                        android:text="新網路英文書"
+                        android:text="動物書籍"
                         android:textColor="@color/vocab_topic_words"
                         android:textSize="30sp"
                         android:textStyle="bold" />
@@ -243,7 +243,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:backgroundTint="@color/vocab_topic_words"
-                            android:text="進入學院"
+                            android:text="進入看看"
                             android:textColor="@color/white"
                             android:textSize="16sp"
                             android:textStyle="bold"
@@ -260,7 +260,7 @@
                     android:layout_alignParentTop="true"
 
                     android:layout_marginTop="-30dp"
-                    app:srcCompat="@drawable/novel_latest" />
+                    app:srcCompat="@drawable/novel_animals" />
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
