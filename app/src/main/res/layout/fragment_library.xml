@@ -1,18 +1,271 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bottom_bar_icons_bg05"
-    tools:context=".mainpage_fragments.CollegeFragment">
+    tools:context=".mainpage_fragments.Library.LibraryFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:padding="16dp"
-        android:id="@+id/rcv_library"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingVertical="16dp"/>
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp">
+
+        <RelativeLayout
+            android:id="@+id/collegeLayoutTop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+
+            android:background="@drawable/college_layout_top"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/pic_fox_with_book"
+                android:layout_width="160dp"
+                android:layout_height="150dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginVertical="16dp"
+                android:layout_marginEnd="16dp"
+                app:srcCompat="@drawable/library_pic" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/collegeText1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="圖書館"
+
+                    android:textColor="@color/bottom_bar_icons_clicked01"
+                    android:textSize="38sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/collegeText2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="歡迎來到圖書館!"
+                    android:textColor="@color/bottom_bar_icons_clicked01"
+                    android:textSize="18sp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/libraryLayout01"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:cardBackgroundColor="@color/transparent"
+            app:cardCornerRadius="20dp"
+
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/collegeLayoutTop">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/college_layout01"
+                    android:paddingHorizontal="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:fontFamily="@font/baloo"
+                        android:paddingTop="30dp"
+                        android:text="新網路英文書"
+                        android:textColor="@color/vocab_topic_words"
+                        android:textSize="30sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="120dp"
+                        android:layout_marginBottom="20dp"
+                        android:gravity="center">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/novelLatestBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/vocab_topic_words"
+                            android:text="進入學院"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            app:cornerRadius="30dp" />
+                    </LinearLayout>
 
 
+                </RelativeLayout>
 
-</FrameLayout>
+                <ImageView
+                    android:layout_width="180dp"
+                    android:layout_height="180dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+
+                    android:layout_marginTop="-30dp"
+                    app:srcCompat="@drawable/novel_latest" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/libraryLayout02"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:cardBackgroundColor="@color/transparent"
+            app:cardCornerRadius="20dp"
+
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/libraryLayout01">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/college_layout01"
+                    android:paddingHorizontal="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:fontFamily="@font/baloo"
+                        android:paddingTop="30dp"
+                        android:text="新網路英文書"
+                        android:textColor="@color/vocab_topic_words"
+                        android:textSize="30sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="120dp"
+                        android:layout_marginBottom="20dp"
+                        android:gravity="center">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/novelChildBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/vocab_topic_words"
+                            android:text="進入學院"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            app:cornerRadius="30dp" />
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="180dp"
+                    android:layout_height="180dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+
+                    android:layout_marginTop="-30dp"
+                    app:srcCompat="@drawable/novel_latest" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/libraryLayout03"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:cardBackgroundColor="@color/transparent"
+            app:cardCornerRadius="20dp"
+
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/libraryLayout02">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/college_layout01"
+                    android:paddingHorizontal="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:fontFamily="@font/baloo"
+                        android:paddingTop="30dp"
+                        android:text="新網路英文書"
+                        android:textColor="@color/vocab_topic_words"
+                        android:textSize="30sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="120dp"
+                        android:layout_marginBottom="20dp"
+                        android:gravity="center">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/novelAnimalBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/vocab_topic_words"
+                            android:text="進入學院"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            app:cornerRadius="30dp" />
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="180dp"
+                    android:layout_height="180dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+
+                    android:layout_marginTop="-30dp"
+                    app:srcCompat="@drawable/novel_latest" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>
