@@ -18,11 +18,15 @@ public class NovelRcvAdapter extends RecyclerView.Adapter<NovelRcvAdapter.NovelR
 
 
     public ArrayList<NovelRcvModel> novelList;
-    int check_StarPosition = -1; //沒有任何星星被選擇
+    int check_position = -1; //沒有任何被選擇
     private int star_click_ct = 0;
 
-    public NovelRcvAdapter(ArrayList<NovelRcvModel> novelList) {
+    CheckWhatNovelClickInterface checkWhatNovelClickInterface;
+
+    public NovelRcvAdapter(ArrayList<NovelRcvModel> novelList, CheckWhatNovelClickInterface checkWhatNovelClickInterface) {
+
         this.novelList = novelList;
+        this.checkWhatNovelClickInterface = checkWhatNovelClickInterface;
     }
 
     public class NovelRcvViewHolder extends RecyclerView.ViewHolder {
@@ -38,15 +42,18 @@ public class NovelRcvAdapter extends RecyclerView.Adapter<NovelRcvAdapter.NovelR
             novelAuthor = itemView.findViewById(R.id.novel_author);
             linearLayout = itemView.findViewById(R.id.novel_rcv_linearlayout);
 
+            linearLayout.setOnClickListener(v -> checkPosition(getAbsoluteAdapterPosition()));
+
+
         }
 
         private void checkPosition(int adapterPosition) {
             if (adapterPosition == RecyclerView.NO_POSITION) {
                 return;
             }
-//            notifyItemChanged(check_StarPosition);
-//            check_StarPosition = adapterPosition;
-//            notifyItemChanged(check_StarPosition);
+            notifyItemChanged(check_position);
+            check_position = adapterPosition;
+            notifyItemChanged(check_position);
         }
     }
 
@@ -68,4 +75,6 @@ public class NovelRcvAdapter extends RecyclerView.Adapter<NovelRcvAdapter.NovelR
     public int getItemCount() {
         return novelList.size();
     }
+
+
 }

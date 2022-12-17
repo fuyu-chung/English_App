@@ -19,7 +19,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-public class NovelAnimalActivity extends AppCompatActivity {
+public class NovelAnimalActivity extends AppCompatActivity implements CheckWhatNovelClickInterface{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +27,7 @@ public class NovelAnimalActivity extends AppCompatActivity {
         setContentView(R.layout.activity_novel_animal);
 
         RecyclerView rcvNovel = findViewById(R.id.novel_rcv);
-        NovelRcvAdapter novelRcvAdapter = new NovelRcvAdapter(getListNovel());
+        NovelRcvAdapter novelRcvAdapter = new NovelRcvAdapter(getListNovel(),this);
         rcvNovel.setAdapter(novelRcvAdapter);
         rcvNovel.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
@@ -63,5 +63,10 @@ public class NovelAnimalActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         return list;
+    }
+
+    @Override
+    public void onNovelTitleClicked(int position) {
+
     }
 }
