@@ -44,7 +44,7 @@ public class NovelChildActivity extends AppCompatActivity {
             try {
                 String s1 = "jdbc:jtds:sqlserver://myenglishserver.database.windows.net:1433/englishapp_db;user=englishapp@myenglishserver;password=English1234@@;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;ssl=request;"; //訪問azure的db的網址
                 Connection connection = DriverManager.getConnection(s1); //建立連線
-                String query = "select Title, Author from novel where Category = ('Children's', 'Fiction')";
+                String query = "select Title, Author from novel where Category = 'Children'";
                 PreparedStatement statement = connection.prepareStatement(query);
                 ResultSet resultSet = statement.executeQuery();
                 while (resultSet.next()) {
