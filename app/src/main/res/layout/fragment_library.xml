@@ -149,7 +149,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:background="@drawable/college_layout01"
+                    android:background="@drawable/novel_layout02"
                     android:paddingHorizontal="20dp">
 
                     <TextView
@@ -159,7 +159,7 @@
                         android:fontFamily="@font/baloo"
                         android:paddingTop="30dp"
                         android:text="兒童書籍"
-                        android:textColor="@color/vocab_topic_words"
+                        android:textColor="@color/novel_topic_word02"
                         android:textSize="30sp"
                         android:textStyle="bold" />
 
@@ -174,7 +174,7 @@
                             android:id="@+id/novelChildBtn"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:backgroundTint="@color/vocab_topic_words"
+                            android:backgroundTint="@color/novel_topic_word02"
                             android:text="進入看看"
                             android:textColor="@color/white"
                             android:textSize="16sp"
@@ -217,7 +217,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:background="@drawable/college_layout01"
+                    android:background="@drawable/novel_layout03"
                     android:paddingHorizontal="20dp">
 
                     <TextView
@@ -227,7 +227,7 @@
                         android:fontFamily="@font/baloo"
                         android:paddingTop="30dp"
                         android:text="動物書籍"
-                        android:textColor="@color/vocab_topic_words"
+                        android:textColor="@color/novel_topic_word02"
                         android:textSize="30sp"
                         android:textStyle="bold" />
 
@@ -242,7 +242,7 @@
                             android:id="@+id/novelAnimalBtn"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:backgroundTint="@color/vocab_topic_words"
+                            android:backgroundTint="@color/novel_topic_word03"
                             android:text="進入看看"
                             android:textColor="@color/white"
                             android:textSize="16sp"

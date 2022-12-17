@@ -118,8 +118,11 @@
     <color name="novel_layout01">#FFCDCD</color>
     <color name="novel_topic_word01">#AF3D3D</color>
 
-    <color name="novel_layout02">#E1B5B5</color>
-    <color name="novel_layout03">#E1B5B5</color>
+    <color name="novel_layout02">#FFCDCD</color>
+    <color name="novel_topic_word02">#AF3D3D</color>
+
+    <color name="novel_layout03">#FFCDCD</color>
+    <color name="novel_topic_word03">#AF3D3D</color>
 
 
 </resources>
