@@ -14,7 +14,7 @@ import com.google.android.material.button.MaterialButton;
 
 public class LibraryFragment extends Fragment {
 
-    private MaterialButton latestBtn, childBtn, animalBtn;
+    private MaterialButton latestBtn, childBtn, animalBtn, literatureBtn;
 
     public LibraryFragment() {
         // Required empty public constructor
@@ -30,6 +30,7 @@ public class LibraryFragment extends Fragment {
         latestBtn = view.findViewById(R.id.novelLatestBtn);
         childBtn = view.findViewById(R.id.novelChildBtn);
         animalBtn = view.findViewById(R.id.novelAnimalBtn);
+        literatureBtn = view.findViewById(R.id.novelLiteratureBtn);
 
 
         latestBtn.setOnClickListener(v -> {
@@ -42,6 +43,10 @@ public class LibraryFragment extends Fragment {
         });
         animalBtn.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), NovelAnimalActivity.class);
+            startActivity(intent);
+        });
+        literatureBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), NovelLiteratureActivity.class);
             startActivity(intent);
         });
 
