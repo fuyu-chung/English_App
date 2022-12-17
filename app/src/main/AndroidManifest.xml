@@ -24,13 +24,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".colleges.competition.quiz.MatchingQuizActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".colleges.competition.quiz.ClozeQuizActivity"
             android:exported="false">
             <meta-data
@@ -81,13 +74,6 @@
         </activity>
         <activity
             android:name=".colleges.competition.quiz.VocabQuizActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".TestActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
