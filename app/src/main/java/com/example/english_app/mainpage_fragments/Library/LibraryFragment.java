@@ -10,8 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.english_app.R;
-import com.example.english_app.mainpage_fragments.Library.Animal.NovelAnimalActivity;
-import com.example.english_app.mainpage_fragments.Library.Child.NovelChildActivity;
 import com.google.android.material.button.MaterialButton;
 
 
@@ -40,11 +38,11 @@ public class LibraryFragment extends Fragment {
             startActivity(intent);
         });
         childBtn.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), NovelActivity.class);
+            Intent intent = new Intent(getActivity(), NovelChildActivity.class);
             startActivity(intent);
         });
         animalBtn.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), NovelActivity.class);
+            Intent intent = new Intent(getActivity(), NovelAnimalActivity.class);
             startActivity(intent);
         });
 

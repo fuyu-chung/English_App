@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/novel_bg"
-    tools:context=".mainpage_fragments.Library.NovelChildActivity">
-
+    tools:context=".mainpage_fragments.Library.NovelLiteratureActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -30,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/baloo"
                 android:textColor="@color/white"
-                android:text="Children's Fiction"
+                android:text="Literature"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"

@@ -109,7 +109,7 @@
     <color name="compete_collapse_topbar">#DF9865</color>
 
     <!--  Novel  -->
-    <color name="novel_bg">#FFE9E9</color>
+    <color name="novel_bg">#FFEFEF</color>
     <color name="novel_top_bar">#7E4949</color>
     <color name="novel_title">#5E2E2E</color>
     <color name="novel_author">#B67878</color>

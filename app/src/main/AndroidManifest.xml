@@ -17,14 +17,21 @@
         android:theme="@style/Theme.English_App"
         tools:targetApi="31" >
         <activity
-            android:name=".mainpage_fragments.Library.Animal.NovelAnimalActivity"
+            android:name=".mainpage_fragments.Library.NovelLiteratureActivity"
             android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".mainpage_fragments.Library.Child.NovelChildActivity"
+            android:name=".mainpage_fragments.Library.NovelAnimalActivity"
+            android:exported="false" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".mainpage_fragments.Library.NovelChildActivity"
             android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
