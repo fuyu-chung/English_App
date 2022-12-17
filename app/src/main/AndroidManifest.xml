@@ -38,7 +38,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".mainpage_fragments.Library.NovelActivity"
+            android:name=".mainpage_fragments.Library.NovelLatestActivity"
             android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
@@ -221,9 +221,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity
-            android:name=".MainActivity"
-            android:exported="false" />
     </application>
 
 </manifest>

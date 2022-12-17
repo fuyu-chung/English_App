@@ -2,12 +2,11 @@ package com.example.english_app.mainpage_fragments.Library;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.fragment.app.Fragment;
 
 import com.example.english_app.R;
 import com.google.android.material.button.MaterialButton;
@@ -34,7 +33,7 @@ public class LibraryFragment extends Fragment {
 
 
         latestBtn.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), NovelActivity.class);
+            Intent intent = new Intent(getActivity(), NovelLatestActivity.class);
             startActivity(intent);
         });
         childBtn.setOnClickListener(v -> {
