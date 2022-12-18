@@ -16,35 +16,18 @@ import java.util.ArrayList;
 
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder> {
 
-//    LoadMore loadMore;
-//    boolean isLoading;
-//    Activity activity;
-//    int visibleThreshold = 10;
-//    int lastVisibileItem;
-
-//    public ReadingAdapter(RecyclerView recyclerView, Activity activity, ArrayList<ReadingModel> NewsList) {
-//        this.activity = activity;
-//        NewsList = NewsList;
-//
-//        final LinearLayoutManager linearLayoutManager =(LinearLayoutManager) recyclerView.getLayoutManager();
-//        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-//            @Override
-//            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
-//                super.onScrolled(recyclerView, dx, dy);
-//                if(!isLoading && )
-//            }
-//        });
-//    }
 
     //list of vocabulary items
     public ArrayList<NewsModel> NewsList;
-    int check_StarPosition = -1; //沒有任何星星被選擇
+    int check_position = -1; //沒有任何星星被選擇
     private int star_click_ct = 0;
 
     public ProgressBar progressBar;
+    CheckWhatNewsClickedInterface checkWhatNewsClickedInterface;
 
-    public NewsAdapter(ArrayList<NewsModel> NewsList) {
+    public NewsAdapter(ArrayList<NewsModel> NewsList, CheckWhatNewsClickedInterface checkWhatNewsClickedInterface) {
         this.NewsList = NewsList;
+        this.checkWhatNewsClickedInterface = checkWhatNewsClickedInterface;
     }
 
     public class NewsViewHolder extends RecyclerView.ViewHolder {
@@ -61,6 +44,8 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
             linearLayout = itemView.findViewById(R.id.news_rcv_linearlayout);
             progressBar = itemView.findViewById(R.id.progress_bar_news);
 
+            linearLayout.setOnClickListener(v -> checkPosition(getAbsoluteAdapterPosition()));
+
             //星星取得按下的position
 //            imgBtnStar.setOnClickListener(v -> {
 //                checkPosition(getAbsoluteAdapterPosition());
@@ -74,9 +59,11 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
             if (adapterPosition == RecyclerView.NO_POSITION) {
                 return;
             }
-            notifyItemChanged(check_StarPosition);
-            check_StarPosition = adapterPosition;
-            notifyItemChanged(check_StarPosition);
+            notifyItemChanged(check_position);
+            check_position = adapterPosition;
+            notifyItemChanged(check_position);
+            checkWhatNewsClickedInterface.onNewsTitleClicked(check_position);
+            check_position = -1;//初始化
         }
     }
 
