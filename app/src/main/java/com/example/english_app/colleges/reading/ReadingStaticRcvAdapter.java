@@ -49,12 +49,16 @@ public class ReadingStaticRcvAdapter extends RecyclerView.Adapter<ReadingStaticR
 
         if (check) {
             ArrayList<ReadingDynamicRcvModel> partItem = new ArrayList<>();
-            partItem.add(new ReadingDynamicRcvModel("part", "#3FA0B5"));
-            partItem.add(new ReadingDynamicRcvModel("part", "#3FA0B5"));
-            partItem.add(new ReadingDynamicRcvModel("part", "#3FA0B5"));
-            partItem.add(new ReadingDynamicRcvModel("part", "#3FA0B5"));
-            partItem.add(new ReadingDynamicRcvModel("part", "#3FA0B5"));
-            partItem.add(new ReadingDynamicRcvModel("part", "#3FA0B5"));
+            partItem.add(new ReadingDynamicRcvModel("World", "#3FA0B5"));
+            partItem.add(new ReadingDynamicRcvModel("Environment", "#3FA0B5"));
+            partItem.add(new ReadingDynamicRcvModel("Society", "#3FA0B5"));
+            partItem.add(new ReadingDynamicRcvModel("Politics", "#3FA0B5"));
+            partItem.add(new ReadingDynamicRcvModel("Opinion", "#3FA0B5"));
+            partItem.add(new ReadingDynamicRcvModel("Food Safety and Health", "#3FA0B5"));
+            partItem.add(new ReadingDynamicRcvModel("Sports and Entertainment", "#3FA0B5"));
+            partItem.add(new ReadingDynamicRcvModel("Travel and Cuisine", "#3FA0B5"));
+            partItem.add(new ReadingDynamicRcvModel("Photo of the day", "#3FA0B5"));
+            partItem.add(new ReadingDynamicRcvModel("Others", "#3FA0B5"));
 
             updateNewsRcv.callback(check_position, partItem);
             check = false;
@@ -105,13 +109,16 @@ public class ReadingStaticRcvAdapter extends RecyclerView.Adapter<ReadingStaticR
             if (check_position == 0) {
                 ArrayList<ReadingDynamicRcvModel> partItem = new ArrayList<>();
 
-                partItem.add(new ReadingDynamicRcvModel("part", "#3FA0B5"));
-                partItem.add(new ReadingDynamicRcvModel("part", "#3FA0B5"));
-                partItem.add(new ReadingDynamicRcvModel("part", "#3FA0B5"));
-                partItem.add(new ReadingDynamicRcvModel("part", "#3FA0B5"));
-                partItem.add(new ReadingDynamicRcvModel("part", "#3FA0B5"));
-                partItem.add(new ReadingDynamicRcvModel("part", "#3FA0B5"));
-                partItem.add(new ReadingDynamicRcvModel("part", "#3FA0B5"));
+                partItem.add(new ReadingDynamicRcvModel("World", "#3FA0B5"));
+                partItem.add(new ReadingDynamicRcvModel("Environment", "#3FA0B5"));
+                partItem.add(new ReadingDynamicRcvModel("Society", "#3FA0B5"));
+                partItem.add(new ReadingDynamicRcvModel("Politics", "#3FA0B5"));
+                partItem.add(new ReadingDynamicRcvModel("Opinion", "#3FA0B5"));
+                partItem.add(new ReadingDynamicRcvModel("Food Safety and Health", "#3FA0B5"));
+                partItem.add(new ReadingDynamicRcvModel("Sports and Entertainment", "#3FA0B5"));
+                partItem.add(new ReadingDynamicRcvModel("Travel and Cuisine", "#3FA0B5"));
+                partItem.add(new ReadingDynamicRcvModel("Photo of the day", "#3FA0B5"));
+                partItem.add(new ReadingDynamicRcvModel("Others", "#3FA0B5"));
 
                 updateNewsRcv.callback(check_position, partItem);
                 checkWhatNewsInterface.onNewsClicked(check_position);

@@ -13,6 +13,8 @@ import com.example.english_app.colleges.competition.competitionInterface.CheckWh
 import com.example.english_app.colleges.competition.competitionInterface.RecyclerComViewInterface;
 import com.example.english_app.colleges.competition.competitionInterface.UpdateComRecyclerView;
 import com.example.english_app.colleges.competition.quiz.ClozeQuizActivity;
+import com.example.english_app.colleges.competition.quiz.MatchingTenQuizActivity;
+import com.example.english_app.colleges.competition.quiz.MatchingTwelveQuizActivity;
 import com.example.english_app.colleges.competition.quiz.PhraseQuizActivity;
 import com.example.english_app.colleges.competition.quiz.VocabExamActivity;
 import com.example.english_app.colleges.competition.quiz.VocabQuizActivity;
@@ -97,8 +99,15 @@ public class CompeteActivity extends AppCompatActivity implements UpdateComRecyc
                 intent = new Intent(CompeteActivity.this, ClozeQuizActivity.class);
                 startActivity(intent);
             }
-            else if(position == 3){//matching
-
+            else if(position == 3){//matching 10學測
+                Intent intent;
+                intent = new Intent(CompeteActivity.this, MatchingTenQuizActivity.class);
+                startActivity(intent);
+            }
+            else if(position == 4){//matching 12學測
+                Intent intent;
+                intent = new Intent(CompeteActivity.this, MatchingTwelveQuizActivity.class);
+                startActivity(intent);
             }
 
         }
