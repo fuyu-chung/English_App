@@ -146,7 +146,8 @@ public class ComStaticRcvAdapter extends RecyclerView.Adapter<ComStaticRcvAdapte
                 gameItem.add(new ComDynamicRcvModel("學測單字題","#EFB154"));
                 gameItem.add(new ComDynamicRcvModel("指考單字題","#EFB154"));
                 gameItem.add(new ComDynamicRcvModel("學測/指考克漏字","#EFB154"));
-                gameItem.add(new ComDynamicRcvModel("學測/指考文意選填","#EFB154"));
+                gameItem.add(new ComDynamicRcvModel("學測文意選填","#EFB154"));
+                gameItem.add(new ComDynamicRcvModel("指考文意選填","#EFB154"));
                 updateComRecyclerView.callback(check_position, gameItem);
                 checkWhatComInterface.onClicked(check_position);
 
