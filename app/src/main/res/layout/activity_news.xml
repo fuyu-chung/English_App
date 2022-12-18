@@ -29,6 +29,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/baloo"
                 android:textColor="@color/white"
+                android:text="The New York Times"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"

@@ -116,7 +116,7 @@ public class LoginActivity extends AppCompatActivity {
         registerBtn.setOnClickListener(v -> {
             ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
             executor.execute(() -> {
-                Intent intent = new Intent(this, PhraseActivity.class);
+                Intent intent = new Intent(this, RegisterActivity.class);
                 startActivity(intent);
                 executor.shutdown();
             });
