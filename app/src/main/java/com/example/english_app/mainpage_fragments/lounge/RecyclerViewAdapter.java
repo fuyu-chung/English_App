@@ -1,4 +1,4 @@
-package com.example.english_app;
+package com.example.english_app.mainpage_fragments.lounge;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,6 +7,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.english_app.R;
 
 import java.util.ArrayList;
 

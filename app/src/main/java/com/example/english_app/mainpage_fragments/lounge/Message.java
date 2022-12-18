@@ -1,4 +1,4 @@
-package com.example.english_app;
+package com.example.english_app.mainpage_fragments.lounge;
 
 public class Message {
     private String userName;
