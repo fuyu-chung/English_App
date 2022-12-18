@@ -88,9 +88,11 @@ public class NovelLatestActivity extends AppCompatActivity implements CheckWhatN
 
     @Override
     public void onNovelTitleClicked(int position) {
-        Intent intent = new Intent(Intent.ACTION_VIEW);
         String url = url_list.get(position);
-        intent.setData(Uri.parse(url));
-        startActivity(intent);
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+        System.out.println("POSITION: "+ position);
+        System.out.println("url: "+ url);
+//        browserIntent.setData(Uri.parse(url));
+        startActivity(browserIntent);
     }
 }

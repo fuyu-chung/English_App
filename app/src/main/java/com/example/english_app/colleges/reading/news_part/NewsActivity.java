@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.ImageView;
 
@@ -19,7 +21,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-public class NewsActivity extends AppCompatActivity {
+public class NewsActivity extends AppCompatActivity implements CheckWhatNewsClickedInterface {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +29,7 @@ public class NewsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_news);
 
         RecyclerView rcvVocabulary = findViewById(R.id.reading_rcv_news_part);
-        NewsAdapter newsAdapter = new NewsAdapter(getListNews());
+        NewsAdapter newsAdapter = new NewsAdapter(getListNews(),this);
         rcvVocabulary.setAdapter(newsAdapter);
         rcvVocabulary.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
@@ -63,5 +65,14 @@ public class NewsActivity extends AppCompatActivity {
         }
         return list;
 
+    }
+
+    @Override
+    public void onNewsTitleClicked(int position) {
+        String url = url_list.get(position);
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+        System.out.println("POSITION: "+ position);
+        System.out.println("url: "+ url);
+        startActivity(browserIntent);
     }
 }

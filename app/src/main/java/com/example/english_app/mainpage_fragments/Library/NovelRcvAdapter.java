@@ -54,6 +54,8 @@ public class NovelRcvAdapter extends RecyclerView.Adapter<NovelRcvAdapter.NovelR
             notifyItemChanged(check_position);
             check_position = adapterPosition;
             notifyItemChanged(check_position);
+            checkWhatNovelClickInterface.onNovelTitleClicked(check_position);
+            check_position = -1;//初始化
         }
     }
 
