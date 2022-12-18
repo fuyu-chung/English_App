@@ -49,7 +49,7 @@ public class UserProfileActivity extends AppCompatActivity {
         int level;
         int balance;
         while (achv > 250 * (k * k + k)) {
-            k ++;
+            k++;
         }
         level = k;
         balance = (250 * (k * k + k)) - achv;
@@ -73,20 +73,18 @@ public class UserProfileActivity extends AppCompatActivity {
                 int following, follower;
                 String followings, followers;
 
-                if (resultSet1.next()){
+                if (resultSet1.next()) {
                     following = resultSet1.getInt(1);
-                }
-                else {
+                } else {
                     following = 0;
                 }
                 followings = Integer.toString(following);
 
                 statement2.setInt(1, id);
                 ResultSet resultSet2 = statement2.executeQuery(); // 把結果存在resultSet
-                if (resultSet2.next()){
+                if (resultSet2.next()) {
                     follower = resultSet2.getInt(1);
-                }
-                else {
+                } else {
                     follower = 0;
                 }
                 followers = Integer.toString(follower);
