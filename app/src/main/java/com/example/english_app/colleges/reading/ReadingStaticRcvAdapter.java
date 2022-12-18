@@ -105,8 +105,8 @@ public class ReadingStaticRcvAdapter extends RecyclerView.Adapter<ReadingStaticR
             notifyItemChanged(check_position);
 
 
-            //
-            if (check_position == 0) {
+            //taiwan news
+            if (check_position == 0) {//taiwan news
                 ArrayList<ReadingDynamicRcvModel> partItem = new ArrayList<>();
 
                 partItem.add(new ReadingDynamicRcvModel("World", "#3FA0B5"));
@@ -123,7 +123,7 @@ public class ReadingStaticRcvAdapter extends RecyclerView.Adapter<ReadingStaticR
                 updateNewsRcv.callback(check_position, partItem);
                 checkWhatNewsInterface.onNewsClicked(check_position);
             }
-            //學測
+            //The New York Times
             else if (check_position == 1) {
                 ArrayList<ReadingDynamicRcvModel> partItem = new ArrayList<>();
                 partItem.add(new ReadingDynamicRcvModel("part", "#9EBD8B"));
@@ -134,7 +134,34 @@ public class ReadingStaticRcvAdapter extends RecyclerView.Adapter<ReadingStaticR
                 partItem.add(new ReadingDynamicRcvModel("part", "#9EBD8B"));
                 updateNewsRcv.callback(check_position, partItem);
                 checkWhatNewsInterface.onNewsClicked(check_position);
-            } else if (check_position == 2) {
+            }
+            //BBC
+            else if (check_position == 2) {
+                ArrayList<ReadingDynamicRcvModel> partItem = new ArrayList<>();
+                partItem.add(new ReadingDynamicRcvModel("part", "#3FA0B5"));
+                partItem.add(new ReadingDynamicRcvModel("part", "#3FA0B5"));
+                partItem.add(new ReadingDynamicRcvModel("part", "#3FA0B5"));
+                partItem.add(new ReadingDynamicRcvModel("part", "#3FA0B5"));
+                partItem.add(new ReadingDynamicRcvModel("part", "#3FA0B5"));
+                partItem.add(new ReadingDynamicRcvModel("part", "#3FA0B5"));
+                updateNewsRcv.callback(check_position, partItem);
+                checkWhatNewsInterface.onNewsClicked(check_position);
+
+            }
+            //CNN
+            else if (check_position == 3) {
+                ArrayList<ReadingDynamicRcvModel> partItem = new ArrayList<>();
+                partItem.add(new ReadingDynamicRcvModel("part", "#9EBD8B"));
+                partItem.add(new ReadingDynamicRcvModel("part", "#9EBD8B"));
+                partItem.add(new ReadingDynamicRcvModel("part", "#9EBD8B"));
+                partItem.add(new ReadingDynamicRcvModel("part", "#9EBD8B"));
+                partItem.add(new ReadingDynamicRcvModel("part", "#9EBD8B"));
+                partItem.add(new ReadingDynamicRcvModel("part", "#9EBD8B"));
+                updateNewsRcv.callback(check_position, partItem);
+                checkWhatNewsInterface.onNewsClicked(check_position);
+            }
+            //Huffpost
+            else if (check_position == 4) {
                 ArrayList<ReadingDynamicRcvModel> partItem = new ArrayList<>();
                 partItem.add(new ReadingDynamicRcvModel("part", "#3FA0B5"));
                 partItem.add(new ReadingDynamicRcvModel("part", "#3FA0B5"));
