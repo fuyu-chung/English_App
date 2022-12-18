@@ -62,13 +62,13 @@
                         android:id="@+id/random_dice"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        app:layout_constraintBottom_toBottomOf="@id/user_photo"
-                        app:layout_constraintStart_toEndOf="@id/user_photo"
-                        android:backgroundTint="@color/transparent"
-                        android:src="@drawable/dice"
-                        android:elevation="100dp"
                         android:layout_marginStart="-35dp"
-                        android:layout_marginBottom="-5dp"/>
+                        android:layout_marginBottom="-5dp"
+                        android:backgroundTint="@color/transparent"
+                        android:elevation="100dp"
+                        android:src="@drawable/dice"
+                        app:layout_constraintBottom_toBottomOf="@id/user_photo"
+                        app:layout_constraintStart_toEndOf="@id/user_photo" />
 
                     <TextView
                         android:id="@+id/user_name"

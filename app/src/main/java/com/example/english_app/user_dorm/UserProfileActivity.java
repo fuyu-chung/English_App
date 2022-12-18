@@ -2,6 +2,7 @@ package com.example.english_app.user_dorm;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -22,6 +23,7 @@ public class UserProfileActivity extends AppCompatActivity {
     //show user's info
     TextView userName, userID, userPhone, userBirthday, user_password, user_friend, user_achv, user_level;
     ImageView image;
+    ImageButton change;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,7 @@ public class UserProfileActivity extends AppCompatActivity {
         user_friend = findViewById(R.id.user_friend);
         user_achv = findViewById(R.id.user_achv);
         user_level = findViewById(R.id.user_level);
+        change = findViewById(R.id.random_dice);
 
         SharedPreferences sharedPreferences = getSharedPreferences("User", MODE_PRIVATE);
         int id = sharedPreferences.getInt("user_id", 0);
@@ -113,6 +116,44 @@ public class UserProfileActivity extends AppCompatActivity {
         if (imageNum == 5) {
             image.setImageResource(R.drawable.pic_hedge);
         }
+
+        change.setOnClickListener(v -> {
+            ExecutorService executor1 = Executors.newSingleThreadExecutor(); // 建立新的thread
+            executor1.execute(() -> {
+                try {//試跑try有問題就跑catch
+                    String phone = sharedPreferences.getString("user_phone", "");
+                    int random_image = (int) (Math.random() * 5) + 1;
+                    String s1 = "jdbc:jtds:sqlserver://myenglishserver.database.windows.net:1433/englishapp_db;user=englishapp@myenglishserver;password=English1234@@;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;ssl=request;"; //訪問azure的db的網址
+                    Connection connection = DriverManager.getConnection(s1); //建立連線
+                    String query = "update account set image = ? where user_phone = ?";
+                    PreparedStatement statement = connection.prepareStatement(query);
+                    statement.setInt(1, random_image);
+                    statement.setString(2, phone);
+                    int resultSet = statement.executeUpdate();
+                    if (resultSet != 0) {
+                        if (random_image == 1) {
+                            image.setImageResource(R.drawable.pic_penguin);
+                        }
+                        if (random_image == 2) {
+                            image.setImageResource(R.drawable.pic_dino);
+                        }
+                        if (random_image == 3) {
+                            image.setImageResource(R.drawable.pic_duck);
+                        }
+                        if (random_image == 4) {
+                            image.setImageResource(R.drawable.pic_fox);
+                        }
+                        if (random_image == 5) {
+                            image.setImageResource(R.drawable.pic_hedge);
+                        }
+                    }
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+
+
+            });
+        });
 
         String name = sharedPreferences.getString("user_name", "");
         runOnUiThread(() -> (userName).setText(name));
