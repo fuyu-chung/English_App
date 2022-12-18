@@ -46,12 +46,6 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
 
             linearLayout.setOnClickListener(v -> checkPosition(getAbsoluteAdapterPosition()));
 
-            //星星取得按下的position
-//            imgBtnStar.setOnClickListener(v -> {
-//                checkPosition(getAbsoluteAdapterPosition());
-//                System.out.println("star click!" + getAbsoluteAdapterPosition());
-////                System.out.println("item" + ReadingModel.getText());
-//            });
 
         }
 

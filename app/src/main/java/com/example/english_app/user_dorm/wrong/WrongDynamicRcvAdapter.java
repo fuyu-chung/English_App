@@ -36,7 +36,7 @@ public class WrongDynamicRcvAdapter extends RecyclerView.Adapter<WrongDynamicRcv
 
         public WrongDynamicRcvHolder(@NonNull View itemView) {
             super(itemView);
-            // TODO change here too
+
             textView = itemView.findViewById(R.id.voc_rcv_unitText);
             constraintLayout = itemView.findViewById(R.id.voc_unit_layout);
             constraintLayout.setOnClickListener(v -> checkPosition(getAbsoluteAdapterPosition()));
@@ -66,7 +66,7 @@ public class WrongDynamicRcvAdapter extends RecyclerView.Adapter<WrongDynamicRcv
     @NonNull
     @Override
     public WrongDynamicRcvAdapter.WrongDynamicRcvHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        // TODO : make layout for game enter
+
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.dynamic_rcv_item, parent, false);
         return new WrongDynamicRcvHolder(view);
     }
@@ -76,7 +76,7 @@ public class WrongDynamicRcvAdapter extends RecyclerView.Adapter<WrongDynamicRcv
         WrongDynamicRcvModel currentItem = wDynamicRcvModels.get(position);
         holder.textView.setText(currentItem.getUnitText());
         holder.textView.setTextColor(Color.parseColor(currentItem.getColor()));//改變顏色
-        // TODO : change game rcv bg
+
         holder.constraintLayout.setBackgroundResource(R.drawable.voc_unit_rcv_bg);
     }
 

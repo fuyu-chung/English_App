@@ -21,8 +21,11 @@ public class VocabularyRcvAdapter extends RecyclerView.Adapter<VocabularyRcvAdap
     int check_StarPosition = -1; //沒有任何星星被選擇
     private int star_click_ct = 0;
 
-    public VocabularyRcvAdapter(ArrayList<VocabularyRcvModel> vocabularyList) {
+    CheckStarClickInterface checkStarClickInterface;
+
+    public VocabularyRcvAdapter(ArrayList<VocabularyRcvModel> vocabularyList, CheckStarClickInterface checkStarClickInterface) {
         this.vocabularyList = vocabularyList;
+        this.checkStarClickInterface = checkStarClickInterface;
     }
 
     public class VocabularyRcvViewHolder extends RecyclerView.ViewHolder {
@@ -37,6 +40,13 @@ public class VocabularyRcvAdapter extends RecyclerView.Adapter<VocabularyRcvAdap
             vocText = itemView.findViewById(R.id.vocabulary);
             chText = itemView.findViewById(R.id.chinese);
             linearLayout = itemView.findViewById(R.id.vocabulary_rcv_linearlayout);
+            imgBtnStar = itemView.findViewById(R.id.vocabulary_collection_btn);
+
+            //星星取得按下的position
+            imgBtnStar.setOnClickListener(v -> {
+                checkPosition(getAbsoluteAdapterPosition());
+                System.out.println("star click!voc " + getAbsoluteAdapterPosition());
+            });
 
 
         }
@@ -48,6 +58,10 @@ public class VocabularyRcvAdapter extends RecyclerView.Adapter<VocabularyRcvAdap
             notifyItemChanged(check_StarPosition);
             check_StarPosition = adapterPosition;
             notifyItemChanged(check_StarPosition);
+            checkStarClickInterface.onStarClicked(check_StarPosition);
+            check_StarPosition = -1;
+
+
         }
     }
 

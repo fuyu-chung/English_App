@@ -85,7 +85,7 @@ public class LoungeFragment extends Fragment {
         });
 
         EditTextMsg = view.findViewById(R.id.EditTextMsg);
-        //TODO Phoebe recycler
+
         RecyclerView rcvMessage = view.findViewById(R.id.message_rcv);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         linearLayoutManager.setReverseLayout(true);

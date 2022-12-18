@@ -62,7 +62,7 @@ public class ClozeQuizActivity extends AppCompatActivity {
         cNumber = findViewById(R.id.score);
         progressBar = findViewById(R.id.progress_bar);
 
-        //TODO 鍾鍾鍾鍾鍾鍾鍾鍾
+
         updateQuestion();
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialogTheme);

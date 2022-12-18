@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.english_app.R;
+import com.example.english_app.colleges.vocabulary.CheckStarClickInterface;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -21,7 +22,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-public class PhraseUnitActivity extends AppCompatActivity {
+public class PhraseUnitActivity extends AppCompatActivity implements CheckStarClickInterface {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +30,7 @@ public class PhraseUnitActivity extends AppCompatActivity {
         setContentView(R.layout.activity_phrase_unit);
 
         RecyclerView rcvPhraseUnit = findViewById(R.id.phrase_rcv);
-        PhraseRcvAdapter phraseRcvAdapter = new PhraseRcvAdapter(getListPhrase());
+        PhraseRcvAdapter phraseRcvAdapter = new PhraseRcvAdapter(getListPhrase(),this);
         rcvPhraseUnit.setAdapter(phraseRcvAdapter);
         rcvPhraseUnit.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
@@ -88,5 +89,11 @@ public class PhraseUnitActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         return list;
+    }
+
+    @Override
+    public void onStarClicked(int position) {
+        //TODO 鍾~~~~~~~~~~~~~~~~
+        //voc phrase 網址方法一樣
     }
 }

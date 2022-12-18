@@ -28,7 +28,6 @@ public class MyCollectionMainActivity extends AppCompatActivity implements Updat
         ArrayList<CollectionStaticRcvModel> colItem = new ArrayList<>();
         colItem.add(new CollectionStaticRcvModel(R.drawable.house_vocabulary, "單字學院"));
         colItem.add(new CollectionStaticRcvModel(R.drawable.house_phrase, "片語學院"));
-        colItem.add(new CollectionStaticRcvModel(R.drawable.house_competition, "競賽學院"));
 
         RecyclerView rcvColTitle = findViewById(R.id.coll_rcv_01);
         CollectionStaticRcvAdapter cStaticRcvAdapter = new CollectionStaticRcvAdapter(colItem, this, this, this);

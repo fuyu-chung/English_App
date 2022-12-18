@@ -69,10 +69,10 @@ public class NewsActivity extends AppCompatActivity implements CheckWhatNewsClic
 
     @Override
     public void onNewsTitleClicked(int position) {
-        String url = url_list.get(position);
-        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-        System.out.println("POSITION: "+ position);
-        System.out.println("url: "+ url);
-        startActivity(browserIntent);
+//        String url = url_list.get(position);
+//        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+//        System.out.println("POSITION: "+ position);
+//        System.out.println("url: "+ url);
+//        startActivity(browserIntent);
     }
 }

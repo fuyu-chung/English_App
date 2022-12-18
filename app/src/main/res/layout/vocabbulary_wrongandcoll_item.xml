@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/transparent"
-    android:id="@+id/vocabulary_rcv_linearlayout">
+    android:id="@+id/vocabulary_wrongandcoll_linearlayout">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -17,7 +17,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/vocabulary_collection_btn"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -51,37 +51,37 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-<!--        <androidx.appcompat.widget.AppCompatButton-->
+        <!--        <androidx.appcompat.widget.AppCompatButton-->
+        <!--            android:id="@+id/vocabulary_collection_btn"-->
+        <!--            android:layout_width="80dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            app:icon="@drawable/star_click"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            />-->
+        <!--        <com.google.android.material.button.MaterialButton-->
+        <!--            android:id="@+id/vocabulary_collection_btn"-->
+        <!--            android:layout_width="80dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:backgroundTint="@color/vocabulary"-->
+        <!--            app:icon="@drawable/star_click"-->
+        <!--            app:iconTint="#ffc44d"-->
+        <!--            app:iconGravity="end"-->
+        <!--            android:paddingEnd="2dp"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"/>-->
+
+<!--        <ImageButton-->
 <!--            android:id="@+id/vocabulary_collection_btn"-->
 <!--            android:layout_width="80dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            app:icon="@drawable/star_click"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            />-->
-<!--        <com.google.android.material.button.MaterialButton-->
-<!--            android:id="@+id/vocabulary_collection_btn"-->
-<!--            android:layout_width="80dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:backgroundTint="@color/vocabulary"-->
-<!--            app:icon="@drawable/star_click"-->
-<!--            app:iconTint="#ffc44d"-->
-<!--            app:iconGravity="end"-->
-<!--            android:paddingEnd="2dp"-->
+<!--            android:layout_height="80dp"-->
+<!--            android:background="@color/transparent"-->
+<!--            android:src="@drawable/star_coll"-->
 <!--            app:layout_constraintEnd_toEndOf="parent"-->
 <!--            app:layout_constraintTop_toTopOf="parent"-->
 <!--            app:layout_constraintBottom_toBottomOf="parent"/>-->
-
-        <ImageButton
-            android:id="@+id/vocabulary_collection_btn"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:background="@color/transparent"
-            android:src="@drawable/star_coll"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
 
 
         <View
@@ -93,6 +93,5 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/v_and_c_layout"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </LinearLayout>

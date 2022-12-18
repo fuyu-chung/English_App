@@ -11,18 +11,22 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.english_app.R;
+import com.example.english_app.colleges.vocabulary.CheckStarClickInterface;
 
 import java.util.ArrayList;
 
 public class PhraseRcvAdapter extends RecyclerView.Adapter<PhraseRcvAdapter.VocabularyRcvViewHolder> {
 
     //list of vocabulary items
-    public ArrayList<PhraseRcvModel> vocabularyList;
+    public ArrayList<PhraseRcvModel> phraseList;
     int check_StarPosition = -1; //沒有任何星星被選擇
     private int star_click_ct = 0;
 
-    public PhraseRcvAdapter(ArrayList<PhraseRcvModel> vocabularyList) {
-        this.vocabularyList = vocabularyList;
+    CheckStarClickInterface checkStarClickInterface;
+
+    public PhraseRcvAdapter(ArrayList<PhraseRcvModel> phraseList, CheckStarClickInterface checkStarClickInterface) {
+        this.phraseList = phraseList;
+        this.checkStarClickInterface = checkStarClickInterface;
     }
 
     public class VocabularyRcvViewHolder extends RecyclerView.ViewHolder {
@@ -37,10 +41,13 @@ public class PhraseRcvAdapter extends RecyclerView.Adapter<PhraseRcvAdapter.Voca
             vocText = itemView.findViewById(R.id.vocabulary);
             chText = itemView.findViewById(R.id.chinese);
             linearLayout = itemView.findViewById(R.id.vocabulary_rcv_linearlayout);
-//            imgBtnStar = itemView.findViewById(R.id.vocabulary_collection_btn);
+            imgBtnStar = itemView.findViewById(R.id.vocabulary_collection_btn);
 
             //星星取得按下的position
-//            imgBtnStar.setOnClickListener(v -> checkPosition(getAbsoluteAdapterPosition()));
+            imgBtnStar.setOnClickListener(v -> {
+                checkPosition(getAbsoluteAdapterPosition());
+                System.out.println("star click!phrase " + getAbsoluteAdapterPosition());
+            });
 
         }
 
@@ -51,6 +58,8 @@ public class PhraseRcvAdapter extends RecyclerView.Adapter<PhraseRcvAdapter.Voca
             notifyItemChanged(check_StarPosition);
             check_StarPosition = adapterPosition;
             notifyItemChanged(check_StarPosition);
+            checkStarClickInterface.onStarClicked(check_StarPosition);
+            check_StarPosition = -1;
         }
     }
 
@@ -63,7 +72,7 @@ public class PhraseRcvAdapter extends RecyclerView.Adapter<PhraseRcvAdapter.Voca
 
     @Override
     public void onBindViewHolder(@NonNull PhraseRcvAdapter.VocabularyRcvViewHolder holder, int position) {
-        PhraseRcvModel currentItem = vocabularyList.get(position);
+        PhraseRcvModel currentItem = phraseList.get(position);
         holder.vocText.setText(currentItem.getVocText());
         holder.chText.setText(currentItem.getChText());
         //btn
@@ -77,7 +86,7 @@ public class PhraseRcvAdapter extends RecyclerView.Adapter<PhraseRcvAdapter.Voca
 
     @Override
     public int getItemCount() {
-        return vocabularyList.size();
+        return phraseList.size();
     }
 }
 

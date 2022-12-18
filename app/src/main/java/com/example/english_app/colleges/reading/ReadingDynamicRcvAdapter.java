@@ -72,7 +72,7 @@ public class ReadingDynamicRcvAdapter extends RecyclerView.Adapter<ReadingDynami
         ReadingDynamicRcvModel currentItem = readingDynamicRcvModels.get(position);
         holder.partTextView.setText(currentItem.getUnitText());
         holder.partTextView.setTextColor(Color.parseColor(currentItem.getColor()));//改變顏色
-        // TODO : change game rcv bg
+
         holder.constraintLayout.setBackgroundResource(R.drawable.voc_unit_rcv_bg);
     }
 

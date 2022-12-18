@@ -19,8 +19,6 @@ import java.util.ArrayList;
 public class WrongRcvAdapter extends RecyclerView.Adapter<WrongRcvAdapter.WrongRcvViewHolder> {
     public ArrayList<WrongRcvModel> wrongList;
     int check_StarPosition = -1;
-    private int star_click_ct = 0;
-
     public WrongRcvAdapter(ArrayList<WrongRcvModel> wrongList) {
         this.wrongList = wrongList;
     }
@@ -36,7 +34,7 @@ public class WrongRcvAdapter extends RecyclerView.Adapter<WrongRcvAdapter.WrongR
             //recycler
             vocText = itemView.findViewById(R.id.vocabulary);
             chText = itemView.findViewById(R.id.chinese);
-            linearLayout = itemView.findViewById(R.id.vocabulary_rcv_linearlayout);
+            linearLayout = itemView.findViewById(R.id.vocabulary_wrongandcoll_linearlayout);
 //            imgBtnStar = itemView.findViewById(R.id.vocabulary_collection_btn);
         }
 
@@ -53,7 +51,7 @@ public class WrongRcvAdapter extends RecyclerView.Adapter<WrongRcvAdapter.WrongR
     @NonNull
     @Override
     public WrongRcvAdapter.WrongRcvViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.vocabulary_rcv_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.vocabbulary_wrongandcoll_item, parent, false);
         return new WrongRcvViewHolder(view);
     }
 
@@ -64,7 +62,7 @@ public class WrongRcvAdapter extends RecyclerView.Adapter<WrongRcvAdapter.WrongR
         holder.chText.setText(currentItem.getChText());
         //btn
         if (check_StarPosition == position) {
-            star_click_ct = 0;
+//            star_click_ct = 0;
 //            holder.imgBtnStar.setImageResource(R.drawable.star_click);
 
         }

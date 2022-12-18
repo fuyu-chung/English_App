@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">English_App</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -23,7 +22,7 @@
     </string>
 
     <string name="cardView_detail_reading">
-        <b><i>龍龍院長歡迎您來到閱讀學院!\n</i></b>想和國際接軌嗎?那來這裡就對了!\n你可以閱讀我們推薦的短篇、長篇小說或是網路新聞，搜尋你有興趣的類別，跟著我們一起快樂閱讀吧！\n如果看得不夠過癮的話，可以點擊右下方圖書館查看更多資訊喔!
+        <b><i>龍龍院長歡迎您來到閱讀學院!\n</i></b>想和國際接軌嗎?那來這裡就對了!\n你可以閱讀我們推薦的網路新聞，點擊你有興趣的新聞，會挑轉到網頁歐，跟著我們一起快樂閱讀吧！\n如果看得不夠過癮的話，可以點擊右下方圖書館查看更多網路小說喔!
     </string>
 
     <string name="cardView_detail_compete">
@@ -151,23 +150,25 @@
     <!--  About us  -->
     <string name="abs_Title01">歡迎來到英格利許學校！</string>
     <string name="abs_article01">這邊有提供單字、片語和閱讀方面的學習，也有測驗的功能能讓大家驗收學習成果，大家透過手機就能輕鬆學習英文。為了增加趣味性，我們也加入了許多社群功能，聽了是不是很心動呢～快跟我們一起快樂學英文吧！</string>
-    <string name="abs_Title02">以下會介紹app提供的服務</string>
+    <string name="abs_Title02">以下為app提供的服務</string>
+
     <string name="abs_Title03">註冊/登入系統</string>
+    <string name="abs_article03">每個玩家都有屬於自己的帳號，方便紀錄自己的好友、等級等等，忘記密碼的話也有提供更改資料的服務，玩家有能到「我的個人資料」查看所有相關資訊。</string>
 
-    <string name="abs_Title04">以下會介紹app提供的服務</string>
-    <string name="abs_article02">每個玩家都有屬於自己的帳號，方便紀錄自己的好友、等級等等，忘記密碼的話也有提供更改資料的服務，玩家有能到「我的個人資料」查看所有相關資訊。</string>
+    <string name="abs_Title04">四大學院</string>
+    <string name="abs_article04">分別有單字學院、片語學院、閱讀學院和競賽學院，前面三個學院有提供適合各個年齡層的學習資提供大家閲讀，競賽學院則是提供各種類型的題目給大家練習，驗證前面學習的成果。</string>
 
-    <string name="abs_Title05">四大學院</string>
-    <string name="abs_article03">分別有單字學院、片語學院、閱讀學院和競賽學院，前面三個學院有提供適合各個年齡層的學習資提供大家閲讀，競賽學院則是提供各種類型的題目給大家練習，驗證前面學習的成果。</string>
+    <string name="abs_Title05">交誼廳</string>
+    <string name="abs_article05">玩家可以透過交誼廳和其他玩家聊天或是詢問問題（此為公開平台，而非私訊!），會顯示留言發布時間以及使用者名稱和ID喔!</string>
 
-    <string name="abs_Title06">交誼廳</string>
-    <string name="abs_article04">玩家可以透過交誼廳和其他玩家聊天或是詢問問題（此為公開平台，而非私訊）</string>
+    <string name="abs_Title06">我的宿舍</string>
+    <string name="abs_article06">點擊圖像即可到達特定頁面，可點擊左上角的查看提示來查看app提供的服務，包括個人資料查詢、錯誤題目、收藏題目、我的任務及我的好友</string>
 
-    <string name="abs_Title07">我的宿舍</string>
-    <string name="abs_article05">點擊圖像即可到達特定頁面，可點擊左上角的查看提示來查看app提供的服務，包括個人資料查詢、錯誤題目、收藏題目、我的任務及我的好友</string>
+    <string name="abs_Title07">圖書館</string>
+    <string name="abs_article07">這邊珍藏了我們推薦的書單，讓玩家能有更多元的選項，點擊想要的書籍會連結至網路小說檔案下載點!</string>
 
-    <string name="abs_Title08">圖書館</string>
-    <string name="abs_article06">這邊珍藏了我們推薦的學習資源，讓玩家能有更完善的學習</string>
+    <string name="abs_Title08">使用者等級計算說明</string>
+    <string name="abs_article08">當使用者去競賽學院遊玩，每完成一場遊戲，我們會累加使用者的個人分數，可至我的個人資料查看你的等級哪了喔!</string>
 
 
 </resources>

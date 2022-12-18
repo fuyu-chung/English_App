@@ -21,7 +21,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-public class VocabUnitActivity extends AppCompatActivity {
+public class VocabUnitActivity extends AppCompatActivity implements CheckStarClickInterface {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +29,7 @@ public class VocabUnitActivity extends AppCompatActivity {
         setContentView(R.layout.activity_vocab_elementary);
 
         RecyclerView rcvVocabulary = findViewById(R.id.elem_rcv_vocabulary);
-        VocabularyRcvAdapter vocabularyRcvAdapter = new VocabularyRcvAdapter(getListVocabulary());
+        VocabularyRcvAdapter vocabularyRcvAdapter = new VocabularyRcvAdapter(getListVocabulary(), this);
         rcvVocabulary.setAdapter(vocabularyRcvAdapter);
         rcvVocabulary.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
@@ -95,5 +95,11 @@ public class VocabUnitActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         return list;
+    }
+
+    @Override
+    public void onStarClicked(int position) {
+        //TODO 鍾 星星~~~~~~~~~~~~~~
+        //跟網址一樣方法 getPosition 可加toast
     }
 }

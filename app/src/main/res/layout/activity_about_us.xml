@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/nav_color0_white02"
     tools:context=".AboutUsActivity">
 
     <LinearLayout
@@ -41,8 +42,8 @@
                 android:id="@+id/vocBackBtn"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@drawable/ic_back2"
                 android:layout_marginTop="2dp"
+                android:src="@drawable/ic_back2"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -57,32 +58,180 @@
             android:paddingHorizontal="16dp"
             android:paddingTop="16dp"
             app:layout_constraintVertical_bias="0.0">
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                >
 
                 <LinearLayout
+                    android:id="@+id/abs_abs_layout01"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="parent"
+                    android:background="@drawable/about_us_bg"
+                    android:padding="16dp"
+                    android:orientation="vertical"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    android:orientation="vertical">
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/abs_Title01"
+                        android:textAlignment="center"
+                        android:textColor="@color/words_topic01"
+                        android:textSize="28sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="歡迎來到英格利許學校！"/>
+                        android:text="@string/abs_article01"
+                        android:textColor="@color/words_topic01"
+                        android:textSize="20sp"
+                        android:layout_marginBottom="5dp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/abs_abs_layout02"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="50dp"
+                    android:background="@drawable/about_us_bg"
+                    android:padding="16dp"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/abs_abs_layout01">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/abs_Title02"
+                        android:textAlignment="center"
+                        android:textColor="@color/words_topic01"
+                        android:textSize="28sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/topic_color"
+                        android:layout_marginBottom="10dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="24sp"
+                        android:textColor="@color/words_topic01"
+                        android:text="@string/abs_Title03"
+                        android:textStyle="bold"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="這邊有提供單字、片語和閱讀方面的學習，也有測驗的功能能讓大家驗收學習成果，大家透過手機就能輕鬆學習英文。為了增加趣味性，我們也加入了許多社群功能，聽了是不是很心動呢～快跟我們一起快樂學英文吧！"/>
+                        android:text="@string/abs_article03"
+                        android:textColor="@color/words_topic01"
+                        android:textSize="20sp"
+                        android:layout_marginBottom="10dp"
+                        />
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="24sp"
+                        android:textColor="@color/words_topic01"
+                        android:text="@string/abs_Title04"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/abs_article04"
+                        android:textColor="@color/words_topic01"
+                        android:textSize="20sp"
+                        android:layout_marginBottom="10dp"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="24sp"
+                        android:textColor="@color/words_topic01"
+                        android:text="@string/abs_Title05"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/abs_article05"
+                        android:textColor="@color/words_topic01"
+                        android:textSize="20sp"
+                        android:layout_marginBottom="10dp"
+                        />
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="24sp"
+                        android:textColor="@color/words_topic01"
+                        android:text="@string/abs_Title06"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/abs_article06"
+                        android:textColor="@color/words_topic01"
+                        android:textSize="20sp"
+                        android:layout_marginBottom="10dp"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="24sp"
+                        android:textColor="@color/words_topic01"
+                        android:text="@string/abs_Title07"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/abs_article07"
+                        android:textColor="@color/words_topic01"
+                        android:textSize="20sp"
+                        android:layout_marginBottom="10dp"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="24sp"
+                        android:textColor="@color/bottom_bar_icons_clicked01"
+                        android:text="@string/abs_Title08"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/abs_article08"
+                        android:textColor="@color/words_topic01"
+                        android:textSize="20sp"
+                        android:layout_marginBottom="10dp"
+                        />
 
 
 
                 </LinearLayout>
+
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

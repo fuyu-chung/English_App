@@ -127,17 +127,6 @@ public class CollectionStaticRcvAdapter extends RecyclerView.Adapter<CollectionS
                 updateCollectionRecyclerView.collcallback(check_position, collectItem);
                 checkWhatCollectInterface.onCollectClicked(check_position);
             }
-            //題目
-            else if (check_position == 2) {
-                ArrayList<CollectionDynamicRcvModel> collectItem = new ArrayList<>();
-                collectItem.add(new CollectionDynamicRcvModel("國小單字 Collections", "#CEB443"));
-                collectItem.add(new CollectionDynamicRcvModel("國中單字 Collections", "#CEB443"));
-                collectItem.add(new CollectionDynamicRcvModel("高中單字 Collections", "#CEB443"));
-                collectItem.add(new CollectionDynamicRcvModel("多益單字 Collections", "#CEB443"));
-                collectItem.add(new CollectionDynamicRcvModel("托福單字 Collections", "#CEB443"));
-                updateCollectionRecyclerView.collcallback(check_position, collectItem);
-                checkWhatCollectInterface.onCollectClicked(check_position);
-            }
 
         }
 

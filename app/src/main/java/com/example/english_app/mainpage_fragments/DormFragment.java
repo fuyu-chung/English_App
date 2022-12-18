@@ -47,7 +47,7 @@ public class DormFragment extends Fragment {
 //        ImageButton imgbtnClock = view.findViewById(R.id.imgbtn_clock);
         ImageButton imgbtnFriend = view.findViewById(R.id.imgbtn_friend);
         ImageButton imgbtnNote = view.findViewById(R.id.imgbtn_note);
-//        ImageButton imgbtnColl = view.findViewById(R.id.imgbtn_coll);
+        ImageButton imgbtnColl = view.findViewById(R.id.imgbtn_coll);
         ImageButton imgbtnWrong = view.findViewById(R.id.imgbtn_wrong);
 //        imgbtnClock = view.findViewById(R.id.imgbtn_clock);
 
@@ -57,7 +57,7 @@ public class DormFragment extends Fragment {
         LinearLayout hintProfile = view.findViewById(R.id.hint_profile);
 //        LinearLayout hintTask = view.findViewById(R.id.hint_task);
         LinearLayout hintNote = view.findViewById(R.id.hint_note);
-//        LinearLayout hintColl = view.findViewById(R.id.hint_coll);
+        LinearLayout hintColl = view.findViewById(R.id.hint_coll);
         LinearLayout hintWrong = view.findViewById(R.id.hint_wrong);
 //        LinearLayout hintClock = view.findViewById(R.id.hint_clock);
         LinearLayout hintFriend = view.findViewById(R.id.hint_friend);
@@ -75,7 +75,7 @@ public class DormFragment extends Fragment {
                 hintProfile.setVisibility(View.VISIBLE);
 //                hintTask.setVisibility(View.VISIBLE);
                 hintNote.setVisibility(View.VISIBLE);
-//                hintColl.setVisibility(View.VISIBLE);
+                hintColl.setVisibility(View.VISIBLE);
                 hintWrong.setVisibility(View.VISIBLE);
 //                hintClock.setVisibility(View.VISIBLE);
                 hintFriend.setVisibility(View.VISIBLE);
@@ -88,7 +88,7 @@ public class DormFragment extends Fragment {
                 hintProfile.setVisibility(View.INVISIBLE);
 //                hintTask.setVisibility(View.INVISIBLE);
                 hintNote.setVisibility(View.INVISIBLE);
-//                hintColl.setVisibility(View.INVISIBLE);
+                hintColl.setVisibility(View.INVISIBLE);
                 hintWrong.setVisibility(View.INVISIBLE);
 //                hintClock.setVisibility(View.INVISIBLE);
                 hintFriend.setVisibility(View.INVISIBLE);
@@ -107,10 +107,10 @@ public class DormFragment extends Fragment {
             Intent intent = new Intent(getActivity(), MyFriendActivity.class);
             startActivity(intent);
         });
-//        imgbtnColl.setOnClickListener(v -> {
-//            Intent intent = new Intent(getActivity(), MyCollectionMainActivity.class);
-//            startActivity(intent);
-//        });
+        imgbtnColl.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), MyCollectionMainActivity.class);
+            startActivity(intent);
+        });
 //        imgbtnTask.setOnClickListener(v -> {
 //            Intent intent = new Intent(getActivity(), MyTaskActivity.class);
 //            startActivity(intent);
