@@ -23,7 +23,7 @@ public class UserProfileActivity extends AppCompatActivity {
     //show user's info
     TextView userName, userID, userPhone, userBirthday, user_password, user_friend, user_achv, user_level;
     ImageView image;
-    ImageButton change;
+    private ImageButton change;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
