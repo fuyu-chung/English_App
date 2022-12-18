@@ -180,7 +180,7 @@ public class MatchingTenQuizActivity extends AppCompatActivity {
                     sharedPreferences.edit().putString("G", resultSet.getString(9)).apply();
                     runOnUiThread(() -> (optionG).setText("(G) " + sharedPreferences.getString("G", "")));
                     sharedPreferences.edit().putString("H", resultSet.getString(10)).apply();
-                    runOnUiThread(() -> (optionH).setText("(H) " + sharedPreferences.getString("F", "")));
+                    runOnUiThread(() -> (optionH).setText("(H) " + sharedPreferences.getString("H", "")));
                     sharedPreferences.edit().putString("I", resultSet.getString(11)).apply();
                     runOnUiThread(() -> (optionI).setText("(I) " + sharedPreferences.getString("I", "")));
                     sharedPreferences.edit().putString("J", resultSet.getString(12)).apply();
