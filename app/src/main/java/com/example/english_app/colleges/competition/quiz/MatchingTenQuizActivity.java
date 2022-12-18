@@ -29,7 +29,16 @@ import java.util.concurrent.TimeUnit;
 public class MatchingTenQuizActivity extends AppCompatActivity {
     private TextView questionText;
     private EditText text1, text2, text3, text4, text5, text6, text7, text8, text9, text10;
-    private TextView optionA, optionB, optionC, optionD, optionE, optionF, optionG, optionH, optionI, optionJ, optionK, optionL;
+    private TextView optionA;
+    private TextView optionB;
+    private TextView optionC;
+    private TextView optionD;
+    private TextView optionE;
+    private TextView optionF;
+    private TextView optionG;
+    private TextView optionH;
+    private TextView optionI;
+    private TextView optionJ;
     private ImageView checkViewA, checkViewB, checkViewC, checkViewD, checkViewE, checkViewF, checkViewG, checkViewH, checkViewI, checkViewJ;
     private ImageView crossViewA, crossViewB, crossViewC, crossViewD, crossViewE, crossViewF, crossViewG, crossViewH, crossViewI, crossViewJ;
     String answer1, answer2, answer3, answer4, answer5, answer6, answer7, answer8, answer9, answer10;
@@ -88,8 +97,6 @@ public class MatchingTenQuizActivity extends AppCompatActivity {
         optionH = findViewById(R.id.optionH);
         optionI = findViewById(R.id.optionI);
         optionJ = findViewById(R.id.optionJ);
-        optionK = findViewById(R.id.optionK);
-        optionL = findViewById(R.id.optionL);
 
         checkViewA.setVisibility(View.INVISIBLE);
         checkViewB.setVisibility(View.INVISIBLE);
@@ -333,7 +340,7 @@ public class MatchingTenQuizActivity extends AppCompatActivity {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-//TODO 算分ㄉ地方
+
         temp_score = sharedPreferences2.getInt("total", 0);
         temp_score += score;
         sharedPreferences.edit().putInt("total", temp_score).apply();
