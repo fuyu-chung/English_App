@@ -29,10 +29,10 @@ public class ReadingActivity extends AppCompatActivity implements UpdateNewsRcv,
 
         ArrayList<ReadingStaticRcvModel> newsItem = new ArrayList<>();
         newsItem.add(new ReadingStaticRcvModel(R.drawable.news_twnews, "台灣新聞網"));
-        newsItem.add(new ReadingStaticRcvModel(R.drawable.news_nyt, "紐約時報"));
-        newsItem.add(new ReadingStaticRcvModel(R.drawable.news_bbc, "BBC"));
         newsItem.add(new ReadingStaticRcvModel(R.drawable.news_cnn, "CNN"));
+        newsItem.add(new ReadingStaticRcvModel(R.drawable.news_bbc, "BBC"));
         newsItem.add(new ReadingStaticRcvModel(R.drawable.news_huff, "哈芬登郵報"));
+        newsItem.add(new ReadingStaticRcvModel(R.drawable.news_nyt, "紐約時報"));
 
         RecyclerView rcvNewsTitle = findViewById(R.id.reading_rcv_news);
         ReadingStaticRcvAdapter readingStaticRcvAdapter = new ReadingStaticRcvAdapter(newsItem, this, this, this);
@@ -85,9 +85,9 @@ public class ReadingActivity extends AppCompatActivity implements UpdateNewsRcv,
             intent = new Intent(this, NewsTaiwanActivity.class);
             startActivity(intent);
         }
-        else if(title == 1){//New York Times
+        else if(title == 1){//CNN
             Intent intent;
-            intent = new Intent(this, NewsNytActivity.class);
+            intent = new Intent(this, NewsCnnActivity.class);
             startActivity(intent);
         }
         else if(title == 2){//BBC
@@ -95,14 +95,14 @@ public class ReadingActivity extends AppCompatActivity implements UpdateNewsRcv,
             intent = new Intent(this, NewsBbcActivity.class);
             startActivity(intent);
         }
-        else if(title == 3){//CNN
-            Intent intent;
-            intent = new Intent(this, NewsCnnActivity.class);
-            startActivity(intent);
-        }
-        else if(title == 4){//HUFF
+        else if(title == 3){//HUFF
             Intent intent;
             intent = new Intent(this, NewsHuffActivity.class);
+            startActivity(intent);
+        }
+        else if(title == 4){//NYT
+            Intent intent;
+            intent = new Intent(this, NewsNytActivity.class);
             startActivity(intent);
         }
 
