@@ -91,15 +91,6 @@ public class MatchingTenQuizActivity extends AppCompatActivity {
         optionK = findViewById(R.id.optionK);
         optionL = findViewById(R.id.optionL);
 
-        int[] all_question = new int[10];
-        int index = 0;
-        for (int i = 1; i <= 100; i++) {
-            if (i % 10 == 1) {
-                all_question[index] = i;
-                index++;
-            }
-        }
-
         checkViewA.setVisibility(View.INVISIBLE);
         checkViewB.setVisibility(View.INVISIBLE);
         checkViewC.setVisibility(View.INVISIBLE);
@@ -157,8 +148,7 @@ public class MatchingTenQuizActivity extends AppCompatActivity {
 
         alertDialog.show();
 
-        question = (int) (Math.random() * (10));
-        question = all_question[question];
+        question = (int) (Math.random() * (10) + 1);
         System.out.println(question);
         ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
         executor.execute(() -> {
