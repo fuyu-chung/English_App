@@ -83,34 +83,64 @@ public class NewsHuffActivity extends AppCompatActivity  implements CheckWhatNew
                         break;
 
                     case 11:
-                        query = "select Title, Date, Url from news_HUFFPOST_2 where Orders <= 1000 AND Orders >= 1 order by Orders desc";
+                        query = "select Title, Date, Url from news_HUFFPOST_2 where Orders <= 11000 AND Orders >= 10001 order by Orders desc";
                         break;
                     case 12:
-                        query = "select Title, Date, Url from news_HUFFPOST_2 where Orders <= 2000 AND Orders >= 1001 order by Orders desc";
+                        query = "select Title, Date, Url from news_HUFFPOST_2 where Orders <= 12000 AND Orders >= 11001 order by Orders desc";
                         break;
                     case 13:
-                        query = "select Title, Date, Url from news_HUFFPOST_2 where Orders <= 3000 AND Orders >= 2001 order by Orders desc";
+                        query = "select Title, Date, Url from news_HUFFPOST_2 where Orders <= 13000 AND Orders >= 12001 order by Orders desc";
                         break;
                     case 14:
-                        query = "select Title, Date, Url from news_HUFFPOST_2 where Orders <= 4000 AND Orders >= 3001 order by Orders desc";
+                        query = "select Title, Date, Url from news_HUFFPOST_2 where Orders <= 14000 AND Orders >= 13001 order by Orders desc";
                         break;
                     case 15:
-                        query = "select Title, Date, Url from news_HUFFPOST_2 where Orders <= 5000 AND Orders >= 4001 order by Orders desc";
+                        query = "select Title, Date, Url from news_HUFFPOST_2 where Orders <= 15000 AND Orders >= 14001 order by Orders desc";
                         break;
                     case 16:
-                        query = "select Title, Date, Url from news_HUFFPOST_2 where Orders <= 6000 AND Orders >= 5001 order by Orders desc";
+                        query = "select Title, Date, Url from news_HUFFPOST_2 where Orders <= 16000 AND Orders >= 15001 order by Orders desc";
                         break;
                     case 17:
-                        query = "select Title, Date, Url from news_HUFFPOST_2 where Orders <= 7000 AND Orders >= 6001 order by Orders desc";
+                        query = "select Title, Date, Url from news_HUFFPOST_2 where Orders <= 17000 AND Orders >= 16001 order by Orders desc";
                         break;
                     case 18:
-                        query = "select Title, Date, Url from news_HUFFPOST_2 where Orders <= 8000 AND Orders >= 7001 order by Orders desc";
+                        query = "select Title, Date, Url from news_HUFFPOST_2 where Orders <= 18000 AND Orders >= 17001 order by Orders desc";
                         break;
                     case 19:
-                        query = "select Title, Date, Url from news_HUFFPOST_2 where Orders <= 9000 AND Orders >= 8001 order by Orders desc";
+                        query = "select Title, Date, Url from news_HUFFPOST_2 where Orders <= 19000 AND Orders >= 18001 order by Orders desc";
                         break;
                     case 20:
-                        query = "select Title, Date, Url from news_HUFFPOST_2 where Orders <= 10000 AND Orders >= 9001 order by Orders desc";
+                        query = "select Title, Date, Url from news_HUFFPOST_2 where Orders <= 20000 AND Orders >= 19001 order by Orders desc";
+                        break;
+                    case 21:
+                        query = "select Title, Date, Url from news_HUFFPOST_2 where Orders <= 11000 AND Orders >= 10001 order by Orders desc";
+                        break;
+                    case 22:
+                        query = "select Title, Date, Url from news_HUFFPOST_2 where Orders <= 12000 AND Orders >= 11001 order by Orders desc";
+                        break;
+                    case 23:
+                        query = "select Title, Date, Url from news_HUFFPOST_2 where Orders <= 13000 AND Orders >= 12001 order by Orders desc";
+                        break;
+                    case 24:
+                        query = "select Title, Date, Url from news_HUFFPOST_2 where Orders <= 14000 AND Orders >= 13001 order by Orders desc";
+                        break;
+                    case 25:
+                        query = "select Title, Date, Url from news_HUFFPOST_2 where Orders <= 15000 AND Orders >= 14001 order by Orders desc";
+                        break;
+                    case 26:
+                        query = "select Title, Date, Url from news_HUFFPOST_2 where Orders <= 16000 AND Orders >= 15001 order by Orders desc";
+                        break;
+                    case 27:
+                        query = "select Title, Date, Url from news_HUFFPOST_2 where Orders <= 17000 AND Orders >= 16001 order by Orders desc";
+                        break;
+                    case 28:
+                        query = "select Title, Date, Url from news_HUFFPOST_2 where Orders <= 18000 AND Orders >= 17001 order by Orders desc";
+                        break;
+                    case 29:
+                        query = "select Title, Date, Url from news_HUFFPOST_2 where Orders <= 19000 AND Orders >= 18001 order by Orders desc";
+                        break;
+                    case 30:
+                        query = "select Title, Date, Url from news_HUFFPOST_2 where Orders <= 20000 AND Orders >= 19001 order by Orders desc";
                         break;
                 }
 
