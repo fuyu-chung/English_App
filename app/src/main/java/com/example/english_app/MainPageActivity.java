@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -18,7 +19,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import com.example.english_app.colleges.competition.quiz.VocabQuizActivity;
 import com.example.english_app.mainpage_fragments.CollegeFragment;
 import com.example.english_app.mainpage_fragments.DormFragment;
 import com.example.english_app.mainpage_fragments.Library.LibraryFragment;
@@ -27,6 +27,13 @@ import com.example.english_app.user_basic.ChangeUserProfileActivity;
 import com.example.english_app.user_basic.LoginActivity;
 import com.example.english_app.user_dorm.UserProfileActivity;
 import com.google.android.material.navigation.NavigationView;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class MainPageActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -44,11 +51,10 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
     DrawerLayout drawerLayout;
     NavigationView navigationView;
 
-   //initial headerView and user_name byP
+    //initial headerView and user_name byP
     View headerView;
     TextView navUserTextView;
-
-
+    ImageButton change;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,27 +67,66 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
         menuIcon = findViewById(R.id.menu_icon); //the menu icon
         contentView = findViewById(R.id.contentView); //the contentView (relative)
 
+
         /*---------------------- CALL CURRENT USERNAME -------------------------------*/
         //set into navigation View header byP
         headerView = navigationView.getHeaderView(0);
         ImageView image = headerView.findViewById(R.id.user_photo);
+        change = headerView.findViewById(R.id.random_dice);
+
         SharedPreferences sharedPreferences = getSharedPreferences("User", MODE_PRIVATE);
         int imageNum = sharedPreferences.getInt("image", 0);
-        if (imageNum == 1){
+        if (imageNum == 1) {
             image.setImageResource(R.drawable.pic_penguin);
         }
-        if (imageNum == 2){
+        if (imageNum == 2) {
             image.setImageResource(R.drawable.pic_dino);
         }
-        if (imageNum == 3){
+        if (imageNum == 3) {
             image.setImageResource(R.drawable.pic_duck);
         }
-        if (imageNum == 4){
+        if (imageNum == 4) {
             image.setImageResource(R.drawable.pic_fox);
         }
-        if (imageNum == 5){
+        if (imageNum == 5) {
             image.setImageResource(R.drawable.pic_hedge);
         }
+        change.setOnClickListener(v -> {
+            ExecutorService executor1 = Executors.newSingleThreadExecutor(); // 建立新的thread
+            executor1.execute(() -> {
+                try {//試跑try有問題就跑catch
+                    String phone = sharedPreferences.getString("user_phone", "");
+                    int random_image = (int) (Math.random() * 5) + 1;
+                    String s1 = "jdbc:jtds:sqlserver://myenglishserver.database.windows.net:1433/englishapp_db;user=englishapp@myenglishserver;password=English1234@@;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;ssl=request;"; //訪問azure的db的網址
+                    Connection connection = DriverManager.getConnection(s1); //建立連線
+                    String query = "update account set image = ? where user_phone = ?";
+                    PreparedStatement statement = connection.prepareStatement(query);
+                    statement.setInt(1, random_image);
+                    statement.setString(2, phone);
+                    int resultSet = statement.executeUpdate();
+                    if (resultSet != 0) {
+                        if (random_image == 1) {
+                            image.setImageResource(R.drawable.pic_penguin);
+                        }
+                        if (random_image == 2) {
+                            image.setImageResource(R.drawable.pic_dino);
+                        }
+                        if (random_image == 3) {
+                            image.setImageResource(R.drawable.pic_duck);
+                        }
+                        if (random_image == 4) {
+                            image.setImageResource(R.drawable.pic_fox);
+                        }
+                        if (random_image == 5) {
+                            image.setImageResource(R.drawable.pic_hedge);
+                        }
+                        sharedPreferences.edit().putInt("image", random_image).apply();
+                    }
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            });
+        });
 
 
         navUserTextView = headerView.findViewById(R.id.user_name);
@@ -358,7 +403,7 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
     private void readDataFromSharedPreferences() {
 
         SharedPreferences sharedPreferences = getSharedPreferences("User", MODE_PRIVATE);
-        String name = sharedPreferences.getString("user_name","");
+        String name = sharedPreferences.getString("user_name", "");
         navUserTextView.setText(name);
 
     }
@@ -403,7 +448,6 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
     }
 
 
-
     /*----------To avoid closing the app on Back pressed------------*/
     @Override
     public void onBackPressed() {
@@ -438,7 +482,7 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
                 startActivity(intent3);
                 break;
             case R.id.nav_aboutus:
-                Intent intent4 = new Intent(this,AboutUsActivity.class);
+                Intent intent4 = new Intent(this, AboutUsActivity.class);
                 startActivity(intent4);
                 break;
 

@@ -117,44 +117,6 @@ public class UserProfileActivity extends AppCompatActivity {
             image.setImageResource(R.drawable.pic_hedge);
         }
 
-        change.setOnClickListener(v -> {
-            ExecutorService executor1 = Executors.newSingleThreadExecutor(); // 建立新的thread
-            executor1.execute(() -> {
-                try {//試跑try有問題就跑catch
-                    String phone = sharedPreferences.getString("user_phone", "");
-                    int random_image = (int) (Math.random() * 5) + 1;
-                    String s1 = "jdbc:jtds:sqlserver://myenglishserver.database.windows.net:1433/englishapp_db;user=englishapp@myenglishserver;password=English1234@@;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;ssl=request;"; //訪問azure的db的網址
-                    Connection connection = DriverManager.getConnection(s1); //建立連線
-                    String query = "update account set image = ? where user_phone = ?";
-                    PreparedStatement statement = connection.prepareStatement(query);
-                    statement.setInt(1, random_image);
-                    statement.setString(2, phone);
-                    int resultSet = statement.executeUpdate();
-                    if (resultSet != 0) {
-                        if (random_image == 1) {
-                            image.setImageResource(R.drawable.pic_penguin);
-                        }
-                        if (random_image == 2) {
-                            image.setImageResource(R.drawable.pic_dino);
-                        }
-                        if (random_image == 3) {
-                            image.setImageResource(R.drawable.pic_duck);
-                        }
-                        if (random_image == 4) {
-                            image.setImageResource(R.drawable.pic_fox);
-                        }
-                        if (random_image == 5) {
-                            image.setImageResource(R.drawable.pic_hedge);
-                        }
-                    }
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-
-
-            });
-        });
-
         String name = sharedPreferences.getString("user_name", "");
         runOnUiThread(() -> (userName).setText(name));
 
