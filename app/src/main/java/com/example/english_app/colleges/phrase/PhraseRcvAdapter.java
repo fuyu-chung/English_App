@@ -47,6 +47,7 @@ public class PhraseRcvAdapter extends RecyclerView.Adapter<PhraseRcvAdapter.Voca
             imgBtnStar.setOnClickListener(v -> {
                 checkPosition(getAbsoluteAdapterPosition());
                 System.out.println("star click!phrase " + getAbsoluteAdapterPosition());
+//                System.out.println("title" + );
             });
 
         }
