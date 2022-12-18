@@ -23,7 +23,7 @@ public class UserProfileActivity extends AppCompatActivity {
     //show user's info
     TextView userName, userID, userPhone, userBirthday, user_password, user_friend, user_achv, user_level;
     ImageView image;
-    private ImageButton change;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +40,6 @@ public class UserProfileActivity extends AppCompatActivity {
         user_friend = findViewById(R.id.user_friend);
         user_achv = findViewById(R.id.user_achv);
         user_level = findViewById(R.id.user_level);
-        change = findViewById(R.id.random_dice);
 
         SharedPreferences sharedPreferences = getSharedPreferences("User", MODE_PRIVATE);
         int id = sharedPreferences.getInt("user_id", 0);
