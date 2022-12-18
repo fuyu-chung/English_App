@@ -1,11 +1,13 @@
 package com.example.english_app.colleges.reading.news_part;
 
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.widget.ImageView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.os.Bundle;
-import android.widget.ImageView;
 
 import com.example.english_app.R;
 
@@ -19,7 +21,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-public class NewsBbcActivity extends AppCompatActivity  implements CheckWhatNewsClickedInterface {
+public class NewsBbcActivity extends AppCompatActivity implements CheckWhatNewsClickedInterface {
+    ArrayList<String> url_list = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +30,7 @@ public class NewsBbcActivity extends AppCompatActivity  implements CheckWhatNews
         setContentView(R.layout.activity_news_bbc);
 
         RecyclerView rcvVocabulary = findViewById(R.id.reading_rcv_news_part);
-        NewsAdapter newsAdapter = new NewsAdapter(getListNews(),this);
+        NewsAdapter newsAdapter = new NewsAdapter(getListNews(), this);
         rcvVocabulary.setAdapter(newsAdapter);
         rcvVocabulary.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
@@ -43,11 +46,12 @@ public class NewsBbcActivity extends AppCompatActivity  implements CheckWhatNews
             try {
                 String s1 = "jdbc:jtds:sqlserver://myenglishserver.database.windows.net:1433/englishapp_db;user=englishapp@myenglishserver;password=English1234@@;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;ssl=request;"; //訪問azure的db的網址
                 Connection connection = DriverManager.getConnection(s1); //建立連線
-                String query = "select title, date from news order by date desc ";
+                String query = "select Title, Date, Url from news_BBC order by date desc ";
                 PreparedStatement statement = connection.prepareStatement(query);
                 ResultSet resultSet = statement.executeQuery();
                 while (resultSet.next()) {
                     list.add(new NewsModel(resultSet.getString(1), resultSet.getString(2)));
+                    url_list.add(resultSet.getString(3));
                 }
                 executor.shutdown();
             } catch (SQLException e) {
@@ -63,15 +67,12 @@ public class NewsBbcActivity extends AppCompatActivity  implements CheckWhatNews
             e.printStackTrace();
         }
         return list;
-
     }
 
     @Override
     public void onNewsTitleClicked(int position) {
-        //        String url = url_list.get(position);
-//        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-//        System.out.println("POSITION: "+ position);
-//        System.out.println("url: "+ url);
-//        startActivity(browserIntent);
+        String url = url_list.get(position);
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+        startActivity(browserIntent);
     }
 }

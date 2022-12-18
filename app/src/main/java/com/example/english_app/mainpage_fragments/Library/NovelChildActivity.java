@@ -37,26 +37,6 @@ public class NovelChildActivity extends AppCompatActivity implements CheckWhatNo
 
         ImageView backBtn = findViewById(R.id.novBackBtn);
         backBtn.setOnClickListener(v -> onBackPressed());
-
-        ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
-        executor.execute(() -> {
-            try {
-                //String url = "";
-                String s1 = "jdbc:jtds:sqlserver://myenglishserver.database.windows.net:1433/englishapp_db;user=englishapp@myenglishserver;password=English1234@@;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;ssl=request;"; //訪問azure的db的網址
-                Connection connection = DriverManager.getConnection(s1); //建立連線
-                String query = "select Url from novel where Category = 'Children'";
-                PreparedStatement statement = connection.prepareStatement(query);
-                ResultSet resultSet = statement.executeQuery();
-                while (resultSet.next()) {
-                    //url = resultSet.getString(1);
-                    url_list.add(resultSet.getString(1));
-                }
-                System.out.println(url_list);
-                executor.shutdown();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        });
     }
 
     private ArrayList<NovelRcvModel> getListNovel() {
@@ -66,11 +46,12 @@ public class NovelChildActivity extends AppCompatActivity implements CheckWhatNo
             try {
                 String s1 = "jdbc:jtds:sqlserver://myenglishserver.database.windows.net:1433/englishapp_db;user=englishapp@myenglishserver;password=English1234@@;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;ssl=request;"; //訪問azure的db的網址
                 Connection connection = DriverManager.getConnection(s1); //建立連線
-                String query = "select Title, Author from novel where Category = 'Children'";
+                String query = "select Title, Author, Url from novel where Category = 'Children'";
                 PreparedStatement statement = connection.prepareStatement(query);
                 ResultSet resultSet = statement.executeQuery();
                 while (resultSet.next()) {
                     list.add(new NovelRcvModel(resultSet.getString(1), resultSet.getString(2)));
+                    url_list.add(resultSet.getString(3));
                 }
                 executor.shutdown();
             } catch (SQLException e) {

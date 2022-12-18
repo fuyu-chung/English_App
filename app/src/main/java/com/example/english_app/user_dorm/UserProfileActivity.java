@@ -53,7 +53,7 @@ public class UserProfileActivity extends AppCompatActivity {
         level = k;
         balance = (250 * (k * k + k)) - achv;
         String levels = "level " + level;
-        String balances = (balance) + "" + (500 * k);
+        String balances = (balance) + " / " + (500 * k);
         runOnUiThread(() -> (user_achv).setText(levels));
 
         ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
