@@ -226,7 +226,7 @@
                         android:layout_alignParentEnd="true"
                         android:fontFamily="@font/baloo"
                         android:paddingTop="30dp"
-                        android:text="動物書籍"
+                        android:text="經典文學"
                         android:textColor="@color/novel_topic_word03"
                         android:textSize="30sp"
                         android:textStyle="bold" />
@@ -239,7 +239,7 @@
                         android:gravity="center">
 
                         <com.google.android.material.button.MaterialButton
-                            android:id="@+id/novelAnimalBtn"
+                            android:id="@+id/novelLiteratureBtn"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:backgroundTint="@color/novel_topic_word03"
@@ -296,7 +296,7 @@
                         android:layout_alignParentEnd="true"
                         android:fontFamily="@font/baloo"
                         android:paddingTop="30dp"
-                        android:text="經典文學"
+                        android:text="動物書籍"
                         android:textColor="@color/novel_topic_word04"
                         android:textSize="30sp"
                         android:textStyle="bold" />
@@ -309,7 +309,7 @@
                         android:gravity="center">
 
                         <com.google.android.material.button.MaterialButton
-                            android:id="@+id/novelLiteratureBtn"
+                            android:id="@+id/novelAnimalBtn"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:backgroundTint="@color/novel_topic_word04"

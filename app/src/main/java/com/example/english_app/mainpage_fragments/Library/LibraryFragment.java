@@ -41,14 +41,15 @@ public class LibraryFragment extends Fragment {
             Intent intent = new Intent(getActivity(), NovelChildActivity.class);
             startActivity(intent);
         });
-        animalBtn.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), NovelAnimalActivity.class);
-            startActivity(intent);
-        });
         literatureBtn.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), NovelLiteratureActivity.class);
             startActivity(intent);
         });
+        animalBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), NovelAnimalActivity.class);
+            startActivity(intent);
+        });
+
 
         return view;
     }
