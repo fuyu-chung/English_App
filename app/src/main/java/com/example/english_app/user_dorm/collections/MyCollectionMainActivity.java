@@ -1,12 +1,12 @@
 package com.example.english_app.user_dorm.collections;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.english_app.R;
 import com.example.english_app.user_dorm.collections.CollectionInterface.CheckWhatCollectInterface;
@@ -61,7 +61,7 @@ public class MyCollectionMainActivity extends AppCompatActivity implements Updat
     @Override
     public void onCollectClicked(int position) {
         SharedPreferences sharedPreferences = getSharedPreferences("Position", MODE_PRIVATE);
-        sharedPreferences.edit().putInt("collectionTitle", position).apply();
+        sharedPreferences.edit().putInt("title", position).apply();
         //單字的
     }
 
