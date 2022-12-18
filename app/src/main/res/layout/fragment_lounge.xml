@@ -82,7 +82,7 @@
 
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
-                android:hint="輸入文字"
+                android:hint="輸入文字/請先點擊左上角INFO"
                 app:boxBackgroundColor="@color/white"
                 app:boxCornerRadiusBottomEnd="30dp"
                 app:boxCornerRadiusBottomStart="30dp"

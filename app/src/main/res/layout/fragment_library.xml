@@ -57,6 +57,12 @@
                     android:text="歡迎來到圖書館!"
                     android:textColor="@color/bottom_bar_icons_clicked01"
                     android:textSize="18sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="點擊書名可以連接至網站喔!"
+                    android:textColor="@color/bottom_bar_icons_clicked01"
+                    android:textSize="18sp" />
             </LinearLayout>
         </RelativeLayout>
 
