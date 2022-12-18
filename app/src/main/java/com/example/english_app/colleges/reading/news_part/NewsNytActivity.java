@@ -4,8 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.widget.ImageView;
 
@@ -21,7 +19,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-public class NewsActivity extends AppCompatActivity implements CheckWhatNewsClickedInterface {
+public class NewsNytActivity extends AppCompatActivity implements CheckWhatNewsClickedInterface {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

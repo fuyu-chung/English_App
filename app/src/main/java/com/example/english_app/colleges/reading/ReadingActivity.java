@@ -9,7 +9,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.english_app.R;
-import com.example.english_app.colleges.reading.news_part.NewsActivity;
+import com.example.english_app.colleges.reading.news_part.NewsBbcActivity;
+import com.example.english_app.colleges.reading.news_part.NewsCnnActivity;
+import com.example.english_app.colleges.reading.news_part.NewsHuffActivity;
+import com.example.english_app.colleges.reading.news_part.NewsNytActivity;
+import com.example.english_app.colleges.reading.news_part.NewsTaiwanActivity;
 
 import java.util.ArrayList;
 
@@ -25,7 +29,9 @@ public class ReadingActivity extends AppCompatActivity implements UpdateNewsRcv,
 
         ArrayList<ReadingStaticRcvModel> newsItem = new ArrayList<>();
         newsItem.add(new ReadingStaticRcvModel(R.drawable.news_twnews, "台灣新聞網"));
+        newsItem.add(new ReadingStaticRcvModel(R.drawable.news_nyt, "紐約時報"));
         newsItem.add(new ReadingStaticRcvModel(R.drawable.news_bbc, "BBC"));
+        newsItem.add(new ReadingStaticRcvModel(R.drawable.news_cnn, "CNN"));
         newsItem.add(new ReadingStaticRcvModel(R.drawable.news_huff, "哈芬登郵報"));
 
         RecyclerView rcvNewsTitle = findViewById(R.id.reading_rcv_news);
@@ -71,9 +77,35 @@ public class ReadingActivity extends AppCompatActivity implements UpdateNewsRcv,
     public void onPartItemClicked(int position) {
         SharedPreferences sharedPreferences = getSharedPreferences("Position", MODE_PRIVATE);
         sharedPreferences.edit().putInt("position", position).apply();
-        Intent intent;
-        intent = new Intent(this, NewsActivity.class);
-        startActivity(intent);
+
+        int title = sharedPreferences.getInt("title", 0);
+
+        if(title == 0){//Taiwan news
+            Intent intent;
+            intent = new Intent(this, NewsTaiwanActivity.class);
+            startActivity(intent);
+        }
+        else if(title == 1){//New York Times
+            Intent intent;
+            intent = new Intent(this, NewsNytActivity.class);
+            startActivity(intent);
+        }
+        else if(title == 2){//BBC
+            Intent intent;
+            intent = new Intent(this, NewsBbcActivity.class);
+            startActivity(intent);
+        }
+        else if(title == 3){//CNN
+            Intent intent;
+            intent = new Intent(this, NewsCnnActivity.class);
+            startActivity(intent);
+        }
+        else if(title == 4){//HUFF
+            Intent intent;
+            intent = new Intent(this, NewsHuffActivity.class);
+            startActivity(intent);
+        }
+
 
     }
 

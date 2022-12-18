@@ -17,6 +17,34 @@
         android:theme="@style/Theme.English_App"
         tools:targetApi="31" >
         <activity
+            android:name=".colleges.reading.news_part.NewsHuffActivity"
+            android:exported="false" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".colleges.reading.news_part.NewsBbcActivity"
+            android:exported="false" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".colleges.reading.news_part.NewsCnnActivity"
+            android:exported="false" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".colleges.reading.news_part.NewsTaiwanActivity"
+            android:exported="false" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".colleges.competition.quiz.MatchingTwelveQuizActivity"
             android:exported="false" >
             <meta-data
@@ -31,7 +59,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".colleges.reading.news_part.NewsActivity"
+            android:name=".colleges.reading.news_part.NewsNytActivity"
             android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"

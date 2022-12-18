@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".colleges.reading.news_part.NewsNytActivity">
+    tools:context=".colleges.reading.news_part.NewsCnnActivity">
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,6 +30,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/baloo"
                 android:textColor="@color/white"
+                android:text="Cable News Network"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
