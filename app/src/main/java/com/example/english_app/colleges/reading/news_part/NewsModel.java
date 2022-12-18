@@ -1,4 +1,4 @@
-package com.example.english_app.colleges.reading.reading_part;
+package com.example.english_app.colleges.reading.news_part;
 
 public class NewsModel {
     private String newsTitle;

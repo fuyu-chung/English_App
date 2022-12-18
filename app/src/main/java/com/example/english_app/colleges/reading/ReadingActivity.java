@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.english_app.R;
-import com.example.english_app.colleges.reading.reading_part.NewsActivity;
+import com.example.english_app.colleges.reading.news_part.NewsActivity;
 
 import java.util.ArrayList;
 
@@ -25,8 +25,8 @@ public class ReadingActivity extends AppCompatActivity implements UpdateNewsRcv,
 
         ArrayList<ReadingStaticRcvModel> newsItem = new ArrayList<>();
         newsItem.add(new ReadingStaticRcvModel(R.drawable.news_bbc, "BBC"));
-        newsItem.add(new ReadingStaticRcvModel(R.drawable.news_bbc, "台灣新聞網"));
-        newsItem.add(new ReadingStaticRcvModel(R.drawable.news_bbc, "哈芬登郵報"));
+        newsItem.add(new ReadingStaticRcvModel(R.drawable.news_twnews, "台灣新聞網"));
+        newsItem.add(new ReadingStaticRcvModel(R.drawable.news_huff, "哈芬登郵報"));
 
         RecyclerView rcvNewsTitle = findViewById(R.id.reading_rcv_news);
         ReadingStaticRcvAdapter readingStaticRcvAdapter = new ReadingStaticRcvAdapter(newsItem, this, this, this);
