@@ -24,7 +24,7 @@
 
                 android:layout_marginTop="40dp"
                 android:fontFamily="@font/baloo"
-                android:text="@string/question_number1"
+                android:text="1 Question"
                 android:textAlignment="center"
                 android:textColor="#C9EEFF"
                 android:textSize="24sp"

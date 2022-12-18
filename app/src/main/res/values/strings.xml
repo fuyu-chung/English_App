@@ -81,6 +81,10 @@
     <!--  Task Activity  -->
     <string name="task_title">我的任務</string>
 
+    <!-- QUIZ   -->
+    <string name="quizTitle">10 Questions</string>
+
+
     <!--  About us  -->
     <string name="abs_Title01">歡迎來到英格利許學校！</string>
     <string name="abs_article01">這邊有提供單字、片語和閱讀方面的學習，也有測驗的功能能讓大家驗收學習成果，大家透過手機就能輕鬆學習英文。為了增加趣味性，我們也加入了許多社群功能，聽了是不是很心動呢～快跟我們一起快樂學英文吧！</string>

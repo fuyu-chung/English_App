@@ -24,7 +24,7 @@
 
                 android:layout_marginTop="40dp"
                 android:fontFamily="@font/baloo"
-                android:text="@string/question_number5"
+                android:text="5 Questions"
                 android:textAlignment="center"
                 android:textColor="#C9EEFF"
                 android:textSize="24sp"
