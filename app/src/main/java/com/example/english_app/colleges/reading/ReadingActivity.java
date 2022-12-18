@@ -1,5 +1,7 @@
 package com.example.english_app.colleges.reading;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,56 +10,66 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.english_app.R;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 
-public class ReadingActivity extends AppCompatActivity {
+public class ReadingActivity extends AppCompatActivity implements UpdateNewsRcv, RecyclerReadingViewInterface, CheckWhatNewsInterface{
+
+    private RecyclerView rcvPartItem;
+    private ReadingDynamicRcvAdapter readingDynamicRcvAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reading);
 
-        RecyclerView rcvReading = findViewById(R.id.reading_rcv);
-        ReadingAdapter readingAdapter = new ReadingAdapter(getListReading());
-        rcvReading.setAdapter(readingAdapter);
-        rcvReading.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-    }
+        ArrayList<ReadingStaticRcvModel> newsItem = new ArrayList<>();
+        newsItem.add(new ReadingStaticRcvModel(R.drawable.news_bbc, "BBC"));
+        newsItem.add(new ReadingStaticRcvModel(R.drawable.news_bbc, "台灣新聞網"));
+        newsItem.add(new ReadingStaticRcvModel(R.drawable.news_bbc, "哈芬登郵報"));
 
-    private ArrayList<ReadingModel> getListReading() {
-        ArrayList<ReadingModel> list = new ArrayList<>();
-        ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
-        executor.execute(() -> {
-            try {
-                String s1 = "jdbc:jtds:sqlserver://myenglishserver.database.windows.net:1433/englishapp_db;user=englishapp@myenglishserver;password=English1234@@;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;ssl=request;"; //訪問azure的db的網址
-                Connection connection = DriverManager.getConnection(s1); //建立連線
-                String query = "select title, date from news order by date desc ";
-                PreparedStatement statement = connection.prepareStatement(query);
-                ResultSet resultSet = statement.executeQuery();
-                while (resultSet.next()) {
-                    list.add(new ReadingModel(resultSet.getString(1), resultSet.getString(2)));
-                }
-                executor.shutdown();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        });
-        try {
-            boolean e = executor.awaitTermination(10, TimeUnit.SECONDS); // await會有錯誤
-            if (!e) {
-                System.out.println("time out");
-            }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        return list;
+        RecyclerView rcvNewsTitle = findViewById(R.id.reading_rcv_news);
+        ReadingStaticRcvAdapter readingStaticRcvAdapter = new ReadingStaticRcvAdapter(newsItem, this, this, this);
+        rcvNewsTitle.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        rcvNewsTitle.setAdapter(readingStaticRcvAdapter);
+
+        ArrayList<ReadingDynamicRcvModel> partItem = new ArrayList<>();
+        partItem.add(new ReadingDynamicRcvModel("part", "#3FA0B5"));
+        partItem.add(new ReadingDynamicRcvModel("part", "#3FA0B5"));
+        partItem.add(new ReadingDynamicRcvModel("part", "#3FA0B5"));
+        partItem.add(new ReadingDynamicRcvModel("part", "#3FA0B5"));
+        partItem.add(new ReadingDynamicRcvModel("part", "#3FA0B5"));
+        partItem.add(new ReadingDynamicRcvModel("part", "#3FA0B5"));
+
+        rcvPartItem = findViewById(R.id.reading_rcv_part);
+        readingDynamicRcvAdapter = new ReadingDynamicRcvAdapter(partItem, this);
+        rcvPartItem.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        rcvPartItem.setAdapter(readingDynamicRcvAdapter);
+
 
     }
+
+    @Override
+    public void callback(int position, ArrayList<ReadingDynamicRcvModel> items) {
+        readingDynamicRcvAdapter = new ReadingDynamicRcvAdapter(items, this);
+        readingDynamicRcvAdapter.notifyDataSetChanged();
+        rcvPartItem.setAdapter(readingDynamicRcvAdapter);
+    }
+
+    @Override
+    public void onNewsClicked(int position) {
+        SharedPreferences sharedPreferences = getSharedPreferences("Position", MODE_PRIVATE);
+        sharedPreferences.edit().putInt("title", position).apply();
+    }
+
+    @Override
+    public void onPartItemClicked(int position) {
+        SharedPreferences sharedPreferences = getSharedPreferences("Position", MODE_PRIVATE);
+        sharedPreferences.edit().putInt("position", position).apply();
+        Intent intent;
+        intent = new Intent(this, NewsActivity.class);
+        startActivity(intent);
+
+    }
+
+
 }
