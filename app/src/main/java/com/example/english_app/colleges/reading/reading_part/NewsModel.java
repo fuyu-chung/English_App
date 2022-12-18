@@ -1,10 +1,10 @@
-package com.example.english_app.colleges.reading;
+package com.example.english_app.colleges.reading.reading_part;
 
-public class ReadingModel {
+public class NewsModel {
     private String newsTitle;
     private String newsDate;
 
-    public ReadingModel(String newsTitle, String newsDate) {
+    public NewsModel(String newsTitle, String newsDate) {
         this.newsTitle = newsTitle;
         this.newsDate = newsDate;
     }

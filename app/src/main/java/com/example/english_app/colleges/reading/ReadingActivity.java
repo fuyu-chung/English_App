@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.english_app.R;
+import com.example.english_app.colleges.reading.reading_part.NewsActivity;
 
 import java.util.ArrayList;
 
