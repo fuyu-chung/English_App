@@ -260,7 +260,7 @@
                     android:layout_alignParentTop="true"
 
                     android:layout_marginTop="-30dp"
-                    app:srcCompat="@drawable/novel_animals" />
+                    app:srcCompat="@drawable/novel_literature" />
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
@@ -330,7 +330,7 @@
                     android:layout_alignParentTop="true"
 
                     android:layout_marginTop="-30dp"
-                    app:srcCompat="@drawable/novel_literature" />
+                    app:srcCompat="@drawable/novel_animals" />
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
