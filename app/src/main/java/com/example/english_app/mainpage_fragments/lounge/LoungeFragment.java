@@ -52,7 +52,6 @@ public class LoungeFragment extends Fragment {
 
         // 從資源檔裡取得位址後強制轉型成文字方塊
 
-
     }
 
     @Override
