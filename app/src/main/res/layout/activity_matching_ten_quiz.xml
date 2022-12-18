@@ -452,61 +452,123 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginBottom="20dp">
+                    android:layout_marginBottom="20dp"
+                    android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:orientation="horizontal">
-                        <com.google.android.material.textfield.TextInputLayout
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_marginEnd="5dp"
+                            android:layout_weight="1">
 
-                            android:hint="輸入第1題答案"
-                            app:boxBackgroundColor="#8FDBE3F3"
-                            app:boxCornerRadiusBottomEnd="15dp"
-                            app:boxCornerRadiusBottomStart="15dp"
-                            app:boxCornerRadiusTopEnd="15dp"
-                            app:boxCornerRadiusTopStart="15dp"
-
-                            app:boxStrokeColor="@color/user_msg_text"
-                            app:hintTextColor="@color/words_user_input">
-
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/text01"
+                            <com.google.android.material.textfield.TextInputLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:textColor="@color/black" />
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="5dp"
+                                android:hint="輸入第1題答案"
+                                app:boxBackgroundColor="#8FDBE3F3"
 
-                        </com.google.android.material.textfield.TextInputLayout>
+                                app:boxCornerRadiusBottomEnd="15dp"
+                                app:boxCornerRadiusBottomStart="15dp"
+                                app:boxCornerRadiusTopEnd="15dp"
+                                app:boxCornerRadiusTopStart="15dp"
+                                app:boxStrokeColor="@color/user_msg_text"
+                                app:hintTextColor="@color/words_user_input"
 
-                        <com.google.android.material.textfield.TextInputLayout
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/text01"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:textColor="@color/black" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <ImageView
+                                android:id="@+id/check01"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_marginEnd="12dp"
+                                android:src="@drawable/ic_check"
+                                android:visibility="invisible"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <ImageView
+                                android:id="@+id/cross01"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_marginEnd="12dp"
+                                android:src="@drawable/ic_cross"
+                                android:visibility="invisible"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_marginStart="5dp"
+                            android:layout_weight="1">
 
-                            android:hint="輸入第2題答案"
-                            app:boxBackgroundColor="#8FDBE3F3"
-                            app:boxCornerRadiusBottomEnd="15dp"
-                            app:boxCornerRadiusBottomStart="15dp"
-                            app:boxCornerRadiusTopEnd="15dp"
-                            app:boxCornerRadiusTopStart="15dp"
-
-                            app:boxStrokeColor="@color/user_msg_text"
-                            app:hintTextColor="@color/words_user_input">
-
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/text02"
+                            <com.google.android.material.textfield.TextInputLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:textColor="@color/black" />
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="5dp"
+                                android:hint="輸入第2題答案"
+                                app:boxBackgroundColor="#8FDBE3F3"
 
-                        </com.google.android.material.textfield.TextInputLayout>
+                                app:boxCornerRadiusBottomEnd="15dp"
+                                app:boxCornerRadiusBottomStart="15dp"
+                                app:boxCornerRadiusTopEnd="15dp"
+                                app:boxCornerRadiusTopStart="15dp"
+                                app:boxStrokeColor="@color/user_msg_text"
+                                app:hintTextColor="@color/words_user_input"
+
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/text02"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:textColor="@color/black" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <ImageView
+                                android:id="@+id/check02"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_marginEnd="12dp"
+                                android:src="@drawable/ic_check"
+                                android:visibility="invisible"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <ImageView
+                                android:id="@+id/cross02"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_marginEnd="12dp"
+                                android:src="@drawable/ic_cross"
+                                android:visibility="invisible"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
                     </LinearLayout>
 
                     <LinearLayout
@@ -514,160 +576,116 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:orientation="horizontal">
-                        <com.google.android.material.textfield.TextInputLayout
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_marginEnd="5dp"
+                            android:layout_weight="1">
 
-                            android:hint="輸入第3題答案"
-                            app:boxBackgroundColor="#8FDBE3F3"
-                            app:boxCornerRadiusBottomEnd="15dp"
-                            app:boxCornerRadiusBottomStart="15dp"
-                            app:boxCornerRadiusTopEnd="15dp"
-                            app:boxCornerRadiusTopStart="15dp"
-
-                            app:boxStrokeColor="@color/user_msg_text"
-                            app:hintTextColor="@color/words_user_input">
-
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/text03"
+                            <com.google.android.material.textfield.TextInputLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:textColor="@color/black" />
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="5dp"
+                                android:hint="輸入第3題答案"
+                                app:boxBackgroundColor="#8FDBE3F3"
 
-                        </com.google.android.material.textfield.TextInputLayout>
+                                app:boxCornerRadiusBottomEnd="15dp"
+                                app:boxCornerRadiusBottomStart="15dp"
+                                app:boxCornerRadiusTopEnd="15dp"
+                                app:boxCornerRadiusTopStart="15dp"
+                                app:boxStrokeColor="@color/user_msg_text"
+                                app:hintTextColor="@color/words_user_input"
 
-                        <com.google.android.material.textfield.TextInputLayout
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/text03"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:textColor="@color/black" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <ImageView
+                                android:id="@+id/check03"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_marginEnd="12dp"
+                                android:src="@drawable/ic_check"
+                                android:visibility="invisible"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <ImageView
+                                android:id="@+id/cross03"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_marginEnd="12dp"
+                                android:src="@drawable/ic_cross"
+                                android:visibility="invisible"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_marginStart="5dp"
+                            android:layout_weight="1">
 
-                            android:hint="輸入第4題答案"
-                            app:boxBackgroundColor="#8FDBE3F3"
-                            app:boxCornerRadiusBottomEnd="15dp"
-                            app:boxCornerRadiusBottomStart="15dp"
-                            app:boxCornerRadiusTopEnd="15dp"
-                            app:boxCornerRadiusTopStart="15dp"
-
-                            app:boxStrokeColor="@color/user_msg_text"
-                            app:hintTextColor="@color/words_user_input">
-
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/text04"
+                            <com.google.android.material.textfield.TextInputLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:textColor="@color/black" />
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="5dp"
+                                android:hint="輸入第4題答案"
+                                app:boxBackgroundColor="#8FDBE3F3"
 
-                        </com.google.android.material.textfield.TextInputLayout>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:orientation="horizontal">
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_marginEnd="5dp"
+                                app:boxCornerRadiusBottomEnd="15dp"
+                                app:boxCornerRadiusBottomStart="15dp"
+                                app:boxCornerRadiusTopEnd="15dp"
+                                app:boxCornerRadiusTopStart="15dp"
+                                app:boxStrokeColor="@color/user_msg_text"
+                                app:hintTextColor="@color/words_user_input"
 
-                            android:hint="輸入第5題答案"
-                            app:boxBackgroundColor="#8FDBE3F3"
-                            app:boxCornerRadiusBottomEnd="15dp"
-                            app:boxCornerRadiusBottomStart="15dp"
-                            app:boxCornerRadiusTopEnd="15dp"
-                            app:boxCornerRadiusTopStart="15dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
 
-                            app:boxStrokeColor="@color/user_msg_text"
-                            app:hintTextColor="@color/words_user_input">
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/text04"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:textColor="@color/black" />
 
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/text05"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:textColor="@color/black" />
+                            </com.google.android.material.textfield.TextInputLayout>
 
-                        </com.google.android.material.textfield.TextInputLayout>
+                            <ImageView
+                                android:id="@+id/check04"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_marginEnd="12dp"
+                                android:src="@drawable/ic_check"
+                                android:visibility="invisible"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
 
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_marginStart="5dp"
+                            <ImageView
+                                android:id="@+id/cross04"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_marginEnd="12dp"
+                                android:src="@drawable/ic_cross"
+                                android:visibility="invisible"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
 
-                            android:hint="輸入第6題答案"
-                            app:boxBackgroundColor="#8FDBE3F3"
-                            app:boxCornerRadiusBottomEnd="15dp"
-                            app:boxCornerRadiusBottomStart="15dp"
-                            app:boxCornerRadiusTopEnd="15dp"
-                            app:boxCornerRadiusTopStart="15dp"
+                        </androidx.constraintlayout.widget.ConstraintLayout>
 
-                            app:boxStrokeColor="@color/user_msg_text"
-                            app:hintTextColor="@color/words_user_input">
 
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/text06"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:textColor="@color/black" />
-
-                        </com.google.android.material.textfield.TextInputLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:orientation="horizontal">
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_marginEnd="5dp"
-
-                            android:hint="輸入第7題答案"
-                            app:boxBackgroundColor="#8FDBE3F3"
-                            app:boxCornerRadiusBottomEnd="15dp"
-                            app:boxCornerRadiusBottomStart="15dp"
-                            app:boxCornerRadiusTopEnd="15dp"
-                            app:boxCornerRadiusTopStart="15dp"
-
-                            app:boxStrokeColor="@color/user_msg_text"
-                            app:hintTextColor="@color/words_user_input">
-
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/text07"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:textColor="@color/black" />
-
-                        </com.google.android.material.textfield.TextInputLayout>
-
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_marginStart="5dp"
-
-                            android:hint="輸入第8題答案"
-                            app:boxBackgroundColor="#8FDBE3F3"
-                            app:boxCornerRadiusBottomEnd="15dp"
-                            app:boxCornerRadiusBottomStart="15dp"
-                            app:boxCornerRadiusTopEnd="15dp"
-                            app:boxCornerRadiusTopStart="15dp"
-
-                            app:boxStrokeColor="@color/user_msg_text"
-                            app:hintTextColor="@color/words_user_input">
-
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/text08"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:textColor="@color/black" />
-
-                        </com.google.android.material.textfield.TextInputLayout>
                     </LinearLayout>
 
                     <LinearLayout
@@ -675,54 +693,352 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:orientation="horizontal">
-                        <com.google.android.material.textfield.TextInputLayout
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_marginEnd="5dp"
+                            android:layout_weight="1">
 
-                            android:hint="輸入第10題答案"
-                            app:boxBackgroundColor="#8FDBE3F3"
-                            app:boxCornerRadiusBottomEnd="15dp"
-                            app:boxCornerRadiusBottomStart="15dp"
-                            app:boxCornerRadiusTopEnd="15dp"
-                            app:boxCornerRadiusTopStart="15dp"
-
-                            app:boxStrokeColor="@color/user_msg_text"
-                            app:hintTextColor="@color/words_user_input">
-
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/text09"
+                            <com.google.android.material.textfield.TextInputLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:textColor="@color/black" />
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="5dp"
+                                android:hint="輸入第5題答案"
+                                app:boxBackgroundColor="#8FDBE3F3"
 
-                        </com.google.android.material.textfield.TextInputLayout>
+                                app:boxCornerRadiusBottomEnd="15dp"
+                                app:boxCornerRadiusBottomStart="15dp"
+                                app:boxCornerRadiusTopEnd="15dp"
+                                app:boxCornerRadiusTopStart="15dp"
+                                app:boxStrokeColor="@color/user_msg_text"
+                                app:hintTextColor="@color/words_user_input"
 
-                        <com.google.android.material.textfield.TextInputLayout
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/text05"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:textColor="@color/black" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <ImageView
+                                android:id="@+id/check05"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_marginEnd="12dp"
+                                android:src="@drawable/ic_check"
+                                android:visibility="invisible"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <ImageView
+                                android:id="@+id/cross05"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_marginEnd="12dp"
+                                android:src="@drawable/ic_cross"
+                                android:visibility="invisible"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_marginStart="5dp"
+                            android:layout_weight="1">
 
-                            android:hint="輸入第2題答案"
-                            app:boxBackgroundColor="#8FDBE3F3"
-                            app:boxCornerRadiusBottomEnd="15dp"
-                            app:boxCornerRadiusBottomStart="15dp"
-                            app:boxCornerRadiusTopEnd="15dp"
-                            app:boxCornerRadiusTopStart="15dp"
-
-                            app:boxStrokeColor="@color/user_msg_text"
-                            app:hintTextColor="@color/words_user_input">
-
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/text10"
+                            <com.google.android.material.textfield.TextInputLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:textColor="@color/black" />
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="5dp"
+                                android:hint="輸入第6題答案"
+                                app:boxBackgroundColor="#8FDBE3F3"
 
-                        </com.google.android.material.textfield.TextInputLayout>
+                                app:boxCornerRadiusBottomEnd="15dp"
+                                app:boxCornerRadiusBottomStart="15dp"
+                                app:boxCornerRadiusTopEnd="15dp"
+                                app:boxCornerRadiusTopStart="15dp"
+                                app:boxStrokeColor="@color/user_msg_text"
+                                app:hintTextColor="@color/words_user_input"
+
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/text06"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:textColor="@color/black" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <ImageView
+                                android:id="@+id/check06"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_marginEnd="12dp"
+                                android:src="@drawable/ic_check"
+                                android:visibility="invisible"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <ImageView
+                                android:id="@+id/cross06"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_marginEnd="12dp"
+                                android:src="@drawable/ic_cross"
+                                android:visibility="invisible"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
                     </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="5dp"
+                                android:hint="輸入第7題答案"
+                                app:boxBackgroundColor="#8FDBE3F3"
+
+                                app:boxCornerRadiusBottomEnd="15dp"
+                                app:boxCornerRadiusBottomStart="15dp"
+                                app:boxCornerRadiusTopEnd="15dp"
+                                app:boxCornerRadiusTopStart="15dp"
+                                app:boxStrokeColor="@color/user_msg_text"
+                                app:hintTextColor="@color/words_user_input"
+
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/text07"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:textColor="@color/black" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <ImageView
+                                android:id="@+id/check07"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_marginEnd="12dp"
+                                android:src="@drawable/ic_check"
+                                android:visibility="invisible"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <ImageView
+                                android:id="@+id/cross07"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_marginEnd="12dp"
+                                android:src="@drawable/ic_cross"
+                                android:visibility="invisible"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="5dp"
+                                android:hint="輸入第8題答案"
+                                app:boxBackgroundColor="#8FDBE3F3"
+
+                                app:boxCornerRadiusBottomEnd="15dp"
+                                app:boxCornerRadiusBottomStart="15dp"
+                                app:boxCornerRadiusTopEnd="15dp"
+                                app:boxCornerRadiusTopStart="15dp"
+                                app:boxStrokeColor="@color/user_msg_text"
+                                app:hintTextColor="@color/words_user_input"
+
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/text08"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:textColor="@color/black" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <ImageView
+                                android:id="@+id/check08"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_marginEnd="12dp"
+                                android:src="@drawable/ic_check"
+                                android:visibility="invisible"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <ImageView
+                                android:id="@+id/cross08"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_marginEnd="12dp"
+                                android:src="@drawable/ic_cross"
+                                android:visibility="invisible"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="5dp"
+                                android:hint="輸入第9題答案"
+                                app:boxBackgroundColor="#8FDBE3F3"
+
+                                app:boxCornerRadiusBottomEnd="15dp"
+                                app:boxCornerRadiusBottomStart="15dp"
+                                app:boxCornerRadiusTopEnd="15dp"
+                                app:boxCornerRadiusTopStart="15dp"
+                                app:boxStrokeColor="@color/user_msg_text"
+                                app:hintTextColor="@color/words_user_input"
+
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/text09"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:textColor="@color/black" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <ImageView
+                                android:id="@+id/check09"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_marginEnd="12dp"
+                                android:src="@drawable/ic_check"
+                                android:visibility="invisible"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <ImageView
+                                android:id="@+id/cross09"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_marginEnd="12dp"
+                                android:src="@drawable/ic_cross"
+                                android:visibility="invisible"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="5dp"
+                                android:hint="輸入第10題答案"
+                                app:boxBackgroundColor="#8FDBE3F3"
+
+                                app:boxCornerRadiusBottomEnd="15dp"
+                                app:boxCornerRadiusBottomStart="15dp"
+                                app:boxCornerRadiusTopEnd="15dp"
+                                app:boxCornerRadiusTopStart="15dp"
+                                app:boxStrokeColor="@color/user_msg_text"
+                                app:hintTextColor="@color/words_user_input"
+
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/text10"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:textColor="@color/black" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <ImageView
+                                android:id="@+id/check10"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_marginEnd="12dp"
+                                android:src="@drawable/ic_check"
+                                android:visibility="invisible"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <ImageView
+                                android:id="@+id/cross10"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_marginEnd="12dp"
+                                android:src="@drawable/ic_cross"
+                                android:visibility="invisible"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    </LinearLayout>
+
 
                 </LinearLayout>
 
@@ -731,14 +1047,13 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                app:layout_constraintTop_toBottomOf="@+id/textLayout"
-                app:layout_constraintStart_toStartOf="parent"
-                android:background="@drawable/dailog_btn2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginBottom="50dp"
+                android:background="@drawable/dailog_btn2"
                 android:text="送出答案"
-                />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textLayout" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
