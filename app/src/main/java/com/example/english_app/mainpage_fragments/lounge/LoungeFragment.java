@@ -67,7 +67,7 @@ public class LoungeFragment extends Fragment {
             );
             builder.setView(view2);
             ((TextView) view2.findViewById(R.id.dialogTextTitle)).setText("注意事項!!!");
-            ((TextView) view2.findViewById(R.id.dailogText)).setText(String.format("*此為交誼廳'留言板'\n*送出訊息後請重新進入此頁面，稍待更新，造成不便敬請見諒\n*此為公開留言板，會顯示ID以及帳號名稱喔!"));
+            ((TextView) view2.findViewById(R.id.dailogText)).setText(String.format("*此為交誼廳'留言板'\n*送出訊息後請重新進入此頁面，稍待更新，造成不便敬請見諒\n*此為公開留言板，會顯示ID以及帳號名稱喔!\n*若無法傳送訊息，請稍等片刻，伺服器關閉中"));
             ((Button) view2.findViewById(R.id.backComBtn)).setText("我了解了!");
             ((ImageView) view2.findViewById(R.id.megaPhoneImg)).setImageResource(R.drawable.ic_megaphone);
 
