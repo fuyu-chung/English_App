@@ -3,18 +3,24 @@ package com.example.english_app.mainpage_fragments.lounge;
 import static android.content.Context.MODE_PRIVATE;
 
 import android.content.SharedPreferences;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.english_app.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -53,6 +59,32 @@ public class LoungeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_lounge, container, false);
+
+        FloatingActionButton loungeInfo = view.findViewById(R.id.lounge_info);
+        loungeInfo.setOnClickListener(v -> {
+            AlertDialog.Builder builder = new AlertDialog.Builder(getContext(), R.style.AlertDialogTheme);
+            View view2 = LayoutInflater.from(getContext()).inflate(
+                    R.layout.friend_hint_dialog, findViewById(R.id.layoutHintDialog)
+            );
+            builder.setView(view2);
+            ((TextView) view2.findViewById(R.id.dialogTextTitle)).setText("注意事項!!!");
+            ((TextView) view2.findViewById(R.id.dailogText)).setText(String.format("*此為交誼廳'留言板'\n*送出訊息後請點擊其他畫面再度跳轉回來，造成不便敬請見諒\n*此為公開留言板，會顯示ID以及帳號名稱喔!"));
+            ((Button) view2.findViewById(R.id.backComBtn)).setText("我了解了!");
+            ((ImageView) view2.findViewById(R.id.megaPhoneImg)).setImageResource(R.drawable.ic_megaphone);
+
+            final AlertDialog alertDialog = builder.create();
+            builder.setCancelable(false);
+            //取消
+            view2.findViewById(R.id.backComBtn).setOnClickListener(v2 -> {
+                alertDialog.cancel();
+            });
+
+            if (alertDialog.getWindow() != null) {
+                alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
+            }
+            alertDialog.show();
+        });
+
         EditTextMsg = view.findViewById(R.id.EditTextMsg);
         //TODO Phoebe recycler
         RecyclerView rcvMessage = view.findViewById(R.id.message_rcv);
@@ -123,6 +155,11 @@ public class LoungeFragment extends Fragment {
         return view;
     }
 
+    private ViewGroup findViewById(int layoutHintDialog) {
+
+        return null;
+    }
+
     private ArrayList<MesRcvModel> getListMessage() {
         ArrayList<MesRcvModel> mesList = new ArrayList<>();
 
@@ -178,5 +215,11 @@ public class LoungeFragment extends Fragment {
     public void onResume() {
         super.onResume();
         clientSocket = new Socket();
+    }
+
+
+
+    private void showAlertDialog() {
+
     }
 }
