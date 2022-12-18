@@ -24,8 +24,8 @@ public class ReadingActivity extends AppCompatActivity implements UpdateNewsRcv,
         setContentView(R.layout.activity_reading);
 
         ArrayList<ReadingStaticRcvModel> newsItem = new ArrayList<>();
-        newsItem.add(new ReadingStaticRcvModel(R.drawable.news_bbc, "BBC"));
         newsItem.add(new ReadingStaticRcvModel(R.drawable.news_twnews, "台灣新聞網"));
+        newsItem.add(new ReadingStaticRcvModel(R.drawable.news_bbc, "BBC"));
         newsItem.add(new ReadingStaticRcvModel(R.drawable.news_huff, "哈芬登郵報"));
 
         RecyclerView rcvNewsTitle = findViewById(R.id.reading_rcv_news);
@@ -34,12 +34,17 @@ public class ReadingActivity extends AppCompatActivity implements UpdateNewsRcv,
         rcvNewsTitle.setAdapter(readingStaticRcvAdapter);
 
         ArrayList<ReadingDynamicRcvModel> partItem = new ArrayList<>();
-        partItem.add(new ReadingDynamicRcvModel("part", "#3FA0B5"));
-        partItem.add(new ReadingDynamicRcvModel("part", "#3FA0B5"));
-        partItem.add(new ReadingDynamicRcvModel("part", "#3FA0B5"));
-        partItem.add(new ReadingDynamicRcvModel("part", "#3FA0B5"));
-        partItem.add(new ReadingDynamicRcvModel("part", "#3FA0B5"));
-        partItem.add(new ReadingDynamicRcvModel("part", "#3FA0B5"));
+        partItem.add(new ReadingDynamicRcvModel("World", "#3FA0B5"));
+        partItem.add(new ReadingDynamicRcvModel("Environment", "#3FA0B5"));
+        partItem.add(new ReadingDynamicRcvModel("Society", "#3FA0B5"));
+        partItem.add(new ReadingDynamicRcvModel("Politics", "#3FA0B5"));
+        partItem.add(new ReadingDynamicRcvModel("Opinion", "#3FA0B5"));
+        partItem.add(new ReadingDynamicRcvModel("Food Safety and Health", "#3FA0B5"));
+        partItem.add(new ReadingDynamicRcvModel("Sports and Entertainment", "#3FA0B5"));
+        partItem.add(new ReadingDynamicRcvModel("Travel and Cuisine", "#3FA0B5"));
+        partItem.add(new ReadingDynamicRcvModel("Photo of the day", "#3FA0B5"));
+        partItem.add(new ReadingDynamicRcvModel("Others", "#3FA0B5"));
+
 
         rcvPartItem = findViewById(R.id.reading_rcv_part);
         readingDynamicRcvAdapter = new ReadingDynamicRcvAdapter(partItem, this);
