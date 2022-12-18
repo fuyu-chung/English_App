@@ -148,17 +148,7 @@ public class MatchingTwelveQuizActivity extends AppCompatActivity {
 
         alertDialog.show();
 
-        int[] all_question = new int[16];
-        int index = 0;
-        for (int i = 101; i <= 260; i++) {
-            if (i % 10 == 1) {
-                all_question[index] = i;
-                index++;
-            }
-        }
-
-        question = (int) (Math.random() * (16));
-        question = all_question[question];
+        question = (int) (Math.random() * (16)) + 11;
         System.out.println(question);
         ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
         executor.execute(() -> {
@@ -234,7 +224,7 @@ public class MatchingTwelveQuizActivity extends AppCompatActivity {
                 correct++;
                 score += 80;
             } else {
-                crossViewA.setVisibility(View.INVISIBLE);
+                crossViewA.setVisibility(View.VISIBLE);
             }
 
             if (text2.getText().toString().equals(answer2)) {
@@ -242,7 +232,7 @@ public class MatchingTwelveQuizActivity extends AppCompatActivity {
                 correct++;
                 score += 80;
             } else {
-                crossViewB.setVisibility(View.INVISIBLE);
+                crossViewB.setVisibility(View.VISIBLE);
             }
 
             if (text3.getText().toString().equals(answer3)) {
@@ -250,7 +240,7 @@ public class MatchingTwelveQuizActivity extends AppCompatActivity {
                 correct++;
                 score += 80;
             } else {
-                crossViewC.setVisibility(View.INVISIBLE);
+                crossViewC.setVisibility(View.VISIBLE);
             }
 
             if (text4.getText().toString().equals(answer4)) {
@@ -258,7 +248,7 @@ public class MatchingTwelveQuizActivity extends AppCompatActivity {
                 correct++;
                 score += 80;
             } else {
-                crossViewD.setVisibility(View.INVISIBLE);
+                crossViewD.setVisibility(View.VISIBLE);
             }
 
             if (text5.getText().toString().equals(answer5)) {
@@ -266,7 +256,7 @@ public class MatchingTwelveQuizActivity extends AppCompatActivity {
                 correct++;
                 score += 80;
             } else {
-                crossViewE.setVisibility(View.INVISIBLE);
+                crossViewE.setVisibility(View.VISIBLE);
             }
 
             if (text6.getText().toString().equals(answer6)) {
@@ -274,7 +264,7 @@ public class MatchingTwelveQuizActivity extends AppCompatActivity {
                 correct++;
                 score += 80;
             } else {
-                crossViewF.setVisibility(View.INVISIBLE);
+                crossViewF.setVisibility(View.VISIBLE);
             }
 
             if (text7.getText().toString().equals(answer7)) {
@@ -282,7 +272,7 @@ public class MatchingTwelveQuizActivity extends AppCompatActivity {
                 correct++;
                 score += 80;
             } else {
-                crossViewG.setVisibility(View.INVISIBLE);
+                crossViewG.setVisibility(View.VISIBLE);
             }
 
             if (text8.getText().toString().equals(answer8)) {
@@ -290,7 +280,7 @@ public class MatchingTwelveQuizActivity extends AppCompatActivity {
                 correct++;
                 score += 80;
             } else {
-                crossViewH.setVisibility(View.INVISIBLE);
+                crossViewH.setVisibility(View.VISIBLE);
             }
 
             if (text9.getText().toString().equals(answer9)) {
@@ -298,7 +288,7 @@ public class MatchingTwelveQuizActivity extends AppCompatActivity {
                 correct++;
                 score += 80;
             } else {
-                crossViewI.setVisibility(View.INVISIBLE);
+                crossViewI.setVisibility(View.VISIBLE);
             }
 
             if (text10.getText().toString().equals(answer10)) {
@@ -306,7 +296,7 @@ public class MatchingTwelveQuizActivity extends AppCompatActivity {
                 correct++;
                 score += 80;
             } else {
-                crossViewJ.setVisibility(View.INVISIBLE);
+                crossViewJ.setVisibility(View.VISIBLE);
             }
 
             if (correct == 5) {
@@ -341,6 +331,7 @@ public class MatchingTwelveQuizActivity extends AppCompatActivity {
             }
         });
 
+        //TODO
         builder = new AlertDialog.Builder(this, R.style.AlertDialogTheme);
         view = LayoutInflater.from(this).inflate(
                 R.layout.gameover_dialog, findViewById(R.id.layoutGameOverDialog)

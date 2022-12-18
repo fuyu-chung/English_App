@@ -219,7 +219,7 @@ public class MatchingTenQuizActivity extends AppCompatActivity {
                 correct++;
                 score += 80;
             } else {
-                crossViewA.setVisibility(View.INVISIBLE);
+                crossViewA.setVisibility(View.VISIBLE);
             }
 
             if (text2.getText().toString().equals(answer2)) {
@@ -227,7 +227,7 @@ public class MatchingTenQuizActivity extends AppCompatActivity {
                 correct++;
                 score += 80;
             } else {
-                crossViewB.setVisibility(View.INVISIBLE);
+                crossViewB.setVisibility(View.VISIBLE);
             }
 
             if (text3.getText().toString().equals(answer3)) {
@@ -235,7 +235,7 @@ public class MatchingTenQuizActivity extends AppCompatActivity {
                 correct++;
                 score += 80;
             } else {
-                crossViewC.setVisibility(View.INVISIBLE);
+                crossViewC.setVisibility(View.VISIBLE);
             }
 
             if (text4.getText().toString().equals(answer4)) {
@@ -243,7 +243,7 @@ public class MatchingTenQuizActivity extends AppCompatActivity {
                 correct++;
                 score += 80;
             } else {
-                crossViewD.setVisibility(View.INVISIBLE);
+                crossViewD.setVisibility(View.VISIBLE);
             }
 
             if (text5.getText().toString().equals(answer5)) {
@@ -251,7 +251,7 @@ public class MatchingTenQuizActivity extends AppCompatActivity {
                 correct++;
                 score += 80;
             } else {
-                crossViewE.setVisibility(View.INVISIBLE);
+                crossViewE.setVisibility(View.VISIBLE);
             }
 
             if (text6.getText().toString().equals(answer6)) {
@@ -259,7 +259,7 @@ public class MatchingTenQuizActivity extends AppCompatActivity {
                 correct++;
                 score += 80;
             } else {
-                crossViewF.setVisibility(View.INVISIBLE);
+                crossViewF.setVisibility(View.VISIBLE);
             }
 
             if (text7.getText().toString().equals(answer7)) {
@@ -267,7 +267,7 @@ public class MatchingTenQuizActivity extends AppCompatActivity {
                 correct++;
                 score += 80;
             } else {
-                crossViewG.setVisibility(View.INVISIBLE);
+                crossViewG.setVisibility(View.VISIBLE);
             }
 
             if (text8.getText().toString().equals(answer8)) {
@@ -275,7 +275,7 @@ public class MatchingTenQuizActivity extends AppCompatActivity {
                 correct++;
                 score += 80;
             } else {
-                crossViewH.setVisibility(View.INVISIBLE);
+                crossViewH.setVisibility(View.VISIBLE);
             }
 
             if (text9.getText().toString().equals(answer9)) {
@@ -283,7 +283,7 @@ public class MatchingTenQuizActivity extends AppCompatActivity {
                 correct++;
                 score += 80;
             } else {
-                crossViewI.setVisibility(View.INVISIBLE);
+                crossViewI.setVisibility(View.VISIBLE);
             }
 
             if (text10.getText().toString().equals(answer10)) {
@@ -291,7 +291,7 @@ public class MatchingTenQuizActivity extends AppCompatActivity {
                 correct++;
                 score += 80;
             } else {
-                crossViewJ.setVisibility(View.INVISIBLE);
+                crossViewJ.setVisibility(View.VISIBLE);
             }
 
             if (correct == 5) {
@@ -307,7 +307,7 @@ public class MatchingTenQuizActivity extends AppCompatActivity {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
+//TODO 算分ㄉ地方
         temp_score = sharedPreferences2.getInt("total", 0);
         temp_score += score;
         sharedPreferences.edit().putInt("total", temp_score).apply();
@@ -326,29 +326,29 @@ public class MatchingTenQuizActivity extends AppCompatActivity {
             }
         });
 
-        AlertDialog.Builder builder2 = new AlertDialog.Builder(this, R.style.AlertDialogTheme);
-        builder2 = new AlertDialog.Builder(this, R.style.AlertDialogTheme);
-        view = LayoutInflater.from(this).inflate(
-                R.layout.gameover_dialog, findViewById(R.id.layoutGameOverDialog)
-        );
-        builder2.setView(view);
-        ((TextView) view.findViewById(R.id.dialogTextTitle)).setText("GameOver!");
-        ((TextView) view.findViewById(R.id.dailogText)).setText("正確題數 : " + correct + " / 10\n" + "成就  + " + score);
-        ((Button) view.findViewById(R.id.backComBtn)).setText("返回競賽學院");
-        ((ImageView) view.findViewById(R.id.megaPhoneImg)).setImageResource(R.drawable.achievement);
-
-        final AlertDialog alertDialog2 = builder2.create();
-        builder2.setCancelable(false);
-        //取消
-        view.findViewById(R.id.backComBtn).setOnClickListener(v -> {
-            this.finish();//退出Quiz Activity
-        });
-
-        if (alertDialog2.getWindow() != null) {
-            alertDialog2.getWindow().setBackgroundDrawable(new ColorDrawable(0));
-        }
-        alertDialog2.show();
-
+        //TODO
+//        AlertDialog.Builder builder2 = new AlertDialog.Builder(this, R.style.AlertDialogTheme);
+//        builder2 = new AlertDialog.Builder(this, R.style.AlertDialogTheme);
+//        view = LayoutInflater.from(this).inflate(
+//                R.layout.gameover_dialog, findViewById(R.id.layoutGameOverDialog)
+//        );
+//        builder2.setView(view);
+//        ((TextView) view.findViewById(R.id.dialogTextTitle)).setText("GameOver!");
+//        ((TextView) view.findViewById(R.id.dailogText)).setText("正確題數 : " + correct + " / 10\n" + "成就  + " + score);
+//        ((Button) view.findViewById(R.id.backComBtn)).setText("返回競賽學院");
+//        ((ImageView) view.findViewById(R.id.megaPhoneImg)).setImageResource(R.drawable.achievement);
+//
+//        final AlertDialog alertDialog2 = builder2.create();
+//        builder2.setCancelable(false);
+//        //取消
+//        view.findViewById(R.id.backComBtn).setOnClickListener(v -> {
+//            this.finish();//退出Quiz Activity
+//        });
+//
+//        if (alertDialog2.getWindow() != null) {
+//            alertDialog2.getWindow().setBackgroundDrawable(new ColorDrawable(0));
+//        }
+//        alertDialog2.show();
     }
 }
 
