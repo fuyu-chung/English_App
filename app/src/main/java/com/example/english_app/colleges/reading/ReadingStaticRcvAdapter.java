@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.english_app.R;
+import com.example.english_app.colleges.vocabulary.DynamicRcvModel;
 
 import java.util.ArrayList;
 
@@ -123,28 +124,8 @@ public class ReadingStaticRcvAdapter extends RecyclerView.Adapter<ReadingStaticR
                 updateNewsRcv.callback(check_position, partItem);
                 checkWhatNewsInterface.onNewsClicked(check_position);
             }
-            //The New York Times
-            else if (check_position == 1) {
-                ArrayList<ReadingDynamicRcvModel> partItem = new ArrayList<>();
-                partItem.add(new ReadingDynamicRcvModel("part 01", "#9EBD8B"));
-                partItem.add(new ReadingDynamicRcvModel("part 02", "#9EBD8B"));
-                partItem.add(new ReadingDynamicRcvModel("part 03", "#9EBD8B"));
-                partItem.add(new ReadingDynamicRcvModel("part 04", "#9EBD8B"));
-                partItem.add(new ReadingDynamicRcvModel("part 05", "#9EBD8B"));
-                partItem.add(new ReadingDynamicRcvModel("part 06", "#9EBD8B"));
-                updateNewsRcv.callback(check_position, partItem);
-                checkWhatNewsInterface.onNewsClicked(check_position);
-            }
-            //BBC
-            else if (check_position == 2) {
-                ArrayList<ReadingDynamicRcvModel> partItem = new ArrayList<>();
-                partItem.add(new ReadingDynamicRcvModel("part1", "#3FA0B5"));
-                updateNewsRcv.callback(check_position, partItem);
-                checkWhatNewsInterface.onNewsClicked(check_position);
-
-            }
             //CNN
-            else if (check_position == 3) {
+            else if (check_position == 1) {
                 ArrayList<ReadingDynamicRcvModel> partItem = new ArrayList<>();
                 partItem.add(new ReadingDynamicRcvModel("part 01", "#9EBD8B"));
                 partItem.add(new ReadingDynamicRcvModel("part 02", "#9EBD8B"));
@@ -159,19 +140,51 @@ public class ReadingStaticRcvAdapter extends RecyclerView.Adapter<ReadingStaticR
                 updateNewsRcv.callback(check_position, partItem);
                 checkWhatNewsInterface.onNewsClicked(check_position);
             }
-            //Huffpost
-            else if (check_position == 4) {
+            //BBC
+            else if (check_position == 2) {
                 ArrayList<ReadingDynamicRcvModel> partItem = new ArrayList<>();
-                partItem.add(new ReadingDynamicRcvModel("part", "#3FA0B5"));
-                partItem.add(new ReadingDynamicRcvModel("part", "#3FA0B5"));
-                partItem.add(new ReadingDynamicRcvModel("part", "#3FA0B5"));
-                partItem.add(new ReadingDynamicRcvModel("part", "#3FA0B5"));
-                partItem.add(new ReadingDynamicRcvModel("part", "#3FA0B5"));
-                partItem.add(new ReadingDynamicRcvModel("part", "#3FA0B5"));
+                partItem.add(new ReadingDynamicRcvModel("part1", "#3FA0B5"));
                 updateNewsRcv.callback(check_position, partItem);
                 checkWhatNewsInterface.onNewsClicked(check_position);
 
             }
+            //Huffpost
+            else if (check_position == 3) {
+                ArrayList<ReadingDynamicRcvModel> partItem = new ArrayList<>();
+                partItem.add(new ReadingDynamicRcvModel("part 01", "#9EBD8B"));
+                partItem.add(new ReadingDynamicRcvModel("part 02", "#9EBD8B"));
+                partItem.add(new ReadingDynamicRcvModel("part 03", "#9EBD8B"));
+                partItem.add(new ReadingDynamicRcvModel("part 04", "#9EBD8B"));
+                partItem.add(new ReadingDynamicRcvModel("part 05", "#9EBD8B"));
+                partItem.add(new ReadingDynamicRcvModel("part 06", "#9EBD8B"));
+                partItem.add(new ReadingDynamicRcvModel("part 07", "#9EBD8B"));
+                partItem.add(new ReadingDynamicRcvModel("part 08", "#9EBD8B"));
+                partItem.add(new ReadingDynamicRcvModel("part 09", "#9EBD8B"));
+                for (int i = 10; i <= 60; i++){
+                    String parts;
+                    parts = "Unit " + i;
+                    partItem.add(new ReadingDynamicRcvModel(parts, "#9EBD8B"));
+
+                }
+                updateNewsRcv.callback(check_position, partItem);
+                checkWhatNewsInterface.onNewsClicked(check_position);
+
+            }
+            //The New York Times
+            else if (check_position == 4) {
+                ArrayList<ReadingDynamicRcvModel> partItem = new ArrayList<>();
+                partItem.add(new ReadingDynamicRcvModel("part 01", "#9EBD8B"));
+                partItem.add(new ReadingDynamicRcvModel("part 02", "#9EBD8B"));
+                partItem.add(new ReadingDynamicRcvModel("part 03", "#9EBD8B"));
+                partItem.add(new ReadingDynamicRcvModel("part 04", "#9EBD8B"));
+                partItem.add(new ReadingDynamicRcvModel("part 05", "#9EBD8B"));
+                partItem.add(new ReadingDynamicRcvModel("part 06", "#9EBD8B"));
+                updateNewsRcv.callback(check_position, partItem);
+                checkWhatNewsInterface.onNewsClicked(check_position);
+            }
+
+
+
         }
 
     }
