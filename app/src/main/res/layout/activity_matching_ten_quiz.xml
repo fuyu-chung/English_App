@@ -492,7 +492,7 @@
                             </com.google.android.material.textfield.TextInputLayout>
 
                             <ImageView
-                                android:id="@+id/check01"
+                                android:id="@+id/checkA"
                                 android:layout_width="35dp"
                                 android:layout_height="35dp"
                                 android:layout_marginEnd="12dp"
@@ -503,7 +503,7 @@
                                 app:layout_constraintTop_toTopOf="parent" />
 
                             <ImageView
-                                android:id="@+id/cross01"
+                                android:id="@+id/crossA"
                                 android:layout_width="35dp"
                                 android:layout_height="35dp"
                                 android:layout_marginEnd="12dp"
@@ -546,7 +546,7 @@
                             </com.google.android.material.textfield.TextInputLayout>
 
                             <ImageView
-                                android:id="@+id/check02"
+                                android:id="@+id/checkB"
                                 android:layout_width="35dp"
                                 android:layout_height="35dp"
                                 android:layout_marginEnd="12dp"
@@ -557,7 +557,7 @@
                                 app:layout_constraintTop_toTopOf="parent" />
 
                             <ImageView
-                                android:id="@+id/cross02"
+                                android:id="@+id/crossB"
                                 android:layout_width="35dp"
                                 android:layout_height="35dp"
                                 android:layout_marginEnd="12dp"
@@ -608,7 +608,7 @@
                             </com.google.android.material.textfield.TextInputLayout>
 
                             <ImageView
-                                android:id="@+id/check03"
+                                android:id="@+id/checkC"
                                 android:layout_width="35dp"
                                 android:layout_height="35dp"
                                 android:layout_marginEnd="12dp"
@@ -619,7 +619,7 @@
                                 app:layout_constraintTop_toTopOf="parent" />
 
                             <ImageView
-                                android:id="@+id/cross03"
+                                android:id="@+id/crossC"
                                 android:layout_width="35dp"
                                 android:layout_height="35dp"
                                 android:layout_marginEnd="12dp"
@@ -662,7 +662,7 @@
                             </com.google.android.material.textfield.TextInputLayout>
 
                             <ImageView
-                                android:id="@+id/check04"
+                                android:id="@+id/checkD"
                                 android:layout_width="35dp"
                                 android:layout_height="35dp"
                                 android:layout_marginEnd="12dp"
@@ -673,7 +673,7 @@
                                 app:layout_constraintTop_toTopOf="parent" />
 
                             <ImageView
-                                android:id="@+id/cross04"
+                                android:id="@+id/crossD"
                                 android:layout_width="35dp"
                                 android:layout_height="35dp"
                                 android:layout_marginEnd="12dp"
@@ -725,7 +725,7 @@
                             </com.google.android.material.textfield.TextInputLayout>
 
                             <ImageView
-                                android:id="@+id/check05"
+                                android:id="@+id/checkE"
                                 android:layout_width="35dp"
                                 android:layout_height="35dp"
                                 android:layout_marginEnd="12dp"
@@ -736,7 +736,7 @@
                                 app:layout_constraintTop_toTopOf="parent" />
 
                             <ImageView
-                                android:id="@+id/cross05"
+                                android:id="@+id/crossE"
                                 android:layout_width="35dp"
                                 android:layout_height="35dp"
                                 android:layout_marginEnd="12dp"
@@ -779,7 +779,7 @@
                             </com.google.android.material.textfield.TextInputLayout>
 
                             <ImageView
-                                android:id="@+id/check06"
+                                android:id="@+id/checkF"
                                 android:layout_width="35dp"
                                 android:layout_height="35dp"
                                 android:layout_marginEnd="12dp"
@@ -790,7 +790,7 @@
                                 app:layout_constraintTop_toTopOf="parent" />
 
                             <ImageView
-                                android:id="@+id/cross06"
+                                android:id="@+id/crossF"
                                 android:layout_width="35dp"
                                 android:layout_height="35dp"
                                 android:layout_marginEnd="12dp"
@@ -842,7 +842,7 @@
                             </com.google.android.material.textfield.TextInputLayout>
 
                             <ImageView
-                                android:id="@+id/check07"
+                                android:id="@+id/checkG"
                                 android:layout_width="35dp"
                                 android:layout_height="35dp"
                                 android:layout_marginEnd="12dp"
@@ -853,7 +853,7 @@
                                 app:layout_constraintTop_toTopOf="parent" />
 
                             <ImageView
-                                android:id="@+id/cross07"
+                                android:id="@+id/crossG"
                                 android:layout_width="35dp"
                                 android:layout_height="35dp"
                                 android:layout_marginEnd="12dp"
@@ -896,7 +896,7 @@
                             </com.google.android.material.textfield.TextInputLayout>
 
                             <ImageView
-                                android:id="@+id/check08"
+                                android:id="@+id/checkH"
                                 android:layout_width="35dp"
                                 android:layout_height="35dp"
                                 android:layout_marginEnd="12dp"
@@ -907,7 +907,7 @@
                                 app:layout_constraintTop_toTopOf="parent" />
 
                             <ImageView
-                                android:id="@+id/cross08"
+                                android:id="@+id/crossH"
                                 android:layout_width="35dp"
                                 android:layout_height="35dp"
                                 android:layout_marginEnd="12dp"
@@ -959,7 +959,7 @@
                             </com.google.android.material.textfield.TextInputLayout>
 
                             <ImageView
-                                android:id="@+id/check09"
+                                android:id="@+id/checkI"
                                 android:layout_width="35dp"
                                 android:layout_height="35dp"
                                 android:layout_marginEnd="12dp"
@@ -970,7 +970,7 @@
                                 app:layout_constraintTop_toTopOf="parent" />
 
                             <ImageView
-                                android:id="@+id/cross09"
+                                android:id="@+id/crossI"
                                 android:layout_width="35dp"
                                 android:layout_height="35dp"
                                 android:layout_marginEnd="12dp"
@@ -1013,7 +1013,7 @@
                             </com.google.android.material.textfield.TextInputLayout>
 
                             <ImageView
-                                android:id="@+id/check10"
+                                android:id="@+id/checkJ"
                                 android:layout_width="35dp"
                                 android:layout_height="35dp"
                                 android:layout_marginEnd="12dp"
@@ -1024,7 +1024,7 @@
                                 app:layout_constraintTop_toTopOf="parent" />
 
                             <ImageView
-                                android:id="@+id/cross10"
+                                android:id="@+id/crossJ"
                                 android:layout_width="35dp"
                                 android:layout_height="35dp"
                                 android:layout_marginEnd="12dp"
