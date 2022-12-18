@@ -21,8 +21,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.english_app.MainPageActivity;
 import com.example.english_app.R;
-import com.example.english_app.colleges.competition.CompeteActivity;
-import com.example.english_app.colleges.phrase.PhraseActivity;
 import com.google.android.material.button.MaterialButton;
 
 import java.sql.Connection;
@@ -117,7 +115,7 @@ public class LoginActivity extends AppCompatActivity {
         registerBtn.setOnClickListener(v -> {
             ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
             executor.execute(() -> {
-                Intent intent = new Intent(this, CompeteActivity.class);
+                Intent intent = new Intent(this, RegisterActivity.class);
                 startActivity(intent);
                 executor.shutdown();
             });

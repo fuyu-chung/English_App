@@ -20,7 +20,7 @@ import java.util.concurrent.Executors;
 public class UserProfileActivity extends AppCompatActivity {
 
     //show user's info
-    TextView userName, userID, userPhone, userBirthday, user_password, user_friend, user_achv;
+    TextView userName, userID, userPhone, userBirthday, user_password, user_friend, user_achv, user_level;
     ImageView image;
 
     @Override
@@ -37,6 +37,7 @@ public class UserProfileActivity extends AppCompatActivity {
         user_password = findViewById(R.id.user_password);
         user_friend = findViewById(R.id.user_friend);
         user_achv = findViewById(R.id.user_achv);
+        user_level = findViewById(R.id.user_level);
 
         SharedPreferences sharedPreferences = getSharedPreferences("User", MODE_PRIVATE);
         int id = sharedPreferences.getInt("user_id", 0);
@@ -55,6 +56,7 @@ public class UserProfileActivity extends AppCompatActivity {
         String levels = "level " + level;
         String balances = (balance) + " / " + (500 * k);
         runOnUiThread(() -> (user_achv).setText(levels));
+        runOnUiThread(() -> (user_level).setText(balances));
 
         ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
         executor.execute(() -> {
