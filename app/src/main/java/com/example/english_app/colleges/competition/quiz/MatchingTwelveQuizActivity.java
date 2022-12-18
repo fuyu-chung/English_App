@@ -136,7 +136,6 @@ public class MatchingTwelveQuizActivity extends AppCompatActivity {
             this.finish();//退出Quiz Activity
         });
 
-        AlertDialog finalAlertDialog = alertDialog;
         view.findViewById(R.id.yesBtn).setOnClickListener(v -> {
             score = 0;
             correct = 0;
