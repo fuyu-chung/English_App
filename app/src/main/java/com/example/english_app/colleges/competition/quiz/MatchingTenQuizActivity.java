@@ -340,7 +340,7 @@ public class MatchingTenQuizActivity extends AppCompatActivity {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-//TODO 算分ㄉ地方
+
         temp_score = sharedPreferences2.getInt("total", 0);
         temp_score += score;
         sharedPreferences.edit().putInt("total", temp_score).apply();
