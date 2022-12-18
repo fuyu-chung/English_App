@@ -129,7 +129,7 @@ public class MatchingTwelveQuizActivity extends AppCompatActivity {
         ((Button) view.findViewById(R.id.yesBtn)).setText("開始遊戲");
         ((ImageView) view.findViewById(R.id.megaPhoneImg)).setImageResource(R.drawable.ic_megaphone);
 
-        AlertDialog alertDialog = builder.create();
+        final AlertDialog alertDialog = builder.create();
         builder.setCancelable(false);
         //取消
         view.findViewById(R.id.noBtn).setOnClickListener(v -> {
@@ -140,7 +140,7 @@ public class MatchingTwelveQuizActivity extends AppCompatActivity {
         view.findViewById(R.id.yesBtn).setOnClickListener(v -> {
             score = 0;
             correct = 0;
-            finalAlertDialog.cancel();
+            alertDialog.cancel();
         });
         if (alertDialog.getWindow() != null) {
             alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
@@ -304,6 +304,29 @@ public class MatchingTwelveQuizActivity extends AppCompatActivity {
             } else if (correct == 10) {
                 score += 200;
             }
+
+            //TODO
+            AlertDialog.Builder builder2 = new AlertDialog.Builder(this, R.style.AlertDialogTheme);
+            View view2 = LayoutInflater.from(this).inflate(
+                    R.layout.gameover_dialog, findViewById(R.id.layoutGameOverDialog)
+            );
+            builder2.setView(view2);
+            ((TextView) view2.findViewById(R.id.dialogTextTitle)).setText("GameOver!");
+            ((TextView) view2.findViewById(R.id.dailogText)).setText("正確題數 : " + correct + " / 10\n" + "成就  + " + score);
+            ((Button) view2.findViewById(R.id.backComBtn)).setText("返回競賽學院");
+            ((ImageView) view2.findViewById(R.id.megaPhoneImg)).setImageResource(R.drawable.achievement);
+
+            final AlertDialog alertDialog2 = builder2.create();
+            builder2.setCancelable(false);
+            //取消
+            view2.findViewById(R.id.backComBtn).setOnClickListener(v2 -> {
+                this.finish();//退出Quiz Activity
+            });
+
+            if (alertDialog2.getWindow() != null) {
+                alertDialog2.getWindow().setBackgroundDrawable(new ColorDrawable(0));
+            }
+            alertDialog2.show();
         });
 
 
@@ -331,28 +354,7 @@ public class MatchingTwelveQuizActivity extends AppCompatActivity {
             }
         });
 
-        //TODO
-        builder = new AlertDialog.Builder(this, R.style.AlertDialogTheme);
-        view = LayoutInflater.from(this).inflate(
-                R.layout.gameover_dialog, findViewById(R.id.layoutGameOverDialog)
-        );
-        builder.setView(view);
-        ((TextView) view.findViewById(R.id.dialogTextTitle)).setText("GameOver!");
-        ((TextView) view.findViewById(R.id.dailogText)).setText("正確題數 : " + correct + " / 10\n" + "成就  + " + score);
-        ((Button) view.findViewById(R.id.backComBtn)).setText("返回競賽學院");
-        ((ImageView) view.findViewById(R.id.megaPhoneImg)).setImageResource(R.drawable.achievement);
 
-        alertDialog = builder.create();
-        builder.setCancelable(false);
-        //取消
-        view.findViewById(R.id.backComBtn).setOnClickListener(v -> {
-            this.finish();//退出Quiz Activity
-        });
-
-        if (alertDialog.getWindow() != null) {
-            alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
-        }
-        alertDialog.show();
 
     }
 }
