@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="200dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@drawable/menu_header_bg"
     android:gravity="bottom"
@@ -9,13 +10,32 @@
 
     <!--圓形頭貼 想要加陰影特效-->
     <!--不想要陰影哈哈哈-->
-    <ImageView
-        android:id="@+id/user_photo"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:background="@drawable/circle_frame_01"
-        android:padding="12dp"
-        android:src="@drawable/pic_penguin"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/user_photo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/circle_frame_01"
+            android:padding="12dp"
+            android:src="@drawable/pic_penguin"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <ImageButton
+            android:id="@+id/random_dice"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="-35dp"
+            android:layout_marginBottom="-5dp"
+            android:backgroundTint="@color/transparent"
+            android:src="@drawable/dice"
+            app:layout_constraintBottom_toBottomOf="@id/user_photo"
+            app:layout_constraintStart_toEndOf="@id/user_photo" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
