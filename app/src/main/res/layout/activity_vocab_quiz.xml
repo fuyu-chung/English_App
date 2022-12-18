@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:text="@string/question_number"
+            android:text="@string/quizTitle"
             android:fontFamily="@font/baloo"
             android:textAlignment="center"
             android:textColor="#C9EEFF"
