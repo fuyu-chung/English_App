@@ -47,42 +47,45 @@ public class MyCollectionActivity extends AppCompatActivity {
                 Connection connection = DriverManager.getConnection(s1); //建立連線
                 int position = sharedPreferences.getInt("position", 0);
                 int title = sharedPreferences.getInt("title", 0);
+                SharedPreferences sharedPreferences1 = getSharedPreferences("User", MODE_PRIVATE);
+                String phone = sharedPreferences1.getString("user_phone", "");
                 System.out.println(position);
                 System.out.println(title);
                 String query = "";
                 if (title == 0) {
                     switch (position) {
                         case 0:
-                            query = "select Vocabulary, Chinese from collection where title = 'voc_elem'";
+                            query = "select Vocabulary, Chinese from collection where title = 'voc_elem' AND user_phone = ?";
                             break;
                         case 1:
-                            query = "select Vocabulary, Chinese from collection where title = 'voc_jhs'";
+                            query = "select Vocabulary, Chinese from collection where title = 'voc_jhs' AND user_phone = ?";
                             break;
                         case 2:
-                            query = "select Vocabulary, Chinese from collection where title = 'voc_shs'";
+                            query = "select Vocabulary, Chinese from collection where title = 'voc_shs' AND user_phone = ?";
                             break;
                         case 3:
-                            query = "select Vocabulary, Chinese from collection where title = 'voc_toeic'";
+                            query = "select Vocabulary, Chinese from collection where title = 'voc_toeic' AND user_phone = ?";
                             break;
                         case 4:
-                            query = "select Vocabulary, Chinese from collection where title = 'voc_toefl'";
+                            query = "select Vocabulary, Chinese from collection where title = 'voc_toefl' AND user_phone = ?";
                             break;
                     }
                 } else if (title == 1) {
                     switch (position) {
                         case 0:
-                            query = "select Vocabulary, Chinese from collection where title = 'phrase_all'";
+                            query = "select Vocabulary, Chinese from collection where title = 'phrase_all' AND user_phone = ?";
                             break;
                         case 1:
-                            query = "select Vocabulary, Chinese from collection where title = 'phrase_gsat'";
+                            query = "select Vocabulary, Chinese from collection where title = 'phrase_gsat' AND user_phone = ?";
                             break;
                         case 2:
-                            query = "select Vocabulary, Chinese from collection where title = 'phrase_ast'";
+                            query = "select Vocabulary, Chinese from collection where title = 'phrase_ast' AND user_phone = ?";
                             break;
                     }
                 }
 
                 PreparedStatement statement = connection.prepareStatement(query);
+                statement.setString(1, phone);
                 ResultSet resultSet = statement.executeQuery();
                 while (resultSet.next()) {
                     list.add(new CollectionRcvModel(resultSet.getString(1), resultSet.getString(2)));
