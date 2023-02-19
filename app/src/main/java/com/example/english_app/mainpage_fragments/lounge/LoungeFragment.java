@@ -98,7 +98,7 @@ public class LoungeFragment extends Fragment {
         ExecutorService executor1 = Executors.newSingleThreadExecutor(); // 建立新的thread
         executor1.execute(() -> {
             try {
-                clientSocket = new Socket("20.243.200.205", 1098);
+                clientSocket = new Socket("20.243.200.184", 1098);
             } catch (IOException e) {
                 e.printStackTrace();
                 //getActivity().runOnUiThread(() -> TextView01.setText("伺服器暫時關閉，請稍後再試"));
@@ -114,7 +114,6 @@ public class LoungeFragment extends Fragment {
                 BufferedReader br = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
                 while (clientSocket.isConnected()) {
                     String inputMsg = br.readLine();
-                    //TODO
                     if (inputMsg == null) {
                         clientSocket.close();
                         break;
@@ -138,6 +137,9 @@ public class LoungeFragment extends Fragment {
                     if (clientSocket.isConnected()) {
                         String msg = (EditTextMsg).getText().toString();
                         SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences("User", MODE_PRIVATE);
+//                        if (msg.trim().equals("")) {
+//                            return;
+//                        }
                         String name = sharedPreferences.getString("user_name", "");
                         String phone = sharedPreferences.getString("user_phone", "");
                         pw.println(phone + name + " : " + msg);
