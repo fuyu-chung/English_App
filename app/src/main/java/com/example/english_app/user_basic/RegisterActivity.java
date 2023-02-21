@@ -122,9 +122,9 @@ public class RegisterActivity extends AppCompatActivity {
                         isCorrect = false;
                     }
 
-                    if (!isCorrect) {
-                        return;
-                    }
+//                    if (!isCorrect) {
+//                        return;
+//                    }
 
                     ResultSet resultSet = statement.executeQuery();
                     if(resultSet.next()){
