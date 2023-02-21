@@ -98,7 +98,7 @@ public class LoungeFragment extends Fragment {
         ExecutorService executor1 = Executors.newSingleThreadExecutor(); // 建立新的thread
         executor1.execute(() -> {
             try {
-                clientSocket = new Socket("20.243.200.184", 1098);
+                clientSocket = new Socket("20.243.200.205", 1098);
             } catch (IOException e) {
                 e.printStackTrace();
                 //getActivity().runOnUiThread(() -> TextView01.setText("伺服器暫時關閉，請稍後再試"));
