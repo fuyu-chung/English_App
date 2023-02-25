@@ -1,6 +1,5 @@
 package com.example.english_app.user_basic;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -31,8 +30,6 @@ public class ForgetPasswordActivity extends AppCompatActivity {
     private TextInputEditText user_name, user_phone, user_password, user_check, user_verify;
     private String str;
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
-    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,7 +69,10 @@ public class ForgetPasswordActivity extends AppCompatActivity {
                     statement.setString(1, phoneText); // 把?替換成phoneText，前面的數字是代表第幾褪號
                     ResultSet resultSet = statement.executeQuery(); // 把結果存在resultSet
                     String verifyText = Objects.requireNonNull((user_verify).getText()).toString();
-                    String verify_code = generated_verify_code();
+                    String verify_code = null;
+                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+                        verify_code = generated_verify_code();
+                    }
                     str = verify_code;
                     if (resultSet.next()) {
                         System.out.println(verify_code);
@@ -223,15 +223,15 @@ public class ForgetPasswordActivity extends AppCompatActivity {
             });
         });
 
-        MaterialButton backBtn = findViewById(R.id.back);
-        backBtn.setOnClickListener(v -> {
-            ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
-            executor.execute(() -> {
-                Intent intent = new Intent(this, LoginActivity.class);
-                startActivity(intent);
-                executor.shutdown();
-            });
-        });
+//        MaterialButton backBtn = findViewById(R.id.back);
+//        backBtn.setOnClickListener(v -> {
+//            ExecutorService executor = Executors.newSingleThreadExecutor(); // 建立新的thread
+//            executor.execute(() -> {
+//                Intent intent = new Intent(this, LoginActivity.class);
+//                startActivity(intent);
+//                executor.shutdown();
+//            });
+//        });
 
     }
 
