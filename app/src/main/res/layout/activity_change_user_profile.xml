@@ -56,7 +56,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="使用者名稱至少6位至多20位(需為英文)"
+                    android:text="使用者名稱為6~20位 (不可輸入中文)"
                     android:textColor="@color/topic_color"
                     android:textSize="16sp" />
 
@@ -89,7 +89,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="密碼8位以上包含英文大小寫字母和數字"
+                    android:text="密碼為8~20位包含英文大小寫字母和數字"
                     android:textColor="@color/topic_color"
                     android:textSize="16sp" />
 

@@ -53,7 +53,7 @@ public class RegisterActivity extends AppCompatActivity {
                     Connection connection = DriverManager.getConnection(s1); //建立連線
 
                     String nameText = Objects.requireNonNull((user_name).getText()).toString();
-                    String namePattern = "^(?=.*[a-z]).{6,20}$";
+                    String namePattern = "^(?=.*[a-zA-z]).{6,20}$";
 
                     String phoneText = Objects.requireNonNull((user_phone).getText()).toString();
                     String phonePattern = "^09\\d{8}$";

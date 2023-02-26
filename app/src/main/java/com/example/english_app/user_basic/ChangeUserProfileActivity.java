@@ -150,7 +150,7 @@ public class ChangeUserProfileActivity extends AppCompatActivity {
                     SharedPreferences sharedPreferences = getSharedPreferences("User", MODE_PRIVATE);
                     String phone = sharedPreferences.getString("user_phone", " ");
                     String nameText = Objects.requireNonNull((user_name).getText()).toString();
-                    String namePattern = "^(?=.*[a-z]).{6,20}$";
+                    String namePattern = "^(?=.*[a-zA-Z]).{6,20}$";
 
                     if (nameText.isEmpty()) {
                         runOnUiThread(() -> (user_name).setError("欄位不可為空白"));
