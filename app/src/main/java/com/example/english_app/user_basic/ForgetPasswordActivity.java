@@ -134,7 +134,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
                     String phonePattern = "^09\\d{8}$";
 
                     String nameText = Objects.requireNonNull((user_name).getText()).toString();
-                    String namePattern = "^(?=.*[a-z]).{6,20}$";
+                    String namePattern = "^(?=.*[a-zA-Z]).{6,20}$";
 
                     String passwordText = Objects.requireNonNull((user_password).getText()).toString();
                     int password_length = passwordText.length();
