@@ -298,7 +298,7 @@ public class MatchingTwelveQuizActivity extends AppCompatActivity {
                 crossViewJ.setVisibility(View.VISIBLE);
             }
 
-            if (correct == 5) {
+            if (correct >= 5 && correct < 10) {
                 score += 100;
             } else if (correct == 10) {
                 score += 200;
