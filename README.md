@@ -8,6 +8,8 @@ This is a term project of Introduction to Database Systems course in FJU CSIE (f
 
 <img
   src="images/logo_circle01.png"
+  width="120"
+  height="120"
   alt="The Icon"
   title="English App icon"
   style="display: inline-block; margin: 0 auto; max-width: 120px">
