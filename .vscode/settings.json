@@ -1,0 +1,5 @@
+{
+    "githubPullRequests.ignoredPullRequestBranches": [
+        "rand()%100,rand()%100"
+    ]
+}
