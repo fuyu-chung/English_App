@@ -4,3 +4,10 @@ An English learning application for primary, junior high, and senior high school
 
 ## Introduction
 This is a term project of Introduction to Database Systems course in FJU CSIE (fall semester 2022). Our purpose is to develop an Android application with more than 10k data. To make our application more fun, we originally designed our application features into 4 colleges: Vocabulary, Reading , Phrase, and Competition College.
+
+!
+<img
+  src="https://imgur.com/uoDQ0nL"
+  alt="The Icon"
+  title="English App icon"
+  style="display: inline-block; margin: 0 auto; max-width: 150px">
