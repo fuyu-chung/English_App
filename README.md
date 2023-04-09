@@ -66,10 +66,13 @@ This is a term project of Introduction to Database Systems course in FJU CSIE (f
 
 |Video        |Description  |
 |  :----:     |:---         |  
-|<imag src="images/gif/e01_registration_and_login.gif"/>|**Restration and Login** <ul><li>1</li><li>1</li><li>1</li></ul>|
-||**Main Screen** <ul><li>1</li><li>1</li><li>1</li></ul>|
+|<img src="images/gif/e01_registration_and_login.gif" width="40%"/>|**Restration and Login** <ul><li>Set error on each edit text.</li><li>We set "user_phone" as a *primary key*.</li><li>When you succesfully login, the toast wil pop up.</li></ul>|
+||**Main Screen** <ul><li>4 fragments: [Houses entrance](#houses_entrance), [Launge](#houses_entrance)(public message boards), [My dorm](#houses_entrance), and [Library](#houses_entrance).</li><li>Bottom navigation bar with animation.</ul>|
+||**Drawer Menu & profile photo** <ul><li>1</li><li>2</li><li>3</li></ul>|
+||**tt** <ul><li>1</li><li>2</li><li>3</li></ul>|
+||**tt** <ul><li>1</li><li>2</li><li>3</li></ul>|
+||**tt** <ul><li>1</li><li>2</li><li>3</li></ul>|
 
 ## Screenshots
-
 
 #### Login and Registration pages
