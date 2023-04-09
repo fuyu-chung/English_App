@@ -98,15 +98,24 @@ This is a term project of Introduction to Database Systems course in FJU CSIE (f
 
 ## Demo
 
-|Video        |Description  |
-|  :----:     |:---         |  
+> #### Main
+
+|Video&Screenshots|Description   |
+|  :----:         |:---          |  
 |<img src="images/gif/e01_registration_and_login.gif" width="40%"/>|**Restration and Login** <ul><li>Set error on each edit text.</li><li>We set "user_phone" as a *primary key*.</li><li>When you succesfully login, the toast wil pop up.</li></ul>|
-|<img src="images/gif/e02_main_screen.gif" width="40%"/>|**Main Screen** <ul><li>4 fragments: [Houses entrance](#houses_entrance), [Launge](#houses_entrance)(public message boards), [My dorm](#houses_entrance), and [Library](#houses_entrance).</li><li>Bottom navigation bar with animation.</ul>|
+|<img src="images/gif/e02_main_screen.gif" width="40%"/>|**Main Screen** <ul><li>4 fragments: [Houses entrance](#houses-entrance), [Launge](#houses_entrance)(public message boards), [My dorm](#houses_entrance), and [Library](#houses_entrance).</li><li>Bottom navigation bar with animation.</ul>|
 |<img src="images/gif/e03_drawer.gif" width="40%"/>  <img src="images/gif/e04_p_photo.gif" width="40%"/>|**Drawer Menu & profile photo** <ul><li>Sliding animation.</li><li>Change the profile photo by clicking the orange dice icon, it will automatically save your change.</li><li>There're 5 photos in total</li></ul>|
-||**tt** <ul><li>1</li><li>2</li><li>3</li></ul>|
+|<img src="images/gif/e05_user_profile.gif" width="40%"/>  <img src="images/e05_pic.jpg" width="40%"/>|**User Profile** <ul><li>User can check:<ul><li>username</li><li>User id</li><li>Level(The points are from the games in Competition House)</li><li>Followers/Following</li><li>phone number</li><li>birthday</li><li>password length</li></ul></li></ul>|
 ||**tt** <ul><li>1</li><li>2</li><li>3</li></ul>|
 ||**tt** <ul><li>1</li><li>2</li><li>3</li></ul>|
 
+>#### Houses Entrance
+|Video&Screenshots|Description   |
+|  :----:         |:---          |
+||**tt** <ul><li>1</li><li>2</li><li>3</li></ul>|
+||**tt** <ul><li>1</li><li>2</li><li>3</li></ul>|
+||**tt** <ul><li>1</li><li>2</li><li>3</li></ul>|
+||**tt** <ul><li>1</li><li>2</li><li>3</li></ul>|
 ## Screenshots
 
 #### Login and Registration pages
