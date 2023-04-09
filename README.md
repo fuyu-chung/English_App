@@ -12,8 +12,42 @@ This is a term project of Introduction to Database Systems course in FJU CSIE (f
     src="images/logo_circle01.png"
     width="120"
     height="120"
-    align="center"
     title="English App icon"
+    style="display: inline-block; margin: 0 auto; max-width: 120px"
+    >
+    <img
+    src="images/pic_fox.png"
+    width="60"
+    height="60"
+    title="Fox"
+    style="display: inline-block; margin: 0 auto; max-width: 120px"
+    >
+    <img
+    src="images/pic_duck.png"
+    width="60"
+    height="60"
+    title="Duck"
+    style="display: inline-block; margin: 0 auto; max-width: 120px"
+    >
+    <img
+    src="images/pic_dino.png"
+    width="60"
+    height="60"
+    title="Dinosaur"
+    style="display: inline-block; margin: 0 auto; max-width: 120px"
+    >
+    <img
+    src="images/pic_penguin.png"
+    width="60"
+    height="60"
+    title="Penguin"
+    style="display: inline-block; margin: 0 auto; max-width: 120px"
+    >
+    <img
+    src="images/pic_hedge.png"
+    width="60"
+    height="60"
+    title="Hedgehog"
     style="display: inline-block; margin: 0 auto; max-width: 120px"
     >
 </p>
