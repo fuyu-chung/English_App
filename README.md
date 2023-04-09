@@ -46,13 +46,33 @@ This is a term project of Introduction to Database Systems course in FJU CSIE (f
 </p>
 
 ### Tools and Languages
+
 ![Android Studio](https://img.shields.io/badge/Android%20Studio-3DDC84.svg?style=for-the-badge&logo=android-studio&logoColor=white) ![IntelliJ IDEA](https://img.shields.io/badge/IntelliJIDEA-000000.svg?style=for-the-badge&logo=intellij-idea&logoColor=white) ![Azure](https://img.shields.io/badge/azure-%230072C6.svg?style=for-the-badge&logo=microsoftazure&logoColor=white) ![Adobe Illustrator](https://img.shields.io/badge/adobe%20illustrator-%23FF9A00.svg?style=for-the-badge&logo=adobe%20illustrator&logoColor=white) ![Adobe Photoshop](https://img.shields.io/badge/adobe%20photoshop-%2331A8FF.svg?style=for-the-badge&logo=adobe%20photoshop&logoColor=white) ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white) ![MicrosoftSQLServer](https://img.shields.io/badge/Microsoft%20SQL%20Server-CC2927?style=for-the-badge&logo=microsoft%20sql%20server&logoColor=white) ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white) ![Markdown](https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white)
 
-<details><summary>Table of Contents</summary>
-<p>
-* [Tools and Languages](#tools-and-languages)
+### Contributors
 
-</p>
+<a href="https://github.com/fuyu-chung/English_App/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=fuyu-chung/English_App" />
+</a>
+
+<details><summary>Table of Contents</summary>
+
+* [Tools and Languages](#tools-and-languages)
+* [Screenshots](#screenshots)
+
 </details>
 
+## Demo
 
+|Video        |Description  |
+|  :----:     |:---         |  
+|<img src="images/gif/e01_registration_and_login.gif" width="40%"/>|**Restration and Login** <ul><li>Set error on each edit text.</li><li>We set "user_phone" as a *primary key*.</li><li>When you succesfully login, the toast wil pop up.</li></ul>|
+|<img src="images/gif/e02_main_screen.gif" width="40%"/>|**Main Screen** <ul><li>4 fragments: [Houses entrance](#houses_entrance), [Launge](#houses_entrance)(public message boards), [My dorm](#houses_entrance), and [Library](#houses_entrance).</li><li>Bottom navigation bar with animation.</ul>|
+|<img src="images/gif/e03_drawer.gif" width="40%"/>  <img src="images/gif/e04_p_photo.gif" width="40%"/>|**Drawer Menu & profile photo** <ul><li>Sliding animation.</li><li>Change the profile photo by clicking the orange dice icon, it will automatically save your change.</li><li>There're 5 photos in total</li></ul>|
+||**tt** <ul><li>1</li><li>2</li><li>3</li></ul>|
+||**tt** <ul><li>1</li><li>2</li><li>3</li></ul>|
+||**tt** <ul><li>1</li><li>2</li><li>3</li></ul>|
+
+## Screenshots
+
+#### Login and Registration pages
