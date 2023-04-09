@@ -55,8 +55,8 @@ This is a term project of Introduction to Database Systems course in FJU CSIE (f
 
 <details><summary>Table of Contents</summary>
 
-* [Tools and Languages](tools_and_languages)
-* [Screenshots](screenshots)
+* [Tools and Languages](#tools-and-languages)
+* [Screenshots](#screenshots)
 
 </details>
 
