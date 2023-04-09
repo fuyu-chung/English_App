@@ -5,7 +5,7 @@ An English learning application for primary, junior high, and senior high school
 
 ## Introduction
 
-This is a term project of Introduction to Database Systems course in FJU CSIE (fall semester 2022). Our purpose is to develop an Android application with more than 10k data. To make our application more fun, we originally designed our application features into 4 houses: Vocabulary, Reading , Phrase, and Competition House.
+This is a term project of Introduction to Database Systems course in FJU CSIE (fall semester 2022). Our purpose is to develop an **Android application** with more than 10k data. To make our application more fun, we originally designed our application features into 4 houses: Vocabulary, Reading , Phrase, and Competition House.
 
 <p align="center">
   <img
@@ -46,6 +46,3 @@ This is a term project of Introduction to Database Systems course in FJU CSIE (f
 </p>
 
 ## Table of Contents
-
-
-  
