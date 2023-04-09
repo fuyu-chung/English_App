@@ -46,9 +46,11 @@ This is a term project of Introduction to Database Systems course in FJU CSIE (f
 </p>
 
 ### Tools and Languages
+
 ![Android Studio](https://img.shields.io/badge/Android%20Studio-3DDC84.svg?style=for-the-badge&logo=android-studio&logoColor=white) ![IntelliJ IDEA](https://img.shields.io/badge/IntelliJIDEA-000000.svg?style=for-the-badge&logo=intellij-idea&logoColor=white) ![Azure](https://img.shields.io/badge/azure-%230072C6.svg?style=for-the-badge&logo=microsoftazure&logoColor=white) ![Adobe Illustrator](https://img.shields.io/badge/adobe%20illustrator-%23FF9A00.svg?style=for-the-badge&logo=adobe%20illustrator&logoColor=white) ![Adobe Photoshop](https://img.shields.io/badge/adobe%20photoshop-%2331A8FF.svg?style=for-the-badge&logo=adobe%20photoshop&logoColor=white) ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white) ![MicrosoftSQLServer](https://img.shields.io/badge/Microsoft%20SQL%20Server-CC2927?style=for-the-badge&logo=microsoft%20sql%20server&logoColor=white) ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white) ![Markdown](https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white)
 
 ### Contributors
+
 <a href="https://github.com/fuyu-chung/English_App/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=fuyu-chung/English_App" />
 </a>
@@ -60,5 +62,14 @@ This is a term project of Introduction to Database Systems course in FJU CSIE (f
 
 </details>
 
-## Screenshots 
+## Demo
 
+|Video        |Description  |
+|  :----:     |:---         |  
+|<imag src="images/gif/e01_registration_and_login.gif"/>|**Restration and Login** <ul><li>1</li><li>1</li><li>1</li></ul>|
+||**Main Screen** <ul><li>1</li><li>1</li><li>1</li></ul>|
+
+## Screenshots
+
+
+#### Login and Registration pages
