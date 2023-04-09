@@ -5,7 +5,7 @@ An English learning application for primary, junior high, and senior high school
 
 ## Introduction
 
-This is a term project of Introduction to Database Systems course in FJU CSIE (fall semester 2022). Our purpose is to develop an Android application with more than 10k data. To make our application more fun, we originally designed our application features into 4 houses: Vocabulary, Reading , Phrase, and Competition House.
+This is a term project of Introduction to Database Systems course in FJU CSIE (fall semester 2022). Our purpose is to develop an **Android application** with more than 10k data. To make our application more fun, we originally designed our application features into 4 houses: Vocabulary, Reading , Phrase, and Competition House.
 
 <p align="center">
   <img
@@ -45,7 +45,14 @@ This is a term project of Introduction to Database Systems course in FJU CSIE (f
   style="display: inline-block; margin: 0 auto; max-width: 100px">
 </p>
 
-## Table of Contents
+### Tools and Languages
+![Android Studio](https://img.shields.io/badge/Android%20Studio-3DDC84.svg?style=for-the-badge&logo=android-studio&logoColor=white) ![IntelliJ IDEA](https://img.shields.io/badge/IntelliJIDEA-000000.svg?style=for-the-badge&logo=intellij-idea&logoColor=white) ![Azure](https://img.shields.io/badge/azure-%230072C6.svg?style=for-the-badge&logo=microsoftazure&logoColor=white) ![Adobe Illustrator](https://img.shields.io/badge/adobe%20illustrator-%23FF9A00.svg?style=for-the-badge&logo=adobe%20illustrator&logoColor=white) ![Adobe Photoshop](https://img.shields.io/badge/adobe%20photoshop-%2331A8FF.svg?style=for-the-badge&logo=adobe%20photoshop&logoColor=white) ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white) ![MicrosoftSQLServer](https://img.shields.io/badge/Microsoft%20SQL%20Server-CC2927?style=for-the-badge&logo=microsoft%20sql%20server&logoColor=white) ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white) ![Markdown](https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white)
+
+<details><summary>Table of Contents</summary>
+<p>
+* [Tools and Languages](#tools-and-languages)
+
+</p>
+</details>
 
 
-  
